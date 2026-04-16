@@ -6,7 +6,6 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-GOLANG_DIR="$SCRIPT_DIR/golang"
 
 # 颜色输出
 RED='\033[0;31m'
@@ -28,7 +27,7 @@ fi
 echo -e "${GREEN}✓ Go 已安装：$(go version)${NC}"
 
 # 创建 .env 文件（如果不存在）
-ENV_FILE="$GOLANG_DIR/.env"
+ENV_FILE="$SCRIPT_DIR/.env"
 if [ ! -f "$ENV_FILE" ]; then
     echo -e "${YELLOW}创建 .env 文件...${NC}"
     cat > "$ENV_FILE" << 'EOF'
@@ -67,32 +66,32 @@ fi
 
 # 安装依赖
 echo -e "${YELLOW}安装 Go 依赖...${NC}"
-cd "$GOLANG_DIR"
+cd "$SCRIPT_DIR"
 go mod tidy
 
 # 构建所有模块
 echo -e "${YELLOW}构建 Go 模块...${NC}"
 
 # 创建 bin 目录
-mkdir -p "$GOLANG_DIR/bin"
+mkdir -p "$SCRIPT_DIR/bin"
 
 # 构建 API 模块
 echo -e "${BLUE}  构建 Jawn API...${NC}"
-cd "$GOLANG_DIR/api"
+cd "$SCRIPT_DIR/api"
 go build -o ../bin/api main.go || {
     echo -e "${YELLOW}  注意：API 模块构建有警告，继续...${NC}"
 }
 
 # 构建 Worker 模块
 echo -e "${BLUE}  构建 Worker...${NC}"
-cd "$GOLANG_DIR/worker"
+cd "$SCRIPT_DIR/worker"
 go build -o ../bin/worker main.go || {
     echo -e "${YELLOW}  注意：Worker 模块构建有警告，继续...${NC}"
 }
 
 # 构建 Web 模块
 echo -e "${BLUE}  构建 Web UI...${NC}"
-cd "$GOLANG_DIR/web"
+cd "$SCRIPT_DIR/web"
 go build -o ../bin/web main.go || {
     echo -e "${YELLOW}  注意：Web 模块构建有警告，继续...${NC}"
 }
@@ -132,33 +131,33 @@ echo -e "${GREEN}启动 Helicone 服务...${NC}"
 echo -e "${GREEN}========================================${NC}"
 
 # 设置工作目录
-cd "$GOLANG_DIR"
+cd "$SCRIPT_DIR"
 
 # 启动 Web UI (端口 3000)
 echo -e "${BLUE}启动 Web UI (端口 3000)...${NC}"
-cd "$GOLANG_DIR/web"
+cd "$SCRIPT_DIR/web"
 PORT=3000 ./../bin/web &
 WEB_PID=$!
 echo -e "${GREEN}✓ Web UI 已启动 (PID: $WEB_PID)${NC}"
 
 # 启动 Jawn API (端口 8585)
 echo -e "${BLUE}启动 Jawn API (端口 8585)...${NC}"
-cd "$GOLANG_DIR/api"
+cd "$SCRIPT_DIR/api"
 PORT=8585 ./../bin/api &
 API_PID=$!
 echo -e "${GREEN}✓ Jawn API 已启动 (PID: $API_PID)${NC}"
 
 # 启动 Worker (端口 8787)
 echo -e "${BLUE}启动 Worker (端口 8787)...${NC}"
-cd "$GOLANG_DIR/worker"
+cd "$SCRIPT_DIR/worker"
 PORT=8787 WORKER_TYPE=OPENAI_PROXY ./../bin/worker &
 WORKER_PID=$!
 echo -e "${GREEN}✓ Worker 已启动 (PID: $WORKER_PID)${NC}"
 
 # 保存 PID 文件
-echo "$WEB_PID" > "$GOLANG_DIR/bin/web.pid"
-echo "$API_PID" > "$GOLANG_DIR/bin/api.pid"
-echo "$WORKER_PID" > "$GOLANG_DIR/bin/worker.pid"
+echo "$WEB_PID" > "$SCRIPT_DIR/bin/web.pid"
+echo "$API_PID" > "$SCRIPT_DIR/bin/api.pid"
+echo "$WORKER_PID" > "$SCRIPT_DIR/bin/worker.pid"
 
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}  Helicone 服务已启动！${NC}"
