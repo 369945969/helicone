@@ -1,6 +1,5 @@
 import { betterAuth } from "better-auth";
 import { customSession } from "better-auth/plugins";
-import { fromNodeHeaders } from "better-auth/node";
 import { Pool } from "pg";
 import { Database } from "../../../../lib/db/database.types";
 import { dbExecute } from "../../../../lib/shared/db/dbExecute";
@@ -64,17 +63,28 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
   constructor() {}
 
   async getUser(auth: JwtAuth, headers?: GenericHeaders): HeliconeUserResult {
-    if (!headers) {
-      return err("No headers provided");
+    // Use token from auth to verify session by querying database directly
+    // This avoids dependency on cookies being passed in headers
+    const token = auth.token;
+    if (!token) {
+      return err("No token provided");
     }
-    const hds = fromNodeHeaders(headers);
 
-    const session = await betterAuthClient.api.getSession({
-      headers: hds,
-    });
-    if (!session) {
-      return err("Invalid session");
+    // Query the session from database using the token
+    const sessionResult = await dbExecute<{
+      id: string;
+      userId: string;
+      expiresAt: string;
+    }>(
+      `SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1 AND "expiresAt" > NOW()`,
+      [token]
+    );
+
+    if (!sessionResult.data || sessionResult.data.length === 0) {
+      return err("Invalid or expired session");
     }
+
+    const session = sessionResult.data[0];
 
     const user = await dbExecute<{
       user_id: string;
@@ -86,7 +96,7 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
       FROM public.user
       LEFT JOIN auth.users on public.user.auth_user_id = auth.users.id
       WHERE public.user.id = $1`,
-      [session.user.id]
+      [session.userId]
     );
     if (!user || !user.data?.[0]) {
       return err("User not found");

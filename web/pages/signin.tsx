@@ -94,7 +94,7 @@ const SignIn = ({
   return (
     <PublicMetaData
       description={
-        "How developers build AI applications. Get observability, tooling, fine-tuning, and evaluations out of the box."
+        "开发者构建 AI 应用的平台。开箱即用，提供可观测性、工具、微调和评估功能。"
       }
       ogImageUrl={"https://www.helicone.ai/static/helicone-og.webp"}
     >
@@ -102,7 +102,7 @@ const SignIn = ({
         {heliconeAuthClient.user?.id ? (
           <div className="flex h-screen flex-col items-center justify-center">
             <LoadingAnimation />
-            <h1 className="text-4xl font-semibold">Getting your dashboard</h1>
+            <h1 className="text-4xl font-semibold">正在加载仪表盘</h1>
           </div>
         ) : showSignIn ? (
           <AuthForm
@@ -123,7 +123,7 @@ const SignIn = ({
                 );
                 return;
               }
-              setNotification("Success. Redirecting...", "success");
+              setNotification("登录成功，正在跳转...", "success");
               router.push("/dashboard");
             }}
             handleGoogleSubmit={async () => {
@@ -131,7 +131,7 @@ const SignIn = ({
                 provider: "google",
               });
               if (error) {
-                setNotification("Error logging in. Please try again.", "error");
+                setNotification("登录失败，请重试。", "error");
                 logger.error(
                   {
                     error,
@@ -140,14 +140,14 @@ const SignIn = ({
                 );
                 return;
               }
-              setNotification("Successfully signed in.", "success");
+              setNotification("登录成功。", "success");
             }}
             handleGithubSubmit={async () => {
               const { error } = await heliconeAuthClient.signInWithOAuth({
                 provider: "github",
               });
               if (error) {
-                setNotification("Error logging in. Please try again.", "error");
+                setNotification("登录失败，请重试。", "error");
                 logger.error(
                   {
                     error,
@@ -156,7 +156,7 @@ const SignIn = ({
                 );
                 return;
               }
-              setNotification("Successfully signed in.", "success");
+              setNotification("登录成功。", "success");
             }}
             showSSOButton={true}
             authFormType={"signin"}
@@ -183,15 +183,15 @@ const SignIn = ({
                 <div className="flex flex-col items-center text-center gap-6">
                   <div className="flex flex-col gap-3">
                     <h2 className="text-2xl font-semibold text-gray-900">
-                      🚀 Helicone has joined Mintlify
+                      🚀 Helicone 已加入 Mintlify
                     </h2>
                     <p className="text-sm text-gray-600">
-                      New signups are disabled.{" "}
+                      新用户注册已暂停。{" "}
                       <Link
                         href="https://www.helicone.ai/blog/joining-mintlify"
                         className="text-sky-500 hover:text-sky-700"
                       >
-                        Learn more about what&apos;s next →
+                        了解更多 →
                       </Link>
                     </p>
                   </div>
@@ -200,7 +200,7 @@ const SignIn = ({
                     onClick={() => setShowSignIn(true)}
                     className="flex items-center justify-center gap-2 rounded-md bg-sky-500 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-sky-600 transition-colors"
                   >
-                    🔑 Existing user? Sign in
+                    🔑 已有账户？登录
                   </button>
                 </div>
               </div>

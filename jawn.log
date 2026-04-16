@@ -1,0 +1,246 @@
+yarn run v1.22.22
+$ concurrently "nodemon" "nodemon -x python3 genTypes.py"
+[0] [33m[nodemon] 3.1.11[39m
+[0] [33m[nodemon] to restart at any time, enter `rs`[39m
+[0] [33m[nodemon] watching path(s): src/**/* ../../shared/**/*[39m
+[0] [33m[nodemon] watching extensions: ts[39m
+[0] [32m[nodemon] starting `ts-node src/index.ts`[39m
+[1] [33m[nodemon] 3.1.11[39m
+[1] [33m[nodemon] to restart at any time, enter `rs`[39m
+[1] [33m[nodemon] watching path(s): src/**/* ../../shared/**/*[39m
+[1] [33m[nodemon] watching extensions: ts[39m
+[1] [32m[nodemon] starting `python3 genTypes.py`[39m
+[0] Loading environment variables...
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[0] [2026-04-16T15:25:00.903Z][WARN][@clickhouse/client][Config] "host" is deprecated. Use "url" instead.
+[0] [2026-04-16T15:25:00.904Z][WARN][@clickhouse/client][Config] "host" is deprecated. Use "url" instead.
+[0] [33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m
+[0] Server is running on http://localhost:8585
+[0] Slack configuration incomplete, Slack features disabled
+[0] GET /health 401 67 - 1.655 ms
+[1] The type Object is discouraged. Please consider using an interface such as:
+[1]           export interface IStringToStringDictionary {
+[1]             [key: string]: string;
+[1]           }
+[1]           // or
+[1]           export interface IRecordOfAny {
+[1]             [key: string]: any;
+[1]           }
+[1]         
+[1] The type Object is discouraged. Please consider using an interface such as:
+[1]           export interface IStringToStringDictionary {
+[1]             [key: string]: string;
+[1]           }
+[1]           // or
+[1]           export interface IRecordOfAny {
+[1]             [key: string]: any;
+[1]           }
+[1]         
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] The type Object is discouraged. Please consider using an interface such as:
+[1]           export interface IStringToStringDictionary {
+[1]             [key: string]: string;
+[1]           }
+[1]           // or
+[1]           export interface IRecordOfAny {
+[1]             [key: string]: any;
+[1]           }
+[1]         
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/public/swagger.json → file:///Users/jack/typescript/helicone/web/lib/clients/jawnTypes/public.ts [27ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/public/swagger.json → file:///Users/jack/typescript/helicone/bifrost/lib/clients/jawnTypes/public.ts [28ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/public/swagger.json → file:///Users/jack/typescript/helicone/helicone-mcp/src/types/public.ts [27ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/private/swagger.json → file:///Users/jack/typescript/helicone/web/lib/clients/jawnTypes/private.ts [73ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/private/swagger.json → file:///Users/jack/typescript/helicone/bifrost/lib/clients/jawnTypes/private.ts [65ms]
+[1] [32m[nodemon] clean exit - waiting for changes before restart[39m
+[0] POST /v1/request/count/query 401 70 - 2.973 ms
+[0] POST /v1/metrics/models 401 70 - 2.883 ms
+[0] GET /v1/agent/threads 401 70 - 1.878 ms
+[0] POST /v1/organization/setup-demo 401 70 - 1.620 ms
+[0] POST /v1/request/count/query 401 67 - 0.684 ms
+[0] POST /v1/request/count/query 401 70 - 12.205 ms
+[0] POST /v1/property/query 401 67 - 4.131 ms
+[0] GET /v1/organization/models 401 67 - 1.316 ms
+[0] POST /v1/request/count/query 401 67 - 2.720 ms
+[0] POST /v1/request/query-clickhouse 401 67 - 2.282 ms
+[0] POST /v1/organization/setup-demo 401 67 - 0.743 ms
+[0] POST /v1/property/query 401 67 - 0.867 ms
+[0] GET /v1/agent/threads 401 67 - 1.410 ms
+[0] GET /v1/agent/thread/be1c530b-7f7a-438f-926d-44b896ce98de 401 70 - 9.109 ms
+[0] POST /v1/metrics/models 401 67 - 1.142 ms
+[0] GET /v1/agent/thread/9ec3800c-e2b9-46bb-af36-57328246386f 401 67 - 0.968 ms
+[0] POST /v1/metrics/requestCount 401 67 - 1.411 ms
+[0] GET /v1/alert-banner 401 67 - 0.293 ms
+[0] POST /v1/metrics/requestCount 401 70 - 6.752 ms
+[0] GET /v1/organization/models 401 70 - 40.337 ms
+[0] POST /v1/property/query 401 70 - 41.344 ms
+[0] GET /v1/alert-banner 401 70 - 41.078 ms
+[0] POST /v1/request/query-clickhouse 401 70 - 36.991 ms
+[0] POST /v1/property/query 401 70 - 41.440 ms
+[0] POST /v1/request/count/query 401 70 - 1.540 ms
+[0] POST /v1/metrics/models 401 70 - 1.601 ms
+[0] GET /v1/agent/threads 401 70 - 1.360 ms
+[0] POST /v1/request/count/query 401 67 - 0.158 ms
+[0] POST /v1/request/count/query 401 70 - 1.999 ms
+[0] POST /v1/request/count/query 401 67 - 0.923 ms
+[0] POST /v1/request/query-clickhouse 401 67 - 0.175 ms
+[0] GET /v1/agent/threads 401 67 - 0.462 ms
+[0] POST /v1/metrics/models 401 67 - 0.409 ms
+[0] GET /v1/agent/thread/9ec3800c-e2b9-46bb-af36-57328246386f 401 67 - 0.753 ms
+[0] POST /v1/metrics/requestCount 401 67 - 0.221 ms
+[0] GET /v1/agent/thread/be1c530b-7f7a-438f-926d-44b896ce98de 401 70 - 2.220 ms
+[0] GET /v1/alert-banner 401 67 - 0.268 ms
+[0] POST /v1/metrics/requestCount 401 70 - 1.387 ms
+[0] GET /v1/alert-banner 401 70 - 1.035 ms
+[0] POST /v1/request/query-clickhouse 401 70 - 0.936 ms
+[0] POST /v1/request/count/query 401 70 - 1.158 ms
+[0] POST /v1/metrics/models 401 70 - 0.730 ms
+[0] POST /v1/request/count/query 401 67 - 0.119 ms
+[0] GET /v1/agent/threads 401 70 - 1.400 ms
+[0] POST /v1/request/count/query 401 70 - 1.912 ms
+[0] POST /v1/request/count/query 401 67 - 0.232 ms
+[0] POST /v1/request/query-clickhouse 401 67 - 0.146 ms
+[0] GET /v1/agent/threads 401 67 - 0.294 ms
+[0] POST /v1/metrics/models 401 67 - 1.107 ms
+[0] GET /v1/agent/thread/9ec3800c-e2b9-46bb-af36-57328246386f 401 67 - 1.620 ms
+[0] POST /v1/metrics/requestCount 401 67 - 0.511 ms
+[0] GET /v1/alert-banner 401 67 - 1.205 ms
+[0] GET /v1/agent/thread/be1c530b-7f7a-438f-926d-44b896ce98de 401 70 - 3.187 ms
+[0] GET /v1/alert-banner 401 70 - 0.832 ms
+[0] POST /v1/metrics/requestCount 401 70 - 1.681 ms
+[0] POST /v1/request/query-clickhouse 401 70 - 1.201 ms
+[0] POST /v1/metrics/models 401 70 - 3.581 ms
+[0] POST /v1/request/count/query 401 70 - 4.626 ms
+[0] GET /v1/agent/threads 401 70 - 1.188 ms
+[0] POST /v1/request/count/query 401 70 - 1.514 ms
+[0] GET /v1/agent/thread/be1c530b-7f7a-438f-926d-44b896ce98de 401 70 - 2.614 ms
+[0] GET /v1/alert-banner 401 70 - 2.483 ms
+[0] POST /v1/metrics/requestCount 401 70 - 1.786 ms
+[0] POST /v1/request/query-clickhouse 401 70 - 2.144 ms
+[0] POST /v1/metrics/country 401 70 - 2.143 ms
+[0] POST /v1/property/query 401 70 - 1.512 ms
+[0] POST /v1/metrics/errorOverTime 401 70 - 3.310 ms
+[0] POST /v1/metrics/models 401 70 - 1.690 ms
+[0] POST /v1/metrics/tokensOverTime 401 70 - 0.859 ms
+[0] POST /v1/metrics/latencyOverTime 401 70 - 1.611 ms
+[0] POST /v1/dashboard/scores/query 401 70 - 19.226 ms
+[0] POST /v1/metrics/quantiles 401 70 - 16.335 ms
+[0] POST /v1/metrics/usersOverTime 401 70 - 2.292 ms
+[0] POST /v1/metrics/timeToFirstToken 401 70 - 2.195 ms
+[0] POST /v1/metrics/threatsOverTime 401 70 - 2.194 ms
+[0] POST /v1/metrics/totalCost 401 70 - 1.091 ms
+[0] POST /v1/metrics/requestOverTime 401 70 - 0.992 ms
+[0] POST /v1/metrics/totalRequests 401 70 - 1.231 ms
+[0] POST /v1/request/count/query 401 70 - 19.981 ms
+[0] POST /v1/request/count/query 401 70 - 23.423 ms
+[0] POST /v1/metrics/averageLatency 401 70 - 2.633 ms
+[0] POST /v1/metrics/totalThreats 401 70 - 2.594 ms
+[0] POST /v1/metrics/requestStatusOverTime 401 70 - 4.698 ms
+[0] POST /v1/metrics/activeUsers 401 70 - 3.245 ms
+[0] POST /v1/metrics/averageTokensPerRequest 401 70 - 3.920 ms
+[0] POST /v1/metrics/averageTimeToFirstToken 401 70 - 4.563 ms
+[0] POST /v1/providers 401 70 - 21.326 ms
+[0] GET /v1/agent/threads 401 70 - 1.807 ms
+[0] GET /v1/alert-banner 401 70 - 2.199 ms
+[0] POST /v1/metrics/costOverTime 401 70 - 2.257 ms
+[0] GET /v1/agent/thread/98ccb393-c07b-4807-a7aa-61060e7a891a 401 70 - 2.306 ms
+[0] POST /v1/metrics/country 401 70 - 8.349 ms
+[0] POST /v1/metrics/models 401 70 - 8.645 ms
+[0] POST /v1/metrics/tokensOverTime 401 70 - 8.368 ms
+[0] POST /v1/metrics/errorOverTime 401 70 - 6.464 ms
+[0] POST /v1/metrics/latencyOverTime 401 70 - 5.967 ms
+[0] POST /v1/metrics/quantiles 401 70 - 4.922 ms
+[0] POST /v1/metrics/usersOverTime 401 70 - 3.654 ms
+[0] POST /v1/metrics/timeToFirstToken 401 70 - 2.321 ms
+[0] POST /v1/metrics/threatsOverTime 401 70 - 2.752 ms
+[0] POST /v1/request/count/query 401 70 - 1.759 ms
+[0] POST /v1/metrics/totalRequests 401 70 - 1.993 ms
+[0] POST /v1/metrics/requestOverTime 401 70 - 2.276 ms
+[0] POST /v1/request/count/query 401 70 - 1.228 ms
+[0] POST /v1/metrics/averageLatency 401 70 - 0.767 ms
+[0] POST /v1/metrics/totalCost 401 70 - 2.145 ms
+[0] POST /v1/metrics/averageTimeToFirstToken 401 70 - 1.962 ms
+[0] POST /v1/metrics/activeUsers 401 70 - 1.797 ms
+[0] POST /v1/metrics/totalThreats 401 70 - 1.623 ms
+[0] POST /v1/metrics/requestStatusOverTime 401 70 - 1.312 ms
+[0] POST /v1/metrics/averageTokensPerRequest 401 70 - 1.237 ms
+[0] GET /v1/agent/threads 401 70 - 1.169 ms
+[0] GET /v1/alert-banner 401 70 - 1.005 ms
+[0] POST /v1/metrics/costOverTime 401 70 - 0.768 ms
+[0] GET /v1/agent/thread/98ccb393-c07b-4807-a7aa-61060e7a891a 401 70 - 0.725 ms
+[0] POST /v1/request/count/query 401 70 - 1.696 ms
+[0] POST /v1/metrics/models 401 70 - 1.239 ms
+[0] POST /v1/property/query 401 70 - 1.586 ms
+[0] POST /v1/request/query-clickhouse 401 70 - 1.225 ms
+[0] POST /v1/metrics/requestCount 401 70 - 1.056 ms
+[0] POST /v1/property/query 401 70 - 1.047 ms
+[0] GET /v1/organization/models 401 70 - 1.047 ms
+[0] POST /v1/request/count/query 401 70 - 4.529 ms
+[0] GET /v1/agent/threads 401 70 - 1.645 ms
+[0] GET /v1/alert-banner 401 70 - 0.908 ms
+[0] GET /v1/agent/thread/98ccb393-c07b-4807-a7aa-61060e7a891a 401 70 - 0.811 ms
+[0] POST /v1/request/count/query 401 70 - 2.011 ms
+[0] POST /v1/metrics/models 401 70 - 1.385 ms
+[0] POST /v1/metrics/requestCount 401 70 - 1.075 ms
+[0] POST /v1/request/query-clickhouse 401 70 - 1.848 ms
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...
+[1] nodemon -x python3 genTypes.py exited with code 130
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...

@@ -137,19 +137,19 @@ const AuthForm = (props: AuthFormProps) => {
           <div className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900">
               {authFormType === "signin"
-                ? "Sign in to your account"
+                ? "登录您的账户"
                 : authFormType === "signup"
-                  ? "Create an account"
-                  : "Reset your password"}
+                  ? "创建账户"
+                  : "重置密码"}
             </h2>
             {authFormType === "signup" ? (
               <p className="mt-2 text-sm text-gray-600">
-                Already have an account?{" "}
+                已有账户？{" "}
                 <Link
                   href={"/signin"}
                   className="text-sky-500 hover:text-sky-700"
                 >
-                  Sign in here.
+                  在此登录
                 </Link>
               </p>
             ) : null}
@@ -163,18 +163,18 @@ const AuthForm = (props: AuthFormProps) => {
           >
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">
-                Data region
+                数据区域
               </label>
               <Select
                 defaultValue={checkPath()}
                 onValueChange={(value) => handleRouting(value as "us" | "eu")}
               >
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a region" />
+                  <SelectValue placeholder="选择区域" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="us">🇺🇸 United States</SelectItem>
-                  <SelectItem value="eu">🇪🇺 European Union</SelectItem>
+                  <SelectItem value="us">🇺🇸 美国</SelectItem>
+                  <SelectItem value="eu">🇪🇺 欧盟</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -185,7 +185,7 @@ const AuthForm = (props: AuthFormProps) => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Email
+                  邮箱
                 </label>
                 <Input
                   id="email"
@@ -193,7 +193,7 @@ const AuthForm = (props: AuthFormProps) => {
                   type="email"
                   autoComplete="email"
                   required
-                  placeholder="jane@acme.com"
+                  placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full"
@@ -207,14 +207,14 @@ const AuthForm = (props: AuthFormProps) => {
                   htmlFor="password"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Password
+                  密码
                 </label>
                 <Input
                   id="password"
                   name="password"
                   type="password"
                   autoComplete="current-password"
-                  placeholder="***********"
+                  placeholder="********"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -233,21 +233,21 @@ const AuthForm = (props: AuthFormProps) => {
                   }
                 />
                 <label htmlFor="terms" className="text-sm text-gray-600">
-                  I accept the{" "}
+                  我接受{" "}
                   <Link
                     href={"/terms"}
                     className="text-sky-500 hover:text-sky-700"
                   >
-                    Terms of Service
+                    服务条款
                   </Link>{" "}
-                  and{" "}
+                  和{" "}
                   <Link
                     href={"/privacy"}
                     className="text-sky-500 hover:text-sky-700"
                   >
-                    Privacy Policy
+                    隐私政策
                   </Link>
-                  .
+                  。
                 </label>
               </div>
             )}
@@ -258,7 +258,7 @@ const AuthForm = (props: AuthFormProps) => {
                   href={"/reset"}
                   className="text-sm text-sky-500 hover:text-sky-700"
                 >
-                  Forgot your password?
+                  忘记密码？
                 </Link>
               </div>
             )}
@@ -271,12 +271,12 @@ const AuthForm = (props: AuthFormProps) => {
               className="w-full bg-sky-500 py-2 text-white"
             >
               {authFormType === "signin"
-                ? "Sign in with email"
+                ? "使用邮箱登录"
                 : authFormType === "signup"
-                  ? "Create account"
+                  ? "创建账户"
                   : authFormType === "reset"
-                    ? "Reset password"
-                    : "Update password"}
+                    ? "重置密码"
+                    : "更新密码"}
             </Button>
           </form>
 
@@ -291,7 +291,7 @@ const AuthForm = (props: AuthFormProps) => {
                 </div>
                 <div className="relative flex justify-center">
                   <span className="bg-white px-4 text-sm text-gray-500">
-                    Or continue with
+                    或使用以下方式
                   </span>
                 </div>
               </div>
@@ -330,7 +330,7 @@ const AuthForm = (props: AuthFormProps) => {
 
           {customerPortalContent && (
             <div className="mt-8 text-center text-xs italic text-gray-500">
-              Powered by Helicone
+              由 Helicone 提供支持
             </div>
           )}
         </div>

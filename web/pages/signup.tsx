@@ -9,7 +9,7 @@ const SignUp = () => {
   return (
     <PublicMetaData
       description={
-        "How developers build AI applications. Get observability, tooling, fine-tuning, and evaluations out of the box. "
+        "开发者构建 AI 应用的平台。开箱即用，提供可观测性、工具、微调和评估功能。"
       }
       ogImageUrl={"https://www.helicone.ai/static/helicone-og.webp"}
     >
@@ -32,15 +32,15 @@ const SignUp = () => {
 
             <div className="flex flex-col items-center text-center gap-4">
               <h2 className="text-2xl font-semibold text-gray-900">
-                Sign ups are disabled
+                注册已暂停
               </h2>
               <p className="text-sm text-gray-600">
-                Already have an account?{" "}
+                已有账户？{" "}
                 <Link
                   href={"/signin"}
                   className="text-sky-500 hover:text-sky-700"
                 >
-                  Sign in here.
+                  在此登录
                 </Link>
               </p>
             </div>

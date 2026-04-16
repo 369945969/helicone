@@ -5,6 +5,7 @@ import "./tracer";
 import "./lib/env";
 
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import express, { Request as ExpressRequest, NextFunction } from "express";
 import swaggerUi from "swagger-ui-express";
 import cors from "cors";
@@ -71,6 +72,8 @@ const allowedOriginsEnv = {
 const allowedOrigins = allowedOriginsEnv[ENVIRONMENT];
 
 const app = express();
+
+app.use(cookieParser());
 
 const corsOptions = {
   origin: function (

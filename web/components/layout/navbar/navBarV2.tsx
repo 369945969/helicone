@@ -53,26 +53,26 @@ const NavBarV2 = (props: NavBarV2Props) => {
               href="https://docs.helicone.ai/"
               className="flex flex-row items-center rounded-md px-3 py-1.5 font-medium text-gray-700 hover:text-black focus:outline-none dark:text-gray-300 dark:hover:text-white"
             >
-              Docs
+              文档
             </Link>
             <Link
               href="https://helicone.ai/pricing"
               className="flex flex-row items-center rounded-md px-3 py-1.5 font-medium text-gray-700 hover:text-black focus:outline-none dark:text-gray-300 dark:hover:text-white"
             >
-              Pricing
+              价格
             </Link>
             <Link
               href="/blog"
               rel="noopener noreferrer"
               className="flex flex-row items-center rounded-md px-3 py-1.5 font-medium text-gray-700 hover:text-black focus:outline-none dark:text-gray-300 dark:hover:text-white"
             >
-              Blog
+              博客
             </Link>
             <Link
               href="/contact"
               className="flex flex-row items-center rounded-md px-3 py-1.5 font-medium text-gray-700 hover:text-black focus:outline-none dark:text-gray-300 dark:hover:text-white"
             >
-              Contact
+              联系我们
             </Link>
           </div>
           <div className="hidden flex-1 items-center justify-end gap-x-2 md:flex">
@@ -82,7 +82,7 @@ const NavBarV2 = (props: NavBarV2Props) => {
                   href="/dashboard"
                   className="whitespace-nowrap rounded-md border-2 border-sky-700 bg-sky-500 px-4 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
                 >
-                  Dashboard
+                  仪表盘
                 </Link>
                 <button
                   onClick={async () => {
@@ -92,7 +92,7 @@ const NavBarV2 = (props: NavBarV2Props) => {
                   }}
                   className="flex w-fit items-center gap-1 rounded-lg border-[3px] border-gray-300 bg-white px-4 py-1.5 text-sm font-bold text-black shadow-lg duration-500 ease-in-out hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
                 >
-                  Sign Out
+                  退出登录
                 </button>
               </>
             ) : (
@@ -101,13 +101,13 @@ const NavBarV2 = (props: NavBarV2Props) => {
                   href="/signin"
                   className="whitespace-nowrap rounded-md bg-[#f8feff] px-4 py-1.5 text-sm font-semibold text-black hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
                 >
-                  Sign In
+                  登录
                 </Link>
                 <Link
                   href="/signup"
                   className="whitespace-nowrap rounded-md border-2 border-sky-700 bg-sky-500 px-4 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
                 >
-                  Sign up for free
+                  免费注册
                 </Link>
               </>
             )}

@@ -22,12 +22,16 @@ export function getJawnClient(orgId?: string | "none") {
 
       // Add auth header if an org is selected
       const headers = { ...existingHeaders };
-      if (currentOrgId !== "none") {
-        headers["helicone-authorization"] = JSON.stringify({
-          _type: "jwt",
-          token: jwtToken,
-          orgId: currentOrgId ?? "no-org-id",
-        });
+      if (currentOrgId && currentOrgId !== "none") {
+        headers["helicone-org-id"] = currentOrgId;
+
+        if (jwtToken) {
+          headers["helicone-authorization"] = JSON.stringify({
+            _type: "jwt",
+            token: jwtToken,
+            orgId: currentOrgId,
+          });
+        }
       }
 
       // Clone the request to modify it

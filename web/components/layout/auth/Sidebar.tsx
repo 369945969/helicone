@@ -31,49 +31,49 @@ const Sidebar = ({ changelog, setOpen, sidebarRef }: SidebarProps) => {
   const NAVIGATION: NavigationItem[] = useMemo(
     () => [
       {
-        name: "Dashboard",
+        name: "仪表盘",
         href: "/dashboard",
         icon: Home,
         current: pathname.includes("/dashboard"),
       },
       {
-        name: "Requests",
+        name: "请求日志",
         href: "/requests",
         icon: SheetIcon,
         current: pathname.includes("/requests"),
       },
       {
-        name: "Segments",
+        name: "数据细分",
         href: "/segments",
         icon: null,
         current: false,
         subItems: [
           {
-            name: "Sessions",
+            name: "会话",
             href: "/sessions",
             icon: ListTreeIcon,
             current: pathname.includes("/sessions"),
           },
           {
-            name: "Properties",
+            name: "属性",
             href: "/properties",
             icon: TagIcon,
             current: pathname.includes("/properties"),
           },
           {
-            name: "Users",
+            name: "用户",
             href: "/users",
             icon: UsersIcon,
             current: pathname.includes("/users"),
           },
           {
-            name: "Cache",
+            name: "缓存",
             href: "/cache",
             icon: ArchiveIcon,
             current: pathname.includes("/cache"),
           },
           {
-            name: "HQL",
+            name: "HQL查询",
             href: "/hql",
             icon: Code2Icon,
             current: pathname.includes("/hql"),
@@ -81,25 +81,25 @@ const Sidebar = ({ changelog, setOpen, sidebarRef }: SidebarProps) => {
         ],
       },
       {
-        name: "Improve",
+        name: "优化",
         href: "/improve",
         icon: null,
         current: false,
         subItems: [
           {
-            name: "Prompts",
+            name: "提示词",
             href: "/prompts",
             icon: ScrollTextIcon,
             current: pathname.includes("/prompts"),
           },
           {
-            name: "Datasets",
+            name: "数据集",
             href: "/datasets",
             icon: DatabaseIcon,
             current: pathname.includes("/datasets"),
           },
           {
-            name: "Playground",
+            name: "调试台",
             href: "/playground",
             icon: TestTube2,
             current: pathname.includes("/playground"),
@@ -107,19 +107,19 @@ const Sidebar = ({ changelog, setOpen, sidebarRef }: SidebarProps) => {
         ],
       },
       {
-        name: "Monitor",
+        name: "监控",
         href: "/monitor",
         icon: null,
         current: false,
         subItems: [
           {
-            name: "Rate Limits",
+            name: "速率限制",
             href: "/rate-limit",
             icon: ShieldCheckIcon,
             current: pathname === "/rate-limit",
           },
           {
-            name: "Alerts",
+            name: "告警",
             href: "/alerts",
             icon: TriangleAlertIcon,
             current: pathname.includes("/alerts"),

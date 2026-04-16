@@ -51,6 +51,16 @@ export class RequestWrapper<T> {
 
     const authHeader = this.request.headers["helicone-authorization"] as string;
     if (!authHeader) {
+      const cookieToken =
+        this.request.cookies?.["better-auth.session_token"] ??
+        this.request.cookies?.["better-auth.session-token"];
+      if (cookieToken) {
+        return ok({
+          _type: "jwt",
+          token: cookieToken,
+          orgId: (this.request.headers["helicone-org-id"] as string) ?? "none",
+        });
+      }
       return err("No authorization header");
     }
     try {

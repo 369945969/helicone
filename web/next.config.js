@@ -3,6 +3,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const { configureRuntimeEnv } = require("next-runtime-env/build/configure");
+const path = require("path");
+const fs = require("fs");
 
 configureRuntimeEnv();
 
@@ -10,6 +12,9 @@ configureRuntimeEnv();
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  webpack: (config, { isServer }) => {
+    return config;
   },
   images: {
     remotePatterns: [
