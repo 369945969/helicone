@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Helicone Go 版本启动脚本
-# 启动三个模块：Web UI (3000), Jawn API (8585), Worker (8787)
+# Helicone Golang 版本一键启动脚本
+# 启动 Web UI (3000), Jawn API (8585), Worker (8787)
 
 set -e
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # 颜色输出
 RED='\033[0;31m'
@@ -14,162 +12,202 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}========================================${NC}"
-echo -e "${BLUE}  Helicone Go 版本启动脚本${NC}"
-echo -e "${BLUE}========================================${NC}"
+# 项目根目录
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# 检查 Go 是否安装
-if ! command -v go &> /dev/null; then
-    echo -e "${RED}错误：Go 未安装，请先安装 Go 1.21 或更高版本${NC}"
+echo -e "${BLUE}========================================${NC}"
+echo -e "${BLUE}  Helicone Golang 版本启动脚本${NC}"
+echo -e "${BLUE}========================================${NC}"
+echo ""
+
+# 停止已运行的进程
+echo -e "${YELLOW}[清理旧进程]${NC}"
+
+# 停止 Web (3000)
+if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1; then
+    echo -e "${YELLOW}  停止 Web 进程 (端口 3000)...${NC}"
+    lsof -Pi :3000 -sTCP:LISTEN -t | xargs kill -9 2>/dev/null || true
+fi
+
+# 停止 Jawn (8585)
+if lsof -Pi :8585 -sTCP:LISTEN -t >/dev/null 2>&1; then
+    echo -e "${YELLOW}  停止 Jawn 进程 (端口 8585)...${NC}"
+    lsof -Pi :8585 -sTCP:LISTEN -t | xargs kill -9 2>/dev/null || true
+fi
+
+# 停止 Worker (8787)
+if lsof -Pi :8787 -sTCP:LISTEN -t >/dev/null 2>&1; then
+    echo -e "${YELLOW}  停止 Worker 进程 (端口 8787)...${NC}"
+    lsof -Pi :8787 -sTCP:LISTEN -t | xargs kill -9 2>/dev/null || true
+fi
+
+echo -e "${GREEN}✓ 旧进程清理完成${NC}"
+echo ""
+
+# 检查必要工具
+check_command() {
+    if ! command -v "$1" &> /dev/null; then
+        echo -e "${RED}错误: 未找到 $1，请先安装${NC}"
+        exit 1
+    fi
+}
+
+echo -e "${YELLOW}[检查环境]${NC}"
+check_command go
+check_command docker
+
+echo -e "${GREEN}✓ Go 版本: $(go version)${NC}"
+echo -e "${GREEN}✓ Docker 已安装${NC}"
+echo ""
+
+# 检查 Docker 是否运行
+if ! docker info > /dev/null 2>&1; then
+    echo -e "${RED}错误: Docker 未运行，请先启动 Docker${NC}"
     exit 1
 fi
 
-echo -e "${GREEN}✓ Go 已安装：$(go version)${NC}"
+# 步骤 1: 配置环境变量
+echo -e "${YELLOW}[1/4] 检查环境变量配置...${NC}"
 
-# 创建 .env 文件（如果不存在）
-ENV_FILE="$SCRIPT_DIR/.env"
-if [ ! -f "$ENV_FILE" ]; then
-    echo -e "${YELLOW}创建 .env 文件...${NC}"
-    cat > "$ENV_FILE" << 'EOF'
-# Helicone Go 版本环境变量配置
+# Web 环境变量
+if [ ! -f "$PROJECT_ROOT/web/.env" ]; then
+    echo -e "${YELLOW}  创建 web/.env...${NC}"
+    cat > "$PROJECT_ROOT/web/.env" << EOF
+PORT=3000
+STATIC_DIR=./static
+EOF
+fi
 
-# ==================== 通用配置 ====================
+# Jawn 环境变量
+if [ ! -f "$PROJECT_ROOT/jawn/.env" ]; then
+    echo -e "${YELLOW}  创建 jawn/.env...${NC}"
+    cat > "$PROJECT_ROOT/jawn/.env" << EOF
 PORT=8585
 ENVIRONMENT=development
-
-# ==================== 数据库配置 ====================
-DATABASE_URL=postgresql://postgres:testpassword@localhost:54388/helicone_test
-CLICKHOUSE_HOST=http://localhost:18123
-CLICKHOUSE_USER=default
-CLICKHOUSE_PASSWORD=
-
-# ==================== MinIO 配置 ====================
-S3_ENDPOINT=http://localhost:9000
-S3_ACCESS_KEY=minioadmin
-S3_SECRET_KEY=minioadmin
-S3_BUCKET_NAME=request-response-storage
-S3_PROMPT_BUCKET_NAME=prompt-body-storage
-
-# ==================== Redis 配置 ====================
-REDIS_URL=redis://localhost:6379
-
-# ==================== LLM 提供商配置 ====================
-OPENAI_URL=https://api.openai.com
-ANTHROPIC_URL=https://api.anthropic.com
-GATEWAY_TARGET=https://openrouter.ai
-
-# ==================== API 密钥 ====================
-BETTER_AUTH_SECRET=your-secret-key-change-in-production
+APP_URL=http://localhost:3000
+IS_ON_PREM=false
 EOF
-    echo -e "${GREEN}✓ .env 文件已创建${NC}"
+fi
+
+# Worker 环境变量
+if [ ! -f "$PROJECT_ROOT/worker/.env" ]; then
+    echo -e "${YELLOW}  创建 worker/.env...${NC}"
+    cat > "$PROJECT_ROOT/worker/.env" << EOF
+PORT=8787
+ENVIRONMENT=development
+WORKER_TYPE=AI_GATEWAY
+VALHALLA_URL=http://localhost:8585
+GATEWAY_TARGET=https://api.openai.com
+EOF
+fi
+
+echo -e "${GREEN}✓ 环境变量配置完成${NC}"
+echo ""
+
+# 步骤 2: 安装 Go 依赖
+echo -e "${YELLOW}[2/4] 安装 Go 依赖...${NC}"
+cd "$PROJECT_ROOT"
+
+# 检查 go.mod 是否存在
+if [ ! -f "go.mod" ]; then
+    echo -e "${YELLOW}  初始化 Go 模块...${NC}"
+    go mod init helicone-golang
 fi
 
 # 安装依赖
-echo -e "${YELLOW}安装 Go 依赖...${NC}"
-cd "$SCRIPT_DIR"
+echo -e "${YELLOW}  下载 Go 依赖...${NC}"
 go mod tidy
 
-# 构建所有模块
-echo -e "${YELLOW}构建 Go 模块...${NC}"
+echo -e "${GREEN}✓ Go 依赖安装完成${NC}"
+echo ""
 
-# 创建 bin 目录
-mkdir -p "$SCRIPT_DIR/bin"
+# 步骤 3: 启动基础设施服务（PostgreSQL + ClickHouse + MinIO）
+echo -e "${YELLOW}[3/4] 启动基础设施服务...${NC}"
+cd "$PROJECT_ROOT/../docker"
 
-# 构建 API 模块
-echo -e "${BLUE}  构建 Jawn API...${NC}"
-cd "$SCRIPT_DIR/api"
-go build -o ../bin/api main.go || {
-    echo -e "${YELLOW}  注意：API 模块构建有警告，继续...${NC}"
-}
-
-# 构建 Worker 模块
-echo -e "${BLUE}  构建 Worker...${NC}"
-cd "$SCRIPT_DIR/worker"
-go build -o ../bin/worker main.go || {
-    echo -e "${YELLOW}  注意：Worker 模块构建有警告，继续...${NC}"
-}
-
-# 构建 Web 模块
-echo -e "${BLUE}  构建 Web UI...${NC}"
-cd "$SCRIPT_DIR/web"
-go build -o ../bin/web main.go || {
-    echo -e "${YELLOW}  注意：Web 模块构建有警告，继续...${NC}"
-}
-
-echo -e "${GREEN}✓ 构建完成${NC}"
-
-# 启动基础设施服务（使用 Docker）
-echo -e "${YELLOW}检查基础设施服务...${NC}"
-cd "$SCRIPT_DIR"
-
-# 检查 Docker 是否运行
-if command -v docker &> /dev/null; then
-    if docker ps &> /dev/null; then
-        echo -e "${GREEN}✓ Docker 正在运行${NC}"
-        
-        # 检查是否已经运行了容器
-        if ! docker ps | grep -q "helicone-postgres"; then
-            echo -e "${YELLOW}启动基础设施容器（PostgreSQL, ClickHouse, MinIO, Redis）...${NC}"
-            docker-compose -f docker/docker-compose.yml up -d db clickhouse minio redis
-            echo -e "${GREEN}✓ 基础设施容器已启动${NC}"
-            echo -e "${YELLOW}等待服务就绪...${NC}"
-            sleep 10
-        else
-            echo -e "${GREEN}✓ 基础设施容器已在运行${NC}"
-        fi
-    else
-        echo -e "${RED}错误：Docker 守护进程未运行${NC}"
-        exit 1
-    fi
+# 检查是否已经在运行
+if docker compose ps | grep -q "db\|clickhouse\|minio"; then
+    echo -e "${YELLOW}  基础设施已在运行，跳过启动${NC}"
 else
-    echo -e "${YELLOW}⚠ Docker 未安装，请确保基础设施服务已手动启动${NC}"
+    echo -e "${YELLOW}  启动 PostgreSQL, ClickHouse, MinIO...${NC}"
+    docker compose up db clickhouse minio minio-setup -d
+    
+    # 等待数据库就绪
+    echo -e "${YELLOW}  等待数据库就绪...${NC}"
+    sleep 10
+    
+    # 检查 PostgreSQL 是否就绪
+    until docker exec helicone-postgres-flyway-test pg_isready -U postgres > /dev/null 2>&1; do
+        echo -e "${YELLOW}  等待 PostgreSQL...${NC}"
+        sleep 2
+    done
+    echo -e "${GREEN}  ✓ PostgreSQL 就绪${NC}"
+    
+    # 检查 ClickHouse 是否就绪
+    until curl -s http://localhost:8123/ping > /dev/null 2>&1; do
+        echo -e "${YELLOW}  等待 ClickHouse...${NC}"
+        sleep 2
+    done
+    echo -e "${GREEN}  ✓ ClickHouse 就绪${NC}"
 fi
 
-# 启动三个模块
-echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}启动 Helicone 服务...${NC}"
-echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}✓ 基础设施启动完成${NC}"
+echo ""
 
-# 设置工作目录
-cd "$SCRIPT_DIR"
+# 步骤 4: 启动三个服务
+echo -e "${YELLOW}[4/4] 启动 Helicone 服务...${NC}"
 
-# 启动 Web UI (端口 3000)
-echo -e "${BLUE}启动 Web UI (端口 3000)...${NC}"
-cd "$SCRIPT_DIR/web"
-PORT=3000 ./../bin/web &
-WEB_PID=$!
-echo -e "${GREEN}✓ Web UI 已启动 (PID: $WEB_PID)${NC}"
-
-# 启动 Jawn API (端口 8585)
-echo -e "${BLUE}启动 Jawn API (端口 8585)...${NC}"
-cd "$SCRIPT_DIR/api"
-PORT=8585 ./../bin/api &
-API_PID=$!
-echo -e "${GREEN}✓ Jawn API 已启动 (PID: $API_PID)${NC}"
-
-# 启动 Worker (端口 8787)
-echo -e "${BLUE}启动 Worker (端口 8787)...${NC}"
-cd "$SCRIPT_DIR/worker"
-PORT=8787 WORKER_TYPE=OPENAI_PROXY ./../bin/worker &
+# 启动 Worker（后台）
+echo -e "${YELLOW}  启动 Worker (端口: 8787)...${NC}"
+cd "$PROJECT_ROOT/worker"
+nohup go run main.go > "$PROJECT_ROOT/worker.log" 2>&1 &
 WORKER_PID=$!
-echo -e "${GREEN}✓ Worker 已启动 (PID: $WORKER_PID)${NC}"
+echo $WORKER_PID > "$PROJECT_ROOT/.worker.pid"
 
-# 保存 PID 文件
-echo "$WEB_PID" > "$SCRIPT_DIR/bin/web.pid"
-echo "$API_PID" > "$SCRIPT_DIR/bin/api.pid"
-echo "$WORKER_PID" > "$SCRIPT_DIR/bin/worker.pid"
+# 等待 Worker 启动
+sleep 2
+if curl -s http://localhost:8787/health > /dev/null 2>&1; then
+    echo -e "${GREEN}  ✓ Worker 已启动 (PID: $WORKER_PID)${NC}"
+else
+    echo -e "${YELLOW}  ⚠ Worker 启动可能未完成${NC}"
+fi
 
+# 启动 Jawn API（后台）
+echo -e "${YELLOW}  启动 Jawn API (端口: 8585)...${NC}"
+cd "$PROJECT_ROOT/jawn"
+nohup go run main.go > "$PROJECT_ROOT/jawn.log" 2>&1 &
+JAWN_PID=$!
+echo $JAWN_PID > "$PROJECT_ROOT/.jawn.pid"
+
+# 等待 Jawn 启动
+sleep 2
+if curl -s http://localhost:8585/healthcheck > /dev/null 2>&1; then
+    echo -e "${GREEN}  ✓ Jawn API 已启动 (PID: $JAWN_PID)${NC}"
+else
+    echo -e "${YELLOW}  ⚠ Jawn API 启动可能未完成${NC}"
+fi
+
+# 启动 Web UI（前台）
+echo -e "${YELLOW}  启动 Web UI (端口: 3000)...${NC}"
+cd "$PROJECT_ROOT/web"
+
+# 显示启动信息
+echo ""
 echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}  Helicone 服务已启动！${NC}"
+echo -e "${GREEN}  Helicone Golang 服务启动成功!${NC}"
 echo -e "${GREEN}========================================${NC}"
-echo -e "${BLUE}访问地址:${NC}"
-echo -e "  Web UI:      ${GREEN}http://localhost:3000${NC}"
-echo -e "  Jawn API:    ${GREEN}http://localhost:8585${NC}"
-echo -e "  Worker:      ${GREEN}http://localhost:8787${NC}"
-echo -e "${BLUE}========================================${NC}"
-echo -e "${YELLOW}提示：按 Ctrl+C 停止所有服务${NC}"
+echo ""
+echo -e "  ${BLUE}Web 界面:${NC}     http://localhost:3000"
+echo -e "  ${BLUE}Jawn API:${NC}     http://localhost:8585"
+echo -e "  ${BLUE}Worker:${NC}       http://localhost:8787"
+echo ""
+echo -e "  ${YELLOW}日志文件:${NC}"
+echo -e "    Worker: $PROJECT_ROOT/worker.log"
+echo -e "    Jawn:   $PROJECT_ROOT/jawn.log"
+echo ""
+echo -e "  ${YELLOW}按 Ctrl+C 停止 Web 服务${NC}"
+echo -e "  ${YELLOW}运行 ./stopall.sh 停止所有服务${NC}"
+echo ""
 
-# 等待用户中断
-trap "kill $WEB_PID $API_PID $WORKER_PID 2>/dev/null; echo -e '${GREEN}服务已停止${NC}'; exit" INT TERM EXIT
-
-wait
+# 前台启动 Web
+go run main.go
