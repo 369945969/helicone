@@ -55,6 +55,9 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 export function PHProvider({ children }: { children: React.ReactNode }) {
+  if (typeof window === "undefined") {
+    return <>{children}</>;
+  }
   return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
 }
 

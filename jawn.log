@@ -1,0 +1,136 @@
+yarn run v1.22.22
+$ concurrently "nodemon" "nodemon -x python3 genTypes.py"
+[1] [33m[nodemon] 3.1.11[39m
+[1] [33m[nodemon] to restart at any time, enter `rs`[39m
+[1] [33m[nodemon] watching path(s): src/**/* ../../shared/**/*[39m
+[1] [33m[nodemon] watching extensions: ts[39m
+[1] [32m[nodemon] starting `python3 genTypes.py`[39m
+[0] [33m[nodemon] 3.1.11[39m
+[0] [33m[nodemon] to restart at any time, enter `rs`[39m
+[0] [33m[nodemon] watching path(s): src/**/* ../../shared/**/*[39m
+[0] [33m[nodemon] watching extensions: ts[39m
+[0] [32m[nodemon] starting `ts-node src/index.ts`[39m
+[0] Loading environment variables...
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[0] [2026-04-17T16:45:29.401Z][WARN][@clickhouse/client][Config] "host" is deprecated. Use "url" instead.
+[0] [2026-04-17T16:45:29.401Z][WARN][@clickhouse/client][Config] "host" is deprecated. Use "url" instead.
+[0] [33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m
+[0] Server is running on http://localhost:8585
+[0] Slack configuration incomplete, Slack features disabled
+[0] GET /health 401 67 - 1.646 ms
+[1] The type Object is discouraged. Please consider using an interface such as:
+[1]           export interface IStringToStringDictionary {
+[1]             [key: string]: string;
+[1]           }
+[1]           // or
+[1]           export interface IRecordOfAny {
+[1]             [key: string]: any;
+[1]           }
+[1]         
+[1] The type Object is discouraged. Please consider using an interface such as:
+[1]           export interface IStringToStringDictionary {
+[1]             [key: string]: string;
+[1]           }
+[1]           // or
+[1]           export interface IRecordOfAny {
+[1]             [key: string]: any;
+[1]           }
+[1]         
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] The type Object is discouraged. Please consider using an interface such as:
+[1]           export interface IStringToStringDictionary {
+[1]             [key: string]: string;
+[1]           }
+[1]           // or
+[1]           export interface IRecordOfAny {
+[1]             [key: string]: any;
+[1]           }
+[1]         
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/public/swagger.json → file:///Users/jack/typescript/helicone/web/lib/clients/jawnTypes/public.ts [30ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/public/swagger.json → file:///Users/jack/typescript/helicone/bifrost/lib/clients/jawnTypes/public.ts [27ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/public/swagger.json → file:///Users/jack/typescript/helicone/helicone-mcp/src/types/public.ts [27ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/private/swagger.json → file:///Users/jack/typescript/helicone/web/lib/clients/jawnTypes/private.ts [62ms]
+[1] npm warn Unknown env config "version-git-tag". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "argv". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-commit-hooks". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "cache-folder". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-git-message". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] npm warn Unknown env config "version-tag-prefix". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+[1] ✨ openapi-typescript 6.7.6
+[1] 🚀 /Users/jack/typescript/helicone/valhalla/jawn/src/tsoa-build/private/swagger.json → file:///Users/jack/typescript/helicone/bifrost/lib/clients/jawnTypes/private.ts [60ms]
+[1] [32m[nodemon] clean exit - waiting for changes before restart[39m
+[0] POST /v1/session/query 401 70 - 77.005 ms
+[0] POST /v1/session/name/query 401 70 - 80.264 ms
+[0] POST /v1/property/query 401 70 - 93.112 ms
+[0] POST /v1/session/count 401 70 - 126.484 ms
+[0] GET /v1/alert-banner 401 70 - 141.541 ms
+[0] GET /v1/agent/threads 401 70 - 5.114 ms
+[0] POST /v1/request/count/query 401 70 - 6.446 ms
+[0] GET /v1/agent/thread/51c66c31-f4a6-4b51-ae89-853f7fee61c9 401 70 - 6.015 ms
+[0] POST /v1/organization/setup-dem[0] Could not close co[0] GET /v1/alert-banner 401 70 - 3.431 ms
+[0] GET /v1/agent/threads 401 70 - 3.720 ms
+[0] POST /v1/request/count/query 401 70 - 4.056 ms
+[0] GET /v1/agent/thread/51c66c31-f4a6-4b51-ae89-853f7fee61c9 401 70 - 2.394 ms
+[0] GET /v1/alert-banner 401 70 - 2.676 ms
+[0] GET /v1/agent/threads 401 70 - 1.927 ms
+[0] POST /v1/request/count/query 401 70 - 1.271 ms
+[0] GET /v1/agent/thread/51c66c31-f4a6-4b51-ae89-853f7fee61c9 401 70 - 1.339 ms
+[0] GET /v1/agent/threads 401 70 - 1.653 ms
+[0] POST /v1/request/count/query 401 70 - 1.986 ms
+[0] GET /v1/alert-banner 401 70 - 2.426 ms
+[0] GET /v1/agent/thread/51c66c31-f4a6-4b51-ae89-853f7fee61c9 401 70 - 1.399 ms
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...
+[1] nodemon -x python3 genTypes.py exited with code 130
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...
+[0] Destroying pool
+[0] Received SIGINT. Starting graceful shutdown...
+[0] HTTP server closed.
+[0] Executing shutdown handlers...

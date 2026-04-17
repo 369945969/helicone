@@ -20,6 +20,8 @@
   },
   "version": "0.1.0",
   "resolutions": {
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "d3-color": "^3.1.0",
     "ws": "^8.17.1",
     "@peculiar/x509": "1.13.0"

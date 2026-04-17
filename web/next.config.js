@@ -10,12 +10,7 @@ configureRuntimeEnv();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  webpack: (config, { isServer }) => {
-    return config;
-  },
+  turbopack: {},
   images: {
     remotePatterns: [
       {
@@ -45,7 +40,6 @@ const nextConfig = {
     ],
   },
   reactStrictMode: false,
-  swcMinify: true,
   transpilePackages: ["@helicone-package/cost", "@helicone-package/llm-mapper"],
   async redirects() {
     return [
