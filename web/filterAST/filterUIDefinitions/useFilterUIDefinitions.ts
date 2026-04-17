@@ -52,9 +52,13 @@ export const useFilterUIDefinitions = () => {
   const models = useQuery({
     queryKey: ["/v1/organization/models", org?.currentOrg?.id],
     queryFn: async (query) => {
-      const jawn = getJawnClient(query.queryKey[1]);
+      const orgId = query.queryKey[1];
+      if (!orgId) {
+        return { data: [] };
+      }
+      const jawn = getJawnClient(orgId);
       const res = await jawn.GET("/v1/organization/models");
-      return res.data;
+      return res.data ?? { data: [] };
     },
     refetchOnWindowFocus: false,
   });

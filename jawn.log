@@ -514,3 +514,6 @@ $ concurrently "nodemon" "nodemon -x python3 genTypes.py"
 [0] Received SIGINT. Starting graceful shutdown...
 [0] HTTP server closed.
 [0] Executing shutdown handlers...
+[0] Could not close connections in time, forcefully shutting down
+[0] Destroying pool
+[0] nodemon exited with code SIGINT
