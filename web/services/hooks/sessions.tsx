@@ -72,11 +72,15 @@ const useSessions = ({
   const properties = useQuery({
     queryKey: ["/v1/property/query", org?.currentOrg?.id],
     queryFn: async (query) => {
-      const jawn = getJawnClient(query.queryKey[1]);
+      const orgId = query.queryKey[1];
+      if (!orgId) {
+        return { data: [] };
+      }
+      const jawn = getJawnClient(orgId);
       const res = await jawn.POST("/v1/property/query", {
         body: {},
       });
-      return res.data;
+      return res.data ?? { data: [] };
     },
     refetchOnWindowFocus: false,
   });

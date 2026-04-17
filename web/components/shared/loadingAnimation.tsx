@@ -2,12 +2,20 @@ import dynamic from "next/dynamic";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-import * as chicky from "../../public/lottie/Polite Chicky.json";
-import * as hamster from "../../public/lottie/Aniki Hamster.json";
-import * as plane from "../../public/lottie/Paper Airplane.json";
-import * as PartyParrot from "../../public/lottie/PartyParrot.json";
-import * as Pacman from "../../public/lottie/Pacman.json";
-import * as Cube from "../../public/lottie/cube.json";
+import chickyRaw from "../../public/lottie/Polite Chicky.json";
+import hamsterRaw from "../../public/lottie/Aniki Hamster.json";
+import planeRaw from "../../public/lottie/Paper Airplane.json";
+import PartyParrotRaw from "../../public/lottie/PartyParrot.json";
+import PacmanRaw from "../../public/lottie/Pacman.json";
+import CubeRaw from "../../public/lottie/cube.json";
+
+// Clone animation data to avoid React 19 frozen object issues
+const chicky = JSON.parse(JSON.stringify(chickyRaw));
+const hamster = JSON.parse(JSON.stringify(hamsterRaw));
+const plane = JSON.parse(JSON.stringify(planeRaw));
+const PartyParrot = JSON.parse(JSON.stringify(PartyParrotRaw));
+const Pacman = JSON.parse(JSON.stringify(PacmanRaw));
+const Cube = JSON.parse(JSON.stringify(CubeRaw));
 
 type Animation =
   | typeof chicky

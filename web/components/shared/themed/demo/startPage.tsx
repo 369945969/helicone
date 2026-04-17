@@ -1,7 +1,11 @@
 import { useState } from "react";
 import Lottie from "lottie-react";
-import * as guesswho from "../../../../public/lottie/guesswho.json";
-import * as notebook from "../../../../public/lottie/notebook.json";
+import guesswhoRaw from "../../../../public/lottie/guesswho.json";
+import notebookRaw from "../../../../public/lottie/notebook.json";
+
+// Clone animation data to avoid React 19 frozen object issues
+const guesswho = JSON.parse(JSON.stringify(guesswhoRaw));
+const notebook = JSON.parse(JSON.stringify(notebookRaw));
 import GuessWhoGame from "./guessWho";
 import { CourseGenerator } from "./courseGenerator";
 

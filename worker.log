@@ -98,7 +98,7 @@ env.UPSTASH_KAFKA_PASSWORD ("")                                                 
 #1 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/library/node:22-slim
-#2 DONE 4.5s
+#2 DONE 2.0s
 
 #3 [internal] load .dockerignore
 #3 transferring context: 2B done
@@ -114,16 +114,16 @@ env.UPSTASH_KAFKA_PASSWORD ("")                                                 
 #6 [builder 2/5] WORKDIR /app
 #6 CACHED
 
-#7 [runner 4/5] RUN corepack enable && npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#7 [builder 5/5] RUN corepack enable && npm ci && npm run build
 #7 CACHED
 
-#8 [builder 4/5] COPY src ./src
+#8 [runner 3/5] COPY --from=builder /app/package.json /app/package-lock.json ./
 #8 CACHED
 
-#9 [builder 5/5] RUN corepack enable && npm ci && npm run build
+#9 [builder 4/5] COPY src ./src
 #9 CACHED
 
-#10 [runner 3/5] COPY --from=builder /app/package.json /app/package-lock.json ./
+#10 [runner 4/5] RUN corepack enable && npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
 #10 CACHED
 
 #11 [builder 3/5] COPY package.json package-lock.json tsconfig.json ./
@@ -135,10 +135,10 @@ env.UPSTASH_KAFKA_PASSWORD ("")                                                 
 #13 exporting to image
 #13 exporting layers done
 #13 writing image sha256:0066b6976071a66384ba876f567d594f6ee13da3d67122d2fad76d078d697131 done
-#13 naming to docker.io/cloudflare-dev/requestbodybuffercontainer:ce8e9b8c done
+#13 naming to docker.io/cloudflare-dev/requestbodybuffercontainer:4928d913 done
 #13 DONE 0.0s
 
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/srg6gvo4ob98vq47m7u89zjko
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/wva4h8463a30bfuw5asgtr72b
 ⎔ Container image(s) ready
 ⎔ Starting local server...
 [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m[33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m[0m
@@ -152,7 +152,7 @@ View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux
       at async RequestBodyBuffer_InMemory.isStream (file:///Users/jack/typescript/helicone/worker/src/RequestBodyBuffer/RequestBodyBuffer_InMemory.ts:200:18)
       at async HeliconeProxyRequestMapper.tryToProxyRequest (file:///Users/jack/typescript/helicone/worker/src/lib/models/HeliconeProxyRequest.ts:146:20)
       at async proxyForwarder (file:///Users/jack/typescript/helicone/worker/src/lib/HeliconeProxyRequest/ProxyForwarder.ts:53:5)
-      at response (async file:///Users/jack/typescript/helicone/worker/.wrangler/tmp/dev-O57Rvi/index.js:99521:20)
+      at response (async file:///Users/jack/typescript/helicone/worker/.wrangler/tmp/dev-L8d34j/index.js:99521:20)
       at async Object.fetch (file:///Users/jack/typescript/helicone/node_modules/src/src/Router.ts:119:18)
       at async jsonError (file:///Users/jack/typescript/helicone/node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts:22:10)
       at async scheduled (file:///Users/jack/typescript/helicone/node_modules/wrangler/templates/middleware/middleware-scheduled.ts:13:15)
@@ -167,27 +167,11 @@ View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux
       at async RequestWrapper.getUserId (file:///Users/jack/typescript/helicone/worker/src/lib/RequestWrapper.ts:584:39)
       at async HeliconeProxyRequestMapper.tryToProxyRequest (file:///Users/jack/typescript/helicone/worker/src/lib/models/HeliconeProxyRequest.ts:189:17)
       at async proxyForwarder (file:///Users/jack/typescript/helicone/worker/src/lib/HeliconeProxyRequest/ProxyForwarder.ts:53:5)
-      at response (async file:///Users/jack/typescript/helicone/worker/.wrangler/tmp/dev-O57Rvi/index.js:99521:20)
+      at response (async file:///Users/jack/typescript/helicone/worker/.wrangler/tmp/dev-L8d34j/index.js:99521:20)
       at async Object.fetch (file:///Users/jack/typescript/helicone/node_modules/src/src/Router.ts:119:18)
       at async jsonError (file:///Users/jack/typescript/helicone/node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts:22:10)
       at async scheduled (file:///Users/jack/typescript/helicone/node_modules/wrangler/templates/middleware/middleware-scheduled.ts:13:15) 
 
 
-[wrangler:info] GET / 502 Bad Gateway (5472ms)
-⎔ Reloading local server...
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m[33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m[0m
-
-
-⎔ Reloading local server...
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m[33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m[0m
-
-
-⎔ Reloading local server...
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m[33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m[0m
-
-
-⎔ Reloading local server...
-[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1m[33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m[0m
-
-
-🪵  Logs were written to "/Users/jack/Library/Preferences/.wrangler/logs/wrangler-2026-04-17_16-45-22_346.log"
+[wrangler:info] GET / 502 Bad Gateway (2648ms)
+🪵  Logs were written to "/Users/jack/Library/Preferences/.wrangler/logs/wrangler-2026-04-17_17-02-00_308.log"

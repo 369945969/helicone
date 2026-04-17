@@ -109,6 +109,44 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     }
   }, []);
 
+  // Suppress extension errors from showing error overlay
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const originalOnError = window.onerror;
+    const originalOnUnhandledRejection = window.onunhandledrejection;
+
+    // Filter out extension errors
+    const isExtensionError = (error: any) => {
+      const errorStr = String(error);
+      return (
+        errorStr.includes("chrome-extension://") ||
+        errorStr.includes("moz-extension://") ||
+        errorStr.includes("Origin not allowed")
+      );
+    };
+
+    window.onerror = (message, source, lineno, colno, error) => {
+      if (isExtensionError(message) || isExtensionError(source)) {
+        return true; // Suppress error
+      }
+      return originalOnError?.(message, source, lineno, colno, error);
+    };
+
+    window.onunhandledrejection = function (event) {
+      if (isExtensionError(event.reason)) {
+        event.preventDefault(); // Suppress rejection
+        return;
+      }
+      return originalOnUnhandledRejection?.call(window, event);
+    };
+
+    return () => {
+      window.onerror = originalOnError;
+      window.onunhandledrejection = originalOnUnhandledRejection;
+    };
+  }, []);
+
   return (
     <>
       <PHProvider>

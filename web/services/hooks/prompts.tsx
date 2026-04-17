@@ -76,10 +76,14 @@ export const useGetPromptEnvironments = () => {
     queryFn: async () => {
       const result = await $JAWN_API.GET("/v1/prompt-2025/environments", {});
       if (result.error || !result.data?.data) {
-        logger.error(
-          { error: result.error },
-          "Error fetching prompt environments",
-        );
+        // Don't log auth errors as they're expected when session expires
+        const errorStr = JSON.stringify(result.error);
+        if (!errorStr.includes("Invalid or expired session")) {
+          logger.error(
+            { error: result.error },
+            "Error fetching prompt environments",
+          );
+        }
         return [];
       }
       return result.data.data;
@@ -93,7 +97,11 @@ export const useGetPromptTags = () => {
     queryFn: async () => {
       const result = await $JAWN_API.GET("/v1/prompt-2025/tags", {});
       if (result.error || !result.data?.data) {
-        logger.error({ error: result.error }, "Error fetching prompt tags");
+        // Don't log auth errors as they're expected when session expires
+        const errorStr = JSON.stringify(result.error);
+        if (!errorStr.includes("Invalid or expired session")) {
+          logger.error({ error: result.error }, "Error fetching prompt tags");
+        }
         return [];
       }
       return result.data.data;

@@ -140,12 +140,12 @@ export default function ModelParametersForm({
 
   // Auto-open provider key dialog when rate limit error occurs
   useEffect(() => {
-    logger.error({ error }, "Error occurred");
     if (
       error &&
       (error.includes("Insufficient credits") ||
         (error.includes("No") && error.includes("API key found")))
     ) {
+      logger.info({ error }, "Provider key error occurred, opening dialog");
       setIsProviderKeyDialogOpen(true);
     }
   }, [error]);

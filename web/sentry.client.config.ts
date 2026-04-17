@@ -32,5 +32,25 @@ if (REGION === "us") {
 
     // Setting this option to true will print useful information to the console while you're setting up Sentry.
     debug: false,
+
+    // Ignore errors from browser extensions
+    ignoreErrors: [
+      // Chrome extension errors
+      "Origin not allowed",
+      "chrome-extension://",
+      "extension://",
+      // Common extension errors
+      "Cannot read properties of undefined (reading 'postMessage')",
+      "Cannot redefine property",
+    ],
+    denyUrls: [
+      // Chrome extensions
+      /chrome-extension:\/\//i,
+      /moz-extension:\/\//i,
+      /safari-extension:\/\//i,
+      // External scripts
+      /\/\/[a-z]*\.cloudfront\.net/i,
+      /\/\/[a-z]*\.amazonaws\.com/i,
+    ],
   });
 }

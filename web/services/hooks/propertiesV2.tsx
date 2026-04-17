@@ -27,11 +27,15 @@ function useGetPropertiesV2<T extends "properties" | "request_response_rmt">(
   const propertiesQuery = useQuery({
     queryKey: ["propertiesV2", orgId?.currentOrg?.id],
     queryFn: async (query) => {
-      const jawn = getJawnClient(query.queryKey[1]);
+      const orgId = query.queryKey[1];
+      if (!orgId) {
+        return { data: [] };
+      }
+      const jawn = getJawnClient(orgId);
       const res = await jawn.POST("/v1/property/query", {
         body: {},
       });
-      return res.data;
+      return res.data ?? { data: [] };
     },
     refetchOnWindowFocus: false,
   });
