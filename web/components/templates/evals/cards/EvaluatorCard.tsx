@@ -164,7 +164,7 @@ export const EvaluatorCard: React.FC<EvaluatorCardProps> = ({
             </>
           ) : (
             <>
-              <span className="text-muted-foreground">No data available</span>
+              <span className="text-muted-foreground">无可用数据</span>
               <span className="text-slate-500">Uses: 0</span>
             </>
           )}

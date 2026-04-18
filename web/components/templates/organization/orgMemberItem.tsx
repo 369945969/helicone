@@ -111,19 +111,19 @@ const OrgMemberItem = (props: OrgMemberItemProps) => {
                     },
                   );
                   if (error) {
-                    setNotification("Error updating member", "error");
+                    setNotification("更新成员时出错", "error");
                     logger.error(
                       { error, memberId: orgMember.member, role },
                       "Error updating member",
                     );
                   } else {
-                    setNotification("Successfully updated member", "success");
+                    setNotification("成员更新成功", "success");
                   }
                   setMemberRole(role);
                 }}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Select Role">
+                  <SelectValue placeholder="选择角色">
                     {memberRole === "admin"
                       ? "Admin"
                       : memberRole === "member"
@@ -175,7 +175,7 @@ const OrgMemberItem = (props: OrgMemberItemProps) => {
                 <TooltipTrigger className="w-full">
                   <Select disabled value={memberRole}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select Role">
+                      <SelectValue placeholder="选择角色">
                         {memberRole === "admin"
                           ? "Admin"
                           : memberRole === "member"
@@ -226,14 +226,14 @@ const OrgMemberItem = (props: OrgMemberItemProps) => {
                     },
                   );
                   if (error) {
-                    setNotification("Error leaving organization", "error");
+                    setNotification("退出组织时出错", "error");
                     logger.error(
                       { error, orgId, memberId: orgMember.member },
                       "Error leaving organization",
                     );
                   } else {
                     setNotification(
-                      "Successfully left organization",
+                      "成功退出组织",
                       "success",
                     );
                   }
@@ -288,13 +288,13 @@ const OrgMemberItem = (props: OrgMemberItemProps) => {
                   },
                 );
                 if (error) {
-                  setNotification("Error removing member", "error");
+                  setNotification("移除成员时出错", "error");
                   logger.error(
                     { error, orgId, memberId: orgMember.member },
                     "Error removing member",
                   );
                 } else {
-                  setNotification("Member removed successfully", "success");
+                  setNotification("成员移除成功", "success");
                 }
                 refetch();
                 setOpenDelete(false);
@@ -345,7 +345,7 @@ const OrgMemberItem = (props: OrgMemberItemProps) => {
                 );
                 if (error) {
                   console.error(error);
-                  setNotification("Error transferring ownership", "error");
+                  setNotification("转移所有权时出错", "error");
                   logger.error(
                     { error, orgId, memberId: orgMember.member },
                     "Error transferring ownership",

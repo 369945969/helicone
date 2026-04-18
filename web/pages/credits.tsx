@@ -258,13 +258,13 @@ const Credits: NextPageWithLayout = () => {
           >
             <div className="px-6 pt-4">
               <TabsList>
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="usage">Usage</TabsTrigger>
-                {invoices.length > 0 && (
-                  <TabsTrigger value="invoices">Invoices</TabsTrigger>
+                <TabsTrigger value="overview">概览</TabsTrigger>
+                <TabsTrigger value="usage">使用量</TabsTrigger>
+                {creditData?.autoTopoffEnabled && (
+                  <TabsTrigger value="invoices">发票</TabsTrigger>
                 )}
                 {discounts.length > 0 && (
-                  <TabsTrigger value="discounts">Discounts</TabsTrigger>
+                  <TabsTrigger value="discounts">折扣</TabsTrigger>
                 )}
               </TabsList>
             </div>
@@ -317,7 +317,7 @@ const Credits: NextPageWithLayout = () => {
                           size={20}
                           className="text-muted-foreground"
                         />
-                        <CardTitle className="text-base">Buy Credits</CardTitle>
+                        <CardTitle className="text-base">购买积分</CardTitle>
                       </div>
                     </CardHeader>
                     <CardContent className="flex flex-col gap-3">
@@ -440,11 +440,11 @@ const Credits: NextPageWithLayout = () => {
                   <CardContent>
                     {transactionsLoading ? (
                       <div className="py-8 text-center">
-                        <Muted>Loading transactions...</Muted>
+                        <Muted>正在加载交易记录...</Muted>
                       </div>
                     ) : transactionsError ? (
                       <div className="py-8 text-center">
-                        <Muted>Error loading transactions</Muted>
+                        <Muted>加载交易记录失败</Muted>
                       </div>
                     ) : transactions.length > 0 ? (
                       <>
@@ -708,11 +708,11 @@ const Credits: NextPageWithLayout = () => {
               <div className="flex-1 overflow-auto">
                 {breakdownLoading ? (
                   <div className="flex h-full items-center justify-center">
-                    <span className="text-muted-foreground">Loading...</span>
+                    <span className="text-muted-foreground">加载中...</span>
                   </div>
                 ) : breakdownError ? (
                   <div className="flex h-full items-center justify-center">
-                    <span className="text-destructive">Error loading data</span>
+                    <span className="text-destructive">加载数据失败</span>
                   </div>
                 ) : sortedModels.length === 0 ? (
                   <div className="flex h-full items-center justify-center">

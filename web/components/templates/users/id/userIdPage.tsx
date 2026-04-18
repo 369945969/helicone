@@ -26,12 +26,12 @@ const tabs: {
 }[] = [
   {
     id: 0,
-    title: "Usage",
+    title: "使用量",
     icon: PresentationChartLineIcon,
   },
   {
     id: 1,
-    title: "Logs",
+    title: "日志",
     icon: TableCellsIcon,
   },
 ];
@@ -73,7 +73,7 @@ const UserIdPage = (props: UserIdPageProps) => {
         ) : !user ? (
           <div className="grid w-full grid-cols-10 gap-8 pt-8">
             <div className="col-span-12 flex w-full flex-col items-start space-y-4 pt-2 md:col-span-3">
-              <p className="text-sm text-gray-500">User not found</p>
+              <p className="text-sm text-gray-500">未找到用户</p>
             </div>
           </div>
         ) : (
@@ -83,19 +83,19 @@ const UserIdPage = (props: UserIdPageProps) => {
                 <p className="text-md font-semibold">Overview (Last 30 days)</p>
                 <div className="flex w-full flex-wrap justify-between gap-2 pr-4 pt-4">
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">Total Cost</p>
+                    <p className="text-sm font-semibold">总成本</p>
                     <p className="text-sm text-gray-500">
                       ${formatNumber(Number(user?.cost ?? 0), 6)}
                     </p>
                   </div>
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">Total Requests</p>
+                    <p className="text-sm font-semibold">总请求数</p>
                     <p className="text-sm text-gray-500">
                       {user?.total_requests}
                     </p>
                   </div>
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">Active For</p>
+                    <p className="text-sm font-semibold">活跃时长</p>
                     <p className="text-sm text-gray-500">
                       {user.active_for} day{user.active_for > 1 ? "s" : ""}
                     </p>
@@ -106,13 +106,13 @@ const UserIdPage = (props: UserIdPageProps) => {
                 <p className="text-md font-semibold">Details (Last 30 days)</p>
                 <div className="flex flex-col space-y-4 pr-4 pt-4">
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">First Active</p>
+                    <p className="text-sm font-semibold">首次活跃</p>
                     <p className="text-sm text-gray-500">
                       {new Date(user.first_active).toLocaleString()}
                     </p>
                   </div>
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">Last Active</p>
+                    <p className="text-sm font-semibold">最后活跃</p>
                     <p className="text-sm text-gray-500">
                       {new Date(user.last_active).toLocaleString()}
                     </p>

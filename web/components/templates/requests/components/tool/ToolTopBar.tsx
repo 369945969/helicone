@@ -51,7 +51,7 @@ export const ToolTopBar: React.FC<ToolTopBarProps> = ({
             <EyeIcon className="h-4 w-4" />
           )}
           <p className="text-xs font-semibold">
-            {allExpanded ? "Shrink All" : "Expand All"}
+            {allExpanded ? "全部收起" : "全部展开"}
           </p>
         </button>
       </div>
@@ -62,7 +62,7 @@ export const ToolTopBar: React.FC<ToolTopBarProps> = ({
             className="flex flex-row items-center space-x-1 rounded-lg px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800"
           >
             <ArrowsPointingOutIcon className="h-4 w-4" />
-            <p className="text-xs font-semibold">Expand</p>
+            <p className="text-xs font-semibold">展开</p>
           </button>
         )}
         <button

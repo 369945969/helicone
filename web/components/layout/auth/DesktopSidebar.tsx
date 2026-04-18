@@ -362,7 +362,7 @@ const DesktopSidebar = ({
                         variant="action"
                       >
                         {!isCollapsed && (
-                          <span className="text-white">Ready to integrate</span>
+                          <span className="text-white">准备集成</span>
                         )}
                         <Rocket
                           className={
@@ -472,7 +472,7 @@ const DesktopSidebar = ({
                         <span className="absolute -right-1 -top-1 h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
                       )}
                     </div>
-                    {!isCollapsed && <span>Support</span>}
+                    {!isCollapsed && <span>支持</span>}
                   </Button>
 
                   <Button

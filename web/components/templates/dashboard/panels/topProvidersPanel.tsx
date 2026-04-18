@@ -30,14 +30,14 @@ const TopProvidersPanel = (props: TopProvidersPanelProps) => {
     data: providerData,
     maxValue,
     formatValue: (value) => value.toLocaleString(),
-    modalTitle: "Top Providers",
-    modalValueLabel: "Requests",
+    modalTitle: "顶级提供商",
+    modalValueLabel: "请求",
   });
 
   return (
     <>
       <StyledAreaChart
-        title={`Top Providers`}
+        title={`顶级提供商`}
         value={undefined}
         isDataOverTimeLoading={providers.isLoading}
         withAnimation={true}
@@ -45,8 +45,8 @@ const TopProvidersPanel = (props: TopProvidersPanelProps) => {
       >
         <div className="flex h-full flex-col overflow-hidden">
           <div className="flex flex-row items-center justify-between pb-2">
-            <p className="text-xs font-semibold text-foreground">Provider</p>
-            <p className="text-xs font-semibold text-foreground">Requests</p>
+            <p className="text-xs font-semibold text-foreground">提供商</p>
+            <p className="text-xs font-semibold text-foreground">请求</p>
           </div>
           <div className="flex-grow overflow-y-auto">{barList}</div>
         </div>

@@ -46,7 +46,7 @@ export const ToolContent: React.FC<ToolContentProps> = ({
         className="grid cursor-pointer grid-cols-10 items-start gap-2 bg-gray-100 px-4 py-4 text-left font-semibold dark:bg-gray-900"
         onClick={() => {
           navigator.clipboard.writeText(JSON.stringify(mappedRequest, null, 2));
-          setNotification("Copied to clipboard", "success");
+          setNotification("已复制到剪贴板", "success");
         }}
       >
         <pre className="font-mono col-span-10 text-sm">

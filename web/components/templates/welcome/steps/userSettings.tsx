@@ -29,7 +29,7 @@ const UserSettings = (props: UserSettingsProps) => {
         "flex w-full flex-col items-center space-y-4 px-2 text-center",
       )}
     >
-      <p className="text-2xl font-semibold md:text-5xl">Select your theme</p>
+      <p className="text-2xl font-semibold md:text-5xl">选择您的主题</p>
       <div className="flex flex-col gap-4 py-8 md:flex-row">
         <button
           onClick={() => setTheme("light")}
@@ -67,7 +67,7 @@ const UserSettings = (props: UserSettingsProps) => {
         onClick={nextStep}
         className="mt-8 rounded-xl bg-gray-900 px-28 py-3 font-medium text-white hover:bg-gray-700 dark:bg-gray-100 dark:text-black dark:hover:bg-gray-300"
       >
-        Next
+        下一步
       </button>
     </div>
   );

@@ -354,7 +354,7 @@ const ChatRow = (props: ChatRowProps) => {
               />
             ) : (
               <div className="flex h-[150px] w-[200px] items-center justify-center border border-gray-300 bg-white text-center text-xs italic text-gray-500">
-                Unsupported Image Type
+                不支持的图片类型
               </div>
             )}
             <button
@@ -466,7 +466,7 @@ const ChatRow = (props: ChatRowProps) => {
               }}
             />
             <div className="flex items-center space-x-2">
-              <Tooltip title="Edit" placement="top">
+              <Tooltip title="编辑" placement="top">
                 <button
                   onClick={() => {
                     if (isEditing) {
@@ -481,7 +481,7 @@ const ChatRow = (props: ChatRowProps) => {
                   <PencilSquareIcon className="h-5 w-5" />
                 </button>
               </Tooltip>
-              <Tooltip title={minimize ? "Expand" : "Shrink"} placement="top">
+              <Tooltip title={minimize ? "展开" : "收缩"} placement="top">
                 <button
                   onClick={() => {
                     setMinimize(!minimize);
@@ -495,18 +495,18 @@ const ChatRow = (props: ChatRowProps) => {
                   )}
                 </button>
               </Tooltip>
-              <Tooltip title="Copy" placement="top">
+              <Tooltip title="复制" placement="top">
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText(contentAsString || "");
-                    setNotification("Copied to clipboard", "success");
+                    setNotification("已复制到剪贴板", "success");
                   }}
                   className="font-semibold text-gray-500"
                 >
                   <ClipboardIcon className="h-5 w-5" />
                 </button>
               </Tooltip>
-              <Tooltip title="Delete" placement="top">
+              <Tooltip title="删除" placement="top">
                 <button
                   onClick={() => {
                     deleteRow(currentMessage.id || "");

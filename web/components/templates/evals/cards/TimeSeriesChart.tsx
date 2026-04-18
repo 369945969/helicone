@@ -38,7 +38,7 @@ export const TimeSeriesChart: React.FC<TimeSeriesChartProps> = ({
   if (!hasData) {
     return (
       <div className={`flex h-32 items-center justify-center ${className}`}>
-        <Small className="text-muted-foreground">No data available</Small>
+        <Small className="text-muted-foreground">无可用数据</Small>
       </div>
     );
   }

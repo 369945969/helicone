@@ -29,7 +29,7 @@ const ModelResponseGroup: React.FC<ModelResponseGroupProps> = ({
           onRoleChange={() => {}}
           disabled={true}
         />
-        <Tooltip title="Delete Row" placement="top">
+        <Tooltip title="删除行" placement="top">
           <button
             onClick={() => {
               setCurrentChat((prevChat) =>

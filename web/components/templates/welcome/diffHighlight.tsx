@@ -58,7 +58,7 @@ export function DiffHighlight(props: DiffHighlightProps) {
             <button
               className="absolute right-4 top-4 z-50"
               onClick={() => {
-                setNotification("Copied to clipboard", "success");
+                setNotification("已复制到剪贴板", "success");
                 navigator.clipboard.writeText(props.code);
               }}
             >

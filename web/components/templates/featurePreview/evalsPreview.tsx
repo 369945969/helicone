@@ -9,11 +9,11 @@ import { useOrg } from "@/components/layout/org/organizationContext";
 
 const evalFeatures: Feature[] = [
   {
-    title: "Catch Regression Pre-Deployment",
+    title: "部署前捕获回归",
     description: [
-      "Three evaluation modes: LLM-as-a-Judge, executable Python (CodeSandbox), and LastMileAI RAG evals",
-      "Leverage LastMileAI's RAG-specific metrics including faithfulness, relevance, and answer quality scoring",
-      "Integrated with all major AI providers (Anthropic, OpenAI, Google, Meta, DeepSeek)",
+      "三种评估模式：LLM-as-a-Judge、可执行 Python (CodeSandbox) 和 LastMileAI RAG 评估",
+      "利用 LastMileAI 的 RAG 特定指标，包括忠实度、相关性和答案质量评分",
+      "集成所有主要 AI 提供商 (Anthropic、OpenAI、Google、Meta、DeepSeek)",
     ],
     media: {
       type: "component",
@@ -22,14 +22,14 @@ const evalFeatures: Feature[] = [
     },
     imageAlt: "Evaluation interface showing regression testing",
     isImageLeft: true,
-    ctaText: "Start evaluating",
+    ctaText: "开始评估",
   },
   {
-    title: "Online Evals & Production Monitoring",
+    title: "在线评估与生产监控",
     description: [
-      "Attach evals to any filter (prompt, environment, etc.) with configurable sampling rates",
-      "Real-time dashboards track eval performance alongside request metrics",
-      "Compare results across model versions and prompt iterations",
+      "将评估附加到任何筛选器（提示词、环境等），支持可配置的采样率",
+      "实时仪表板跟踪评估性能以及请求指标",
+      "跨模型版本和提示词迭代比较结果",
     ],
     media: {
       type: "video",
@@ -37,14 +37,14 @@ const evalFeatures: Feature[] = [
       fallbackImage: "/static/features/evals/feature2.png",
     },
     imageAlt: "Production monitoring and evaluation interface",
-    ctaText: "Configure Monitoring",
+    ctaText: "配置监控",
   },
   {
-    title: "Offline Evals for Experimentation",
+    title: "用于实验的离线评估",
     description: [
-      "Integrated with Experiments for pre-deployment validation",
-      "Maintain eval consistency between development and production",
-      "Batch test prompts against historical data or synthetic datasets",
+      "与实验集成以进行部署前验证",
+      "在开发和生产之间保持评估一致性",
+      "针对历史数据或合成数据集批量测试提示词",
     ],
     media: {
       type: "video",
@@ -53,7 +53,7 @@ const evalFeatures: Feature[] = [
     },
     imageAlt: "Offline evaluation interface",
     isImageLeft: true,
-    ctaText: "Prevent Regressions",
+    ctaText: "防止回归",
   },
 ];
 
@@ -148,13 +148,13 @@ const EvalsPreview = () => {
   return (
     <>
       <FeaturePreview
-        title="LLM Evaluation Suite"
-        subtitle="for Performance Optimization"
+        title="LLM 评估套件"
+        subtitle="用于性能优化"
         pricingPlans={pricingPlan}
         onStartTrial={handleStartTrial}
         isOnFreeTier={!isPaidPlan}
         featureSectionProps={{
-          pageTitle: "Evaluate Pre-Deployment and Monitor Production",
+          pageTitle: "部署前评估并监控生产",
           features: evalFeatures,
           quote: {
             prefix: '"The ability to evaluate prompts systematically',

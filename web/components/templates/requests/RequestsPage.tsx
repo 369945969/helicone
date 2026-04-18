@@ -738,7 +738,7 @@ export default function RequestsPage(props: RequestsPageV2Props) {
       {/* Header */}
       {!userId && (
         <Header
-          title={isCached ? "Cached Requests" : "Requests"}
+          title={isCached ? "缓存请求" : "请求"}
           leftActions={
             <div className="flex flex-row items-center gap-2">
               {/* Time Filter */}
@@ -778,7 +778,7 @@ export default function RequestsPage(props: RequestsPageV2Props) {
                   }}
                 >
                   <LuPlus className="h-4 w-4" />
-                  Add to Dataset
+                  添加到数据集
                 </Button>
               )}
 
@@ -801,7 +801,7 @@ export default function RequestsPage(props: RequestsPageV2Props) {
                       }
                     />
                   </TooltipTrigger>
-                  <TooltipContent>Export data</TooltipContent>
+                  <TooltipContent>导出数据</TooltipContent>
                 </Tooltip>
               </div>
 
@@ -878,10 +878,10 @@ export default function RequestsPage(props: RequestsPageV2Props) {
                 <Row className="w-full items-center justify-between gap-5 bg-white p-5 dark:bg-black">
                   <div className="flex flex-row items-center gap-2">
                     <span className="whitespace-nowrap text-sm font-medium text-slate-900 dark:text-slate-100">
-                      Request Selection:
+                      请求选择:
                     </span>
                     <span className="whitespace-nowrap rounded-md bg-[#F1F5F9] p-2 text-sm font-medium text-[#1876D2] dark:bg-slate-900 dark:text-slate-100">
-                      {selectedIds.length} selected
+                      已选择 {selectedIds.length}
                     </span>
                   </div>
                   {selectedIds.length > 0 && (
@@ -892,7 +892,7 @@ export default function RequestsPage(props: RequestsPageV2Props) {
                       icon={
                         <LuPlus className="h-5 w-5 text-slate-900 dark:text-slate-100" />
                       }
-                      text="Add to dataset"
+                      text="添加到数据集"
                     />
                   )}
                 </Row>

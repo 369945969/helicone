@@ -56,7 +56,7 @@ const ExperimentsPage = () => {
     useFeatureLimit("experiments", experimentCount);
 
   if (isLoading) {
-    return <LoadingAnimation title="Loading Experiments" />;
+    return <LoadingAnimation title="加载实验中" />;
   }
 
   const handleDeleteExperiment = async () => {
@@ -64,9 +64,9 @@ const ExperimentsPage = () => {
 
     try {
       await deleteExperiment.mutateAsync(experimentToDelete);
-      setNotification("Experiment deleted successfully", "success");
+      setNotification("实验删除成功", "success");
     } catch (error) {
-      setNotification("Failed to delete experiment", "error");
+      setNotification("删除实验失败", "error");
     } finally {
       setDeleteDialogOpen(false);
       setExperimentToDelete(null);
@@ -74,10 +74,10 @@ const ExperimentsPage = () => {
   };
 
   const handleStartFromScratch = async () => {
-    setNotification("Creating experiment...", "info");
+    setNotification("正在创建实验...", "info");
     const res = await jawn.POST("/v2/experiment/create/empty");
     if (res.error) {
-      notification.setNotification("Failed to create experiment", "error");
+      notification.setNotification("创建实验失败", "error");
     } else {
       router.push(`/experiments/${res.data?.data?.experimentId}`);
     }
@@ -88,8 +88,8 @@ const ExperimentsPage = () => {
       <div className="flex h-screen w-full flex-col bg-background dark:bg-sidebar-background">
         <div className="flex h-full flex-1">
           <GenericEmptyState
-            title="Start Your First Experiment"
-            description="Create an experiment to compare prompt and model variations side by side."
+            title="开始您的第一个实验"
+            description="创建实验来并排比较提示词和模型变体。"
             icon={<FlaskConical size={28} className="text-accent-foreground" />}
             className="w-full"
             actions={
@@ -145,7 +145,7 @@ const ExperimentsPage = () => {
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col">
       <AuthHeader
-        title="Experiments"
+        title="实验"
         actions={
           !canCreateExperiment ? (
             <FreeTierLimitWrapper
@@ -202,7 +202,7 @@ const ExperimentsPage = () => {
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Delete Experiment</DialogTitle>
+            <DialogTitle>删除实验</DialogTitle>
           </DialogHeader>
           <DialogDescription>
             Once deleted, this experiment cannot be recovered. Do you want to

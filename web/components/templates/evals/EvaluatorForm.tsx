@@ -35,8 +35,8 @@ const modelOptions = ["gpt-4o", "gpt-4o-mini", "gpt-3.5-turbo"];
 
 // Default values for various scoring types
 const DEFAULT_CHOICE_SCORES: ChoiceScore[] = [
-  { score: 1, description: "Poor" },
-  { score: 2, description: "Excellent" },
+  { score: 1, description: "差" },
+  { score: 2, description: "优秀" },
 ];
 const DEFAULT_RANGE_MIN = 0;
 const DEFAULT_RANGE_MAX = 100;
@@ -205,7 +205,7 @@ export const EvaluatorForm = ({
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter evaluator name"
+                  placeholder="输入评估器名称"
                   className="max-w-md"
                 />
               </div>
@@ -228,7 +228,7 @@ export const EvaluatorForm = ({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className="font-mono h-64"
-              placeholder="Enter your evaluator prompt here"
+              placeholder="在此输入评估器提示词"
               required
             />
             <P className="text-sm text-muted-foreground">
@@ -242,7 +242,7 @@ export const EvaluatorForm = ({
       {/* Scoring Type card */}
       <Card className="shadow-sm">
         <CardHeader>
-          <CardTitle className="text-lg font-medium">Scoring Type</CardTitle>
+          <CardTitle className="text-lg font-medium">评分类型</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -271,7 +271,7 @@ export const EvaluatorForm = ({
                   </P>
                   <div className="rounded-md border bg-muted/10 p-4">
                     <div className="mb-3 flex items-center justify-between">
-                      <h4 className="text-sm font-medium">Choice Values</h4>
+                      <h4 className="text-sm font-medium">选择值</h4>
                       <Button
                         type="button"
                         variant="outline"
@@ -292,7 +292,7 @@ export const EvaluatorForm = ({
                               updateChoiceScore(index, "score", e.target.value)
                             }
                             className="w-20"
-                            placeholder="Score"
+                            placeholder="评分"
                           />
                           <Input
                             value={choice.description}
@@ -304,7 +304,7 @@ export const EvaluatorForm = ({
                               )
                             }
                             className="flex-1"
-                            placeholder="Description"
+                            placeholder="描述"
                           />
                           {choiceScores.length > 1 && (
                             <Button
@@ -330,7 +330,7 @@ export const EvaluatorForm = ({
                     granular quality evaluations.
                   </P>
                   <div className="rounded-md border bg-muted/10 p-4">
-                    <h4 className="mb-3 text-sm font-medium">Range Values</h4>
+                    <h4 className="mb-3 text-sm font-medium">范围值</h4>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label
@@ -399,7 +399,7 @@ export const EvaluatorForm = ({
               </div>
               <Select value={model} onValueChange={(value) => setModel(value)}>
                 <SelectTrigger id="model" className="max-w-md">
-                  <SelectValue placeholder="Select a model" />
+                  <SelectValue placeholder="选择模型" />
                 </SelectTrigger>
                 <SelectContent>
                   {modelOptions.map((option) => (
@@ -416,7 +416,7 @@ export const EvaluatorForm = ({
 
             {/* Included Variables Section */}
             <div className="space-y-2">
-              <h3 className="text-sm font-medium">Included Variables</h3>
+              <h3 className="text-sm font-medium">包含的变量</h3>
               <P className="text-sm text-muted-foreground">
                 Select which variables to include in the evaluation
               </P>

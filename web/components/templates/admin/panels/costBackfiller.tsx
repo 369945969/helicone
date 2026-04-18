@@ -339,7 +339,7 @@ const CostBackfiller = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
             1
           </div>
-          <H3>Select Models to Backfill</H3>
+          <H3>选择要回填的模型</H3>
         </div>
 
         <div className="mt-4 rounded-md border border-border bg-card">
@@ -442,7 +442,7 @@ const CostBackfiller = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
             2
           </div>
-          <H3>Specify Date Range</H3>
+          <H3>指定日期范围</H3>
         </div>
         <P className="text-muted-foreground">
           If no From Date is specified, then it will backfill everything. If no
@@ -511,7 +511,7 @@ const CostBackfiller = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
             3
           </div>
-          <H3>Check Current Row Counts</H3>
+          <H3>检查当前行数</H3>
         </div>
         <P className="text-muted-foreground">
           Check how many rows currently have costs vs. those that need
@@ -630,7 +630,7 @@ const CostBackfiller = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
             4
           </div>
-          <H3>Preview Query</H3>
+          <H3>预览查询</H3>
         </div>
         <P className="text-muted-foreground">
           Generate a preview of the SQL query that will be executed to ensure
@@ -673,7 +673,7 @@ const CostBackfiller = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
             5
           </div>
-          <H3>Execute Backfill</H3>
+          <H3>执行回填</H3>
         </div>
 
         <div className="mt-4 space-y-4">
@@ -745,7 +745,7 @@ const CostBackfiller = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
             6
           </div>
-          <H3>Deduplicate Data</H3>
+          <H3>数据去重</H3>
         </div>
         <P className="text-muted-foreground">
           After backfilling, deduplicate the table to remove any duplicate
@@ -790,7 +790,7 @@ const CostBackfiller = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
             7
           </div>
-          <H3>Verify Results</H3>
+          <H3>验证结果</H3>
         </div>
         <P className="text-muted-foreground">
           After deduplication completes, you can re-run step 3 to verify that

@@ -99,9 +99,9 @@ const CreateOrgForm = (props: CreateOrgFormProps) => {
         ) : (
           <>
             <DialogHeader className="space-y-2">
-              <DialogTitle>Let&apos;s get you integrated</DialogTitle>
+              <DialogTitle>让我们开始集成</DialogTitle>
               <DialogDescription>
-                What&apos;s your organization name?
+                您的组织名称是什么？
               </DialogDescription>
             </DialogHeader>
           </>
@@ -114,7 +114,7 @@ const CreateOrgForm = (props: CreateOrgFormProps) => {
               id="org-name"
               value={orgName}
               placeholder={
-                variant === "organization" ? "ACME" : "Customer name"
+                variant === "organization" ? "ACME" : "客户名称"
               }
               onChange={(e) => setOrgName(e.target.value)}
             />
@@ -126,7 +126,7 @@ const CreateOrgForm = (props: CreateOrgFormProps) => {
                   htmlFor="org-limits"
                   className="block text-sm font-medium leading-6 text-slate-900 dark:text-slate-100"
                 >
-                  Limits
+                  限制
                 </label>
                 <div className="mx-auto flex flex-row gap-4">
                   <div className="space-y-1 text-sm">
@@ -134,7 +134,7 @@ const CreateOrgForm = (props: CreateOrgFormProps) => {
                       htmlFor="org-costs"
                       className="block text-xs leading-6 text-slate-500"
                     >
-                      Costs (USD)
+                      成本 (美元)
                     </label>
                     <div className="flex flex-col gap-2">
                       <input
@@ -287,7 +287,7 @@ const CreateOrgForm = (props: CreateOrgFormProps) => {
                   return;
                 }
                 if (variant === "reseller" && providerKey === "") {
-                  setNotification("Please select a provider key", "error");
+                  setNotification("请选择提供商密钥", "error");
                   return;
                 }
                 const jawn = getJawnClient(orgContext?.currentOrg?.id);
@@ -310,10 +310,10 @@ const CreateOrgForm = (props: CreateOrgFormProps) => {
                   );
 
                   if (updateOrgError) {
-                    setNotification("Failed to update organization", "error");
+                    setNotification("更新组织失败", "error");
                   } else {
                     setNotification(
-                      "Organization updated successfully",
+                      "组织更新成功",
                       "success",
                     );
                     onSuccess && onSuccess();

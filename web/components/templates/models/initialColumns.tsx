@@ -5,7 +5,7 @@ import ModelPill from "../requests/modelPill";
 export const INITIAL_COLUMNS: ColumnDef<ModelMetric>[] = [
   {
     accessorKey: "model",
-    header: "Model",
+    header: "模型",
     cell: (info) => (
       <span className="font-medium text-gray-900 dark:text-gray-100">
         {info.getValue() === "" ? (
@@ -19,31 +19,31 @@ export const INITIAL_COLUMNS: ColumnDef<ModelMetric>[] = [
   },
   {
     accessorKey: "total_requests",
-    header: "Requests",
+    header: "请求数",
     cell: (info) => info.getValue(),
     minSize: 200,
   },
   {
     accessorKey: "total_prompt_token",
-    header: "Prompt Tokens",
+    header: "提示词令牌数",
     cell: (info) => info.getValue(),
     minSize: 200,
   },
   {
     accessorKey: "total_completion_tokens",
-    header: "Completion Tokens",
+    header: "补全令牌数",
     cell: (info) => info.getValue(),
     minSize: 200,
   },
   {
     accessorKey: "total_tokens",
-    header: "Total Tokens",
+    header: "总令牌数",
     cell: (info) => info.getValue(),
     minSize: 200,
   },
   {
     accessorKey: "cost",
-    header: "Cost",
+    header: "成本",
     cell: (info) => <span>{`$${info.getValue()}`}</span>,
   },
 ];

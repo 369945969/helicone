@@ -234,32 +234,32 @@ const RateLimitRuleModal = ({
         <DialogHeader>
           {/* Conditional Title/Description */}
           <DialogTitle>
-            {isEditMode ? "Edit Rate Limit Rule" : "Create New Rate Limit Rule"}
+            {isEditMode ? "编辑速率限制规则" : "创建新速率限制规则"}
           </DialogTitle>
           <DialogDescription>
             {isEditMode
-              ? "Modify the details of this rate limit rule."
-              : "Define a specific rate limit constraint. Requests must satisfy all applicable active rules."}
+              ? "修改此速率限制规则的详细信息。"
+              : "定义特定的速率限制约束。请求必须满足所有适用的活动规则。"}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
-              Rule Name
+              规则名称
             </Label>
             <Input
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="col-span-3"
-              placeholder='e.g., "Free Tier Daily Limit"'
+              placeholder='例如："免费版每日限制"'
               disabled={mutation.isPending}
             />
           </div>
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="quota" className="text-right">
-              Quota
+              配额
             </Label>
             <div className="col-span-3 grid grid-cols-2 gap-2">
               <Input
@@ -267,7 +267,7 @@ const RateLimitRuleModal = ({
                 type="number"
                 value={quota}
                 onChange={(e) => setQuota(e.target.value)}
-                placeholder="e.g., 1000"
+                placeholder="例如：1000"
                 min="0"
                 disabled={mutation.isPending}
               />
@@ -277,11 +277,11 @@ const RateLimitRuleModal = ({
                 disabled={mutation.isPending}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Select unit" />
+                  <SelectValue placeholder="选择单位" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="request">Requests</SelectItem>
-                  <SelectItem value="cents">Cents</SelectItem>
+                  <SelectItem value="request">请求数</SelectItem>
+                  <SelectItem value="cents">美分</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -297,7 +297,7 @@ const RateLimitRuleModal = ({
               className="col-span-3"
               value={windowSeconds}
               onChange={(e) => setWindowSeconds(e.target.value)}
-              placeholder="e.g., 3600 (for 1 hour)"
+              placeholder="例如：3600（1小时）"
               min="0"
               disabled={mutation.isPending}
             />
@@ -319,13 +319,13 @@ const RateLimitRuleModal = ({
                 disabled={mutation.isPending}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Select scope..." />
+                  <SelectValue placeholder="选择范围..." />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="global">All Requests (Global)</SelectItem>
-                  <SelectItem value="user">Each User ID</SelectItem>{" "}
+                  <SelectItem value="global">所有请求（全局）</SelectItem>
+                  <SelectItem value="user">每个用户 ID</SelectItem>{" "}
                   {/* Updated label */}
-                  <SelectItem value="property">Custom Property</SelectItem>
+                  <SelectItem value="property">自定义属性</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -351,7 +351,7 @@ const RateLimitRuleModal = ({
           <div className="px-4 pb-2 text-sm text-destructive">
             {" "}
             {/* Adjusted padding */}
-            <P className="mb-1 font-semibold">Error</P>
+            <P className="mb-1 font-semibold">错误</P>
             <pre className="font-sans whitespace-pre-wrap">{error}</pre>
           </div>
         )}

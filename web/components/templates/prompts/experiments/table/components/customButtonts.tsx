@@ -4,7 +4,7 @@ import {
   Cog6ToothIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
-import { Button } from "../../../../../ui/button";
+import { 按钮 } from "../../../../../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,21 +26,21 @@ const ColumnsDropdown: React.FC<{
   columnView: "all" | "inputs" | "outputs";
   setColumnView: (view: "all" | "inputs" | "outputs") => void;
 }> = ({ wrapText, setWrapText, columnView, setColumnView }) => {
-  const [combineInputColumns, setCombineInputColumns] = useState(false);
+  const [combine输入Columns, setCombine输入Columns] = useState(false);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
+按钮
           variant="outline"
           className="flex h-8 items-center justify-center space-x-1 border border-slate-200 px-2 py-0"
         >
           <AdjustmentsHorizontalIcon className="h-4 w-4 text-slate-700" />
           <ChevronDownIcon className="h-4 w-4 text-slate-400" />
-        </Button>
+        </按钮>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-60">
-        <DropdownMenuLabel>Columns</DropdownMenuLabel>
+        <DropdownMenuLabel>列</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem
@@ -51,7 +51,7 @@ const ColumnsDropdown: React.FC<{
             }}
           >
             {columnView === "all" && <Check className="mr-2 h-4 w-4" />}
-            <span className="flex-1">Show all</span>
+            <span className="flex-1">显示全部</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={(e) => {
@@ -61,7 +61,7 @@ const ColumnsDropdown: React.FC<{
             }}
           >
             {columnView === "inputs" && <Check className="mr-2 h-4 w-4" />}
-            <span className="flex-1">Show inputs only</span>
+            <span className="flex-1">仅显示输入</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={(e) => {
@@ -71,20 +71,20 @@ const ColumnsDropdown: React.FC<{
             }}
           >
             {columnView === "outputs" && <Check className="mr-2 h-4 w-4" />}
-            <span className="flex-1">Show outputs only</span>
+            <span className="flex-1">仅显示输出</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuLabel>Views</DropdownMenuLabel>
+        <DropdownMenuLabel>视图</DropdownMenuLabel>
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <Switch
-              checked={combineInputColumns}
+              checked={combine输入Columns}
               onClick={(event) => event.stopPropagation()}
-              onCheckedChange={setCombineInputColumns}
+              onCheckedChange={setCombine输入Columns}
               className="mr-2"
             />
-            <span className="flex-1">Combine input columns</span>
+            <span className="flex-1">合并输入列</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Switch
@@ -93,7 +93,7 @@ const ColumnsDropdown: React.FC<{
               onCheckedChange={setWrapText}
               className="mr-2"
             />
-            <span className="flex-1">Wrap text</span>
+            <span className="flex-1">自动换行</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
@@ -110,7 +110,7 @@ const ProviderKeyDropdown: React.FC<{
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <Button
+按钮
           variant="outline"
           className="flex h-8 items-center justify-center space-x-1 border border-slate-200 px-2 py-0"
         >
@@ -118,7 +118,7 @@ const ProviderKeyDropdown: React.FC<{
           {!providerKey && (
             <ExclamationTriangleIcon className="h-4 w-4 text-yellow-700" />
           )}
-        </Button>
+        </按钮>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="max-w-[320px]"
@@ -130,14 +130,13 @@ const ProviderKeyDropdown: React.FC<{
       >
         <DropdownMenuLabel className="flex items-center space-x-2">
           <Cog6ToothIcon className="mr-2 h-6 w-6" />
-          <span className="text-base font-medium">Settings</span>
+          <span className="text-base font-medium">设置</span>
         </DropdownMenuLabel>
         {!providerKey && (
           <InfoBox variant="warning" className="ml-2 p-2">
             <p className="flex gap-2 text-sm font-medium">
               <b>
-                Please select a provider key to run experiments. You can change
-                your mind at any time.
+                请选择一个提供商密钥来运行实验。您可以随时更改。
               </b>
             </p>
           </InfoBox>

@@ -29,9 +29,9 @@ export const MainPanel = () => {
     return (
       evaluators.data?.data?.data?.map((evaluator) => {
         // Determine the evaluator type based on available properties
-        let type = "Default";
+        let type = "默认";
         if (evaluator.llm_template) {
-          type = "LLM as a judge";
+          type = "LLM 裁判";
         } else if (evaluator.code_template) {
           type = "Python";
         } else if (evaluator.last_mile_config) {
@@ -76,7 +76,7 @@ export const MainPanel = () => {
       // Python evaluator
       setTestConfig({
         _type: "python",
-        evaluator_name: evaluator.name || "Python Evaluator",
+        evaluator_name: evaluator.name || "Python 评估器",
         code: evaluator.evaluator_code_template as string,
       });
     } else if (evaluator.evaluator_last_mile_config) {
@@ -100,8 +100,8 @@ export const MainPanel = () => {
       <div className="flex h-screen w-full flex-col bg-background dark:bg-sidebar-background">
         <div className="flex h-full flex-1">
           <GenericEmptyState
-            title="Create Your First Evaluator"
-            description="Create an evaluator to score your LLM outputs and measure their quality."
+            title="创建您的第一个评估器"
+            description="创建评估器来为您的 LLM 输出打分并衡量其质量。"
             icon={<LineChart size={28} className="text-accent-foreground" />}
             className="w-full"
             actions={
@@ -139,7 +139,7 @@ export const MainPanel = () => {
   return (
     <div className="flex h-screen w-full flex-col">
       <AuthHeader
-        title="Evaluators"
+        title="评估器"
         actions={[
           <FreeTierLimitWrapper
             key="create-evaluator-wrapper"

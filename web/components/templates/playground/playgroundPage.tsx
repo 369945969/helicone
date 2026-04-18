@@ -629,7 +629,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
 
   const onCreatePrompt = async (tags: string[], promptName: string) => {
     if (!mappedContent) {
-      setNotification("No mapped content", "error");
+      setNotification("没有映射内容", "error");
       return;
     }
     const promptBody = convertMappedLLMRequestToOpenAIChatRequest(
@@ -650,11 +650,11 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
 
       if (result.data?.versionId) {
         router.push(`/playground?promptVersionId=${result.data.versionId}`);
-        setNotification(`Prompt created successfully!`, "success");
+        setNotification(`提示词创建成功！`, "success");
       }
     } catch (error) {
       console.error("Failed to save prompt:", error);
-      setNotification("Failed to save prompt", "error");
+      setNotification("保存提示词失败", "error");
     }
   };
 
@@ -664,12 +664,12 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
     commitMessage: string,
   ) => {
     if (!mappedContent) {
-      setNotification("No mapped content", "error");
+      setNotification("没有映射内容", "error");
       return;
     }
 
     if (!promptVersionData?.promptVersion || !promptVersionData?.prompt) {
-      setNotification("No prompt version data available", "error");
+      setNotification("没有提示词版本数据可用", "error");
       return;
     }
 
@@ -696,11 +696,11 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
       if (result.data?.id) {
         router.push(`/playground?promptVersionId=${result.data.id}`);
 
-        setNotification(`Prompt version saved successfully!`, "success");
+        setNotification(`提示词版本保存成功！`, "success");
       }
     } catch (error) {
       console.error("Failed to save prompt version:", error);
-      setNotification("Failed to save prompt version", "error");
+      setNotification("保存提示词版本失败", "error");
     }
   };
 
@@ -1012,7 +1012,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
           mappedContent.schema.request.messages || [],
         );
       if (hasSubstitutionFailure) {
-        setNotification("Improper template values!", "error");
+        setNotification("模板值不正确！", "error");
         return mappedContent;
       }
       const substituted = HeliconeTemplateManager.substituteVariablesJSON(
@@ -1020,7 +1020,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
         substitutionValues,
       );
       if (!substituted.success) {
-        setNotification("Improper template values!", "error");
+        setNotification("模板值不正确！", "error");
       }
 
       const substitutedTools = HeliconeTemplateManager.substituteVariablesJSON(
@@ -1028,7 +1028,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
         substitutionValues,
       );
       if (!substitutedTools.success) {
-        setNotification("Improper template values!", "error");
+        setNotification("模板值不正确！", "error");
       }
 
       return {
@@ -1055,7 +1055,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
 
   const onRun = async () => {
     if (!mappedContent) {
-      setNotification("No mapped content", "error");
+      setNotification("没有映射内容", "error");
       return;
     }
 
@@ -1123,7 +1123,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
         if (error instanceof Error) {
           if (error.name === "AbortError") {
             setError("Request was cancelled");
-            setNotification("Request was cancelled", "error");
+            setNotification("请求已取消", "error");
           } else {
             console.error("Error:", error);
             setError(
@@ -1132,7 +1132,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
             );
             setNotification(
               error.message ||
-                "An error occurred while generating the response",
+                "生成响应时发生错误",
               "error",
             );
           }
@@ -1142,7 +1142,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
         abortController.current = null;
       }
     } catch (error) {
-      setNotification("Failed to save prompt state", "error");
+      setNotification("保存提示词状态失败", "error");
       setIsLoading(false);
       if (error instanceof Error) {
         setError(error.message);

@@ -508,7 +508,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                   disabled={isEditMode && !isEditingKey}
                 >
                   <SelectTrigger className="h-7 text-xs">
-                    <SelectValue placeholder="Select endpoint region" />
+                    <SelectValue placeholder="选择端点区域" />
                   </SelectTrigger>
                   <SelectContent>
                     {OPENAI_ENDPOINTS.map((endpoint) => (
@@ -594,7 +594,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                           <Copy className="h-2.5 w-2.5 text-muted-foreground opacity-0 group-hover:opacity-100" />
                         </button>
                       </TooltipTrigger>
-                      <TooltipContent>Copy Key ID</TooltipContent>
+                      <TooltipContent>复制密钥 ID</TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </div>
@@ -616,7 +616,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                       <Trash2 className="h-3 w-3" />
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>Remove instance</TooltipContent>
+                  <TooltipContent>移除实例</TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             )}
@@ -625,12 +625,12 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
           {/* Key input row */}
           <div className="flex items-end gap-1">
             <div className="relative flex-1">
-              {provider.id === "bedrock" && <Label>Access key</Label>}
+              {provider.id === "bedrock" && <Label>访问密钥</Label>}
               {provider.auth === "service_account" && !isEditMode && (
                 <div>
-                  <Label>Service Account JSON</Label>
+                  <Label>服务账号 JSON</Label>
                   <Textarea
-                    placeholder="Paste your service account JSON here..."
+                    placeholder="在此粘贴您的服务账号 JSON..."
                     value={keyValue}
                     onChange={(e) =>
                       handleServiceAccountJsonChange(e.target.value)
@@ -640,12 +640,12 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                   />
                   {keyValue && (
                     <Small className="mt-2 text-xs text-muted-foreground">
-                      Service account loaded ✓
+                      服务账号已加载 ✓
                     </Small>
                   )}
                   {!keyValue && (
                     <Small className="mt-1 text-xs text-muted-foreground">
-                      Paste your service account JSON from Google Cloud Console
+                      从 Google Cloud Console 粘贴您的服务账号 JSON
                     </Small>
                   )}
                 </div>
@@ -668,11 +668,11 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
               )}
               {provider.auth === "service_account" && isEditMode && (
                 <div>
-                  <Label>Service Account JSON</Label>
+                  <Label>服务账号 JSON</Label>
                   {isEditingKey ? (
                     <>
                       <Textarea
-                        placeholder="Paste new service account JSON here..."
+                        placeholder="在此粘贴新的服务账号 JSON..."
                         value={keyValue}
                         onChange={(e) =>
                           handleServiceAccountJsonChange(e.target.value)
@@ -681,7 +681,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                       />
                       {keyValue && (
                         <Small className="mt-1 text-xs text-muted-foreground">
-                          Service account loaded ✓
+                          服务账号已加载 ✓
                         </Small>
                       )}
                     </>
@@ -689,7 +689,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                     <>
                       <Input
                         type="password"
-                        placeholder="Service account configured"
+                        placeholder="服务账号已配置"
                         value="••••••••••••••••"
                         className="h-7 flex-1 py-1 text-xs"
                         disabled={true}
@@ -734,7 +734,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                           (isEditingKey && keyValue)
                         )
                       }
-                      title="Copy"
+                      title="复制"
                     >
                       <Copy className="h-3 w-3" />
                     </button>
@@ -745,7 +745,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                         type="button"
                         onClick={() => handleCopyToClipboard(keyValue)}
                         className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
-                        title="Copy"
+                        title="复制"
                       >
                         <Copy className="h-3 w-3" />
                       </button>
@@ -758,7 +758,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                       onClick={handleToggleKeyVisibility}
                       className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
                       disabled={isLoading}
-                      title={isViewingKey ? "Hide" : "View"}
+                      title={isViewingKey ? "隐藏" : "查看"}
                     >
                       {isLoading ? (
                         <span className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -774,7 +774,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
             </div>
             {provider.id === "bedrock" && (
               <div className="relative flex-1">
-                <Label>Secret key</Label>
+                <Label>密钥</Label>
                 <Input
                   type={isViewingKey || isEditingKey ? "text" : "password"}
                   placeholder={
@@ -813,7 +813,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                           (isEditingKey && secretKeyValue)
                         )
                       }
-                      title="Copy"
+                      title="复制"
                     >
                       <Copy className="h-3 w-3" />
                     </button>
@@ -824,7 +824,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                         type="button"
                         onClick={() => handleCopyToClipboard(secretKeyValue)}
                         className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
-                        title="Copy"
+                        title="复制"
                       >
                         <Copy className="h-3 w-3" />
                       </button>
@@ -837,7 +837,7 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                       onClick={handleToggleKeyVisibility}
                       className="rounded p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
                       disabled={isLoading}
-                      title={isViewingKey ? "Hide" : "View"}
+                      title={isViewingKey ? "隐藏" : "查看"}
                     >
                       {isLoading ? (
                         <span className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -967,19 +967,19 @@ const ProviderInstance: React.FC<ProviderInstanceProps> = ({
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                   <AlertDialogHeader>
-                    <AlertDialogTitle>Delete Provider Key</AlertDialogTitle>
+                    <AlertDialogTitle>删除提供商密钥</AlertDialogTitle>
                     <AlertDialogDescription>
-                      Are you sure you want to delete this {provider.name} key?
-                      This action cannot be undone.
+                      确定要删除此 {provider.name} 密钥吗？
+                      此操作无法撤销。
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel>取消</AlertDialogCancel>
                     <AlertDialogAction
                       onClick={() => deleteProviderKey.mutate(existingKey.id)}
                       className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                     >
-                      Delete
+                      删除
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
@@ -1159,17 +1159,16 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({ provider }) => {
       <AlertDialog open={showSaveConfirm} onOpenChange={setShowSaveConfirm}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Update Provider Key</AlertDialogTitle>
+            <AlertDialogTitle>更新提供商密钥</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to update this {provider.name} key? This
-              will replace the existing key with the new value you&apos;ve
-              entered.
+              确定要更新此 {provider.name} 密钥吗？这将
+              用您输入的新值替换现有密钥。
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction onClick={handleConfirmSave}>
-              Update Key
+              更新密钥
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

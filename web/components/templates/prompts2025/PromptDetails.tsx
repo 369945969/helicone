@@ -360,7 +360,7 @@ const PromptDetails = ({
             className="group flex cursor-pointer items-center text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
             onClick={() => {
               navigator.clipboard.writeText(prompt.id);
-              setNotification("ID copied to clipboard", "success");
+              setNotification("ID 已复制到剪贴板", "success");
             }}
           >
             <span>ID: {prompt.id}</span>
@@ -404,7 +404,7 @@ const PromptDetails = ({
                                 type="button"
                                 className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                                 onClick={() => handleRemoveTag(tag)}
-                                aria-label={`Remove ${tag}`}
+                                aria-label={`移除 ${tag}`}
                               >
                                 <X className="h-3 w-3" />
                               </button>
@@ -429,7 +429,7 @@ const PromptDetails = ({
                             }
                           }}
                           onKeyDown={handleTagInputKeyDown}
-                          placeholder="Add a tag"
+                          placeholder="添加标签"
                         />
                         <Button
                           variant="secondary"
@@ -465,7 +465,7 @@ const PromptDetails = ({
                         </div>
                       ) : suggestionTags.length > 0 ? (
                         <Command className="max-h-40 overflow-hidden rounded-md border border-border">
-                          <CommandInput placeholder="Search tags..." />
+                          <CommandInput placeholder="搜索标签..." />
                           <CommandList>
                             <CommandEmpty>
                               No matches. Add a custom tag instead.
@@ -530,7 +530,7 @@ const PromptDetails = ({
           <Small className="font-medium text-foreground">Version</Small>
           <Select value={selectedVersion} onValueChange={handleVersionChange}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select version" />
+              <SelectValue placeholder="选择版本" />
             </SelectTrigger>
             <SelectContent>
               {versionOptions.map((version) => (

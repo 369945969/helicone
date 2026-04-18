@@ -122,7 +122,7 @@ const ExperimentConfig = (props: ExperimentConfigProps) => {
             }}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Select model" />
+              <SelectValue placeholder="选择模型" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="gpt-3.5-turbo-1106">
@@ -182,15 +182,15 @@ const ExperimentConfig = (props: ExperimentConfigProps) => {
         <button
           onClick={() => {
             if (experimentName === "") {
-              setNotification("Experiment name is required", "error");
+              setNotification("实验名称是必填项", "error");
               return;
             }
             if (selectedVersion === "") {
-              setNotification("Version is required", "error");
+              setNotification("版本是必填项", "error");
               return;
             }
             if (providerKeyId === "") {
-              setNotification("Provider key is required", "error");
+              setNotification("提供商密钥是必填项", "error");
               return;
             }
             // set the request id list
@@ -208,7 +208,7 @@ const ExperimentConfig = (props: ExperimentConfigProps) => {
           }}
           className="flex items-center rounded-md bg-black px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:bg-white dark:text-black dark:hover:bg-gray-200"
         >
-          Next
+          下一步
         </button>
       </div>
     </div>

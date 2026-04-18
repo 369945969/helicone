@@ -72,7 +72,7 @@ type SelectedCachedRequest = {
 const topRequestsColumns: ColumnDef<CacheRequest>[] = [
   {
     accessorKey: "prompt",
-    header: "Request",
+    header: "请求",
     cell: (info) => (
       <div className="max-w-[300px] truncate font-medium text-gray-900 dark:text-gray-100">
         {info.getValue() as string}
@@ -82,13 +82,13 @@ const topRequestsColumns: ColumnDef<CacheRequest>[] = [
   },
   {
     accessorKey: "model",
-    header: "Model",
+    header: "模型",
     cell: (info) => <ModelPill model={info.getValue() as string} />,
     minSize: 150,
   },
   {
     accessorKey: "count",
-    header: "Cache Hits",
+    header: "缓存命中数",
     cell: (info) => (
       <span className="font-semibold">{info.getValue() as number}</span>
     ),
@@ -96,7 +96,7 @@ const topRequestsColumns: ColumnDef<CacheRequest>[] = [
   },
   {
     accessorKey: "first_used",
-    header: "First Used",
+    header: "首次使用",
     cell: (info) => (
       <span className="text-sm text-muted-foreground">
         {new Date(info.getValue() as Date).toLocaleString()}
@@ -106,7 +106,7 @@ const topRequestsColumns: ColumnDef<CacheRequest>[] = [
   },
   {
     accessorKey: "last_used",
-    header: "Last Used",
+    header: "最后使用",
     cell: (info) => (
       <span className="text-sm text-muted-foreground">
         {new Date(info.getValue() as Date).toLocaleString()}
@@ -206,7 +206,7 @@ const CachePage = (props: CachePageProps) => {
   if (isLoading) {
     return (
       <div className="flex min-h-[calc(100vh-200px)] items-center justify-center">
-        <div className="text-muted-foreground">Loading cache data...</div>
+        <div className="text-muted-foreground">正在加载缓存数据...</div>
       </div>
     );
   }
@@ -224,21 +224,21 @@ const CachePage = (props: CachePageProps) => {
   const metrics = [
     {
       id: "caches",
-      label: "Total Cache Hits",
+      label: "总缓存命中数",
       value: `${chMetrics.totalCacheHits.data?.data ?? 0} hits`,
       isLoading: isAnyLoading,
       icon: CircleStackIcon,
     },
     {
       id: "savings",
-      label: "Cost Savings",
+      label: "节省成本",
       value: `$${formatNumber(chMetrics.totalSavings.data?.data ?? 0)}`,
       isLoading: isAnyLoading,
       icon: BanknotesIcon,
     },
     {
       id: "time-saved",
-      label: "Time Saved",
+      label: "节省时间",
       value: formatTimeSaved(chMetrics.timeSaved.data?.data ?? 0),
       isLoading: isAnyLoading,
       icon: ClockIcon,
@@ -270,13 +270,13 @@ const CachePage = (props: CachePageProps) => {
               onValueChange={(value) => setTimePeriod(Number(value))}
             >
               <SelectTrigger className="h-8 w-[160px] shadow-sm">
-                <SelectValue placeholder="Select time period" />
+                <SelectValue placeholder="选择时间段" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="3">Last 3 days</SelectItem>
-                <SelectItem value="7">Last 7 days</SelectItem>
-                <SelectItem value="30">Last 30 days</SelectItem>
-                <SelectItem value="90">Last 90 days</SelectItem>
+                <SelectItem value="3">最近 3 天</SelectItem>
+                <SelectItem value="7">最近 7 天</SelectItem>
+                <SelectItem value="30">最近 30 天</SelectItem>
+                <SelectItem value="90">最近 90 天</SelectItem>
               </SelectContent>
             </Select>
           </section>
@@ -298,7 +298,7 @@ const CachePage = (props: CachePageProps) => {
       <section className={`w-full px-4 pb-2 dark:border-border`}>
         <div className="py-4">
           <h2 className="mb-4 text-lg font-semibold text-foreground">
-            Overview
+            概览
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {/* Total Cache Hits */}
@@ -322,7 +322,7 @@ const CachePage = (props: CachePageProps) => {
               <BanknotesIcon className="h-6 w-6 text-sky-500" />
               <div className="flex flex-col">
                 <div className="text-sm text-muted-foreground">
-                  Total Cost Savings
+                  总成本节省
                 </div>
                 {loadingStates.totalSavings ? (
                   <div className="h-7 w-16 animate-pulse rounded bg-muted" />
@@ -338,7 +338,7 @@ const CachePage = (props: CachePageProps) => {
               <ClockIcon className="h-6 w-6 text-sky-500" />
               <div className="flex flex-col">
                 <div className="text-sm text-muted-foreground">
-                  Total Time Saved
+                  总节省时间
                 </div>
                 {loadingStates.timeSaved ? (
                   <div className="h-7 w-16 animate-pulse rounded bg-muted" />
@@ -354,7 +354,7 @@ const CachePage = (props: CachePageProps) => {
               <CircleStackIcon className="h-6 w-6 text-sky-500" />
               <div className="flex flex-col">
                 <div className="text-sm text-muted-foreground">
-                  Cache Hit Rate
+                  缓存命中率
                 </div>
                 {loadingStates.totalCacheHits || loadingStates.totalRequests ? (
                   <div className="h-7 w-16 animate-pulse rounded bg-muted" />
@@ -374,7 +374,7 @@ const CachePage = (props: CachePageProps) => {
               <ClockIcon className="h-6 w-6 text-sky-500" />
               <div className="flex flex-col">
                 <div className="text-sm text-muted-foreground">
-                  Time Saved per Hit
+                  每次命中节省时间
                 </div>
                 {loadingStates.avgLatency || loadingStates.avgLatencyCached ? (
                   <div className="h-7 w-16 animate-pulse rounded bg-muted" />
@@ -394,7 +394,7 @@ const CachePage = (props: CachePageProps) => {
         className={`w-full border-t bg-white px-4 py-2 dark:border-border`}
       >
         <div className="py-4">
-          <h2 className="mb-4 text-lg font-semibold text-foreground">{`Cache Hits (Last ${timePeriod} days)`}</h2>
+          <h2 className="mb-4 text-lg font-semibold text-foreground">{`缓存命中 (最近 ${timePeriod} days)`}</h2>
           <div className="h-72 px-4">
             {loadingStates.cacheHits ? (
               <div className="flex h-full w-full flex-col p-8">
@@ -420,7 +420,7 @@ const CachePage = (props: CachePageProps) => {
         <div className="py-4">
           <div className="mb-4 flex flex-row items-center justify-between px-4">
             <h2 className="text-lg font-semibold text-foreground">
-              Top Requests
+              顶级请求
             </h2>
             <button
               className="rounded-lg border border-border px-3 py-1.5 text-sm hover:bg-muted"
@@ -430,11 +430,11 @@ const CachePage = (props: CachePageProps) => {
                     FilterAST.condition("cache_enabled", "is", true),
                   ),
                 );
-                filterStore.setActiveFilterName("Cache Enabled Requests");
+                filterStore.setActiveFilterName("启用缓存的请求");
                 router.push("/requests");
               }}
             >
-              View All
+              查看全部
             </button>
           </div>
           <div className="border-t">
@@ -474,12 +474,12 @@ const CachePage = (props: CachePageProps) => {
         {selectedRequest ? (
           <div className="flex flex-col space-y-2">
             <p className="rounded-lg border border-red-300 p-2 text-sm text-gray-500 dark:border-red-700">
-              Cache Bucket response configurable soon...
+              缓存 Bucket 响应即将支持配置...
             </p>
             <dl className="mt-2 grid grid-cols-2">
               <div className="col-span-2 flex flex-row items-center justify-between border-b border-gray-200 py-2 text-sm font-medium dark:border-gray-800">
                 <div className="flex flex-col">
-                  <dt className="text-gray-500">Request ID</dt>
+                  <dt className="text-gray-500">请求 ID</dt>
                   <dd className="text-gray-900 dark:text-gray-100">
                     {selectedRequest.request_id}
                   </dd>
@@ -492,19 +492,19 @@ const CachePage = (props: CachePageProps) => {
                 </dd>
               </div>
               <div className="col-span-1 flex flex-col justify-between border-b border-gray-200 py-2 text-sm font-medium dark:border-gray-800">
-                <dt className="text-gray-500">Cache Hits</dt>
+                <dt className="text-gray-500">缓存命中</dt>
                 <dd className="text-gray-900 dark:text-gray-100">
                   {selectedRequest.count}
                 </dd>
               </div>
               <div className="col-span-1 flex flex-col justify-between border-b border-gray-200 py-2 text-sm font-medium dark:border-gray-800">
-                <dt className="text-gray-500">First Used</dt>
+                <dt className="text-gray-500">首次使用</dt>
                 <dd className="text-gray-900 dark:text-gray-100">
                   {new Date(selectedRequest?.first_used || "").toLocaleString()}
                 </dd>
               </div>
               <div className="col-span-1 flex flex-col justify-between border-b border-gray-200 py-2 text-sm font-medium dark:border-gray-800">
-                <dt className="text-gray-500">Last Used</dt>
+                <dt className="text-gray-500">最后使用</dt>
                 <dd className="text-gray-900 dark:text-gray-100">
                   {new Date(selectedRequest?.last_used || "").toLocaleString()}
                 </dd>
@@ -519,7 +519,7 @@ const CachePage = (props: CachePageProps) => {
           </div>
         ) : (
           <div className="flex flex-col space-y-2">
-            <p className="text-sm text-gray-500">No request data available</p>
+            <p className="text-sm text-gray-500">无请求数据</p>
           </div>
         )}
       </ThemedDrawer>

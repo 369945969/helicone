@@ -76,29 +76,36 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
       userId: string;
       expiresAt: string;
     }>(
-      `SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1 AND "expiresAt" > NOW()`,
+      `SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1`,
       [token]
     );
 
     if (!sessionResult.data || sessionResult.data.length === 0) {
+      console.log(`Session not found for token starting with: ${token.substring(0, 10)}`);
       return err("Invalid or expired session");
     }
 
     const session = sessionResult.data[0];
+    const expiresAt = new Date(session.expiresAt);
+    if (expiresAt < new Date()) {
+      console.log(`Session expired for token starting with: ${token.substring(0, 10)}. Expires at: ${session.expiresAt}, Current time: ${new Date().toISOString()}`);
+      return err("Invalid or expired session");
+    }
 
     const user = await dbExecute<{
       user_id: string;
       email: string;
     }>(
       `SELECT 
-        public.user.auth_user_id as user_id, 
-        public.user.email
-      FROM public.user
-      LEFT JOIN auth.users on public.user.auth_user_id = auth.users.id
-      WHERE public.user.id = $1`,
+        "user".auth_user_id as user_id, 
+        "user".email
+      FROM "user"
+      LEFT JOIN auth.users on "user".auth_user_id = auth.users.id
+      WHERE "user".id = $1`,
       [session.userId]
     );
     if (!user || !user.data?.[0]) {
+      console.log(`User not found for userId: ${session.userId}`);
       return err("User not found");
     }
 
@@ -144,6 +151,22 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
       if (user.error) {
         return err(user.error);
       }
+
+      let orgId = auth.orgId;
+      if (orgId === "none" || !orgId) {
+        // Find default org for user
+        const defaultOrg = await dbExecute<{
+          organization: string;
+          org_role: Role;
+        }>(
+          `SELECT organization, org_role FROM organization_member WHERE member = $1 LIMIT 1`,
+          [user.data?.id]
+        );
+        if (defaultOrg.data && defaultOrg.data.length > 0) {
+          orgId = defaultOrg.data[0].organization;
+        }
+      }
+
       const org = await dbExecute<
         Database["public"]["Tables"]["organization"]["Row"] & {
           role: Role;
@@ -156,7 +179,7 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
   and organization_member.member = $2
   limit 1
   `,
-        [auth.orgId, user.data?.id]
+        [orgId, user.data?.id]
       );
 
       if (!org?.data?.[0]?.id || !org?.data?.[0]?.role) {

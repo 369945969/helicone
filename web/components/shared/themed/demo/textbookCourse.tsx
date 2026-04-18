@@ -93,7 +93,7 @@ const TextbookCourse: React.FC<TextbookCourseProps> = ({
     <div className="flex h-full w-full flex-col overflow-hidden bg-gray-50">
       <div className="border-b bg-white p-3">
         <h1 className="mb-2 text-lg font-bold text-indigo-900">
-          {course.overview?.title || "Generating course..."}
+          {course.overview?.title || "正在生成课程..."}
         </h1>
         <div className="flex flex-wrap items-center gap-2">
           {sessionId && (
@@ -103,7 +103,7 @@ const TextbookCourse: React.FC<TextbookCourseProps> = ({
               )}/${encodeURIComponent(sessionId)}`}
               className="rounded bg-indigo-600 px-2 py-1 text-xs text-white hover:bg-indigo-700"
             >
-              View Session
+              查看会话
             </Link>
           )}
 
@@ -111,13 +111,13 @@ const TextbookCourse: React.FC<TextbookCourseProps> = ({
             href="https://us.helicone.ai/prompts"
             className="rounded bg-purple-600 px-2 py-1 text-xs text-white hover:bg-purple-700"
           >
-            View Prompts
+            查看提示词
           </Link>
           <button
             onClick={toggleOverview}
             className="flex items-center rounded border border-gray-300 bg-white px-2 py-1 text-xs text-gray-700 hover:bg-gray-50"
           >
-            {isOverviewExpanded ? "Hide" : "Show"} Description
+            {isOverviewExpanded ? "隐藏" : "显示"} 描述
             {isOverviewExpanded ? (
               <ChevronUpIcon className="ml-1 h-3 w-3" />
             ) : (
@@ -128,7 +128,7 @@ const TextbookCourse: React.FC<TextbookCourseProps> = ({
         {isOverviewExpanded && (
           <p className="mt-2 text-xs text-gray-600">
             {course.overview?.description ||
-              "Please wait while we create your course."}
+              "请稍候，我们正在为您创建课程。"}
           </p>
         )}
       </div>
@@ -162,7 +162,7 @@ const TextbookCourse: React.FC<TextbookCourseProps> = ({
                 {course.quizzes && course.quizzes[index] && (
                   <div className="mt-3 rounded bg-gray-50 p-2">
                     <h3 className="mb-2 text-sm font-medium text-indigo-900">
-                      Quiz
+                      测验
                     </h3>
                     {course.quizzes[index].questions.map((q, qIndex) => (
                       <div key={qIndex} className="mb-3">
@@ -198,8 +198,8 @@ const TextbookCourse: React.FC<TextbookCourseProps> = ({
                             }`}
                           >
                             {quizAnswers[index]?.[qIndex] === q.correctAnswer
-                              ? "Correct!"
-                              : `Incorrect. The correct answer is: ${
+                              ? "正确！"
+                              : `不正确。正确答案是：${
                                   q.options[q.correctAnswer]
                                 }`}
                           </p>
@@ -211,7 +211,7 @@ const TextbookCourse: React.FC<TextbookCourseProps> = ({
                         onClick={() => submitQuiz(index)}
                         className="mt-2 rounded bg-indigo-600 px-3 py-1 text-xs text-white transition-colors duration-200 hover:bg-indigo-700"
                       >
-                        Submit Quiz
+                        提交测验
                       </button>
                     )}
                   </div>

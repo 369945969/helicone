@@ -34,7 +34,7 @@ export default function SortButton<T>(props: SortButtonProps<T>) {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
           <BarsArrowDownIcon className="h-4 w-4" />
-          <span className="sr-only">Sort</span>
+          <span className="sr-only">排序</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[200px]">
@@ -69,7 +69,7 @@ export default function SortButton<T>(props: SortButtonProps<T>) {
             value={router.query.sortKey as string}
           >
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select a column" />
+              <SelectValue placeholder="选择列" />
             </SelectTrigger>
             <SelectContent>
               {columns

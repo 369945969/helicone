@@ -216,7 +216,7 @@ export default function SessionTimelineTable(
       {children && <div className="flex-shrink-0">{children}</div>}
       <div className="h-full bg-slate-50 dark:bg-slate-950">
         {skeletonLoading ? (
-          <LoadingAnimation title="Loading Data..." />
+          <LoadingAnimation title="加载数据中..." />
         ) : rows.length === 0 ? (
           <div className="flex h-48 w-full flex-col items-center justify-center space-y-3 border-border bg-white px-4 py-2 dark:bg-black">
             <TableCellsIcon className="h-12 w-12 text-slate-900 dark:text-slate-100" />
@@ -293,7 +293,7 @@ export default function SessionTimelineTable(
                               size="icon"
                               onClick={() => onToggleAllRows(table)}
                               className="h-6 w-6"
-                              aria-label={"Toggle expand all rows"}
+                              aria-label={"切换展开所有行"}
                             >
                               <ChevronsUpDown className="h-4 w-4" />
                             </Button>
@@ -507,7 +507,7 @@ export default function SessionTimelineTable(
                         {cell.column.id === "path" &&
                           descendantErrorMap.get(row.original.id) && (
                             <span
-                              title="Contains descendant error"
+                              title="包含后代错误"
                               className="ml-2 h-2 w-2 shrink-0 rounded-full bg-red-600"
                             />
                           )}

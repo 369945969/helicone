@@ -71,7 +71,7 @@ export const WrappedPage: React.FC = () => {
             className="border-white/20 text-white hover:bg-white/10"
           >
             <ArrowLeft size={16} className="mr-2" />
-            Back to Dashboard
+            返回仪表板
           </Button>
         </div>
       </div>
@@ -98,7 +98,7 @@ export const WrappedPage: React.FC = () => {
             className="border-white/20 text-white hover:bg-white/10"
           >
             <ArrowLeft size={16} className="mr-2" />
-            Back to Dashboard
+            返回仪表板
           </Button>
         </div>
       </div>

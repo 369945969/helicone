@@ -22,7 +22,7 @@ const SSO = () => {
 
     const domain = email.split("@")[1];
     if (!domain) {
-      setNotification("Please enter a valid email address.", "error");
+      setNotification("请输入有效的电子邮件地址。", "error");
       setIsLoading(false);
       return;
     }

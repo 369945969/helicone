@@ -913,7 +913,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
     const err = audioRef.current?.error;
     const errorMsg = err
       ? `Audio Error ${err.code}: ${err.message}`
-      : "Error loading audio";
+      : "加载音频时出错"
 
     logger.error({ errorMsg, audioError: err }, "Audio element error");
     setErrorMessage(errorMsg);
@@ -946,7 +946,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         {/* Play/Pause Button */}
         <button
           onClick={handlePlayPause}
-          aria-label={isPlaying ? "Pause" : "Play"}
+          aria-label={isPlaying ? "暂停" : "播放"}
           {...commonDisabledProps}
         >
           {isPlaying ? (
@@ -986,8 +986,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         {/* Download Button */}
         <button
           onClick={handleDownload}
-          aria-label="Download audio"
-          title="Download audio"
+          aria-label="下载音频"
+          title="下载音频"
           {...commonDisabledProps}
         >
           <PiDownloadBold className="h-4 w-4" />

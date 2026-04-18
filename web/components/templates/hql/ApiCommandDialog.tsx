@@ -99,7 +99,7 @@ console.log(data);`;
             </DialogTrigger>
           </TooltipTrigger>
           <TooltipContent>
-            <p className="text-xs">Copy REST API command</p>
+            <p className="text-xs">复制 REST API 命令</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>

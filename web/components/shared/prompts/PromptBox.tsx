@@ -680,7 +680,7 @@ export default function PromptBox({
         onKeyDown={handleKeyDown}
         onSelect={handleSelection}
         onBlur={handleBlur}
-        placeholder="Type your prompt..."
+        placeholder="输入您的提示词..."
         disabled={disabled}
         style={sharedTextAreaStyles}
         className="resize-none bg-transparent text-transparent"

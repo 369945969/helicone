@@ -80,12 +80,12 @@ interface PropertyPanelProps {
 const TABS = [
   {
     id: "table",
-    label: "Table",
+    label: "表格",
     icon: <Table size={16} />,
   },
   {
     id: "charts",
-    label: "Charts",
+    label: "图表",
     icon: <PieChart size={16} />,
   },
 ];
@@ -292,14 +292,14 @@ const PropertyPanel = (props: PropertyPanelProps) => {
                   <PopoverContent className="w-[180px] p-0">
                     <Command>
                       <CommandInput
-                        placeholder="Search properties..."
+                        placeholder="搜索属性..."
                         onChangeCapture={(
                           e: React.ChangeEvent<HTMLInputElement>,
                         ) => {
                           onSearchChange(e.target.value);
                         }}
                       />
-                      <CommandEmpty>No results found.</CommandEmpty>
+                      <CommandEmpty>未找到结果。</CommandEmpty>
 
                       <CommandList>
                         {properties.map((prop, i) => {
@@ -368,7 +368,7 @@ const PropertyPanel = (props: PropertyPanelProps) => {
             rightSection={
               <section className="flex flex-row items-center gap-2">
                 <div className="flex h-8 flex-row items-center divide-x divide-border overflow-hidden rounded-lg border border-border shadow-sm">
-                  <label className="px-2 py-1 text-xs">Views</label>
+                  <label className="px-2 py-1 text-xs">视图</label>
 
                   <TabsList
                     size={"sm"}
@@ -486,7 +486,7 @@ const PropertyPanel = (props: PropertyPanelProps) => {
                       columns={[
                         {
                           key: "property_value" as keyof (typeof cleanedValueData)[0],
-                          header: "Value",
+                          header: "值",
                           sortable: true,
                           render: (propertyValue) => (
                             <button

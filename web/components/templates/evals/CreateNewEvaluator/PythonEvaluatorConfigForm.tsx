@@ -1,108 +1,108 @@
 import { Col } from "@/components/layout/common";
-import { useInvalidateEvaluators } from "@/components/templates/evals/EvaluatorHook";
-import { useTestDataStore } from "@/components/templates/evals/testing/testingStore";
+import { useInvalidate评估器s } from "@/components/templates/evals/评估器钩子";
+import { use测试DataStore } from "@/components/templates/evals/testing/testingStore";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Textarea } from "@/components/ui/textarea";
-import { useJawnClient } from "@/lib/clients/jawnHook";
+import { useJawnClient } from "@/lib/clients/jawn钩子";
 import { useEffect } from "react";
-import MarkdownEditor from "@/components/shared/markdownEditor";
+import Markdown编辑or from "@/components/shared/markdown编辑or";
 import useNotification from "../../../shared/notification/useNotification";
-import { useEvalPanelStore } from "../store/evalPanelStore";
-import { CompositeOption, TestFunction } from "../testing/types";
-import { useEvalFormStore } from "../store/evalFormStore";
-import { useEvalConfigStore } from "../store/evalConfigStore";
+import { useEval面板Store } from "../store/eval面板Store";
+import { CompositeOption, 测试Function } from "../testing/types";
+import { useEval表单Store } from "../store/eval表单Store";
+import { useEval配置Store } from "../store/eval配置Store";
 import { logger } from "@/lib/telemetry/logger";
 import { H3, Muted } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
 
 const modelOptions = ["gpt-4o", "gpt-4o-mini", "gpt-3.5-turbo"];
 
-export type EvaluatorConfigFormPreset = {
+export type 评估器配置表单Preset = {
   name: string;
   description: string;
-  expectedValueType: "boolean" | "choice" | "range";
-  choiceScores?: Array<{ score: number; description: string }>;
+  expectedValue类型: "boolean" | "choice" | "range";
+  choice评分s?: Array<{ score: number; description: string }>;
   rangeMin?: number;
   rangeMax?: number;
   model: (typeof modelOptions)[number];
 };
 
-export const PythonEvaluatorConfigForm: React.FC<{
-  configFormParams: CompositeOption["preset"];
+export const Python评估器配置表单: React.FC<{
+  config表单Params: CompositeOption["preset"];
   name: string;
-  existingEvaluatorId?: string;
+  existing评估器Id?: string;
   onSubmit: () => void;
-  openTestPanel?: (testFunction: TestFunction) => void;
+  open测试面板?: (testFunction: 测试Function) => void;
 }> = ({
-  configFormParams,
-  name: defaultName,
-  existingEvaluatorId,
-  openTestPanel,
+  config表单Params,
+  name: default名称,
+  existing评估器Id,
+  open测试面板,
   onSubmit,
 }) => {
   const notification = useNotification();
   const jawn = useJawnClient();
-  const invalidateEvaluators = useInvalidateEvaluators();
-  const { setTestConfig } = useTestDataStore();
-  const { isSubmitting, hideFormButtons } = useEvalFormStore();
+  const invalidate评估器s = useInvalidate评估器s();
+  const { set测试配置 } = use测试DataStore();
+  const { isSubmitting, hide表单Buttons } = useEval表单Store();
 
   // Use the config store
   const {
-    pythonName,
-    setPythonName,
-    pythonDescription,
-    setPythonDescription,
+    python名称,
+    setPython名称,
+    python描述,
+    setPython描述,
     pythonCode,
     setPythonCode,
-  } = useEvalConfigStore();
+  } = useEval配置Store();
 
   // Initialize the store with default values if needed
   useEffect(() => {
-    if (!pythonName && defaultName) {
-      setPythonName(defaultName);
+    if (!python名称 && default名称) {
+      setPython名称(default名称);
     }
-    if (!pythonDescription && configFormParams.description) {
-      setPythonDescription(configFormParams.description);
+    if (!python描述 && config表单Params.description) {
+      setPython描述(config表单Params.description);
     }
-    if (!pythonCode && configFormParams.code) {
-      setPythonCode(configFormParams.code);
+    if (!pythonCode && config表单Params.code) {
+      setPythonCode(config表单Params.code);
     }
   }, [
-    defaultName,
-    configFormParams,
-    pythonName,
-    setPythonName,
-    pythonDescription,
-    setPythonDescription,
+    default名称,
+    config表单Params,
+    python名称,
+    setPython名称,
+    python描述,
+    setPython描述,
     pythonCode,
     setPythonCode,
   ]);
 
-  const evalPanelStore = useEvalPanelStore();
+  const eval面板Store = useEval面板Store();
 
   useEffect(() => {
-    setTestConfig({
+    set测试配置({
       _type: "python",
-      evaluator_name: pythonName,
+      evaluator_name: python名称,
       code: pythonCode,
     });
-  }, [pythonName, pythonCode, setTestConfig]);
+  }, [python名称, pythonCode, set测试配置]);
 
   const handleSubmit = async () => {
     // We don't need to set isSubmitting here as it's handled by the mutation hook
     try {
-      if (existingEvaluatorId) {
+      if (existing评估器Id) {
         const result = await jawn.PUT("/v1/evaluator/{evaluatorId}", {
           params: {
             path: {
-              evaluatorId: existingEvaluatorId,
+              evaluatorId: existing评估器Id,
             },
           },
           body: {
-            name: pythonName,
-            description: pythonDescription,
+            name: python名称,
+            description: python描述,
             code_template: { code: pythonCode },
             scoring_type: "PYTHON",
           },
@@ -111,17 +111,17 @@ export const PythonEvaluatorConfigForm: React.FC<{
           notification.setNotification("Failed to update evaluator", "error");
         } else {
           notification.setNotification(
-            "Evaluator updated successfully",
+            "评估器 updated successfully",
             "success",
           );
-          invalidateEvaluators.invalidate();
+          invalidate评估器s.invalidate();
           onSubmit();
         }
       } else {
         const result = await jawn.POST("/v1/evaluator", {
           body: {
-            name: pythonName,
-            description: pythonDescription,
+            name: python名称,
+            description: python描述,
             code_template: {
               code: pythonCode,
             },
@@ -132,10 +132,10 @@ export const PythonEvaluatorConfigForm: React.FC<{
           notification.setNotification("Failed to create evaluator", "error");
         } else {
           notification.setNotification(
-            "Evaluator created successfully",
+            "评估器 created successfully",
             "success",
           );
-          invalidateEvaluators.invalidate();
+          invalidate评估器s.invalidate();
           onSubmit();
         }
       }
@@ -145,12 +145,12 @@ export const PythonEvaluatorConfigForm: React.FC<{
     }
   };
 
-  const handleTest = () => {
+  const handle测试 = () => {
     const testFunction = async () => {
       const result = await jawn.POST("/v1/evaluator/python/test", {
         body: {
           code: pythonCode,
-          testInput: configFormParams.testInput!,
+          testInput: config表单Params.testInput!,
         },
       });
       if (result?.data?.data) {
@@ -166,61 +166,61 @@ export const PythonEvaluatorConfigForm: React.FC<{
       }
     };
 
-    if (openTestPanel) {
-      openTestPanel(testFunction);
+    if (open测试面板) {
+      open测试面板(testFunction);
     } else {
       // Set test data first
-      setTestConfig({
+      set测试配置({
         _type: "python",
-        evaluator_name: pythonName,
+        evaluator_name: python名称,
         code: pythonCode,
       });
       // Then open the test panel
-      evalPanelStore.openTestPanel();
+      eval面板Store.open测试面板();
     }
   };
 
   return (
-    <Col className="flex h-full flex-col overflow-hidden">
-      <ScrollArea className="flex-grow overflow-y-auto">
-        <div className="px-4 py-4">
-          <Col className="space-y-6">
+    <Col class名称="flex h-full flex-col overflow-hidden">
+      <ScrollArea class名称="flex-grow overflow-y-auto">
+        <div class名称="px-4 py-4">
+          <Col class名称="space-y-6">
             <div>
-              <div className="flex items-baseline gap-2">
-                <H3 className="text-lg">Basic Information</H3>
-                <Muted className="text-sm">
+              <div class名称="flex items-baseline gap-2">
+                <H3 class名称="text-lg">基本信息</H3>
+                <Muted class名称="text-sm">
                   Define your evaluator&apos;s name and purpose
                 </Muted>
               </div>
-              <Separator className="my-2" />
-              <div className="mt-4 space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Evaluator Name</Label>
+              <Separator class名称="my-2" />
+              <div class名称="mt-4 space-y-4">
+                <div class名称="space-y-2">
+                  <Label htmlFor="name">评估器名称</Label>
                   <Input
                     id="name"
-                    value={pythonName}
-                    onChange={(e) => setPythonName(e.target.value)}
-                    placeholder="Enter a name for your evaluator"
-                    readOnly={!!existingEvaluatorId}
-                    disabled={!!existingEvaluatorId}
+                    value={python名称}
+                    onChange={(e) => setPython名称(e.target.value)}
+                    placeholder="输入评估器名称"
+                    readOnly={!!existing评估器Id}
+                    disabled={!!existing评估器Id}
                   />
-                  {existingEvaluatorId && (
-                    <div className="mt-1 text-xs text-muted-foreground">
-                      Evaluator names cannot be changed after creation
+                  {existing评估器Id && (
+                    <div class名称="mt-1 text-xs text-muted-foreground">
+                      评估器 names cannot be changed after creation
                     </div>
                   )}
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="description">Description</Label>
+                <div class名称="space-y-2">
+                  <Label htmlFor="description">描述</Label>
                   <Textarea
                     id="description"
-                    value={pythonDescription}
-                    onChange={(e) => setPythonDescription(e.target.value)}
-                    placeholder="Describe what your evaluator does"
-                    className="min-h-[100px]"
+                    value={python描述}
+                    onChange={(e) => setPython描述(e.target.value)}
+                    placeholder="描述评估器的功能"
+                    class名称="min-h-[100px]"
                   />
-                  <Muted className="text-xs">
-                    Descriptions are used by the LLM to understand what the
+                  <Muted class名称="text-xs">
+                    描述s are used by the LLM to understand what the
                     evaluator does.
                   </Muted>
                 </div>
@@ -228,20 +228,20 @@ export const PythonEvaluatorConfigForm: React.FC<{
             </div>
 
             <div>
-              <div className="flex items-baseline gap-2">
-                <H3 className="text-lg">Python Code</H3>
-                <Muted className="text-sm">
+              <div class名称="flex items-baseline gap-2">
+                <H3 class名称="text-lg">Python 代码</H3>
+                <Muted class名称="text-sm">
                   Write your evaluator&apos;s Python code
                 </Muted>
               </div>
-              <Separator className="my-2" />
+              <Separator class名称="my-2" />
 
-              <MarkdownEditor
+              <Markdown编辑or
                 text={pythonCode}
                 setText={setPythonCode}
                 language={"python"}
                 monaco={true}
-                className="min-h-[300px] rounded-md border"
+                class名称="min-h-[300px] rounded-md border"
               />
             </div>
           </Col>

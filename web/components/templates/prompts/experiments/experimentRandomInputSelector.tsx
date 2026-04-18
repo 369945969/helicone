@@ -2,48 +2,48 @@ import { useMemo, useState } from "react";
 import ThemedDrawer from "../../../shared/themed/themedDrawer";
 import { useJawnClient } from "../../../../lib/clients/jawnHook";
 import useNotification from "../../../shared/notification/useNotification";
-import PromptPropertyCard from "../id/promptPropertyCard";
+import 提示词PropertyCard from "../id/promptPropertyCard";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { 输入 } from "@/components/ui/input";
 import { useQuery } from "@tanstack/react-query";
 
-interface ExperimentInputSelectorProps {
+interface 实验输入选择器Props {
   open: boolean;
   setOpen: (open: boolean) => void;
-  promptVersionId: string | undefined;
+  prompt版本Id: string | undefined;
   onSuccess?: (success: boolean) => void;
   handleAddRows: (
     rows: {
       inputRecordId: string;
       inputs: Record<string, string>;
-      autoInputs: any[];
+      auto输入s: any[];
     }[],
   ) => void;
 }
 
-export const ExperimentRandomInputSelector = (
-  props: ExperimentInputSelectorProps,
+export const 实验随机输入选择器 = (
+  props: 实验输入选择器Props,
 ) => {
-  const { open, setOpen, promptVersionId, onSuccess } = props;
+  const { open, setOpen, prompt版本Id, onSuccess } = props;
   const jawn = useJawnClient();
   const { setNotification } = useNotification();
 
-  const [numberInput, setNumberInput] = useState(10); // Default to 10 inputs
+  const [number输入, setNumber输入] = useState(10); // Default to 10 inputs
 
   // Fetch random input records using useQuery
   const {
-    data: randomInputRecordsData,
+    data: random输入RecordsData,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["randomInputRecords", promptVersionId],
+    queryKey: ["random输入Records", prompt版本Id],
     queryFn: async () => {
       const res = await jawn.POST(
-        "/v1/prompt/version/{promptVersionId}/inputs/query",
+        "/v1/prompt/version/{prompt版本Id}/inputs/query",
         {
           params: {
             path: {
-              promptVersionId: promptVersionId ?? "",
+              prompt版本Id: prompt版本Id ?? "",
             },
           },
           body: {
@@ -54,29 +54,29 @@ export const ExperimentRandomInputSelector = (
       );
       return res.data?.data ?? [];
     },
-    enabled: open && promptVersionId !== undefined, // Fetch only when the drawer is open
+    enabled: open && prompt版本Id !== undefined, // Fetch only when the drawer is open
   });
 
   // Process and select the desired number of random inputs
-  const selectedRandomInputs = useMemo(() => {
-    if (!randomInputRecordsData) return [];
+  const selected随机输入s = useMemo(() => {
+    if (!random输入RecordsData) return [];
 
     // Shuffle the records
-    const shuffled = [...randomInputRecordsData].sort(
+    const shuffled = [...random输入RecordsData].sort(
       () => Math.random() - 0.5,
     );
 
-    // Select the number of inputs specified by numberInput
-    return shuffled.slice(0, numberInput).map((row) => ({
+    // Select the number of inputs specified by number输入
+    return shuffled.slice(0, number输入).map((row) => ({
       id: row.id,
       inputs: row.inputs,
       source_request: row.source_request,
       prompt_version: row.prompt_version,
       created_at: row.created_at,
       response: row.response_body,
-      autoInputs: row.auto_prompt_inputs,
+      auto输入s: row.auto_prompt_inputs,
     }));
-  }, [randomInputRecordsData, numberInput]);
+  }, [random输入RecordsData, number输入]);
 
   return (
     <ThemedDrawer open={open} setOpen={setOpen}>
@@ -84,7 +84,7 @@ export const ExperimentRandomInputSelector = (
         <div className="flex w-full flex-col">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-semibold">
-              Randomized Inputs ({selectedRandomInputs.length})
+              随机ized 输入s ({selected随机输入s.length})
             </h2>
           </div>
           <p className="pb-4 text-sm text-gray-500">
@@ -95,42 +95,42 @@ export const ExperimentRandomInputSelector = (
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setNumberInput((prev) => Math.max(prev - 1, 1))}
+              onClick={() => setNumber输入((prev) => Math.max(prev - 1, 1))}
               className="mr-2 border p-2"
             >
               -
             </Button>
-            <Input
+            <输入
               type="number"
-              value={numberInput}
+              value={number输入}
               onChange={(e) => {
                 const value = e.target.value.replace(/^0+/, ""); // Remove leading zeros
-                setNumberInput(Number(value) || 1);
+                setNumber输入(Number(value) || 1);
               }}
               className="mr-2 h-full w-10 border p-2"
             />
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setNumberInput((prev) => prev + 1)}
+              onClick={() => setNumber输入((prev) => prev + 1)}
               className="mr-2 border p-2"
             >
               +
             </Button>
             <span className="text-sm text-slate-700 dark:text-slate-300">
-              Random Inputs
+              随机 输入s
             </span>
           </div>
 
           <ul className="flex w-full flex-col items-center space-y-4 overflow-y-auto pt-4">
-            {isLoading && <div>Loading inputs...</div>}
-            {isError && <div>Error loading inputs.</div>}
+            {isLoading && <div>正在加载输入...</div>}
+            {isError && <div>加载输入时出错。</div>}
             {!isLoading &&
               !isError &&
-              selectedRandomInputs.map((request) => (
+              selected随机输入s.map((request) => (
                 <li key={request.id} className="flex w-full items-start">
-                  <PromptPropertyCard
-                    autoInputs={request.autoInputs}
+                  <提示词PropertyCard
+                    auto输入s={request.auto输入s}
                     isSelected={true}
                     requestId={request.source_request}
                     createdAt={request.created_at}
@@ -155,17 +155,17 @@ export const ExperimentRandomInputSelector = (
             size={"sm"}
             onClick={async () => {
               await props.handleAddRows(
-                selectedRandomInputs.map((request) => ({
+                selected随机输入s.map((request) => ({
                   inputRecordId: request.id,
                   inputs: request.inputs,
-                  autoInputs: request.autoInputs,
+                  auto输入s: request.auto输入s,
                 })),
               );
 
               if (onSuccess) {
                 onSuccess(true);
 
-                setNotification("Added inputs to dataset", "success");
+                setNotification("已将输入添加到数据集", "success");
                 setOpen(false);
               }
             }}

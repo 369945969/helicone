@@ -109,12 +109,12 @@ export default function ToolEditor({ onSave, onCancel }: ToolEditorProps) {
     <div className="flex w-full flex-col gap-6">
       <div className="flex flex-col gap-2">
         <GlassHeader className="h-14 flex-shrink-0 px-4">
-          <h2 className="font-semibold text-secondary">Name</h2>
+          <h2 className="font-semibold text-secondary">名称</h2>
         </GlassHeader>
         <div className="px-4">
           <Input
             id="tool-name"
-            placeholder="Enter tool name"
+            placeholder="输入工具名称"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -160,7 +160,7 @@ export default function ToolEditor({ onSave, onCancel }: ToolEditorProps) {
               <div className="flex items-center gap-3">
                 <div className="flex-1">
                   <Input
-                    placeholder="Parameter name"
+                    placeholder="参数名"
                     value={param.name}
                     onChange={(e) =>
                       handleParameterNameChange(index, e.target.value)
@@ -210,7 +210,7 @@ export default function ToolEditor({ onSave, onCancel }: ToolEditorProps) {
               </div>
               <div className="flex-1">
                 <Input
-                  placeholder="Parameter description"
+                  placeholder="参数描述"
                   value={param.description}
                   onChange={(e) =>
                     handleParameterDescriptionChange(index, e.target.value)

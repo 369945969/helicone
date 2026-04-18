@@ -30,14 +30,14 @@ const ModelsPanel = (props: ModelsPanelProps) => {
     data: modelData,
     maxValue,
     formatValue: (value) => value.toLocaleString(),
-    modalTitle: "Top Models by Requests",
-    modalValueLabel: "Requests",
+    modalTitle: "顶级模型",
+    modalValueLabel: "请求",
   });
 
   return (
     <>
       <StyledAreaChart
-        title={`Top Models by Requests`}
+        title={`顶级模型`}
         value={undefined}
         isDataOverTimeLoading={models.isLoading}
         withAnimation={true}
@@ -45,8 +45,8 @@ const ModelsPanel = (props: ModelsPanelProps) => {
       >
         <div className="flex h-full flex-col overflow-hidden">
           <div className="flex flex-row items-center justify-between pb-2">
-            <p className="text-xs font-semibold text-foreground">Name</p>
-            <p className="text-xs font-semibold text-foreground">Requests</p>
+            <p className="text-xs font-semibold text-foreground">名称</p>
+            <p className="text-xs font-semibold text-foreground">请求</p>
           </div>
           <div className="flex-grow overflow-y-auto">{barList}</div>
         </div>

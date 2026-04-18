@@ -96,7 +96,7 @@ export function TestEvaluator() {
               Request ID
             </Label>
             <Input
-              placeholder="Enter request ID"
+              placeholder="输入请求 ID"
               className="flex-grow"
               value={requestId}
               onChange={(e) => {
@@ -108,7 +108,7 @@ export function TestEvaluator() {
           {/* Test Input Section */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium">Test Input</h3>
+              <h3 className="text-sm font-medium">测试输入</h3>
             </div>
 
             <Tabs
@@ -141,7 +141,7 @@ export function TestEvaluator() {
                 {Object.entries(testInput?.inputs?.inputs ?? []).length ===
                 0 ? (
                   <div className="py-2 text-center">
-                    <Muted>No input variables defined</Muted>
+                    <Muted>未定义输入变量</Muted>
                     <Button
                       variant="outline"
                       size="sm"
@@ -191,7 +191,7 @@ export function TestEvaluator() {
                               });
                             }}
                             className="max-w-[200px]"
-                            placeholder="Variable name"
+                            placeholder="变量名"
                           />
                           <span>:</span>
                           <Input
@@ -214,7 +214,7 @@ export function TestEvaluator() {
                               });
                             }}
                             className="flex-grow"
-                            placeholder="Value"
+                            placeholder="值"
                           />
                           <Button
                             variant="ghost"
@@ -329,7 +329,7 @@ export function TestEvaluator() {
       <div className="shrink-0 border-t bg-muted/10">
         <div className="space-y-3 p-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-medium">Test Results</h3>
+            <h3 className="text-sm font-medium">测试结果</h3>
             <Button
               onClick={async () => {
                 if (!testConfig) return;
@@ -359,7 +359,7 @@ export function TestEvaluator() {
           <div className="max-h-[180px] overflow-y-auto rounded-md border bg-background p-3">
             {result === null ? (
               <div className="py-4 text-center">
-                <Muted>Run a test to see results</Muted>
+                <Muted>运行测试以查看结果</Muted>
               </div>
             ) : result._type === "running" ? (
               <div className="py-4 text-center">
@@ -369,7 +369,7 @@ export function TestEvaluator() {
               <div className="flex items-start gap-2 rounded-md border border-destructive/20 bg-destructive/10 p-3">
                 <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
                 <div>
-                  <H4 className="text-sm text-destructive">Error</H4>
+                  <H4 className="text-sm text-destructive">错误</H4>
                   <pre className="mt-1 whitespace-pre-wrap text-xs">
                     {result.error}
                   </pre>
@@ -380,7 +380,7 @@ export function TestEvaluator() {
                 <div className="flex items-center gap-2 rounded-md bg-muted p-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
                   <div>
-                    <H4 className="text-sm">Score</H4>
+                    <H4 className="text-sm">分数</H4>
                     <div className="text-lg font-semibold">{result.output}</div>
                   </div>
                 </div>
@@ -388,7 +388,7 @@ export function TestEvaluator() {
                 {result.traces && result.traces.length > 0 && (
                   <Collapsible>
                     <CollapsibleTrigger className="flex w-full items-center justify-between rounded-md border p-2 text-sm">
-                      <span>View Execution Traces</span>
+                      <span>查看执行跟踪</span>
                       <ChevronDown className="h-4 w-4" />
                     </CollapsibleTrigger>
                     <CollapsibleContent className="mt-2 space-y-2">

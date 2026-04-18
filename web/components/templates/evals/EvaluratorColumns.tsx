@@ -7,12 +7,12 @@ import { ColumnDef } from "@tanstack/react-table";
 import { AverageScoreChart } from "./charts/AverageScoreChart";
 import { ScoreDistributionChart } from "./charts/ScoreDistributionChart";
 import { ScoreDistributionChartPie } from "./charts/ScoreDistributionChartPie";
-import { TracesChart } from "./charts/TracesChart";
+import { 追踪Chart } from "./charts/追踪Chart";
 
 export type EvalMetric = {
   name: string;
   type: string;
-  valueType: string;
+  value类型: string;
   averageScore: number;
   minScore: number;
   maxScore: number;
@@ -26,67 +26,67 @@ export type EvalMetric = {
 export const INITIAL_COLUMNS: ColumnDef<EvalMetric>[] = [
   {
     accessorKey: "name",
-    header: "Name",
+    header: "名称",
     cell: (info) => (
-      <span className="font-medium text-gray-900 dark:text-gray-100">
-        {info.getValue()
-          ? `${info.getValue()}`.replaceAll("-hcone-bool", " ")
-          : "No Eval Name"}
+      <span class名称="font-medium text-gray-900 dark:text-gray-100">
+        {info.get值()
+          ? `${info.get值()}`.replaceAll("-hcone-bool", " ")
+          : "无评估器名称"}
       </span>
     ),
     minSize: 50,
   },
   {
     accessorKey: "type",
-    header: "Type",
+    header: "类型",
     cell: (info) => (
-      <Badge variant={"outline"}>{info.getValue() as string}</Badge>
+      <Badge variant={"outline"}>{info.get值() as string}</Badge>
     ),
     minSize: 50,
   },
   {
-    accessorKey: "valueType",
-    header: "Value",
+    accessorKey: "value类型",
+    header: "值",
     cell: (info) => (
-      <Badge variant={"outline"}>{info.getValue() as string}</Badge>
+      <Badge variant={"outline"}>{info.get值() as string}</Badge>
     ),
     minSize: 100,
     size: 100,
   },
   {
     accessorKey: "overTime",
-    header: "Traces",
+    header: "追踪",
     cell: (info) => (
-      <TracesChart
-        overTime={info.getValue() as { date: string; count: number }[]}
+      <追踪Chart
+        overTime={info.get值() as { date: string; count: number }[]}
       />
     ),
     minSize: 200,
   },
   {
     accessorKey: "averageOverTime",
-    header: "Average Score",
+    header: "平均评分",
     cell: (info) => (
       <AverageScoreChart
-        averageOverTime={info.getValue() as { date: string; value: number }[]}
+        averageOverTime={info.get值() as { date: string; value: number }[]}
       />
     ),
     minSize: 200,
   },
   {
     accessorKey: "scoreDistribution",
-    header: "Score Distribution",
+    header: "评分分布",
     cell: (info) =>
-      info.row.original.valueType !== "Boolean" ? (
+      info.row.original.value类型 !== "布尔值" ? (
         <ScoreDistributionChart
           distribution={
-            info.getValue() as { lower: number; upper: number; value: number }[]
+            info.get值() as { lower: number; upper: number; value: number }[]
           }
         />
       ) : (
         <ScoreDistributionChartPie
           distribution={
-            info.getValue() as { lower: number; upper: number; value: number }[]
+            info.get值() as { lower: number; upper: number; value: number }[]
           }
         />
       ),
@@ -94,16 +94,16 @@ export const INITIAL_COLUMNS: ColumnDef<EvalMetric>[] = [
   },
   {
     accessorKey: "count",
-    header: "Count",
-    cell: (info) => <span>{Number(info.getValue()).toLocaleString()}</span>,
+    header: "计数",
+    cell: (info) => <span>{Number(info.get值()).toLocaleString()}</span>,
     meta: {
       sortKey: "count",
     },
   },
   {
     accessorKey: "averageScore",
-    header: "Average Score",
-    cell: (info) => <span>{Number(info.getValue()).toFixed(2)}</span>,
+    header: "平均评分",
+    cell: (info) => <span>{Number(info.get值()).toFixed(2)}</span>,
     meta: {
       sortKey: "averageScore",
     },
@@ -111,16 +111,16 @@ export const INITIAL_COLUMNS: ColumnDef<EvalMetric>[] = [
 
   {
     accessorKey: "minScore",
-    header: "Min Score",
-    cell: (info) => Number(info.getValue()).toLocaleString(),
+    header: "最低评分",
+    cell: (info) => Number(info.get值()).toLocaleString(),
     meta: {
       sortKey: "minScore",
     },
   },
   {
     accessorKey: "maxScore",
-    header: "Max Score",
-    cell: (info) => Number(info.getValue()).toLocaleString(),
+    header: "最高评分",
+    cell: (info) => Number(info.get值()).toLocaleString(),
     meta: {
       sortKey: "maxScore",
     },

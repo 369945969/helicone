@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Lottie from "lottie-react";
 import guesswhoRaw from "../../../../public/lottie/guesswho.json";
 import notebookRaw from "../../../../public/lottie/notebook.json";
@@ -12,15 +11,15 @@ import { CourseGenerator } from "./courseGenerator";
 const DEMO_GAMES = [
   {
     id: "1",
-    name: "Guess Who Game",
-    type: "Game",
+    name: "猜猜我是谁游戏",
+    type: "游戏",
     animation: guesswho,
     component: GuessWhoGame,
   },
   {
     id: "2",
-    name: "Course Generator",
-    type: "Tool",
+    name: "课程生成器",
+    type: "工具",
     animation: notebook,
     component: CourseGenerator,
   },
@@ -43,7 +42,7 @@ const StartPage = () => {
   if (!currentDemo) {
     return (
       <div className="p-6">
-        <h2 className="mb-6 text-2xl font-bold text-gray-800">Select a Demo</h2>
+        <h2 className="mb-6 text-2xl font-bold text-gray-800">选择演示</h2>
         <div className="space-y-4">
           {DEMO_GAMES.map((game) => (
             <div
@@ -82,7 +81,7 @@ const StartPage = () => {
           loop={true}
         />
         <p className="mt-4 text-lg font-medium text-gray-600">
-          Loading {DEMO_GAMES.find((g) => g.id === currentDemo)?.name}...
+          正在加载 {DEMO_GAMES.find((g) => g.id === currentDemo)?.name}...
         </p>
       </div>
     );
@@ -97,7 +96,7 @@ const StartPage = () => {
           className="text-sm text-white transition-colors hover:text-gray-200"
           onClick={onReset}
         >
-          ← Back to Demos
+          ← 返回演示列表
         </button>
       </div>
       <div className="flex-grow overflow-hidden">

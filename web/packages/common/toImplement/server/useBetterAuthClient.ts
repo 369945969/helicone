@@ -57,7 +57,20 @@ export async function betterAuthClientFromSSRContext(
   }
   const userId = user.data?.id;
 
-  const orgId = ctx.req?.cookies?.[ORG_ID_COOKIE_KEY] ?? "";
+  let orgId = ctx.req?.cookies?.[ORG_ID_COOKIE_KEY] ?? "";
+  if (!orgId) {
+    const defaultOrg = await dbExecute<{
+      organization: string;
+      org_role: Role;
+    }>(
+      `SELECT organization, org_role FROM organization_member WHERE member = $1 LIMIT 1`,
+      [userId],
+    );
+    if (defaultOrg.data && defaultOrg.data.length > 0) {
+      orgId = defaultOrg.data[0].organization;
+    }
+  }
+
   if (!orgId) {
     throw new Error("No organization ID found");
   }

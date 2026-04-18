@@ -47,7 +47,7 @@ const getTokenEquivalents = (
   if (tweetCount > 0) {
     equivalents.push({
       value: formatNumber(tweetCount),
-      label: "tweets",
+      label: "推文",
     });
   }
 
@@ -57,7 +57,7 @@ const getTokenEquivalents = (
   if (wikiCount > 0) {
     equivalents.push({
       value: formatNumber(wikiCount),
-      label: "Wikipedia articles",
+      label: "维基百科文章",
     });
   }
 
@@ -67,7 +67,7 @@ const getTokenEquivalents = (
   if (emailCount > 0) {
     equivalents.push({
       value: formatNumber(emailCount),
-      label: "emails",
+      label: "邮件",
     });
   }
 
@@ -157,28 +157,28 @@ export const TotalTokensSection: React.FC<TotalTokensSectionProps> = ({
 
   const tokenBreakdown = [
     {
-      label: "Prompt Tokens",
+      label: "提示词令牌",
       value: tokens.prompt,
       icon: ArrowRight,
       color: "text-[#0DA5E8]",
       bgColor: "bg-[#0DA5E8]/20",
     },
     {
-      label: "Completion Tokens",
+      label: "补全令牌",
       value: tokens.completion,
       icon: ArrowLeft,
       color: "text-emerald-400",
       bgColor: "bg-emerald-400/20",
     },
     {
-      label: "Cache Write",
+      label: "缓存写入",
       value: tokens.cacheWrite,
       icon: Database,
       color: "text-amber-400",
       bgColor: "bg-amber-400/20",
     },
     {
-      label: "Cache Read",
+      label: "缓存读取",
       value: tokens.cacheRead,
       icon: BookOpen,
       color: "text-purple-400",

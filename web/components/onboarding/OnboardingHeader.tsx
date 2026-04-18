@@ -138,15 +138,15 @@ export const OnboardingHeader = ({ children }: OnboardingHeaderProps) => {
           <button
             onClick={handleSignOut}
             className="flex flex-shrink-0 items-center gap-1 text-xs text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"
-            aria-label="Sign Out"
+            aria-label="退出登录"
           >
-            <span className="hidden sm:inline">Sign Out</span>
+            <span className="hidden sm:inline">退出登录</span>
             <LogOut className="h-3.5 w-3.5" />
           </button>
           <button
             onClick={handleThemeChange}
             className="text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"
-            aria-label="Toggle theme"
+            aria-label="切换主题"
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>

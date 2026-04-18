@@ -115,7 +115,7 @@ const AddOnlineEvaluatorForm = ({
             />
           </div>
           <div className="space-y-2">
-            <Label>Properties Filters</Label>
+            <Label>属性过滤器</Label>
             <br />
             <i className="text-xs">
               This uses{" "}
@@ -159,9 +159,9 @@ const AddOnlineEvaluatorForm = ({
                     </PopoverTrigger>
                     <PopoverContent className="w-[200px] p-0" align="start">
                       <Command>
-                        <CommandInput placeholder="Search property..." />
+                        <CommandInput placeholder="搜索属性..." />
                         <CommandList>
-                          <CommandEmpty>No property found.</CommandEmpty>
+                          <CommandEmpty>未找到属性。</CommandEmpty>
                           <CommandGroup>
                             {properties.properties?.map((property) => (
                               <CommandItem
@@ -185,7 +185,7 @@ const AddOnlineEvaluatorForm = ({
                 </div>
                 <div className="col-span-2 flex items-center space-x-2">
                   <Input
-                    placeholder="Value"
+                    placeholder="值"
                     value={filter.value}
                     onChange={(e) =>
                       updatePropertyFilter(index, filter.key, e.target.value)

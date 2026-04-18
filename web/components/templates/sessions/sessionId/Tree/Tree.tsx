@@ -139,7 +139,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent side="right">
-                  <p>View request</p>
+                  <p>查看请求</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

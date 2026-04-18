@@ -28,8 +28,8 @@ import TableFooter from "../requests/tableFooter";
 import AlertStatusPill from "./alertStatusPill";
 
 const TABS = [
-  { id: "alerts", label: "Alerts" },
-  { id: "history", label: "History" },
+  { id: "alerts", label: "警报" },
+  { id: "history", label: "历史" },
 ];
 
 const AlertsPage = () => {
@@ -110,15 +110,15 @@ const AlertsPage = () => {
 
   function formatMetric(metric: string): string {
     const metricLabels: Record<AlertMetric, string> = {
-      "response.status": "Status",
-      cost: "Cost",
-      latency: "Latency (ms)",
-      total_tokens: "Total Tokens",
-      prompt_tokens: "Prompt Tokens",
-      completion_tokens: "Completion Tokens",
-      prompt_cache_read_tokens: "Prompt Cache Read Tokens",
-      prompt_cache_write_tokens: "Prompt Cache Write Tokens",
-      count: "Count",
+      "response.status": "状态",
+      cost: "成本",
+      latency: "延迟 (毫秒)",
+      total_tokens: "总令牌数",
+      prompt_tokens: "提示词令牌数",
+      completion_tokens: "补全令牌数",
+      prompt_cache_read_tokens: "提示缓存读取令牌数",
+      prompt_cache_write_tokens: "提示缓存写入令牌数",
+      count: "计数",
     };
     return metricLabels[metric as AlertMetric] || metric;
   }
@@ -152,7 +152,7 @@ const AlertsPage = () => {
   if (isPageLoading) {
     return (
       <div className="flex min-h-[calc(100vh-200px)] items-center justify-center">
-        <LoadingAnimation height={175} width={175} title="Loading alerts..." />
+        <LoadingAnimation height={175} width={175} title="正在加载警报..." />
       </div>
     );
   }
@@ -165,7 +165,7 @@ const AlertsPage = () => {
     >
       <div className="flex h-screen w-full flex-col bg-background dark:bg-sidebar-background">
         <Header
-          title="Alerts"
+          title="警报"
           rightActions={[
             <FreeTierLimitWrapper
               key="create-alert"
@@ -179,7 +179,7 @@ const AlertsPage = () => {
                 onClick={handleCreateAlert}
               >
                 <PlusIcon className="mr-1 h-4 w-4" />
-                Create
+                创建
               </Button>
             </FreeTierLimitWrapper>,
             <TabsList key="tabs">
@@ -210,7 +210,7 @@ const AlertsPage = () => {
                 columns={[
                   {
                     key: undefined,
-                    header: "Actions",
+                    header: "操作",
                     render: (alert) => (
                       <div className="flex items-center gap-2">
                         <button
@@ -240,7 +240,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: "name",
-                    header: "Name",
+                    header: "名称",
                     render: (alert) => (
                       <p className="text-sm font-semibold">{alert.name}</p>
                     ),
@@ -248,12 +248,12 @@ const AlertsPage = () => {
                   },
                   {
                     key: "status",
-                    header: "Status",
+                    header: "状态",
                     render: (alert) => (
                       <AlertStatusPill
                         status={alert.status as "resolved" | "triggered"}
                         displayText={
-                          alert.status === "resolved" ? "Healthy" : "Triggered"
+                          alert.status === "resolved" ? "正常" : "已触发"
                         }
                       />
                     ),
@@ -261,7 +261,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: "created_at",
-                    header: "Created",
+                    header: "创建时间",
                     render: (alert) => (
                       <p className="text-sm text-muted-foreground">
                         {getUSDate(new Date(alert.created_at || ""))}
@@ -271,7 +271,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: "metric",
-                    header: "Metric",
+                    header: "指标",
                     render: (alert) => (
                       <Badge variant="helicone">
                         {formatMetric(alert.metric)}
@@ -281,7 +281,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: undefined,
-                    header: "Aggregation",
+                    header: "聚合",
                     render: (alert) => (
                       <p className="text-sm">
                         {formatAggregation(
@@ -294,7 +294,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: "threshold",
-                    header: "Threshold",
+                    header: "阈值",
                     render: (alert) => (
                       <p className="text-sm">
                         {formatThreshold(alert.metric, alert.threshold)}
@@ -304,7 +304,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: undefined,
-                    header: "Grouping",
+                    header: "分组",
                     render: (alert) => (
                       <p className="text-sm">
                         {(alert as any).grouping
@@ -316,7 +316,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: "time_window",
-                    header: "Time Window",
+                    header: "时间窗口",
                     render: (alert) => (
                       <p className="text-sm">
                         {formatTimeWindow(alert.time_window)}
@@ -326,7 +326,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: "minimum_request_count",
-                    header: "Min Requests",
+                    header: "最小请求数",
                     render: (alert) => (
                       <p className="text-sm">
                         {alert.minimum_request_count || 0}
@@ -336,15 +336,15 @@ const AlertsPage = () => {
                   },
                   {
                     key: "filter",
-                    header: "Filter",
+                    header: "筛选",
                     render: (alert) => (
-                      <p className="text-sm">{alert.filter ? "Yes" : "No"}</p>
+                      <p className="text-sm">{alert.filter ? "是" : "否"}</p>
                     ),
                     sortable: false,
                   },
                   {
                     key: "emails",
-                    header: "Emails",
+                    header: "邮箱",
                     render: (alert) => (
                       <div className="flex text-sm">
                         {alert.emails.join(", ")}
@@ -355,7 +355,7 @@ const AlertsPage = () => {
                   },
                   {
                     key: "slack_channels",
-                    header: "Slack Channels",
+                    header: "Slack 频道",
                     render: (alert) => (
                       <div className="flex text-sm">
                         {alert.slack_channels
@@ -400,7 +400,7 @@ const AlertsPage = () => {
                 className="mx-auto mb-2 text-muted-foreground"
               />
               <p className="text-xs font-medium">
-                No alerts have been triggered yet
+                尚未触发任何警报
               </p>
             </div>
           ) : (
@@ -411,7 +411,7 @@ const AlertsPage = () => {
                   columns={[
                     {
                       key: "status",
-                      header: "Status",
+                      header: "状态",
                       render: (history) => (
                         <AlertStatusPill
                           status={history.status as "resolved" | "triggered"}
@@ -421,7 +421,7 @@ const AlertsPage = () => {
                     },
                     {
                       key: "alert_name",
-                      header: "Name",
+                      header: "名称",
                       render: (history) => (
                         <p className="text-sm font-semibold">
                           {history.alert_name}
@@ -431,7 +431,7 @@ const AlertsPage = () => {
                     },
                     {
                       key: "alert_start_time",
-                      header: "Start Time",
+                      header: "开始时间",
                       render: (history) => (
                         <p className="text-sm">
                           {getUSDate(new Date(history.alert_start_time))}
@@ -441,7 +441,7 @@ const AlertsPage = () => {
                     },
                     {
                       key: "alert_end_time",
-                      header: "End Time",
+                      header: "结束时间",
                       render: (history) => (
                         <p className="text-sm">
                           {history.alert_end_time
@@ -453,7 +453,7 @@ const AlertsPage = () => {
                     },
                     {
                       key: "triggered_value",
-                      header: "Trigger",
+                      header: "触发值",
                       render: (history) => (
                         <p className="text-sm">
                           {formatThreshold(

@@ -47,7 +47,7 @@ const RoleButton = (props: RoleButtonProps) => {
             `border border-${ROLE_COLORS[role]}-500 text-${ROLE_COLORS[role]}-900 dark:text-${ROLE_COLORS[role]}-300 rounded-md font-semibold bg-${ROLE_COLORS[role]}-100 dark:bg-${ROLE_COLORS[role]}-900 flex w-fit items-center px-2 py-1`,
           )}
         >
-          {role ?? "Role"}
+          {role ?? "角色"}
           {!disabled && <ChevronDownIcon className="ml-1 h-4 w-4" />}
         </Menu.Button>
       </div>
@@ -72,7 +72,7 @@ const RoleButton = (props: RoleButtonProps) => {
                     onRoleChange("user");
                   }}
                 >
-                  <div className="flex w-full items-center">User</div>
+                  <div className="flex w-full items-center">用户</div>
                   {role === "user" && <CheckIcon className="h-5 w-5" />}
                 </button>
               )}
@@ -87,7 +87,7 @@ const RoleButton = (props: RoleButtonProps) => {
                     onRoleChange("assistant");
                   }}
                 >
-                  <div className="flex w-full items-center">Assistant</div>
+                  <div className="flex w-full items-center">助手</div>
                   {role === "assistant" && <CheckIcon className="h-5 w-5" />}
                 </button>
               )}
@@ -102,7 +102,7 @@ const RoleButton = (props: RoleButtonProps) => {
                     onRoleChange("system");
                   }}
                 >
-                  <div className="flex w-full items-center">System</div>
+                  <div className="flex w-full items-center">系统</div>
                   {role === "system" && <CheckIcon className="h-5 w-5" />}
                 </button>
               )}
@@ -117,7 +117,7 @@ const RoleButton = (props: RoleButtonProps) => {
                     onRoleChange("function");
                   }}
                 >
-                  <div className="flex w-full items-center">Function</div>
+                  <div className="flex w-full items-center">函数</div>
                   {role === "function" && <CheckIcon className="h-5 w-5" />}
                 </button>
               )}
@@ -132,7 +132,7 @@ const RoleButton = (props: RoleButtonProps) => {
                     onRoleChange("tool");
                   }}
                 >
-                  <div className="flex w-full items-center">Tool</div>
+                  <div className="flex w-full items-center">工具</div>
                   {role === "tool" && <CheckIcon className="h-5 w-5" />}
                 </button>
               )}

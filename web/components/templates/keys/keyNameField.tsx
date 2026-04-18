@@ -14,7 +14,7 @@ const KeyNameField = (props: KeyNameFieldProps) => {
     <>
       {mode === "view" ? (
         <div className="flex flex-row items-center">
-          <p>Hello World</p>
+          <p>你好世界</p>
           <PencilIcon className="inline h-4 w-4" />
         </div>
       ) : (

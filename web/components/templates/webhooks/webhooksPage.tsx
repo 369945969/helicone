@@ -123,13 +123,13 @@ const WebhooksPage = (props: WebhooksPageProps) => {
       }
     },
     onSuccess: () => {
-      setNotification("Webhook created!", "success");
+      setNotification("Webhook 已创建！", "success");
       refetchWebhooks();
       setAddWebhookOpen(false);
       setWebhookError(undefined);
     },
     onError: (error: Error) => {
-      setNotification(`Error: ${error.message}`, "error");
+      setNotification(`错误：${error.message}`, "error");
       setWebhookError(error.message);
     },
   });
@@ -146,7 +146,7 @@ const WebhooksPage = (props: WebhooksPageProps) => {
       });
     },
     onSuccess: () => {
-      setNotification("Webhook deleted!", "success");
+      setNotification("Webhook 已删除！", "success");
       refetchWebhooks();
     },
   });
@@ -165,13 +165,13 @@ const WebhooksPage = (props: WebhooksPageProps) => {
     onSuccess: (data) => {
       const response = data as any;
       if (response?.data?.success) {
-        setNotification("Test webhook sent successfully!", "success");
+        setNotification("测试 Webhook 发送成功！", "success");
       } else {
-        setNotification(response?.data?.message || "Test webhook sent", "info");
+        setNotification(response?.data?.message || "测试 Webhook 已发送", "info");
       }
     },
     onError: (error: Error) => {
-      setNotification(`Test failed: ${error.message}`, "error");
+      setNotification(`测试失败：${error.message}`, "error");
     },
     onSettled: () => {
       setTestingWebhook(null);
@@ -188,7 +188,7 @@ const WebhooksPage = (props: WebhooksPageProps) => {
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
-    setNotification("Copied to clipboard!", "success");
+    setNotification("已复制到剪贴板！", "success");
   };
 
   if (!org?.currentOrg?.tier) {
@@ -257,7 +257,7 @@ const WebhooksPage = (props: WebhooksPageProps) => {
               rel="noopener noreferrer"
               className="flex items-center gap-1"
             >
-              Learn more about Helicone webhooks
+              了解更多关于 Helicone webhooks
               <ExternalLinkIcon className="h-4 w-4" />
             </a>
           </Button>
@@ -270,7 +270,7 @@ const WebhooksPage = (props: WebhooksPageProps) => {
                 onClick={handleAddWebhook}
               >
                 <PlusIcon className="h-4 w-4" />
-                Add Webhook
+                添加 Webhook
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl">
@@ -295,21 +295,21 @@ const WebhooksPage = (props: WebhooksPageProps) => {
             <TableHeader className="bg-card">
               <TableRow>
                 <TableHead className="text-xs font-medium">
-                  Destination
+                  目标地址
                 </TableHead>
-                <TableHead className="text-xs font-medium">Created</TableHead>
-                <TableHead className="text-xs font-medium">Version</TableHead>
+                <TableHead className="text-xs font-medium">创建时间</TableHead>
+                <TableHead className="text-xs font-medium">版本</TableHead>
                 <TableHead className="text-xs font-medium">
-                  Sample Rate
-                </TableHead>
-                <TableHead className="text-xs font-medium">
-                  Property Filters
+                  采样率
                 </TableHead>
                 <TableHead className="text-xs font-medium">
-                  Include Data
+                  属性筛选
                 </TableHead>
-                <TableHead className="text-xs font-medium">HMAC Key</TableHead>
-                <TableHead className="text-xs font-medium">Actions</TableHead>
+                <TableHead className="text-xs font-medium">
+                  包含数据
+                </TableHead>
+                <TableHead className="text-xs font-medium">HMAC 密钥</TableHead>
+                <TableHead className="text-xs font-medium">操作</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

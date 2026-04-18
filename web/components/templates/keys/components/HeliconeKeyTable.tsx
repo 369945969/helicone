@@ -12,9 +12,9 @@ interface HeliconeKeyTableProps {
 }
 
 const keyPermissions = new Map([
-  ["r", "Read"],
-  ["w", "Write"],
-  ["rw", "Read/Write"],
+  ["r", "读取"],
+  ["w", "写入"],
+  ["rw", "读取/写入"],
 ]);
 
 const HeliconeKeyTable = ({
@@ -24,7 +24,7 @@ const HeliconeKeyTable = ({
 }: HeliconeKeyTableProps) => {
   const { keys } = useKeys();
   if (keys?.isLoading) {
-    return <LoadingAnimation title={"Loading your keys..."} />;
+    return <LoadingAnimation title={"正在加载密钥..."} />;
   }
 
   if ((keys?.data?.data?.data?.length ?? 0) < 1) {
@@ -37,7 +37,7 @@ const HeliconeKeyTable = ({
           <KeyIcon className="mx-auto h-8 w-8 text-muted-foreground" />
         </div>
         <span className="mt-2 block text-xs font-medium">
-          Click here to generate a Helicone key
+          点击此处生成 Helicone 密钥
         </span>
       </button>
     );
@@ -47,9 +47,9 @@ const HeliconeKeyTable = ({
     <div className="settings-table border-t border-border">
       <ThemedTable
         columns={[
-          { name: "Name", key: "key_name", hidden: false },
-          { name: "Created", key: "created_at", hidden: false },
-          { name: "Permissions", key: "permissions", hidden: false },
+          { name: "名称", key: "key_name", hidden: false },
+          { name: "创建时间", key: "created_at", hidden: false },
+          { name: "权限", key: "permissions", hidden: false },
         ]}
         rows={keys?.data?.data?.data?.map((key) => ({
           ...key,

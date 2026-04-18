@@ -119,7 +119,7 @@ export const VectorDBContent: React.FC<VectorDBContentProps> = ({
     if (requestDetails?.vector) {
       navigator.clipboard.writeText(JSON.stringify(requestDetails.vector));
       setVectorCopied(true);
-      setNotification("Vector copied to clipboard", "success");
+      setNotification("向量已复制到剪贴板", "success");
 
       // Reset the copied state after 2 seconds
       setTimeout(() => {
@@ -134,7 +134,7 @@ export const VectorDBContent: React.FC<VectorDBContentProps> = ({
         className="grid cursor-pointer grid-cols-10 items-start gap-2 bg-gray-100 px-4 py-4 text-left font-semibold dark:bg-gray-900"
         onClick={() => {
           navigator.clipboard.writeText(JSON.stringify(mappedRequest, null, 2));
-          setNotification("Copied to clipboard", "success");
+          setNotification("已复制到剪贴板", "success");
         }}
       >
         <pre className="font-mono col-span-10 text-sm">
@@ -267,7 +267,7 @@ export const VectorDBContent: React.FC<VectorDBContentProps> = ({
               <button
                 onClick={handleCopyVector}
                 className="ml-2 rounded-md p-1 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
-                title="Copy vector to clipboard"
+                title="复制向量到剪贴板"
               >
                 {vectorCopied ? (
                   <ClipboardDocumentCheckIcon className="h-5 w-5 text-green-500" />

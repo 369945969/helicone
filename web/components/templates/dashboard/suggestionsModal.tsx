@@ -31,7 +31,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
               htmlFor="metric-name"
               className="lg:text-md block text-sm font-medium leading-6 text-gray-900"
             >
-              Metric Title
+              指标标题
             </label>
             <div className="mt-1">
               <input
@@ -39,7 +39,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
                 id="metric-title"
                 name="metric-title"
                 type="text"
-                placeholder="e.g. Average Tokens per Request"
+                placeholder="例如：每次请求的平均令牌数"
                 required
                 className="lg:text-md block w-full rounded-md border-0 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 lg:leading-6"
               />
@@ -50,7 +50,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
               htmlFor="metric-type"
               className="lg:text-md block text-sm font-medium leading-6 text-gray-900"
             >
-              Type
+              类型
             </label>
             <div className="mt-1">
               <input
@@ -58,7 +58,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
                 id="metric-type"
                 name="metric-type"
                 type="text"
-                placeholder="Time Graph | Number | Other"
+                placeholder="时间图表 | 数字 | 其他"
                 required
                 className="lg:text-md block w-full rounded-md border-0 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 lg:leading-6"
               />
@@ -69,7 +69,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
               htmlFor="email"
               className="lg:text-md block text-sm font-medium leading-6 text-gray-900"
             >
-              Email address
+              电子邮件地址
             </label>
             <div className="mt-1">
               <input
@@ -89,7 +89,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
               htmlFor="use-case"
               className="lg:text-md block text-sm font-medium leading-6 text-gray-900"
             >
-              Use Case
+              使用案例
             </label>
             <div className="mt-1">
               <input
@@ -98,7 +98,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
                 name="use-case"
                 type="text"
                 required
-                placeholder="e.g. Monitor how close we are to OpenAI API limits."
+                placeholder="例如：监控我们离 OpenAI API 限制有多近。"
                 className="lg:text-md block w-full rounded-md border-0 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 lg:leading-6"
               />
             </div>
@@ -108,7 +108,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
               htmlFor="what-else"
               className="lg:text-md block text-sm font-medium leading-6 text-gray-900"
             >
-              What else should we know?
+              还有什么我们应该知道的？
             </label>
             <div className="mt-1">
               <textarea
@@ -129,11 +129,11 @@ const SuggestionModal = (props: SuggestionModalProps) => {
                   .POST("/v1/user-feedback", {
                     body: {
                       feedback: `
-                    Metric Title: ${metricTitle}
-                    Type: ${metricType}
-                    Email: ${email}
-                    Use Case: ${useCase}
-                    What else: ${whatElse}
+                    指标标题: ${metricTitle}
+                    类型: ${metricType}
+                    邮箱: ${email}
+                    使用案例: ${useCase}
+                    其他信息: ${whatElse}
                   `,
                       tag: "dashboard_metric_suggestion",
                     },
@@ -141,14 +141,14 @@ const SuggestionModal = (props: SuggestionModalProps) => {
                   .then((res) => {
                     if (res.error) {
                       setNotification(
-                        "Failed to submit feedback. Please try again.",
+                        "提交反馈失败，请重试。",
                         "error",
                       );
                       return;
                     } else {
                       setOpen(false);
                       setNotification(
-                        "Thank you for your feedback!",
+                        "感谢您的反馈！",
                         "success",
                       );
                     }
@@ -156,7 +156,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
               }}
               className="flex items-center rounded-md bg-black px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Submit
+              提交
             </button>
           </div>
         </div>

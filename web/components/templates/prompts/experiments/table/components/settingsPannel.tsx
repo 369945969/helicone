@@ -21,7 +21,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
       defaultWidth="md:min-w-[300px] w-full md:w-[400px]"
     >
       <div className="space-y-4 py-4">
-        <h2 className="mb-4 text-lg font-semibold">Settings</h2>
+        <h2 className="mb-4 text-lg font-semibold">设置</h2>
         <ProviderKeyList
           variant="basic"
           setProviderKeyCallback={setSelectedProviderKey}

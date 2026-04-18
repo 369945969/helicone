@@ -95,15 +95,15 @@ const DatasetsPage = (props: DatasetsPageProps) => {
       })
       .then((res) => {
         if (res.error) {
-          setNotification("Error deleting dataset", "error");
+          setNotification("删除数据集时出错", "error");
         } else {
-          setNotification("Dataset deleted successfully", "success");
+          setNotification("数据集删除成功", "success");
           refetch();
           handleCloseDialog();
         }
       })
       .catch((err) => {
-        setNotification("Error deleting dataset", "error");
+        setNotification("删除数据集时出错", "error");
       })
       .finally(() => {
         setIsDeleting(false);
@@ -113,18 +113,18 @@ const DatasetsPage = (props: DatasetsPageProps) => {
   const columns = [
     {
       key: "name" as keyof DatasetTableRow,
-      header: "Name",
-      render: (row: DatasetTableRow) => row.name || "Untitled Dataset",
+      header: "名称",
+      render: (row: DatasetTableRow) => row.name || "未命名数据集",
     },
     {
       key: "created_at" as keyof DatasetTableRow,
-      header: "Created At",
+      header: "创建时间",
       render: (row: DatasetTableRow) =>
         new Date(row.created_at ?? 0).toLocaleString(),
     },
     {
       key: "dataset_type" as keyof DatasetTableRow,
-      header: "Dataset Type",
+      header: "数据集类型",
       render: (row: DatasetTableRow) => {
         return row.dataset_type === "helicone" ? (
           <span className="-my-1 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20 dark:bg-blue-900 dark:text-blue-300">
@@ -135,13 +135,13 @@ const DatasetsPage = (props: DatasetsPageProps) => {
             Experiment
           </span>
         ) : (
-          "Unknown"
+          "未知"
         );
       },
     },
     {
       key: "requests_count" as keyof DatasetTableRow,
-      header: "Rows",
+      header: "行数",
       render: (row: DatasetTableRow) => row.requests_count,
     },
     {
@@ -182,7 +182,7 @@ const DatasetsPage = (props: DatasetsPageProps) => {
         </div>
       ) : (
         <>
-          <AuthHeader title={"Datasets"} />
+          <AuthHeader title={"数据集"} />
 
           {!canCreate && (
             <FreeTierLimitBanner
@@ -198,7 +198,7 @@ const DatasetsPage = (props: DatasetsPageProps) => {
             onSelect={(row) => {
               router.push({
                 pathname: `/datasets/${row.id}`,
-                query: { name: row.name || "Untitled Dataset" },
+                query: { name: row.name || "未命名数据集" },
               });
             }}
           />
@@ -207,23 +207,23 @@ const DatasetsPage = (props: DatasetsPageProps) => {
           <Dialog open={deleteModalOpen} onOpenChange={handleCloseDialog}>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle>Delete Dataset</DialogTitle>
+                <DialogTitle>删除数据集</DialogTitle>
                 <DialogDescription>
-                  Are you sure you want to delete the dataset &ldquo;
-                  {datasetToDelete?.name || "Untitled Dataset"}
-                  &rdquo;? This action cannot be undone.
+                  您确定要删除数据集 &ldquo;
+                  {datasetToDelete?.name || "未命名数据集"}
+                  &rdquo; 吗？此操作无法撤销。
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter className="flex flex-row justify-end gap-2">
                 <Button variant="outline" onClick={handleCloseDialog}>
-                  Cancel
+                  取消
                 </Button>
                 <Button
                   variant="destructive"
                   onClick={handleDeleteConfirm}
                   disabled={isDeleting}
                 >
-                  {isDeleting ? "Deleting..." : "Delete"}
+                  {isDeleting ? "删除中..." : "删除"}
                 </Button>
               </DialogFooter>
             </DialogContent>

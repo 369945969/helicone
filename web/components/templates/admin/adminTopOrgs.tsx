@@ -268,14 +268,14 @@ const AdminTopOrgs = (props: AdminTopOrgsProps) => {
   return (
     <div className="flex flex-col gap-8 p-4 md:p-6">
       <div className="flex flex-col gap-2">
-        <H1>Top Organizations Over Time</H1>
-        <Muted>View request counts for the top organizations over time</Muted>
+        <H1>顶级组织随时间变化</H1>
+        <Muted>查看顶级组织的请求数量随时间变化</Muted>
       </div>
 
       <div className="flex flex-col gap-4 md:flex-row md:gap-6">
         <div className="flex flex-1 flex-col gap-2">
           <Label className="flex items-center justify-between">
-            <span className="font-semibold">Time Range</span>
+            <span className="font-semibold">时间范围</span>
             <Small className="font-normal text-muted-foreground">
               Grouped by: {getGroupBy(timeRange)}
             </Small>
@@ -298,7 +298,7 @@ const AdminTopOrgs = (props: AdminTopOrgsProps) => {
         </div>
 
         <div className="flex flex-1 flex-col gap-2 md:max-w-xs">
-          <Label className="font-semibold">Number of Organizations</Label>
+          <Label className="font-semibold">组织数量</Label>
           <Select
             value={limit.toString()}
             onValueChange={(value) => setLimit(parseInt(value))}
@@ -320,7 +320,7 @@ const AdminTopOrgs = (props: AdminTopOrgsProps) => {
       <div className="rounded-lg border border-border bg-card shadow-sm">
         <div className="flex flex-col gap-6 p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <H2>Request Counts Over Time</H2>
+            <H2>请求数量随时间变化</H2>
             <div className="flex gap-2">
               <Button
                 onClick={() => toggleAllOrgs(true)}
@@ -341,15 +341,15 @@ const AdminTopOrgs = (props: AdminTopOrgsProps) => {
 
           {topOrgsData.isLoading ? (
             <div className="flex h-64 items-center justify-center">
-              <p>Loading data...</p>
+              <p>正在加载数据...</p>
             </div>
           ) : topOrgsData.error ? (
             <div className="flex h-64 items-center justify-center">
-              <p className="text-red-500">Error loading data</p>
+              <p className="text-red-500">加载数据时出错</p>
             </div>
           ) : chartData().length === 0 ? (
             <div className="flex h-64 items-center justify-center">
-              <p>No data available</p>
+              <p>无可用数据</p>
             </div>
           ) : (
             <>
@@ -407,7 +407,7 @@ const AdminTopOrgs = (props: AdminTopOrgsProps) => {
 
       {!topOrgsData.isLoading && topOrgsData.data?.organizations && (
         <div className="flex flex-col gap-4">
-          <H2>Organization Details</H2>
+          <H2>组织详情</H2>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {topOrgsData.data.organizations.map((org, index) => (
               <div

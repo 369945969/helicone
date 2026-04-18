@@ -62,7 +62,7 @@ export const ChatTopBar: React.FC<ChatTopBarProps> = ({
             <EyeIcon className="h-4 w-4" />
           )}
           <p className="text-xs font-semibold">
-            {allExpanded ? "Shrink All" : "Expand All"}
+            {allExpanded ? "全部收起" : "全部展开"}
           </p>
         </button>
 
@@ -78,7 +78,7 @@ export const ChatTopBar: React.FC<ChatTopBarProps> = ({
           className="flex flex-row items-center space-x-1 rounded-lg px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800"
         >
           <PiPlayBold className="h-4 w-4" />
-          <p className="text-xs font-semibold">Test Prompt</p>
+          <p className="text-xs font-semibold">测试提示词</p>
         </button>
       </div>
       <div className="flex flex-row items-center space-x-2">
@@ -88,7 +88,7 @@ export const ChatTopBar: React.FC<ChatTopBarProps> = ({
             className="flex flex-row items-center space-x-1 rounded-lg px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800"
           >
             <ArrowsPointingOutIcon className="h-4 w-4" />
-            <p className="text-xs font-semibold">Expand</p>
+            <p className="text-xs font-semibold">展开</p>
           </button>
         )}
         <button

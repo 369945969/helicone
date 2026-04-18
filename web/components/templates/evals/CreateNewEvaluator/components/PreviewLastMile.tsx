@@ -25,11 +25,11 @@ export function PreviewLastMile({
         {JSON.stringify(testDataConfig.input)}
         <Label>Output</Label>
         {JSON.stringify(testDataConfig.output)}
-        <Label>Prompt Template</Label>
-        <Label>Ground Truth</Label>
+        <Label>提示词模板</Label>
+        <Label>真实值</Label>
         {"groundTruth" in testDataConfig && (
           <div>
-            <Label>Ground Truth</Label>
+            <Label>真实值</Label>
             {JSON.stringify(testDataConfig.groundTruth)}
           </div>
         )} */}

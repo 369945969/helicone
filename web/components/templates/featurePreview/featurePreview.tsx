@@ -139,7 +139,7 @@ const FeaturePreview = <T extends string>({
                 <div>
                   <P className="text-[hsl(var(--primary))]">
                     Adding prompt management requires a{" "}
-                    <span className="font-medium underline">Pro plan</span>
+                    <span className="font-medium underline">专业版计划</span>
                     .{" "}
                   </P>
                 </div>

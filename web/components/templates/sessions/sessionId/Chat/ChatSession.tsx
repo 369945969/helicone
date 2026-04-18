@@ -159,7 +159,7 @@ const ChatSession: React.FC<ChatSessionProps> = ({
                         setOpen(true);
                       }}
                     >
-                      <span className="mr-1 font-medium">View more</span>{" "}
+                      <span className="mr-1 font-medium">查看更多</span>{" "}
                       <FaChevronRight />
                     </button>
                   </Row>

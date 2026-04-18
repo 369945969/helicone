@@ -84,7 +84,7 @@ const PromptCard = (props: PromptCardProps) => {
         </Link>
       </div>
       <p className="text-sm text-gray-500">
-        Last Used:{" "}
+        最后使用：{" "}
         {new Date(promptInfo?.created_at || "").toLocaleString("en-US")}
       </p>
       <div className="pb-4 pt-12">
@@ -116,15 +116,15 @@ const PromptCard = (props: PromptCardProps) => {
       <h3 className="text-2xl text-black dark:text-white">
         {new Intl.NumberFormat().format(total || 0)}
         <span className="ml-2 text-xs text-gray-500">
-          requests in the last 30 days
+          最近 30 天的请求
         </span>
       </h3>
       <div className="flex flex-wrap items-center space-x-2">
-        <Badge variant="secondary">{`${promptInfo?.major_version} major versions`}</Badge>
-        <Badge variant="secondary">{`${promptInfo?.versions.length} versions`}</Badge>
+        <Badge variant="secondary">{`${promptInfo?.major_version} 个主版本`}`</Badge>
+        <Badge variant="secondary">{`${promptInfo?.versions.length} 个版本`}`</Badge>
       </div>
       <p className="text-sm text-gray-500">
-        Created:{" "}
+        创建：{" "}
         {new Date(promptInfo?.created_at || "").toLocaleString("en-US")}
       </p>
     </div>

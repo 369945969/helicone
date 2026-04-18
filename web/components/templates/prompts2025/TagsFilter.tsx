@@ -46,9 +46,9 @@ const TagsFilter = ({ tags, selectedTags, onTagsChange }: TagsFilterProps) => {
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0" align="end">
           <Command>
-            <CommandInput placeholder="Search tags..." />
+            <CommandInput placeholder="搜索标签..." />
             <CommandList>
-              <CommandEmpty>No tags found.</CommandEmpty>
+              <CommandEmpty>未找到标签。</CommandEmpty>
               <CommandGroup>
                 <CommandItem
                   onSelect={() => {

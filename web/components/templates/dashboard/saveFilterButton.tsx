@@ -185,7 +185,7 @@ const SaveFilterButton = (props: SaveFilterButtonProps) => {
               Filter Name
             </label>
             <Input
-              placeholder="My new filter"
+              placeholder="我的新筛选"
               value={filterName}
               onChange={(e) => {
                 setFilterName(e.target.value);

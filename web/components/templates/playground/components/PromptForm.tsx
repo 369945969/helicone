@@ -57,7 +57,7 @@ export default function PromptForm({
   autoOpen,
 }: PromptFormProps) {
   const [promptName, setPromptName] = useState("");
-  const [commitMessage, setCommitMessage] = useState("Update.");
+  const [commitMessage, setCommitMessage] = useState("更新。");
   const [isPromptFormPopoverOpen, setIsPromptFormPopoverOpen] = useState(false);
   const [upgradeMajorVersion, setUpgradeMajorVersion] = useState(false);
   const [selectedEnvironment, setSelectedEnvironment] = useState<
@@ -101,7 +101,7 @@ export default function PromptForm({
               "bg-slate-100 hover:bg-slate-200 dark:bg-slate-950 dark:hover:bg-slate-900",
           )}
         >
-          Save Prompt
+          保存提示词
           {autoOpen && (
             <span className="absolute -right-1 -top-1 flex h-3 w-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
@@ -116,7 +116,7 @@ export default function PromptForm({
           target="_blank"
           className="absolute right-4 top-4 flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
         >
-          View docs
+          查看文档
           <SquareArrowOutUpRight className="h-3 w-3" />
         </Link>
         <div className="flex w-full flex-col gap-4 py-4">
@@ -128,11 +128,11 @@ export default function PromptForm({
                     <InfoIcon className="h-3 w-3 text-muted-foreground" />
                   </TooltipTrigger>
                   <TooltipContent align="start">
-                    Create a new prompt instead of versioning the current one.
+                    创建新提示词而不是对当前提示词进行版本控制。
                   </TooltipContent>
                 </Tooltip>
                 <Label htmlFor="save-as-new-prompt" className="text-sm">
-                  Save as new prompt
+                  保存为新提示词
                 </Label>
                 <Switch
                   className="data-[state=checked]:bg-foreground"
@@ -150,7 +150,7 @@ export default function PromptForm({
             <>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="promptName">Prompt Name</Label>
+                  <Label htmlFor="promptName">提示词名称</Label>
                 </div>
                 <Input
                   id="promptName"
@@ -158,7 +158,7 @@ export default function PromptForm({
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setPromptName(e.target.value)
                   }
-                  placeholder="new-prompt"
+                  placeholder="新提示词"
                   className="w-full"
                 />
               </div>
@@ -171,7 +171,7 @@ export default function PromptForm({
                       <InfoIcon className="h-3 w-3 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent align="start">
-                      Add tags to help organize and filter your prompts
+                      添加标签以帮助组织和筛选您的提示词
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -185,7 +185,7 @@ export default function PromptForm({
                     id="customTags"
                     value={customTags}
                     onChange={(e) => setCustomTags(e.target.value)}
-                    placeholder="Tags separated by commas (e.g. tag1, tag2, tag3)"
+                    placeholder="用逗号分隔的标签（例如：标签1, 标签2, 标签3）"
                   />
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function PromptForm({
 
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <Label htmlFor="commitMessage">Commit Message</Label>
+              <Label htmlFor="commitMessage">提交信息</Label>
             </div>
             <Input
               id="commitMessage"
@@ -202,7 +202,7 @@ export default function PromptForm({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setCommitMessage(e.target.value)
               }
-              placeholder="Update."
+              placeholder="更新说明"
               className="w-full"
             />
           </div>
@@ -216,12 +216,11 @@ export default function PromptForm({
                       <InfoIcon className="h-3 w-3 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent align="start">
-                      Create a new major version instead of incrementing the
-                      minor version.
+                      创建新主版本而不是增加次版本。
                     </TooltipContent>
                   </Tooltip>
                   <Label htmlFor="upgrade-major-version" className="text-sm">
-                    Upgrade major version
+                    升级主版本
                   </Label>
                   <Switch
                     className="data-[state=checked]:bg-foreground"
@@ -242,8 +241,7 @@ export default function PromptForm({
                       <InfoIcon className="h-3 w-3 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent align="start">
-                      Select an existing environment or create a custom one.
-                      Leave empty for no environment assignment.
+                      选择现有环境或创建自定义环境。留空则不分配环境。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -261,15 +259,15 @@ export default function PromptForm({
                     >
                       {selectedEnvironment ||
                         customEnvironment ||
-                        "Select environment (optional)"}
+                        "选择环境（可选）"}
                       <ChevronsUpDown size={16} className="opacity-50" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-full p-0">
                     <Command>
-                      <CommandInput placeholder="Search environments..." />
+                      <CommandInput placeholder="搜索环境..." />
                       <CommandList>
-                        <CommandEmpty>No environments found.</CommandEmpty>
+                        <CommandEmpty>未找到环境。</CommandEmpty>
                         <CommandGroup>
                           <CommandItem
                             onSelect={() => {
@@ -287,7 +285,7 @@ export default function PromptForm({
                                   : "opacity-0",
                               )}
                             />
-                            No environment
+                            无环境
                           </CommandItem>
                           {environments.map((env) => (
                             <CommandItem
@@ -320,7 +318,7 @@ export default function PromptForm({
                 </Popover>
                 <div className="mt-2 flex flex-col gap-2">
                   <Input
-                    placeholder="Or enter custom environment name..."
+                    placeholder="或输入自定义环境名称..."
                     value={customEnvironment}
                     onChange={(e) => {
                       setCustomEnvironment(e.target.value);
@@ -352,8 +350,8 @@ export default function PromptForm({
             }}
           >
             {!saveAndVersion || saveAsNewPrompt
-              ? "Create Prompt"
-              : "Save Prompt"}
+              ? "创建提示"
+              : "保存提示词"}
           </Button>
         </div>
       </PopoverContent>

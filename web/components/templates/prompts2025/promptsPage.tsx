@@ -134,13 +134,13 @@ const PromptsPage = (props: PromptsPageProps) => {
     });
 
     if (result.error) {
-      setNotification("Error renaming prompt", "error");
+      setNotification("重命名提示词时出错", "error");
       logger.error(
         { error: result.error, promptId, newName },
         "Error renaming prompt",
       );
     } else {
-      setNotification("Prompt renamed successfully", "success");
+      setNotification("提示词重命名成功", "success");
     }
   };
 
@@ -162,7 +162,7 @@ const PromptsPage = (props: PromptsPageProps) => {
       });
 
       if (result.error) {
-        setNotification("Error updating tags", "error");
+        setNotification("更新标签时出错", "error");
         logger.error(
           { error: result.error, promptId, tags },
           "Error updating tags",
@@ -186,7 +186,7 @@ const PromptsPage = (props: PromptsPageProps) => {
         );
       }
 
-      setNotification("Tags updated", "success");
+      setNotification("标签已更新", "success");
       return true;
     } catch (error) {
       setNotification("Error updating tags", "error");
@@ -209,13 +209,13 @@ const PromptsPage = (props: PromptsPageProps) => {
     });
 
     if (result.error) {
-      setNotification("Error setting environment", "error");
+      setNotification("设置环境时出错", "error");
       logger.error(
         { error: result.error, promptId, promptVersionId, environment },
         "Error setting environment",
       );
     } else {
-      setNotification(`Environment "${environment}" set`, "success");
+      setNotification(`环境 "${environment}" 已设置`, "success");
     }
   };
 
@@ -233,13 +233,13 @@ const PromptsPage = (props: PromptsPageProps) => {
     });
 
     if (result.error) {
-      setNotification("Error removing environment", "error");
+      setNotification("移除环境时出错", "error");
       logger.error(
         { error: result.error, promptId, promptVersionId, environment },
         "Error removing environment",
       );
     } else {
-      setNotification(`Environment "${environment}" removed`, "success");
+      setNotification(`环境 "${environment}" 已移除`, "success");
     }
   };
 
@@ -254,13 +254,13 @@ const PromptsPage = (props: PromptsPageProps) => {
       });
 
       if (result.error) {
-        setNotification("Error deleting prompt", "error");
+        setNotification("删除提示词时出错", "error");
         logger.error(
           { error: result.error, promptId },
           "Error deleting prompt",
         );
       } else {
-        setNotification("Prompt deleted successfully", "success");
+        setNotification("提示词删除成功", "success");
         if (selectedPrompt?.prompt.id === promptId) {
           setSelectedPrompt(null);
           drawerRef.current?.collapse();
@@ -286,7 +286,7 @@ const PromptsPage = (props: PromptsPageProps) => {
       });
 
       if (result.error) {
-        setNotification("Error deleting prompt version", "error");
+        setNotification("删除提示词版本时出错", "error");
         logger.error(
           {
             error: result.error,
@@ -296,7 +296,7 @@ const PromptsPage = (props: PromptsPageProps) => {
           "Error deleting prompt version",
         );
       } else {
-        setNotification("Prompt version deleted successfully", "success");
+        setNotification("提示词版本删除成功", "success");
       }
     } catch (error) {
       setNotification("Error deleting prompt version", "error");
@@ -470,7 +470,7 @@ const PromptsPage = (props: PromptsPageProps) => {
                       className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
                     />
                     <Input
-                      placeholder="Search prompts..."
+                      placeholder="搜索提示词..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                       className="pl-9"
@@ -484,7 +484,7 @@ const PromptsPage = (props: PromptsPageProps) => {
                     }}
                   >
                     <Plus className="h-4 w-4" />
-                    <span className="ml-2 text-sm">Create Prompt</span>
+                    <span className="ml-2 text-sm">创建提示词</span>
                   </Button>
                   <TagsFilter
                     tags={tags}

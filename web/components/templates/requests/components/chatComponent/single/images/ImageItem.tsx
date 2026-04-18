@@ -57,7 +57,7 @@ export const ImageItem: React.FC<{
         onClick={handleOpenModal}
         onKeyDown={handleKeyDown}
         className="cursor-pointer rounded border-0 bg-transparent p-0 transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-        aria-label="Open image in modal dialog"
+        aria-label="在模态框中打开图片"
         type="button"
       >
         <Image

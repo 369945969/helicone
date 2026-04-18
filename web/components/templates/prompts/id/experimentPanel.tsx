@@ -40,7 +40,7 @@ const ExperimentPanel = (props: PromptIdPageProps) => {
             <Link
               href={`/prompts/${promptId}/subversion/${experiment.meta?.["prompt_version"]}/experiment/${experiment.id}`}
             >
-              <Button>View</Button>
+              <Button>查看</Button>
             </Link>
           </Row>
         ))}

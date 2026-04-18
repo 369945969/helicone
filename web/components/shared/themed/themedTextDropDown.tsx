@@ -70,7 +70,7 @@ export function ThemedTextDropDown(props: ThemedTextDropDownProps) {
           <PopoverContent className="w-full p-0">
             <Command>
               <CommandInput
-                placeholder="Select or enter a value"
+                placeholder="选择或输入值"
                 value={query}
                 onValueChange={(value) => {
                   setQuery(value);
@@ -80,7 +80,7 @@ export function ThemedTextDropDown(props: ThemedTextDropDownProps) {
               />
               <CommandList>
                 {filteredOptions.length === 0 && (
-                  <CommandEmpty>No results found.</CommandEmpty>
+                  <CommandEmpty>未找到结果。</CommandEmpty>
                 )}
                 <CommandGroup>
                   {filteredOptions.map((option, i) => (
@@ -106,7 +106,7 @@ export function ThemedTextDropDown(props: ThemedTextDropDownProps) {
             onChange(e.target.value);
           }}
           className="w-full rounded-md border border-gray-300 px-2 py-1 text-sm"
-          placeholder="Enter a value"
+          placeholder="输入值"
         />
       )}
     </div>

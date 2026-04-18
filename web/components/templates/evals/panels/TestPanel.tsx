@@ -11,7 +11,7 @@ export const TestPanel = () => {
   return (
     <Col className="flex h-full flex-col overflow-hidden bg-background">
       <Row className="shrink-0 items-center justify-between border-b bg-muted/30 px-4 py-2">
-        <H3 className="text-lg font-medium">Test Evaluator</H3>
+        <H3 className="text-lg font-medium">测试评估器</H3>
         <Button
           variant="ghost"
           size="icon"

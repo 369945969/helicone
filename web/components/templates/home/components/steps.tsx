@@ -45,7 +45,7 @@ client = OpenAI(
 
 const Steps = () => {
   return (
-    <nav aria-label="Progress">
+    <nav aria-label="进度">
       <ol role="list" className="overflow-hidden">
         {steps.map((step, stepIdx) => (
           <li

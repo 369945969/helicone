@@ -621,7 +621,7 @@ function HQLPage() {
   ) {
     return (
       <div className="flex h-screen w-full items-center justify-center">
-        <div className="text-lg">Loading...</div>
+        <div className="text-lg">正在加载...</div>
       </div>
     );
   }
@@ -632,8 +632,8 @@ function HQLPage() {
         <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl dark:bg-slate-900">
           <FeatureWaitlist
             feature="hql"
-            title="Get Early Access"
-            description="Be the first to know when HQL launches for your organization."
+            title="获取早期访问"
+            description="成为第一个知道 HQL 在您的组织推出的人。"
             organizationId={organization?.currentOrg?.id}
             variant="flat"
           />
@@ -665,13 +665,13 @@ function HQLPage() {
           }}
         >
           <AlertDialogHeader>
-            <AlertDialogTitle>Unsaved Changes</AlertDialogTitle>
+            <AlertDialogTitle>未保存的更改</AlertDialogTitle>
             <AlertDialogDescription>
-              {`"${closeTabConfirm.tabName}" has unsaved changes. Are you sure you want to close it?`}
+              {`"${closeTabConfirm.tabName}" 有未保存的更改。确定要关闭吗？`}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               variant="destructive"
               onClick={() => {
@@ -681,7 +681,7 @@ function HQLPage() {
                 setCloseTabConfirm({ isOpen: false, tabId: null, tabName: "" });
               }}
             >
-              Close Without Saving
+              不保存关闭
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -877,7 +877,7 @@ function HQLPage() {
           >
             {result.rowCount >= 100 && (
               <Alert variant="warning" className="mb-2">
-                <AlertTitle>Row Limit Reached</AlertTitle>
+                <AlertTitle>已达到行数限制</AlertTitle>
                 <AlertDescription>
                   Only the first 100 rows are shown. Please refine your query
                   for more specific results. Or download for more data.

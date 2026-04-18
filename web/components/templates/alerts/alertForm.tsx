@@ -339,7 +339,7 @@ const AlertFormContent = (props: AlertFormProps) => {
               id="alert-name"
               required
               defaultValue={initialValues?.name || ""}
-              placeholder="My Alert"
+              placeholder="我的警报"
             />
           </div>
 
@@ -357,7 +357,7 @@ const AlertFormContent = (props: AlertFormProps) => {
                 }}
               >
                 <SelectTrigger className="h-9 w-[160px] rounded-none border-0 border-b border-border bg-transparent px-2 text-foreground shadow-none focus:border-foreground focus:ring-0">
-                  <SelectValue placeholder="Select metric" />
+                  <SelectValue placeholder="选择指标" />
                 </SelectTrigger>
                 <SelectContent>
                   {ALERT_METRICS.map((metric) => {
@@ -426,7 +426,7 @@ const AlertFormContent = (props: AlertFormProps) => {
                 }}
               >
                 <SelectTrigger className="h-9 w-[120px] rounded-none border-0 border-b border-border bg-transparent px-2 text-foreground shadow-none focus:border-foreground focus:ring-0">
-                  <SelectValue placeholder="Time" />
+                  <SelectValue placeholder="时间" />
                 </SelectTrigger>
                 <SelectContent>
                   {Object.entries(alertTimeWindows).map(([key, value], idx) => {
@@ -453,7 +453,7 @@ const AlertFormContent = (props: AlertFormProps) => {
                     }
                   >
                     <SelectTrigger className="h-9 w-[120px] rounded-none border-0 border-b border-border bg-transparent px-2 text-foreground shadow-none focus:border-foreground focus:ring-0">
-                      <SelectValue placeholder="Aggregation" />
+                      <SelectValue placeholder="聚合" />
                     </SelectTrigger>
                     <SelectContent>
                       {ALERT_AGGREGATIONS.map((agg) => (
@@ -527,10 +527,10 @@ const AlertFormContent = (props: AlertFormProps) => {
                 </PopoverTrigger>
                 <PopoverContent className="w-[250px] p-0" align="start">
                   <Command>
-                    <CommandInput placeholder="Search..." className="h-9" />
-                    <CommandEmpty>No grouping found.</CommandEmpty>
+                    <CommandInput placeholder="搜索..." className="h-9" />
+                    <CommandEmpty>未找到分组。</CommandEmpty>
                     <CommandList>
-                      <CommandGroup heading="Standard">
+                      <CommandGroup heading="标准">
                         <CommandItem
                           value="none"
                           onSelect={() => {
@@ -570,7 +570,7 @@ const AlertFormContent = (props: AlertFormProps) => {
                       {groupingOptions.properties.length > 0 && (
                         <>
                           <CommandSeparator />
-                          <CommandGroup heading="Custom Properties">
+                          <CommandGroup heading="自定义属性">
                             {groupingOptions.properties.map((option) => (
                               <CommandItem
                                 key={option.value}
@@ -682,9 +682,9 @@ const AlertFormContent = (props: AlertFormProps) => {
                         </PopoverTrigger>
                         <PopoverContent className="w-[300px] p-0" align="start">
                           <Command>
-                            <CommandInput placeholder="Search emails..." />
+                            <CommandInput placeholder="搜索邮箱..." />
                             <CommandList>
-                              <CommandEmpty>No emails found.</CommandEmpty>
+                              <CommandEmpty>未找到邮箱。</CommandEmpty>
                               <CommandGroup>
                                 {members.map((member) => (
                                   <CommandItem
@@ -782,10 +782,10 @@ const AlertFormContent = (props: AlertFormProps) => {
                               align="start"
                             >
                               <Command>
-                                <CommandInput placeholder="Search channels..." />
+                                <CommandInput placeholder="搜索频道..." />
                                 <CommandList>
                                   <CommandEmpty>
-                                    No channels found.
+                                    未找到频道。
                                   </CommandEmpty>
                                   <CommandGroup>
                                     {slackChannels.map((channel) => (
@@ -894,7 +894,7 @@ const AlertFormContent = (props: AlertFormProps) => {
             className="flex items-center gap-2"
           >
             <BookOpenIcon className="h-4 w-4" />
-            <span>View Docs</span>
+            <span>查看文档</span>
           </a>
         </Button>
         <div className="flex gap-2">

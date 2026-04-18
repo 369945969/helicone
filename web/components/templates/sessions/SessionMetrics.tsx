@@ -118,7 +118,7 @@ const SessionMetrics = ({
             value={pSize}
           >
             <SelectTrigger id="percentile-select" className="w-full">
-              <SelectValue placeholder="Percentile" />
+              <SelectValue placeholder="百分位数" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="p50">p50</SelectItem>
@@ -163,7 +163,7 @@ const SessionMetrics = ({
       >
         <div key="requests-count-distribution">
           <Chart
-            title="Requests count distribution"
+            title="请求数分布"
             subtitle={getSubtitle(
               isLoading,
               metrics?.average.session_count[0]?.average,
@@ -189,7 +189,7 @@ const SessionMetrics = ({
         </div>
         <div key="cost-distribution">
           <Chart
-            title="Cost distribution"
+            title="成本分布"
             subtitle={getSubtitle(
               isLoading,
               metrics?.average.session_cost[0]?.average,
@@ -219,7 +219,7 @@ const SessionMetrics = ({
         </div>
         <div key="duration-distribution">
           <Chart
-            title="Duration distribution"
+            title="持续时间分布"
             subtitle={getSubtitle(
               isLoading,
               metrics?.average.session_duration[0]?.average,

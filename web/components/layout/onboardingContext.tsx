@@ -131,7 +131,7 @@ export const ONBOARDING_STEPS: Record<OnboardingStepLabel, OnboardingStep> = {
       additionalData: (
         <OnboardingPopoverAccordion
           icon={<MessageCircleQuestionIcon className="h-4 w-4" />}
-          title="How to send requests to Helicone? "
+          title="如何向 Helicone 发送请求？"
           button={{
             text: "Doc",
             link: "https://docs.helicone.ai/getting-started/quick-start",
@@ -181,7 +181,7 @@ export const ONBOARDING_STEPS: Record<OnboardingStepLabel, OnboardingStep> = {
       additionalData: (
         <OnboardingPopoverAccordion
           icon={<MessageCircleQuestionIcon className="h-4 w-4" />}
-          title="How do I track sessions in Helicone? "
+          title="如何在 Helicone 中跟踪会话？"
           button={{
             text: "Doc",
             link: "https://docs.helicone.ai/features/sessions",
@@ -216,7 +216,7 @@ export const ONBOARDING_STEPS: Record<OnboardingStepLabel, OnboardingStep> = {
       additionalData: (
         <OnboardingPopoverAccordion
           icon={<MessageCircleQuestionIcon className="h-4 w-4" />}
-          title="How do I track my prompts in Helicone? "
+          title="如何在 Helicone 中跟踪我的提示词？"
           button={{
             text: "Doc",
             link: "https://docs.helicone.ai/features/prompts",

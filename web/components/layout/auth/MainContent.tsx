@@ -65,7 +65,7 @@ const MainContent = ({ children, banner, pathname }: MainContentProps) => {
                     banner.onDismiss?.();
                   }}
                   className="absolute right-4 text-white/80 transition-colors hover:text-white"
-                  aria-label="Dismiss"
+                  aria-label="关闭"
                 >
                   <svg
                     width="16"

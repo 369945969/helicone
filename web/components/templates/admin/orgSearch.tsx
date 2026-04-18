@@ -280,7 +280,7 @@ const OrgSearch = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search organizations..."
+            placeholder="搜索组织..."
             className="rounded-none pl-10"
           />
         </div>
@@ -358,8 +358,8 @@ const OrgSearch = () => {
           <Card className="rounded-none border-dashed">
             <CardContent className="flex flex-col items-center justify-center gap-4 py-12">
               <div className="text-6xl">🔍</div>
-              <H3>Enter search criteria</H3>
-              <Muted>Use the search box above to find organizations</Muted>
+              <H3>输入搜索条件</H3>
+              <Muted>使用上方搜索框查找组织</Muted>
             </CardContent>
           </Card>
         )}
@@ -371,8 +371,8 @@ const OrgSearch = () => {
             <Card className="rounded-none border-dashed">
               <CardContent className="flex flex-col items-center justify-center gap-4 py-12">
                 <div className="text-6xl">🕵️</div>
-                <H3>No organizations found</H3>
-                <Muted>Try different search criteria</Muted>
+                <H3>未找到组织</H3>
+                <Muted>尝试不同的搜索条件</Muted>
               </CardContent>
             </Card>
           )}
@@ -440,11 +440,11 @@ const OrgSearch = () => {
               {isFetchingNextPage && (
                 <div className="flex items-center justify-center gap-2">
                   <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
-                  <Muted>Loading more organizations...</Muted>
+                  <Muted>正在加载更多组织...</Muted>
                 </div>
               )}
               {!hasNextPage && allOrganizations.length > 0 && (
-                <Muted>No more results</Muted>
+                <Muted>没有更多结果</Muted>
               )}
             </div>
           </>
@@ -530,7 +530,7 @@ const AddAdminDialog = ({
       </DialogTrigger>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle>Add Admin to Organization</DialogTitle>
+          <DialogTitle>添加管理员到组织</DialogTitle>
           <DialogDescription>Add admin users to {orgName}</DialogDescription>
         </DialogHeader>
 
@@ -538,12 +538,12 @@ const AddAdminDialog = ({
           {isLoadingAdmins ? (
             <div className="flex items-center justify-center gap-2 py-8">
               <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
-              <Muted>Loading admins...</Muted>
+              <Muted>正在加载管理员...</Muted>
             </div>
           ) : (
             <>
               <div className="flex max-h-64 flex-col gap-2 overflow-y-auto">
-                <Small className="font-medium">Select Admins</Small>
+                <Small className="font-medium">选择管理员</Small>
                 {adminsData?.data?.map((admin) => (
                   <label
                     key={admin.user_id}
@@ -840,7 +840,7 @@ const OrgTableRow = ({
           {lightUsageLoading ? (
             <div className="flex items-center gap-1">
               <Loader2 className="h-3 w-3 animate-spin text-muted-foreground" />
-              <Muted className="text-xs">Loading...</Muted>
+              <Muted className="text-xs">正在加载...</Muted>
             </div>
           ) : lightUsageData?.last_request_at ? (
             <Muted className="text-xs">
@@ -856,14 +856,14 @@ const OrgTableRow = ({
               )}
             </Muted>
           ) : (
-            <Muted className="text-xs">No requests</Muted>
+            <Muted className="text-xs">无请求</Muted>
           )}
         </td>
         <td className="px-4 py-3">
           {lightUsageLoading ? (
             <div className="flex items-center gap-1">
               <Loader2 className="h-3 w-3 animate-spin text-muted-foreground" />
-              <Muted className="text-xs">Loading...</Muted>
+              <Muted className="text-xs">正在加载...</Muted>
             </div>
           ) : (
             <Muted className="text-xs">
@@ -910,12 +910,12 @@ const OrgTableRow = ({
           >
             {isExpanded ? (
               <>
-                <span>Collapse</span>
+                <span>收起</span>
                 <ChevronUpIcon className="h-4 w-4" />
               </>
             ) : (
               <>
-                <span>Expand</span>
+                <span>展开</span>
                 <ChevronDownIcon className="h-4 w-4" />
               </>
             )}
@@ -1379,7 +1379,7 @@ const OrgTableRow = ({
       >
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Remove Member</DialogTitle>
+            <DialogTitle>移除成员</DialogTitle>
             <DialogDescription>
               Are you sure you want to remove{" "}
               <span className="font-medium">{memberToDelete?.email}</span> from{" "}
@@ -1421,7 +1421,7 @@ const OrgTableRow = ({
       >
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Change Member Role</DialogTitle>
+            <DialogTitle>更改成员角色</DialogTitle>
             <DialogDescription>
               Are you sure you want to change{" "}
               <span className="font-medium">{roleChange?.memberEmail}</span>'s
@@ -1461,13 +1461,13 @@ const OrgTableRow = ({
       <Dialog open={deleteOrgDialogOpen} onOpenChange={setDeleteOrgDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Delete Organization</DialogTitle>
+            <DialogTitle>删除组织</DialogTitle>
             <DialogDescription>
               Are you sure you want to clean up{" "}
               <span className="font-medium">{org.name}</span>? This will:
               <ul className="mt-2 list-inside list-disc space-y-1">
                 <li>Reassign ownership to cole+10@helicone.ai</li>
-                <li>Remove all current members from the organization</li>
+                <li>从组织中移除所有当前成员</li>
               </ul>
             </DialogDescription>
           </DialogHeader>
@@ -1596,12 +1596,12 @@ const FeatureFlagsSection = ({
   return (
     <div className="flex w-full flex-col gap-2">
       <div className="flex items-center justify-between">
-        <Small className="font-medium">Feature Flags</Small>
+        <Small className="font-medium">功能标志</Small>
         {!isLoadingFlags && (
           <div className="flex items-center gap-2">
             <Input
               type="text"
-              placeholder="Add flag..."
+              placeholder="添加标志..."
               value={newFlag}
               onChange={(e) => setNewFlag(e.target.value)}
               onKeyDown={(e) => {
@@ -1631,7 +1631,7 @@ const FeatureFlagsSection = ({
       {isLoadingFlags ? (
         <div className="flex items-center gap-2 py-2">
           <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
-          <Muted className="text-xs">Loading...</Muted>
+          <Muted className="text-xs">正在加载...</Muted>
         </div>
       ) : (
         <div className="flex min-h-[2rem] flex-wrap gap-2 border border-border bg-background p-2">
@@ -1659,7 +1659,7 @@ const FeatureFlagsSection = ({
               </Badge>
             ))
           ) : (
-            <Muted className="py-1 text-xs">No feature flags</Muted>
+            <Muted className="py-1 text-xs">无功能标志</Muted>
           )}
         </div>
       )}
@@ -1668,7 +1668,7 @@ const FeatureFlagsSection = ({
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Delete Feature Flag</DialogTitle>
+            <DialogTitle>删除功能标志</DialogTitle>
             <DialogDescription>
               Are you sure you want to remove the feature flag{" "}
               <span className="font-medium">"{flagToDelete}"</span> from{" "}
@@ -1707,7 +1707,7 @@ const FeatureFlagsSection = ({
       <Dialog open={addDialogOpen} onOpenChange={setAddDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Add Feature Flag</DialogTitle>
+            <DialogTitle>添加功能标志</DialogTitle>
             <DialogDescription>
               Are you sure you want to add the feature flag{" "}
               <span className="font-medium">"{newFlag}"</span> to {orgName}?
@@ -1794,7 +1794,7 @@ const GatewayDiscountSection = ({
   return (
     <div className="flex w-full flex-col gap-2">
       <div className="flex items-center justify-between">
-        <Small className="font-medium">Gateway Discount</Small>
+        <Small className="font-medium">网关折扣</Small>
         <div className="flex items-center gap-2">
           <Switch
             checked={gatewayDiscountEnabled}
@@ -1811,7 +1811,7 @@ const GatewayDiscountSection = ({
       <Dialog open={confirmDialogOpen} onOpenChange={setConfirmDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Update Gateway Discount</DialogTitle>
+            <DialogTitle>更新网关折扣</DialogTitle>
             <DialogDescription>
               Are you sure you want to {pendingValue ? "enable" : "disable"}{" "}
               gateway discount for{" "}

@@ -122,7 +122,7 @@ const StripeConfig: React.FC<StripeConfigProps> = ({ onClose }) => {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h2 className="text-2xl font-semibold">Stripe Integration</h2>
+        <h2 className="text-2xl font-semibold">Stripe 集成</h2>
         <p className="text-sm text-muted-foreground">
           Connect your Stripe account to Helicone using a Restricted Access Key
         </p>
@@ -143,7 +143,7 @@ const StripeConfig: React.FC<StripeConfigProps> = ({ onClose }) => {
           disabled={isLoading}
           className="data-[state=checked]:bg-green-500"
         />
-        <Label htmlFor="stripeIntegration">Enable Stripe Integration</Label>
+        <Label htmlFor="stripeIntegration">启用 Stripe 集成</Label>
       </div>
 
       <div className="space-y-4 rounded-lg border border-border bg-muted/50 p-4">
@@ -189,7 +189,7 @@ const StripeConfig: React.FC<StripeConfigProps> = ({ onClose }) => {
             </li>
             <li>
               Click{" "}
-              <span className="font-medium text-foreground">Create key</span>
+              <span className="font-medium text-foreground">创建密钥</span>
             </li>
             <li>
               Copy the key (it starts with &quot;rk_live_&quot; or
@@ -205,10 +205,10 @@ const StripeConfig: React.FC<StripeConfigProps> = ({ onClose }) => {
       </div>
 
       <div className="space-y-4 rounded-lg border border-border bg-card p-4">
-        <h3 className="text-sm font-medium">Meter Settings</h3>
+        <h3 className="text-sm font-medium">计量设置</h3>
 
         <div className="space-y-2">
-          <Label htmlFor="eventName">Event Name</Label>
+          <Label htmlFor="eventName">事件名称</Label>
           <Input
             id="eventName"
             type="text"
@@ -226,7 +226,7 @@ const StripeConfig: React.FC<StripeConfigProps> = ({ onClose }) => {
       <div className="space-y-4 rounded-lg border border-dashed border-muted-foreground/50 bg-muted/30 p-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-sm font-medium">Test Meter Events</h3>
+            <h3 className="text-sm font-medium">测试计量事件</h3>
             <p className="text-xs text-muted-foreground">
               Test your meter event configuration without saving
             </p>
@@ -234,7 +234,7 @@ const StripeConfig: React.FC<StripeConfigProps> = ({ onClose }) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="testCustomerId">Stripe Customer ID</Label>
+          <Label htmlFor="testCustomerId">Stripe 客户 ID</Label>
           <div className="flex gap-2">
             <Input
               id="testCustomerId"
@@ -294,7 +294,7 @@ const StripeConfig: React.FC<StripeConfigProps> = ({ onClose }) => {
       </div>
 
       <div className="space-y-4 rounded-lg border border-border bg-card p-4">
-        <h3 className="text-sm font-medium">Next Steps</h3>
+        <h3 className="text-sm font-medium">下一步</h3>
         <div className="space-y-3 text-sm text-muted-foreground">
           <p>
             After saving your configuration, add the following header to your

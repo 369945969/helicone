@@ -174,8 +174,8 @@ const PromptsPreview = () => {
   return (
     <div className="flex flex-col items-center justify-center py-4">
       <FeaturePreview
-        title="Prompt Management"
-        subtitle="in a Shared Workspace"
+        title="提示词管理"
+        subtitle="在共享工作空间中"
         pricingPlans={pricingPlan}
         onStartTrial={handleStartTrial}
         featureSectionProps={{

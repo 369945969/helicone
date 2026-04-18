@@ -45,7 +45,7 @@ export const ProviderKeySettings: React.FC<ProviderKeySettingsProps> = ({
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-3 w-3 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search providers..."
+            placeholder="搜索提供商..."
             value={searchQuery}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSearchQuery(e.target.value)
@@ -60,26 +60,26 @@ export const ProviderKeySettings: React.FC<ProviderKeySettingsProps> = ({
               size="sm"
               className="flex min-w-[120px] items-center justify-between gap-1"
             >
-              <XSmall>
-                Sort:{" "}
-                {sortOption === "relevance"
-                  ? "Relevance"
-                  : sortOption === "alphabetical"
-                    ? "A-Z"
-                    : "Recently Used"}
-              </XSmall>
+            <XSmall>
+              排序：{""}
+              {sortOption === "relevance"
+                ? "相关性"
+                : sortOption === "alphabetical"
+                  ? "A-Z"
+                  : "最近使用"}
+            </XSmall>
               <ChevronDown className="h-3 w-3" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem onClick={() => setSortOption("relevance")}>
-              Relevance
+              相关性
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => setSortOption("alphabetical")}>
-              Alphabetical (A-Z)
+              字母顺序 (A-Z)
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => setSortOption("recently-used")}>
-              Recently Used
+              最近使用
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -89,7 +89,7 @@ export const ProviderKeySettings: React.FC<ProviderKeySettingsProps> = ({
         {filteredProviders.length === 0 ? (
           <div className="border-2 border-dashed border-border bg-muted p-8 text-center">
             <Muted className="font-medium">
-              No providers found matching your search.
+              未找到匹配搜索的提供商。
             </Muted>
           </div>
         ) : (

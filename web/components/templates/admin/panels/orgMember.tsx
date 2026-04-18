@@ -75,11 +75,11 @@ const OrgMember = (props: OrgMemberProps) => {
         Org Member Control Center
       </h2>
       <div className="flex flex-col space-y-2">
-        <p className="text-sm">Organization Lookup by Name</p>
+        <p className="text-sm">按名称查找组织</p>
         <div className="grid grid-cols-4 gap-4">
           <div className="col-span-2">
             <TextInput
-              placeholder="Organization Name"
+              placeholder="组织名称"
               value={orgName}
               onValueChange={setOrgName}
             />
@@ -123,10 +123,10 @@ const OrgMember = (props: OrgMemberProps) => {
       </div>
 
       <div className="flex flex-col space-y-2 border-t-2 border-gray-300 pt-4">
-        <p className="text-sm">Add Admin to Organization by Id</p>
+        <p className="text-sm">按 ID 添加管理员到组织</p>
         <div className="w-1/2">
           <TextInput
-            placeholder="Organization Id"
+            placeholder="组织 ID"
             value={orgId}
             onValueChange={setOrgId}
           />

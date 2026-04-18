@@ -129,7 +129,7 @@ export default function EvaluatorsList() {
           "success",
         );
       } catch (error) {
-        notification.setNotification("Failed to delete evaluator", "error");
+        notification.setNotification("删除评估器失败", "error");
       }
     }
   };
@@ -162,7 +162,7 @@ export default function EvaluatorsList() {
       <>
         <div>
           <AuthHeader
-            title="Evaluators"
+            title="评估器"
             actions={[
               <Link href="/evaluators/new" key="create-evaluator">
                 <Button
@@ -178,8 +178,8 @@ export default function EvaluatorsList() {
           />
           <div className="p-6">
             <GenericEmptyState
-              title="Create Your First Evaluator"
-              description="Create an evaluator to score your LLM outputs and measure their quality."
+              title="创建您的第一个评估器"
+              description="创建评估器来为您的 LLM 输出打分并衡量其质量。"
               icon={<LineChart size={28} className="text-accent-foreground" />}
               className="w-full"
               actions={
@@ -200,7 +200,7 @@ export default function EvaluatorsList() {
   return (
     <div>
       <AuthHeader
-        title="Evaluators"
+        title="评估器"
         actions={[
           <Link href="/evaluators/new" key="create-evaluator">
             <Button variant="action" size="sm" className="items-center gap-1">

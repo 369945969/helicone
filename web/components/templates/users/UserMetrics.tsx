@@ -93,7 +93,7 @@ export const UserMetrics = () => {
             value={pSize}
           >
             <SelectTrigger id="percentile-select" className="w-full">
-              <SelectValue placeholder="Percentile" />
+              <SelectValue placeholder="百分位数" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="p50">p50</SelectItem>
@@ -139,7 +139,7 @@ export const UserMetrics = () => {
       >
         <div key="requests-count-distribution">
           <Chart
-            title="Requests count distribution"
+            title="请求数分布"
             data={
               data?.data?.data?.request_count?.map((userCount) => {
                 const start = Math.ceil(Number(userCount.range_start ?? 0));
@@ -161,7 +161,7 @@ export const UserMetrics = () => {
         </div>
         <div key="cost-distribution">
           <Chart
-            title="Cost distribution"
+            title="成本分布"
             data={
               data?.data?.data?.user_cost?.map((userCost) => {
                 const start = Number(userCost.range_start ?? 0);

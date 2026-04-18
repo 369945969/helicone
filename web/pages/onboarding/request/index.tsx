@@ -57,14 +57,14 @@ export default function RequestPage() {
   // Redirect back to billing if not set up
   useEffect(() => {
     if (!creditsLoading && !hasBillingSetup) {
-      setNotification("Please set up billing before sending requests", "error");
+      setNotification("请在发送请求前设置账单", "error");
       router.push("/onboarding/billing");
     }
   }, [creditsLoading, hasBillingSetup, router, setNotification]);
 
   const onSendRequest = async () => {
     if (!prompt.trim()) {
-      setNotification("Please enter a prompt", "error");
+      setNotification("请输入提示词", "error");
       return;
     }
 
@@ -109,10 +109,10 @@ export default function RequestPage() {
 
       if (result && result.error) {
         setError(result.error.message);
-        setNotification("Error generating response", "error");
+        setNotification("生成响应时出错", "error");
       } else {
         setHasCompleted(true);
-        setNotification("Request completed successfully!", "success");
+        setNotification("请求成功完成！", "success");
       }
     } catch (error) {
       if (error instanceof Error) {

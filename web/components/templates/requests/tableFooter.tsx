@@ -54,7 +54,7 @@ export default function TableFooter(props: TableFooterProps) {
       {/* Left Actions */}
       <div className="flex flex-row items-center gap-1">
         <p className="hidden font-medium text-muted-foreground sm:block">
-          Rows
+          行
         </p>
         <Select
           defaultValue={pageSize.toString()}
@@ -95,7 +95,7 @@ export default function TableFooter(props: TableFooterProps) {
         </Button>
         <div className="flex flex-row items-center space-x-1">
           {isCountLoading ? (
-            <p className="font-medium text-muted-foreground">Loading...</p>
+            <p className="font-medium text-muted-foreground">正在加载...</p>
           ) : count > 0 ? (
             <div className="flex items-center gap-1">
               <Input
@@ -116,7 +116,7 @@ export default function TableFooter(props: TableFooterProps) {
                 max={totalPages}
               />
               <p className="whitespace-nowrap font-medium text-muted-foreground">
-                of {totalPages}
+                / {totalPages}
               </p>
               {showCount && (
                 <p className="text-[10px] font-medium text-muted-foreground">{`(${count} total)`}</p>

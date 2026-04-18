@@ -60,7 +60,7 @@ const ScoresGraphContainer = ({
   }, [scores, experimentId, queryClient]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Or your loading component
+    return <div>正在加载...</div>; // 或您的加载组件
   }
 
   return (

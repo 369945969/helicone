@@ -524,7 +524,7 @@ const PromptColumnHeader = ({
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
-                <DialogTitle>Delete Prompt Version</DialogTitle>
+                <DialogTitle>删除提示词版本</DialogTitle>
                 <DialogDescription>
                   Once deleted, this prompt version will no longer be available.
                   Do you want to delete it?

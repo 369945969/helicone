@@ -3,32 +3,32 @@ import { ChatWindow } from "./chatWindow";
 
 const FAMOUS_MOVIES = [
   {
-    title: "The Dark Knight",
+    title: "黑暗骑士",
     leadCharacters: [
-      "Batman / Bruce Wayne",
-      "Robin",
-      "Alfred",
-      "Joker",
-      "Rachel",
-      "Harvey Dent",
+      "蝙蝠侠 / 布鲁斯·韦恩",
+      "罗宾",
+      "阿尔弗雷德",
+      "小丑",
+      "瑞秋",
+      "哈维·登特",
     ],
   },
   {
-    title: "Twilight",
+    title: "暮光之城",
     leadCharacters: [
-      "Bella Swan",
-      "Edward Cullen",
-      "Jacob Black",
-      "Rory Sullivan",
+      "贝拉·斯旺",
+      "爱德华·卡伦",
+      "雅各布·布莱克",
+      "罗里·沙利文",
     ],
   },
   {
-    title: "Pirates of the Caribbean",
+    title: "加勒比海盗",
     leadCharacters: [
-      "Jack Sparrow",
-      "Will Turner",
-      "Davy Jones",
-      "Elizabeth Swann",
+      "杰克·斯派洛",
+      "威尔·特纳",
+      "戴维·琼斯",
+      "伊丽莎白·斯旺",
     ],
   },
 ];
@@ -45,7 +45,7 @@ const GuessWhoGame = () => {
     {
       role: "assistant",
       content:
-        "Hello! I'm thinking of a character from a famous movie. Can you guess who it is? Ask me questions about the character or the movie to narrow it down!",
+        "你好！我正在想一部著名电影中的角色。你能猜出是谁吗？向我询问关于角色或电影的问题来缩小范围！",
     },
   ]);
   const [selectedMovie, setSelectedMovie] = useState<
@@ -74,7 +74,7 @@ const GuessWhoGame = () => {
       {
         role: "assistant",
         content:
-          "Hello! I'm thinking of a character from a famous movie. Can you guess who it is? Ask me questions about the character or the movie to narrow it down!",
+          "你好！我正在想一部著名电影中的角色。你能猜出是谁吗？向我询问关于角色或电影的问题来缩小范围！",
       },
     ]);
   };
@@ -101,22 +101,22 @@ const GuessWhoGame = () => {
 
       {gameState === "finished" && (
         <div className="flex h-full flex-col items-center justify-center gap-5 p-6 text-center">
-          <h1 className="text-2xl font-bold text-indigo-600">🎉 You won! 🎉</h1>
+          <h1 className="text-2xl font-bold text-indigo-600">🎉 你赢了！🎉</h1>
           <p className="text-md">
-            You found the character in{" "}
+            你在{" "}
             {chatHistory.length - 2 > 1 ? `${chatHistory.length - 2}` : "1"}{" "}
-            {chatHistory.length - 2 > 1 ? "messages" : "message"}!
+            {chatHistory.length - 2 > 1 ? "条消息" : "条消息"}内找到了角色！
           </p>
           <p className="text-sm">
-            The character was{" "}
-            <span className="font-semibold">{selectedCharacter}</span> from the
-            movie <span className="font-semibold">{selectedMovie?.title}</span>.
+            这个角色是{" "}
+            <span className="font-semibold">{selectedCharacter}</span>，来自电影
+            <span className="font-semibold">{selectedMovie?.title}</span>。
           </p>
           <button
             className="mt-4 rounded-md bg-indigo-500 px-4 py-2 text-sm text-white transition-colors hover:bg-indigo-600"
             onClick={startNewGame}
           >
-            Play again
+            再玩一次
           </button>
         </div>
       )}

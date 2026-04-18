@@ -18,8 +18,8 @@ interface FeatureWaitlistProps {
 
 export function FeatureWaitlist({
   feature,
-  title = "Join the Waitlist",
-  description = "Be the first to know when this feature becomes available.",
+  title = "加入等待列表",
+  description = "成为第一个知道此功能何时可用的人。",
   organizationId,
   variant = "card",
 }: FeatureWaitlistProps) {
@@ -123,11 +123,11 @@ export function FeatureWaitlist({
         <div className="flex flex-col gap-2">
           <Input
             type="email"
-            placeholder="Enter your email"
+            placeholder="输入您的邮箱"
             value={email}
             disabled={true}
             className="w-full"
-            aria-label="Email address"
+            aria-label="邮箱地址"
           />
           {error && <Small className="text-destructive">{error}</Small>}
         </div>
@@ -172,11 +172,11 @@ export function FeatureWaitlist({
           <div className="flex flex-col gap-2">
             <Input
               type="email"
-              placeholder="Enter your email"
+              placeholder="输入您的邮箱"
               value={email}
               disabled={true}
               className="w-full"
-              aria-label="Email address"
+              aria-label="邮箱地址"
             />
             {error && <Small className="text-destructive">{error}</Small>}
           </div>

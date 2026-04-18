@@ -185,7 +185,7 @@ export default function ScrollableBadges({
                   value={newKey}
                   onChange={(e) => setNewKey(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Key"
+                  placeholder="键"
                   className="h-6 w-20 px-2 text-xs"
                   autoFocus
                 />
@@ -195,7 +195,7 @@ export default function ScrollableBadges({
                   value={newValue}
                   onChange={(e) => setNewValue(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Value"
+                  placeholder="值"
                   className="h-6 w-20 px-2 text-xs"
                 />
                 <Button
@@ -286,7 +286,7 @@ const ItemBadge = memo(
     const handleCopy = () => {
       const textToCopy = `${item.key}: ${item.value}`;
       navigator.clipboard.writeText(textToCopy);
-      setNotification("Copied to clipboard", "success");
+      setNotification("已复制到剪贴板", "success");
     };
 
     const handleLinkClick = (e: React.MouseEvent) => {

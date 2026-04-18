@@ -309,7 +309,7 @@ const PromptPlayground: React.FC<PromptPlaygroundProps> = ({
                 defaultValue={initialModel}
               >
                 <SelectTrigger className="w-[200px]">
-                  <SelectValue placeholder="Select a model" />
+                  <SelectValue placeholder="选择模型" />
                 </SelectTrigger>
                 <SelectContent>
                   {MODEL_LIST.map((model) => (

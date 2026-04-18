@@ -389,7 +389,7 @@ const RestoreHiddenPropertiesDialog = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Restore Deleted Properties</DialogTitle>
+          <DialogTitle>恢复已删除属性</DialogTitle>
           <DialogDescription>
             Select a property to restore. Restored properties will reappear in
             your list.
@@ -409,13 +409,13 @@ const RestoreHiddenPropertiesDialog = ({
         ) : (
           <div className="space-y-3">
             <div className="space-y-2">
-              <Label htmlFor="restore-hidden-property">Deleted property</Label>
+              <Label htmlFor="restore-hidden-property">已删除属性</Label>
               <Select
                 value={selectedProperty || undefined}
                 onValueChange={(value) => onSelect(value)}
               >
                 <SelectTrigger id="restore-hidden-property">
-                  <SelectValue placeholder="Select a property" />
+                  <SelectValue placeholder="选择属性" />
                 </SelectTrigger>
                 <SelectContent>
                   {hiddenPropertyKeys.map((property) => (

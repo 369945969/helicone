@@ -53,7 +53,7 @@ export default function RenderHeliconeRequest({
     };
   }, [heliconeRequest]);
   if (!mapped.content) {
-    return <p>No mapped content</p>;
+    return <p>无映射内容</p>;
   }
 
   return (

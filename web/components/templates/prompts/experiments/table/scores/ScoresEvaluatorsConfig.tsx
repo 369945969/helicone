@@ -74,7 +74,7 @@ const ScoresEvaluatorsConfig = memo(
               ONBOARDING_STEPS.EXPERIMENTS_CLICK_ADD_EVAL.stepNumber
             }
           >
-            <SelectValue placeholder="Select an evaluator" />
+            <SelectValue placeholder="选择评估器" />
           </SelectTrigger>
 
           <SelectContent>
@@ -163,7 +163,7 @@ const ScoresEvaluatorsConfig = memo(
                 className="gap-2 border-green-200 bg-green-50 text-xs text-green-500 dark:border-green-800 dark:bg-green-950"
               >
                 <CheckIcon className="h-3 w-3" />
-                <span>Evaluators ran successfully</span>
+                <span>评估器运行成功</span>
               </Badge>
             )}
             {showError && (
@@ -172,7 +172,7 @@ const ScoresEvaluatorsConfig = memo(
                 className="gap-2 border-red-200 bg-red-50 text-xs text-red-500 dark:border-red-800 dark:bg-red-950"
               >
                 <TriangleAlertIcon className="h-3 w-3" />
-                <span>Error running evaluators</span>
+                <span>运行评估器时出错</span>
               </Badge>
             )}
             <Button

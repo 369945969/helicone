@@ -47,7 +47,7 @@ const ChatInputArea: React.FC<ChatInputAreaProps> = ({
           )}
         >
           <PlusIcon className="mr-2 inline h-4 w-4 rounded-lg text-black dark:text-white" />
-          Add Message
+          添加消息
         </button>
       </div>
 
@@ -66,7 +66,7 @@ const ChatInputArea: React.FC<ChatInputAreaProps> = ({
           )}
         >
           <ArrowPathIcon className="mr-2 inline h-4 w-4 rounded-lg text-black dark:text-white" />
-          Reset
+          重置
         </button>
         {!customNavBar && (
           <button

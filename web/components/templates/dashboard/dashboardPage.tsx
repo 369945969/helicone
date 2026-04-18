@@ -218,7 +218,7 @@ const DashboardPage = (props: DashboardPageProps) => {
               metrics.totalCost.data.data / metrics.totalRequests?.data?.data,
             )}`
           : "$0.00",
-      label: "Avg Cost / Req",
+      label: "平均成本/请求",
       icon: ChartBarIcon,
       isLoading: metrics.totalCost.isLoading || metrics.totalRequests.isLoading,
     },
@@ -232,7 +232,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                 .average_prompt_tokens_per_response,
             )
           : "n/a",
-      label: "Avg Prompt Tokens / Req",
+      label: "平均提示词令牌数/请求",
       icon: ChartBarIcon,
       isLoading:
         metrics.averageTokensPerRequest.isLoading ||
@@ -248,7 +248,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                 .average_completion_tokens_per_response,
             )
           : "n/a",
-      label: "Avg Completion Tokens / Req",
+      label: "平均补全令牌数/请求",
       icon: ChartBarIcon,
       isLoading:
         metrics.averageTokensPerRequest.isLoading ||
@@ -264,7 +264,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                 .average_total_tokens_per_response,
             )
           : "n/a",
-      label: "Avg Total Tokens / Req",
+      label: "平均总令牌数/请求",
       icon: ChartBarIcon,
       isLoading:
         metrics.averageTokensPerRequest.isLoading ||
@@ -358,7 +358,7 @@ const DashboardPage = (props: DashboardPageProps) => {
       <div className="flex h-screen w-full flex-col overflow-x-hidden">
         {!shouldShowMockData && (
           <Header
-            title="Dashboard"
+            title="仪表板"
             leftActions={
               <div className="flex flex-row items-center gap-2">
                 {/* Time Filter */}
@@ -485,11 +485,11 @@ const DashboardPage = (props: DashboardPageProps) => {
                         <ChartContainer
                           config={{
                             success: {
-                              label: "Success",
+                              label: "成功",
                               color: CHART_COLORS.success,
                             },
                             error: {
-                              label: "Error",
+                              label: "错误",
                               color: CHART_COLORS.error,
                             },
                           }}
@@ -584,7 +584,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                   <div className="flex h-full flex-col border-b border-r border-border bg-card p-6 text-card-foreground">
                     <div className="flex flex-row items-center justify-between">
                       <div className="flex flex-col space-y-0.5">
-                        <p className="text-sm text-muted-foreground">Costs</p>
+                        <p className="text-sm text-muted-foreground">成本</p>
                         <div className="flex flex-col gap-0.5">
                           <p className="text-xl font-semibold text-foreground">
                             {metrics.totalCost.data?.data
@@ -614,7 +614,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                                   className="group/button flex items-center gap-1 text-xs text-muted-foreground underline-offset-2 transition-all hover:text-primary hover:underline"
                                 >
                                   <span>
-                                    save{" "}
+                                    节省{" "}
                                     <span className="text-confirmative group-hover/button:text-primary">
                                       $
                                       {formatNumberString(
@@ -623,9 +623,9 @@ const DashboardPage = (props: DashboardPageProps) => {
                                           GATEWAY_DISCOUNT_MAX
                                         ).toFixed(2),
                                       )}
-                                      /mo
+                                      /月
                                     </span>{" "}
-                                    w/ AI Gateway
+                                    使用 AI 网关
                                   </span>
                                   <svg
                                     width="12"
@@ -652,7 +652,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                                     setGatewayDiscountDismissed(true);
                                   }}
                                   className="text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover:opacity-100"
-                                  aria-label="Dismiss"
+                                  aria-label="关闭"
                                 >
                                   <svg
                                     width="12"
@@ -684,7 +684,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                         <ChartContainer
                           config={{
                             costs: {
-                              label: "Costs",
+                              label: "成本",
                               color: CHART_COLORS.blue,
                             },
                           }}
@@ -733,7 +733,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                   <div className="flex h-full flex-col border-b border-r border-border bg-card p-6 text-card-foreground">
                     <div className="flex flex-row items-center justify-between">
                       <div className="flex flex-col space-y-0.5">
-                        <p className="text-sm text-muted-foreground">Users</p>
+                        <p className="text-sm text-muted-foreground">用户</p>
                         <p className="text-xl font-semibold text-foreground">
                           {metrics.activeUsers.data?.data
                             ? formatLargeNumber(metrics.activeUsers.data?.data)
@@ -751,7 +751,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                         <ChartContainer
                           config={{
                             users: {
-                              label: "Users",
+                              label: "用户",
                               color: CHART_COLORS.orange,
                             },
                           }}

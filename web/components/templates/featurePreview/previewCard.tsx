@@ -218,7 +218,7 @@ const FeatureText = ({
               </div>
               <CtaButton
                 variant="outline"
-                text="View docs"
+                text="查看文档"
                 link={section.docsLink}
               />
             </div>

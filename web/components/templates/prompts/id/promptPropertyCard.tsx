@@ -116,7 +116,7 @@ const PromptPropertyCard = (props: PromptPropertyCardProps) => {
                       onClick={(e) => {
                         e.stopPropagation();
                         navigator.clipboard.writeText(requestId);
-                        setNotification("Copied to clipboard", "success");
+                        setNotification("已复制到剪贴板", "success");
                       }}
                       className={clsx(
                         size === "large" ? "text-md" : "text-sm",
@@ -127,7 +127,7 @@ const PromptPropertyCard = (props: PromptPropertyCardProps) => {
                     </button>
                   </TooltipTrigger>
                   <TooltipContent className="z-[1001] text-xs">
-                    <p>Copy</p>
+                    <p>复制</p>
                   </TooltipContent>
                 </Tooltip>
               </div>
@@ -137,7 +137,7 @@ const PromptPropertyCard = (props: PromptPropertyCardProps) => {
             </div>
           </div>
           <Col>
-            <label className="mt-2 text-xs text-slate-500">User Inputs</label>
+            <label className="mt-2 text-xs text-slate-500">用户输入</label>
             <ul className="flex w-full flex-col divide-y divide-slate-300 dark:divide-slate-700">
               {Object.entries(properties).map(([key, value]) => (
                 <li
@@ -182,7 +182,7 @@ const PromptPropertyCard = (props: PromptPropertyCardProps) => {
                       onClick={(e) => {
                         e.stopPropagation();
                         navigator.clipboard.writeText(requestId);
-                        setNotification("Copied to clipboard", "success");
+                        setNotification("已复制到剪贴板", "success");
                       }}
                       className={clsx(
                         size === "large" ? "text-lg" : "text-sm",
@@ -193,7 +193,7 @@ const PromptPropertyCard = (props: PromptPropertyCardProps) => {
                     </button>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="z-[1001] text-xs">
-                    <p>Copy</p>
+                    <p>复制</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

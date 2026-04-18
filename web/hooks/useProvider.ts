@@ -219,13 +219,13 @@ export const useProvider = ({ provider }: UseProviderParams = {}) => {
       return response.data;
     },
     onSuccess: () => {
-      setNotification("Provider key deleted successfully", "success");
+      setNotification("提供商密钥删除成功", "success");
       queryClient.invalidateQueries({ queryKey: providerKeysQueryKey });
     },
     onError: (error: Error) => {
       logger.error({ error }, "Failed to delete provider key");
       setNotification(
-        "Failed to delete key: " + (error.message || "Unknown error"),
+        "删除密钥失败：" + (error.message || "未知错误"),
         "error",
       );
     },

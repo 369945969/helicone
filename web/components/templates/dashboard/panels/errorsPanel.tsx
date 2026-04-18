@@ -36,8 +36,8 @@ const ErrorsPanel = (props: ErrorsPanelProps) => {
       const percentage = (value / totalErrors) * 100;
       return `${percentage.toFixed(1)}%`;
     },
-    modalTitle: "All Errors",
-    modalValueLabel: "Percentage",
+    modalTitle: "所有错误",
+    modalValueLabel: "百分比",
   });
 
   const errorPercentage = (totalErrors / totalRequests) * 100 || 0;
@@ -48,13 +48,13 @@ const ErrorsPanel = (props: ErrorsPanelProps) => {
         <div className="flex h-full flex-col">
           <div className="flex items-start justify-between">
             <div className="flex flex-col space-y-0.5">
-              <p className="text-sm text-muted-foreground">All Errors</p>
+              <p className="text-sm text-muted-foreground">所有错误</p>
               <div className="flex items-baseline gap-2">
                 <p className="text-xl font-semibold text-foreground">
                   {formatLargeNumber(totalErrors)}
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  {errorPercentage.toFixed(2)}% of requests
+                  {errorPercentage.toFixed(2)}% 的请求
                 </p>
               </div>
             </div>
@@ -63,10 +63,10 @@ const ErrorsPanel = (props: ErrorsPanelProps) => {
           <div className="flex flex-grow flex-col overflow-hidden pt-4">
             <div className="flex flex-row items-center justify-between pb-2">
               <p className="text-xs font-semibold text-foreground">
-                Error Type
+                错误类型
               </p>
               <p className="text-xs font-semibold text-foreground">
-                Percentage
+                百分比
               </p>
             </div>
             <div className="flex-grow overflow-y-auto">{barList}</div>

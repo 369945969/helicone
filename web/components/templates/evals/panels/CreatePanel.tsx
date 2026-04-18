@@ -85,13 +85,13 @@ export const CreatePanel = () => {
     } else if (selectedTab === "python") {
       setTestConfig({
         _type: "python",
-        evaluator_name: pythonName || "Python Evaluator",
+        evaluator_name: pythonName || "Python 评估器",
         code: pythonCode,
       });
     } else if (selectedTab === "lastmile") {
       setTestConfig({
         _type: "lastmile",
-        evaluator_name: lastMileName || "LastMile Evaluator",
+        evaluator_name: lastMileName || "最后一公里评估器",
         config: lastMileConfig,
       });
     }
@@ -113,18 +113,18 @@ export const CreatePanel = () => {
         _type: "llm",
         evaluator_llm_template: llmTemplate,
         evaluator_scoring_type: llmConfig.expectedValueType,
-        evaluator_name: llmConfig.name || "LLM Evaluator",
+        evaluator_name: llmConfig.name || "LLM 评估器",
       });
     } else if (selectedTab === "python") {
       setTestConfig({
         _type: "python",
-        evaluator_name: pythonName || "Python Evaluator",
+        evaluator_name: pythonName || "Python 评估器",
         code: pythonCode,
       });
     } else if (selectedTab === "lastmile") {
       setTestConfig({
         _type: "lastmile",
-        evaluator_name: lastMileName || "LastMile Evaluator",
+        evaluator_name: lastMileName || "最后一公里评估器",
         config: lastMileConfig,
       });
     }
@@ -158,7 +158,7 @@ export const CreatePanel = () => {
   return (
     <Col className="flex h-full flex-col overflow-hidden bg-background">
       <Row className="shrink-0 items-center justify-between border-b bg-muted/30 px-4 py-2">
-        <H3 className="text-lg font-medium">Create new evaluator</H3>
+        <H3 className="text-lg font-medium">创建新评估器</H3>
         <Button
           variant="ghost"
           size="icon"

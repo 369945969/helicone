@@ -810,7 +810,7 @@ export default function AdminWallet() {
                   className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
                 />
                 <Input
-                  placeholder="Search by org name, ID, owner email, or Stripe customer ID..."
+                  placeholder="按组织名称、ID、所有者邮箱或 Stripe 客户 ID 搜索..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-9"
@@ -847,7 +847,7 @@ export default function AdminWallet() {
                   className="animate-spin text-muted-foreground"
                 />
               ) : dashboardError ? (
-                <Small className="text-red-600">Error loading summary</Small>
+                <Small className="text-red-600">加载摘要时出错</Small>
               ) : (
                 <>
                   <div className="flex items-center gap-1.5">
@@ -923,7 +923,7 @@ export default function AdminWallet() {
                     size={24}
                     className="mx-auto mb-2 text-red-500"
                   />
-                  <p className="text-red-600">Error loading dashboard data</p>
+                  <p className="text-red-600">加载仪表板数据时出错</p>
                   <Small className="text-muted-foreground">
                     {dashboardError}
                   </Small>
@@ -1253,13 +1253,13 @@ export default function AdminWallet() {
 
                                   {/* Modify Balance */}
                                   <div className="flex flex-col gap-2">
-                                    <H4>Modify Balance</H4>
+                                    <H4>修改余额</H4>
                                     <div className="flex items-center gap-3">
                                       <Input
                                         type="number"
                                         step="0.01"
                                         min="0"
-                                        placeholder="Amount"
+                                        placeholder="金额"
                                         value={modifyAmount}
                                         onChange={(e) =>
                                           setModifyAmount(e.target.value)
@@ -1299,7 +1299,7 @@ export default function AdminWallet() {
                                         </div>
                                       </RadioGroup>
                                       <Input
-                                        placeholder="Reason"
+                                        placeholder="原因"
                                         value={modifyReason}
                                         onChange={(e) =>
                                           setModifyReason(e.target.value)
@@ -1336,7 +1336,7 @@ export default function AdminWallet() {
 
                                   {/* Settings */}
                                   <div className="flex flex-col gap-2">
-                                    <H4>Wallet Settings</H4>
+                                    <H4>钱包设置</H4>
                                     <div className="flex items-center gap-3">
                                       <div className="flex items-center gap-2">
                                         <input
@@ -1362,7 +1362,7 @@ export default function AdminWallet() {
                                         type="number"
                                         step="0.01"
                                         min="0"
-                                        placeholder="Credit Limit"
+                                        placeholder="信用额度"
                                         value={creditLimit}
                                         onChange={(e) =>
                                           setCreditLimit(e.target.value)
@@ -1704,7 +1704,7 @@ export default function AdminWallet() {
                                                 size={14}
                                                 className="animate-spin"
                                               />
-                                              <Small>Loading...</Small>
+                                              <Small>正在加载...</Small>
                                             </div>
                                           ) : invoicesList.length > 0 ? (
                                             <div className="max-h-48 overflow-auto rounded border">
@@ -1943,7 +1943,7 @@ export default function AdminWallet() {
                                 >
                                   {/* Discounts */}
                                   <div className="flex flex-col gap-3">
-                                    <H4>Discount Rules</H4>
+                                    <H4>折扣规则</H4>
                                     <Small className="text-muted-foreground">
                                       Configure per-model discount percentages.
                                       Rules are evaluated in order; first match
@@ -1958,7 +1958,7 @@ export default function AdminWallet() {
                                           size={14}
                                           className="animate-spin"
                                         />
-                                        <Small>Loading discounts...</Small>
+                                        <Small>正在加载折扣...</Small>
                                       </div>
                                     ) : discountsList.length > 0 ? (
                                       <div className="max-h-48 overflow-auto rounded border">
@@ -2035,7 +2035,7 @@ export default function AdminWallet() {
                                       <div className="flex items-end gap-2">
                                         <div className="flex flex-col gap-1">
                                           <Small className="text-muted-foreground">
-                                            Provider
+                                            提供商
                                           </Small>
                                           <Input
                                             placeholder="helicone"
@@ -2050,7 +2050,7 @@ export default function AdminWallet() {
                                         </div>
                                         <div className="flex flex-1 flex-col gap-1">
                                           <Small className="text-muted-foreground">
-                                            Model Regex
+                                            模型正则表达式
                                           </Small>
                                           <Input
                                             placeholder="gpt.*"
@@ -2207,7 +2207,7 @@ export default function AdminWallet() {
 
                                   {/* Raw Tables */}
                                   <div className="flex flex-col gap-2">
-                                    <H4>Raw Tables</H4>
+                                    <H4>原始表格</H4>
                                     <div className="flex gap-2">
                                       {[
                                         "credit_purchases",
@@ -2363,12 +2363,12 @@ export default function AdminWallet() {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDeleteDisallowEntry}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
-              Delete
+              删除
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -2381,31 +2381,30 @@ export default function AdminWallet() {
       >
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete Invoice?</AlertDialogTitle>
+            <AlertDialogTitle>删除发票？</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to delete this invoice record?
+              确定要删除此发票记录吗？
               <br />
               <br />
-              <strong>Period:</strong>{" "}
+              <strong>周期：</strong>{" "}
               {invoiceToDelete && invoiceToDelete.startDate.split("T")[0]} -{" "}
               {invoiceToDelete && invoiceToDelete.endDate.split("T")[0]}
               <br />
-              <strong>Amount:</strong>{" "}
+              <strong>金额：</strong>{" "}
               {invoiceToDelete &&
                 formatCurrency(invoiceToDelete.amountCents / 100)}
               <br />
               <br />
-              This will only remove the record from Helicone. If an invoice was
-              created in Stripe, it will not be affected.
+              这将仅从 Helicone 中移除记录。如果在 Stripe 中创建了发票，则不会受到影响。
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDeleteInvoice}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
-              Delete
+              删除
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -2418,14 +2417,14 @@ export default function AdminWallet() {
       >
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Create Draft Invoice?</AlertDialogTitle>
+            <AlertDialogTitle>创建草稿发票？</AlertDialogTitle>
             <AlertDialogDescription>
-              This will create a draft invoice in Stripe for:
+              这将在 Stripe 中创建一份草稿发票：
               <br />
               <br />
-              <strong>Period:</strong> {invoiceStartDate} - {invoiceEndDate}
+              <strong>周期：</strong> {invoiceStartDate} - {invoiceEndDate}
               <br />
-              <strong>Subtotal (credit to wallet):</strong>{" "}
+              <strong>小计（钱包充值）：</strong>{" "}
               {formatCurrency(
                 spendBreakdown.reduce(
                   (sum: number, item: any) => sum + item.subtotal,
@@ -2433,7 +2432,7 @@ export default function AdminWallet() {
                 ),
               )}
               <br />
-              <strong>Total (invoice amount):</strong>{" "}
+              <strong>总计（发票金额）：</strong>{" "}
               {formatCurrency(
                 spendBreakdown.reduce(
                   (sum: number, item: any) => sum + item.total,
@@ -2442,13 +2441,13 @@ export default function AdminWallet() {
               )}
               <br />
               <br />
-              The draft will open in Stripe where you can review and send it.
+              草稿将在 Stripe 中打开，您可以在那里查看并发送它。
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction onClick={handleCreateInvoice}>
-              Create Draft
+              创建草稿
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

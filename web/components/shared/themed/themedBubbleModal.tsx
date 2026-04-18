@@ -17,7 +17,7 @@ const ThemedBubbleModal: React.FC<ThemedBubbleModalProps> = ({
   setRemoved,
   removed,
   children,
-  buttonText = "Demo 🚀",
+  buttonText = "演示 🚀",
   showButton = true,
 }) => {
   if (removed) return null;
@@ -31,7 +31,7 @@ const ThemedBubbleModal: React.FC<ThemedBubbleModalProps> = ({
               <button
                 className="z-50 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-red-500 text-white shadow-lg transition-colors hover:bg-red-600"
                 onClick={() => setRemoved(true)}
-                aria-label="Remove demo"
+                aria-label="移除演示"
               >
                 <XMarkIcon className="h-4 w-4" />
               </button>

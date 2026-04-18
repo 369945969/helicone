@@ -91,7 +91,7 @@ export const SecretInput = (props: {
           </button>
           <div className="flex w-full min-w-[15rem]">
             {show ? (
-              <Tooltip title="Click to Copy" placement="top">
+              <Tooltip title="点击复制" placement="top">
                 <button
                   id="secret-key"
                   onClick={(e) => {
@@ -188,7 +188,7 @@ const ThemedTable = (props: ThemedTableProps) => {
               scope="col"
               className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 lg:table-cell"
             >
-              <span className="sr-only">Actions</span>
+              <span className="sr-only">操作</span>
             </th>
           </tr>
         </thead>

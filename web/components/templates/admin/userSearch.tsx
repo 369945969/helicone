@@ -155,7 +155,7 @@ const UserSearch = () => {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <H1>User Search</H1>
+        <H1>用户搜索</H1>
         <P className="text-sm text-muted-foreground">
           Find users by email or user ID. Click a row to view organization
           membership details.
@@ -168,9 +168,9 @@ const UserSearch = () => {
           <Input
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
-            placeholder="Search by email or user ID"
+            placeholder="按邮箱或用户 ID 搜索"
             className="pl-10"
-            aria-label="Search users by email"
+            aria-label="按邮箱搜索用户"
           />
         </div>
         <Muted className="text-xs">
@@ -220,14 +220,14 @@ const UserSearch = () => {
               <table className="min-w-full divide-y divide-border">
                 <thead className="bg-muted/40">
                   <tr className="text-left text-xs uppercase text-muted-foreground">
-                    <th className="px-4 py-3 font-medium">Email</th>
-                    <th className="px-4 py-3 font-medium">Name</th>
-                    <th className="px-4 py-3 font-medium">Total Orgs</th>
-                    <th className="px-4 py-3 font-medium">Owner Roles</th>
-                    <th className="px-4 py-3 font-medium">Created</th>
-                    <th className="px-4 py-3 font-medium">Last Sign In</th>
+                    <th className="px-4 py-3 font-medium">邮箱</th>
+                    <th className="px-4 py-3 font-medium">名称</th>
+                    <th className="px-4 py-3 font-medium">组织总数</th>
+                    <th className="px-4 py-3 font-medium">所有者角色</th>
+                    <th className="px-4 py-3 font-medium">创建时间</th>
+                    <th className="px-4 py-3 font-medium">最后登录</th>
                     <th className="px-4 py-3 text-right font-medium">
-                      Details
+                      详情
                     </th>
                   </tr>
                 </thead>

@@ -17,7 +17,7 @@ interface State {
 // Add a copy to clipboard function
 function CopyButton({
   text,
-  label = "Copy",
+  label = "复制",
 }: {
   text: string | null | undefined;
   label?: string;
@@ -37,10 +37,10 @@ function CopyButton({
     <button
       onClick={handleCopy}
       className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700 transition-colors hover:bg-gray-200"
-      aria-label={`Copy ${label} to clipboard`}
+      aria-label={`复制 ${label} 到剪贴板`}
       disabled={!text}
     >
-      {copied ? "Copied!" : label}
+      {copied ? "已复制！" : label}
     </button>
   );
 }
@@ -74,7 +74,7 @@ export class ErrorBoundary extends Component<Props, State> {
         error,
         errorInfo,
       },
-      "Uncaught error",
+      "未捕获的错误",
     );
 
     // Add PostHog event
@@ -89,12 +89,12 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       // Create a full error report for copying
       const errorReport = `
-Error: ${this.state.error?.name || ""}
-Message: ${this.state.error?.message || ""}
-Environment: ${process.env.NODE_ENV || "unknown"}
-Stack Trace: ${this.state.error?.stack || ""}
-Component Stack: ${this.state.errorInfo?.componentStack || ""}
-Time: ${new Date().toISOString()}
+错误: ${this.state.error?.name || ""}
+消息: ${this.state.error?.message || ""}
+环境: ${process.env.NODE_ENV || "unknown"}
+堆栈跟踪: ${this.state.error?.stack || ""}
+组件堆栈: ${this.state.errorInfo?.componentStack || ""}
+时间: ${new Date().toISOString()}
       `.trim();
 
       return (
@@ -105,21 +105,21 @@ Time: ${new Date().toISOString()}
                 <XCircleIcon className="h-12 w-12 text-red-500" />
               </div>
               <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Oops! Something went wrong.
+                哎呀！出了点问题。
               </h2>
               <p className="mt-2 text-center text-sm text-gray-600">
-                We apologize for the inconvenience. The error has been logged
-                and we&apos;ll look into it.
+                我们为此不便深表歉意。错误已被记录，
+                我们会调查此事。
               </p>
               {this.state.error && (
                 <div className="mt-4">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-medium text-gray-900">
-                      Error details:
+                      错误详情：
                     </h3>
                     <CopyButton
                       text={errorReport}
-                      label="Copy full error report"
+                      label="复制完整错误报告"
                     />
                   </div>
                   <div className="mt-2 overflow-hidden rounded-md border border-red-200 bg-red-50 text-sm">
@@ -138,7 +138,7 @@ Time: ${new Date().toISOString()}
                           <div className="absolute right-2 top-2 z-10">
                             <CopyButton
                               text={this.state.error.stack || ""}
-                              label="Copy stack"
+                              label="复制堆栈"
                             />
                           </div>
                           <pre className="max-h-60 overflow-auto whitespace-pre-wrap rounded border border-red-100 bg-red-50 p-2 text-xs text-red-600">
@@ -152,11 +152,11 @@ Time: ${new Date().toISOString()}
                     <div className="mt-4">
                       <div className="flex items-center justify-between">
                         <h4 className="text-md font-medium text-gray-900">
-                          Component Stack:
+                          组件堆栈：
                         </h4>
                         <CopyButton
                           text={this.state.errorInfo.componentStack}
-                          label="Copy component stack"
+                          label="复制组件堆栈"
                         />
                       </div>
                       <pre className="mt-2 max-h-60 overflow-auto whitespace-pre-wrap rounded border border-gray-200 bg-gray-50 p-2 text-xs text-gray-600">
@@ -171,13 +171,13 @@ Time: ${new Date().toISOString()}
                   onClick={() => window.location.reload()}
                   className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Reload Page
+                  重新加载页面
                 </button>
                 <button
                   onClick={() => window.history.back()}
                   className="flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Go Back
+                  返回
                 </button>
               </div>
             </div>
@@ -240,7 +240,7 @@ Time: ${new Date().toISOString()}
                   </h3>
                   <CopyButton
                     text={errorReport}
-                    label="Copy full error report"
+                    label="复制完整错误报告"
                   />
                 </div>
                 <div className="mt-2 overflow-hidden rounded-md border border-red-200 bg-red-50 text-sm">
@@ -257,7 +257,7 @@ Time: ${new Date().toISOString()}
                         <div className="absolute right-2 top-2 z-10">
                           <CopyButton
                             text={error.stack || ""}
-                            label="Copy stack"
+                            label="复制堆栈"
                           />
                         </div>
                         <pre className="max-h-60 overflow-auto whitespace-pre-wrap rounded border border-red-100 bg-red-50 p-2 text-xs text-red-600">
@@ -274,13 +274,13 @@ Time: ${new Date().toISOString()}
                 onClick={() => window.location.reload()}
                 className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Reload Page
+                重新加载页面
               </button>
               <button
                 onClick={() => window.history.back()}
                 className="flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Go Back
+                返回
               </button>
             </div>
           </div>

@@ -66,7 +66,7 @@ const ThemedNumberDropdown = (props: ThemedNumberDropdownProps) => {
         <PopoverContent className="w-full p-0">
           <Command>
             <CommandInput
-              placeholder="Select or enter a value"
+              placeholder="选择或输入值"
               value={query}
               onValueChange={(value) => {
                 setQuery(value);
@@ -75,7 +75,7 @@ const ThemedNumberDropdown = (props: ThemedNumberDropdownProps) => {
             />
             <CommandList>
               {filteredOptions.length === 0 && (
-                <CommandEmpty>No results found.</CommandEmpty>
+                <CommandEmpty>未找到结果。</CommandEmpty>
               )}
               <CommandGroup>
                 {filteredOptions.map((option, i) => (

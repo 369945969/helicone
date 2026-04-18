@@ -28,7 +28,7 @@ export const OrganizationStep = () => {
           type="text"
           value={draftName}
           onChange={handleNameChange}
-          placeholder="My Organization"
+          placeholder="我的组织"
           className={cn(
             "text-sm placeholder:text-[hsl(var(--muted-foreground))]",
             error &&

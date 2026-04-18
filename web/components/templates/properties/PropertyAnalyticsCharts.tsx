@@ -271,7 +271,7 @@ export function PropertyAnalyticsCharts({
           <Small className="text-destructive">
             {error instanceof Error
               ? error.message
-              : "Error loading analytics data"}
+              : "加载分析数据时出错"}
           </Small>
         </div>
       </div>
@@ -283,7 +283,7 @@ export function PropertyAnalyticsCharts({
       {/* Cost Over Time Chart */}
       <div className="flex flex-col border-b border-r border-border bg-card px-6 pb-2 pt-6 text-card-foreground">
         <div className="mb-4">
-          <Small className="text-muted-foreground">Cost Over Time</Small>
+          <Small className="text-muted-foreground">随时间变化的成本</Small>
           <p className="text-2xl font-semibold text-foreground">
             {formatCurrency(totalCost)}
           </p>
@@ -380,7 +380,7 @@ export function PropertyAnalyticsCharts({
       {/* Top Costs Chart */}
       <div className="flex flex-col border-b border-r border-border bg-card px-6 pb-2 pt-6 text-card-foreground">
         <div className="mb-4">
-          <Small className="text-muted-foreground">Top Costs</Small>
+          <Small className="text-muted-foreground">最高成本</Small>
         </div>
         <div className="w-full">
           <PropertyTopCosts property={property} timeFilter={timeFilter} />
@@ -390,7 +390,7 @@ export function PropertyAnalyticsCharts({
       {/* Requests Over Time Chart */}
       <div className="flex flex-col border-b border-r border-border bg-card p-6 text-card-foreground">
         <div className="mb-4">
-          <Small className="text-muted-foreground">Requests Over Time</Small>
+          <Small className="text-muted-foreground">随时间变化的请求</Small>
           <p className="text-2xl font-semibold text-foreground">
             {formatNumber(totalRequests)}
           </p>
@@ -490,7 +490,7 @@ export function PropertyAnalyticsCharts({
       {/* Top Requests Chart */}
       <div className="flex flex-col border-b border-r border-border bg-card p-6 text-card-foreground">
         <div className="mb-4">
-          <Small className="text-muted-foreground">Top Requests</Small>
+          <Small className="text-muted-foreground">最高请求</Small>
         </div>
         <div className="w-full">
           <PropertyTopRequests property={property} timeFilter={timeFilter} />

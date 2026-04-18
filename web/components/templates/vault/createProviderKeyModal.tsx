@@ -56,19 +56,19 @@ const CreateProviderKeyModal = (props: CreateProviderKeyModalProps) => {
     ) as HTMLInputElement;
 
     if ((!keyName || keyName.value === "") && variant !== "portal") {
-      setNotification("Please enter in a key name", "error");
+      setNotification("请输入密钥名称", "error");
       setIsLoading(false);
       return;
     }
     if (!providerKey || providerKey.value === "") {
-      setNotification("Please enter in a provider key", "error");
+      setNotification("请输入提供商密钥", "error");
       setIsLoading(false);
       return;
     }
 
     if (currentUserRole === "member") {
       setNotification(
-        "Members are not allowed to create provider keys",
+        "成员不允许创建提供商密钥",
         "error",
       );
       setIsLoading(false);
@@ -91,18 +91,18 @@ const CreateProviderKeyModal = (props: CreateProviderKeyModalProps) => {
       )
       .then(({ data }) => {
         if (data !== null) {
-          setNotification("Successfully created provider key", "success");
+          setNotification("成功创建提供商密钥", "success");
           setOpen(false);
           onSuccess();
         } else {
           setNotification(
-            "Failed to create provider key, you are only allowed 1 provider key",
+            "创建提供商密钥失败，您只允许创建 1 个提供商密钥",
             "error",
           );
         }
       })
       .catch((err) => {
-        setNotification(`Error: ${err}`, "error");
+        setNotification(`错误：${err}`, "error");
       })
       .finally(() => setIsLoading(false));
   };
@@ -122,7 +122,7 @@ const CreateProviderKeyModal = (props: CreateProviderKeyModalProps) => {
           <label htmlFor="api-key">Provider</label>
           <Select defaultValue="openai" disabled>
             <SelectTrigger>
-              <SelectValue placeholder="Select provider" />
+              <SelectValue placeholder="选择提供商" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="openai">
@@ -159,12 +159,12 @@ const CreateProviderKeyModal = (props: CreateProviderKeyModalProps) => {
           />
         </div>
         <div className="w-full space-y-1.5 text-sm">
-          <label htmlFor="key-name">Key Name</label>
+          <label htmlFor="key-name">密钥名称</label>
           <Input
             name="key-name"
             id="key-name"
             required
-            placeholder="Provider Key Name"
+            placeholder="提供商密钥名称"
           />
         </div>
         <div className="flex justify-end gap-2">

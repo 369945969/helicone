@@ -43,7 +43,7 @@ const AddKeyModal = (props: AddKeyModalProps) => {
     ) as HTMLInputElement;
 
     if (!keyName || keyName.value === "") {
-      setNotification("Please enter in a key name", "error");
+      setNotification("请输入密钥名称", "error");
       return;
     }
 
@@ -83,7 +83,7 @@ const AddKeyModal = (props: AddKeyModalProps) => {
               id="key-name"
               className="block w-full rounded-md border border-gray-300 bg-gray-100 p-2 text-sm text-gray-900 shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               required
-              placeholder="Key Name"
+              placeholder="密钥名称"
             />
           </div>
           <div className="w-full space-y-1.5 text-sm">
@@ -226,7 +226,7 @@ const AddKeyModal = (props: AddKeyModalProps) => {
                 className="flex items-center rounded-md bg-black p-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:bg-white dark:text-black dark:hover:bg-gray-200"
                 onClick={() => {
                   navigator.clipboard.writeText(returnedKey);
-                  setNotification("Copied to clipboard!", "success");
+                  setNotification("已复制到剪贴板！", "success");
                 }}
               >
                 <ClipboardDocumentListIcon className="h-5 w-5 text-white dark:text-black" />

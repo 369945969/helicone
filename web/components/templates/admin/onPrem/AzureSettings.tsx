@@ -84,7 +84,7 @@ export const AzureSettings = () => {
 
   return (
     <div className="flex flex-col space-y-4 p-6">
-      <h1 className="text-2xl font-semibold">On Prem Settings</h1>
+      <h1 className="text-2xl font-semibold">本地部署设置</h1>
       <div className="flex max-w-4xl flex-col space-y-8">
         <Card className="bg-slate-200">
           <CardHeader>
@@ -92,7 +92,7 @@ export const AzureSettings = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="baseUri">Base URI</Label>
+              <Label htmlFor="baseUri">基础 URI</Label>
               <Input
                 id="baseUri"
                 value={settings.azureBaseUri}
@@ -120,7 +120,7 @@ export const AzureSettings = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="deploymentName">Deployment Name</Label>
+              <Label htmlFor="deploymentName">部署名称</Label>
               <Input
                 id="deploymentName"
                 value={settings.azureDeploymentName}
@@ -182,7 +182,7 @@ export const AzureSettings = () => {
 
         <Card className="bg-slate-200">
           <CardHeader>
-            <CardTitle>Test Azure</CardTitle>
+            <CardTitle>测试 Azure</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -191,7 +191,7 @@ export const AzureSettings = () => {
               value={testMessageBody}
               onChange={(e) => setTestMessageBody(e.target.value)}
             />
-            {!isValidJson && <p className="text-destructive">Invalid JSON</p>}
+            {!isValidJson && <p className="text-destructive">无效的 JSON</p>}
             <Button
               disabled={!isValidJson}
               onClick={() => {
@@ -216,13 +216,13 @@ export const AzureSettings = () => {
             </Button>
 
             <div className="space-y-4">
-              <Label>Result</Label>
-              {testResult === "loading" && <p>Loading...</p>}
+              <Label>结果</Label>
+              {testResult === "loading" && <p>正在加载...</p>}
 
               {testResult && testResult !== "loading" && (
                 <>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">Fetch parameters</h3>
+                    <h3 className="text-xl font-semibold">获取参数</h3>
                     <h4 className="text-lg font-medium">URL</h4>
                     <pre className="rounded-lg bg-muted p-4">
                       {testResult.fetchParams.url}
@@ -250,7 +250,7 @@ export const AzureSettings = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">Result</h3>
+                    <h3 className="text-xl font-semibold">结果</h3>
                     <pre className="rounded-lg bg-muted p-4">
                       {(() => {
                         try {

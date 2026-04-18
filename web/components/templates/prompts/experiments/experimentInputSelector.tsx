@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 import clsx from "clsx";
 
-interface ExperimentInputSelectorProps {
+interface 实验输入选择器Props {
   open: boolean;
   setOpen: (open: boolean) => void;
   promptVersionId: string | undefined;
@@ -16,13 +16,13 @@ interface ExperimentInputSelectorProps {
     rows: {
       inputRecordId: string;
       inputs: Record<string, string>;
-      autoInputs: any[];
+      auto输入s: any[];
     }[],
   ) => void;
   selectJustOne?: boolean;
 }
 
-const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
+const 实验输入选择器 = (props: 实验输入选择器Props) => {
   const {
     open,
     setOpen,
@@ -76,7 +76,7 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
       prompt_version: record.prompt_version,
       created_at: record.created_at,
       response: record.response_body,
-      autoInputs: record.auto_prompt_inputs,
+      auto输入s: record.auto_prompt_inputs,
     }));
   }, [inputRecordsData]);
 
@@ -135,7 +135,7 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
         <div className="flex w-full flex-col">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-semibold">
-              Select Inputs ({inputRecords.length})
+              Select 输入s ({inputRecords.length})
             </h2>
             {!selectJustOne && (
               <Button
@@ -153,8 +153,8 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
           </p>
 
           <ul className="flex w-full flex-col items-center space-y-4 overflow-y-auto px-1 pt-4">
-            {isLoading && <div>Loading inputs...</div>}
-            {isError && <div>Error loading inputs.</div>}
+            {isLoading && <div>正在加载输入...</div>}
+            {isError && <div>加载输入时出错。</div>}
             {!isLoading &&
               !isError &&
               inputRecords.map((request) => (
@@ -168,7 +168,7 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
                     if (selectJustOne) {
                       handleAddRows([
                         {
-                          autoInputs: request.autoInputs,
+                          auto输入s: request.auto输入s,
                           inputs: request.inputs,
                           inputRecordId: request.id,
                         },
@@ -186,7 +186,7 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
                     onChange={() => handleToggleRequest(request.id)}
                   />
                   <PromptPropertyCard
-                    autoInputs={request.autoInputs}
+                    auto输入s={request.auto输入s}
                     isSelected={selectedRequests.some(
                       (req) => req.id === request.id,
                     )}
@@ -213,7 +213,7 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
               size={"sm"}
               onClick={async () => {
                 if (selectedRequests.length === 0) {
-                  setNotification("Please select at least one input.", "error");
+                  setNotification("请至少选择一个输入。", "error");
                   return;
                 }
 
@@ -221,7 +221,7 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
                   selectedRequests.map((request) => ({
                     inputRecordId: request.id,
                     inputs: request.inputs,
-                    autoInputs: request.autoInputs,
+                    auto输入s: request.auto输入s,
                   })),
                 );
 
@@ -242,4 +242,4 @@ const ExperimentInputSelector = (props: ExperimentInputSelectorProps) => {
   );
 };
 
-export default ExperimentInputSelector;
+export default 实验输入选择器;

@@ -40,7 +40,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "createdAt",
     accessorKey: "createdAt",
-    header: "Created At",
+    header: "创建时间",
     cell: (info) => {
       const value = info.row.original.heliconeMetadata.createdAt;
       return (
@@ -66,7 +66,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "status",
     accessorKey: "status",
-    header: "Status",
+    header: "状态",
     cell: (info) => {
       const status = info.row.original.heliconeMetadata.status;
       const isCached =
@@ -90,7 +90,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "provider",
     accessorKey: "provider",
-    header: "Provider",
+    header: "提供商",
     cell: (info) => {
       return (
         <ProviderPill provider={info.row.original.heliconeMetadata.provider} />
@@ -100,7 +100,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "requestText",
     accessorKey: "requestText",
-    header: "Request",
+    header: "请求",
     cell: (info) => info.row.original.preview.request,
     meta: {
       sortKey: "request_prompt",
@@ -110,7 +110,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "responseText",
     accessorKey: "responseText",
-    header: "Response",
+    header: "响应",
     cell: (info) => info.row.original.preview.response,
     meta: {
       sortKey: "response_text",
@@ -120,7 +120,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "model",
     accessorKey: "model",
-    header: "Model",
+    header: "模型",
     cell: (info) => (
       <ModelPill
         model={info.row.original.model}
@@ -135,10 +135,10 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "totalTokens",
     accessorKey: "totalTokens",
-    header: "Total Tokens",
+    header: "总令牌数",
     cell: (info) => {
       const tokens = Number(info.row.original.heliconeMetadata.totalTokens);
-      return <span>{tokens >= 0 ? tokens : "not found"}</span>;
+      return <span>{tokens >= 0 ? tokens : "未找到"}</span>;
     },
     meta: {
       sortKey: "total_tokens",
@@ -147,10 +147,10 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "promptTokens",
     accessorKey: "promptTokens",
-    header: "Prompt Tokens",
+    header: "提示令牌数",
     cell: (info) => {
       const tokens = Number(info.row.original.heliconeMetadata.promptTokens);
-      return <span>{tokens >= 0 ? tokens : "not found"}</span>;
+      return <span>{tokens >= 0 ? tokens : "未找到"}</span>;
     },
     meta: {
       sortKey: "prompt_tokens",
@@ -159,12 +159,12 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "completionTokens",
     accessorKey: "completionTokens",
-    header: "Completion Tokens",
+    header: "完成令牌数",
     cell: (info) => {
       const tokens = Number(
         info.row.original.heliconeMetadata.completionTokens,
       );
-      return <span>{tokens >= 0 ? tokens : "not found"}</span>;
+      return <span>{tokens >= 0 ? tokens : "未找到"}</span>;
     },
     meta: {
       sortKey: "completion_tokens",
@@ -174,12 +174,12 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "reasoningTokens",
     accessorKey: "reasoningTokens",
-    header: "Reasoning Tokens",
+    header: "推理令牌数",
     cell: (info) => {
       const tokens = Number(
         info.row.original.heliconeMetadata.reasoningTokens,
       );
-      return <span>{tokens >= 0 ? tokens : "not found"}</span>;
+      return <span>{tokens >= 0 ? tokens : "未找到"}</span>;
     },
     meta: {
       sortKey: "reasoning_tokens",
@@ -189,7 +189,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "latency",
     accessorKey: "latency",
-    header: "Latency",
+    header: "延迟",
     cell: (info) => {
       const isCached =
         info.row.original.heliconeMetadata.cacheReferenceId !== DEFAULT_UUID;
@@ -209,7 +209,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "tfft",
     accessorKey: "tfft",
-    header: "TFFT",
+    header: "首令牌时间",
     cell: (info) => {
       const isCached =
         info.row.original.heliconeMetadata.cacheReferenceId !== DEFAULT_UUID;
@@ -230,7 +230,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "user",
     accessorKey: "user",
-    header: "User",
+    header: "用户",
     cell: (info) => info.row.original.heliconeMetadata.user,
     meta: {
       sortKey: "user_id",
@@ -239,7 +239,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "cost",
     accessorKey: "cost",
-    header: "Cost",
+    header: "成本",
     cell: (info) => {
       const statusCode = info.row.original.heliconeMetadata.status.code;
       const num = Number(info.row.original.heliconeMetadata.cost);
@@ -259,7 +259,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "feedback",
     accessorKey: "scores",
-    header: "Feedback",
+    header: "反馈",
     cell: (info) => {
       const scores = info.row.original.heliconeMetadata.scores;
       const rating =
@@ -286,7 +286,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "promptId",
     accessorKey: "promptId",
-    header: "Prompt ID",
+    header: "提示 ID",
     cell: (info) => {
       const promptId = info.row.original.heliconeMetadata.promptId;
       return <span>{promptId}</span>;
@@ -295,7 +295,7 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "country",
     accessorKey: "countryCode",
-    header: "Country",
+    header: "国家",
     cell: (info) => {
       const countryCode = info.row.original.heliconeMetadata.countryCode;
       const country = COUTNRY_CODE_DIRECTORY.find(
@@ -317,32 +317,32 @@ export const getInitialColumns = (): ColumnDef<MappedLLMRequest>[] => [
   {
     id: "promptCacheReadTokens",
     accessorKey: "promptCacheReadTokens",
-    header: "Prompt Cache Read Tokens",
+    header: "提示缓存读取令牌",
     cell: (info) => {
       const tokens = Number(
         info.row.original.heliconeMetadata.promptCacheReadTokens,
       );
-      return <span>{tokens >= 0 ? tokens : "not found"}</span>;
+      return <span>{tokens >= 0 ? tokens : "未找到"}</span>;
     },
   },
   {
     id: "promptCacheWriteTokens",
     accessorKey: "promptCacheWriteTokens",
-    header: "Prompt Cache Write Tokens",
+    header: "提示缓存写入令牌",
     cell: (info) => {
       const tokens = Number(
         info.row.original.heliconeMetadata.promptCacheWriteTokens,
       );
-      return <span>{tokens >= 0 ? tokens : "not found"}</span>;
+      return <span>{tokens >= 0 ? tokens : "未找到"}</span>;
     },
   },
   {
     id: "cacheEnabled",
     accessorKey: "cacheEnabled",
-    header: "Cache Enabled",
+    header: "缓存已启用",
     cell: (info) => {
       const cacheEnabled = info.row.original.heliconeMetadata.cacheEnabled;
-      return cacheEnabled ? <span>Yes</span> : <span>No</span>;
+      return cacheEnabled ? <span>是</span> : <span>否</span>;
     },
     size: 100,
   },

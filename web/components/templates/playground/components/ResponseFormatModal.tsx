@@ -64,7 +64,7 @@ export default function ResponseFormatModal({
     <Dialog open={open} onOpenChange={setOpen}>
       {/* <DialogTrigger asChild>
         <Button variant="outline" size="sm">
-          Response Format
+          响应格式
         </Button>
       </DialogTrigger> */}
       <DialogContent
@@ -73,7 +73,7 @@ export default function ResponseFormatModal({
         )}
       >
         <DialogHeader>
-          <DialogTitle>Response Format</DialogTitle>
+          <DialogTitle>响应格式</DialogTitle>
         </DialogHeader>
         <div className="max-h-[350px] min-h-[350px] overflow-y-auto border border-border">
           <MarkdownEditor
@@ -86,7 +86,7 @@ export default function ResponseFormatModal({
         </div>
         <DialogFooter className="flex w-full justify-between">
           <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button variant="outline">取消</Button>
           </DialogClose>
           <Button
             onClick={() => {
@@ -99,11 +99,11 @@ export default function ResponseFormatModal({
                 }
                 setOpen(false);
               } catch (e) {
-                setNotification("Invalid JSON", "error");
+                setNotification("无效的 JSON", "error");
               }
             }}
           >
-            Save
+            保存
           </Button>
         </DialogFooter>
       </DialogContent>

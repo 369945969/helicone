@@ -331,7 +331,7 @@ const DatasetIdPage = (props: DatasetIdPageProps) => {
                   <div
                     onClick={() => navigator.clipboard.writeText(responseText)}
                     className="cursor-pointer"
-                    title="Click to copy"
+                    title="点击复制"
                   >
                     {responseText}
                   </div>
@@ -377,14 +377,14 @@ const DatasetIdPage = (props: DatasetIdPageProps) => {
               <div className="flex gap-2">
                 <GenericButton
                   onClick={() => setShowNewDatasetModal(true)}
-                  text="Copy to..."
+                  text="复制到..."
                   icon={
                     <FolderPlusIcon className="h-5 w-5 text-gray-900 dark:text-gray-100" />
                   }
                 ></GenericButton>
                 <GenericButton
                   onClick={handleDuplicateRequests}
-                  text="Duplicate"
+                  text="复制"
                   icon={
                     <Square2StackIcon className="h-5 w-5 text-gray-900 dark:text-gray-100" />
                   }
@@ -392,7 +392,7 @@ const DatasetIdPage = (props: DatasetIdPageProps) => {
                 <GenericButton
                   onClick={() => setShowRemoveModal(true)}
                   className="!border-destructive !bg-destructive hover:!bg-destructive/90"
-                  text="Remove"
+                  text="移除"
                   textClassName="text-white"
                   icon={<TrashIcon className="h-5 w-5 text-white" />}
                 />

@@ -372,7 +372,7 @@ export default function FeatureTable() {
                       <thead>
                         <tr className="text-left">
                           <th scope="col">
-                            <span className="sr-only">Feature</span>
+                            <span className="sr-only">功能</span>
                           </th>
                           {tiers.map((tier) => (
                             <th key={tier.id} scope="col">

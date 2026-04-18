@@ -22,10 +22,10 @@ export const useExperiment = () => {
       });
     },
     onSuccess: () => {
-      setNotification("Successfully created new experiment", "success");
+      setNotification("成功创建新实验", "success");
     },
     onError: () => {
-      setNotification("Failed to create new experiment", "error");
+      setNotification("创建新实验失败", "error");
     },
   });
 

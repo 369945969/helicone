@@ -282,7 +282,7 @@ export default function ThemedTable<T extends { id?: string }>(
         <ResizablePanel defaultSize={100} className="flex-grow">
           <div className="h-full overflow-auto">
             {skeletonLoading ? (
-              <LoadingAnimation title="Loading Data..." />
+              <LoadingAnimation title="加载数据中..." />
             ) : rows.length === 0 ? (
               <div className="flex h-48 w-full flex-col items-center justify-center space-y-3 border-slate-300 bg-white px-4 py-2 dark:border-slate-700 dark:bg-black">
                 <TableCellsIcon className="h-12 w-12 text-slate-900 dark:text-slate-100" />

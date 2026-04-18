@@ -39,11 +39,11 @@ export function useSegmentKey() {
       }
     },
     onSuccess: () => {
-      setNotification("Segment API key saved successfully", "success");
+      setNotification("Segment API 密钥保存成功", "success");
       queryClient.invalidateQueries({ queryKey: ["segmentKey"] });
     },
     onError: (error) => {
-      setNotification(`Failed to save Segment API key: ${error}`, "error");
+      setNotification(`保存 Segment API 密钥失败：${error}`, "error");
     },
   });
 

@@ -16,10 +16,10 @@ const ChatPlaygroundFooter: React.FC<ChatPlaygroundFooterProps> = ({
       className="sticky bottom-0 flex w-full justify-between border-t border-gray-300 bg-gray-100 py-4 dark:border-gray-700 dark:bg-[#17191d]"
     >
       <Button variant={"secondary"} size={"sm"} onClick={onBack}>
-        Back
+        返回
       </Button>
       <Button size={"sm"} onClick={onContinue}>
-        Continue
+        继续
       </Button>
     </div>
   );

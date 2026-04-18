@@ -187,7 +187,7 @@ const useAddOrgMemberMutation = () => {
   
   return $JAWN_API.useMutation("post", "/v1/organization/{organizationId}/add_member", {
     onSuccess: (_data, variables) => {
-      setNotification("Member added successfully", "success");
+      setNotification("成员添加成功", "success");
       
       queryClient.invalidateQueries({
         queryKey: ["get", "/v1/organization/{organizationId}/members", { params: { path: { organizationId: variables.params.path.organizationId } } }],
@@ -206,7 +206,7 @@ const useAddOrgMemberMutation = () => {
       });
     },
     onError: (error) => {
-      setNotification("Failed to add member", "error");
+      setNotification("添加成员失败", "error");
     },
   });
 };
@@ -250,7 +250,7 @@ export const useUpdateOrgMutation = () => {
       );
     },
     onSuccess: () => {
-      setNotification("Organization updated", "success");
+      setNotification("组织已更新", "success");
       // Invalidate queries
       queryClient.invalidateQueries({
         predicate: (query) => {

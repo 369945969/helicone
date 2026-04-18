@@ -1,24 +1,24 @@
 import {
-  ChartContainer,
+  Chart容器,
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
-import { useExperimentScores } from "@/services/hooks/prompts/experiment-scores";
+import { useExperiment评分s } from "@/services/hooks/prompts/experiment-scores";
 import { useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import { useExperimentTable } from "../hooks/useExperimentTable";
-import { PromptVersion } from "./PromptVersion";
+import { 提示词Version } from "./提示词Version";
 
-const ScoresGraph = ({
-  promptVersions,
+const 评分s图表 = ({
+提示词版本
   experimentId,
   scores,
 }: {
-  promptVersions: PromptVersion[];
+  promptVersions: 提示词Version[];
   experimentId: string;
   scores: Record<
     string,
@@ -36,10 +36,10 @@ const ScoresGraph = ({
 }) => {
   const { outputColumns, scores: scoreCriterias } = promptVersions.reduce(
     (acc, promptVersion) => {
-      const promptVersionScores = scores[promptVersion?.id]?.data;
-      if (promptVersionScores) {
+      const promptVersion评分s = scores[promptVersion?.id]?.data;
+      if (promptVersion评分s) {
         acc.scores = Array.from(
-          new Set([...acc.scores, ...Object.keys(promptVersionScores)]),
+          new Set([...acc.scores, ...Object.keys(promptVersion评分s)]),
         ).filter((key) => !key.includes("dateCreated")); // Exclude dateCreated from scores
       }
       return acc;
@@ -50,11 +50,11 @@ const ScoresGraph = ({
     },
   );
 
-  const { getScoreColorMapping } = useExperimentScores(experimentId);
+  const { get评分ColorMapping } = useExperiment评分s(experimentId);
 
-  const chartConfig = useMemo(() => {
-    return getScoreColorMapping(scoreCriterias);
-  }, [getScoreColorMapping, scoreCriterias]);
+  const chart配置 = useMemo(() => {
+    return get评分ColorMapping(scoreCriterias);
+  }, [get评分ColorMapping, scoreCriterias]);
 
   const chartData = useMemo(() => {
     return promptVersions.map((promptVersion) => {
@@ -74,11 +74,11 @@ const ScoresGraph = ({
           `v${promptVersion.major_version}.${promptVersion.minor_version}`,
         ...Object.fromEntries(
           scoreCriterias.flatMap((score) => {
-            const promptVersionScores = scores[promptVersion.id]?.data;
-            const value = promptVersionScores?.[score]?.value;
-            const valueType = promptVersionScores?.[score]?.valueType;
+            const promptVersion评分s = scores[promptVersion.id]?.data;
+            const value = promptVersion评分s?.[score]?.value;
+            const valueType = promptVersion评分s?.[score]?.valueType;
 
-            if (!promptVersionScores || scores[promptVersion.id]?.error) {
+            if (!promptVersion评分s || scores[promptVersion.id]?.error) {
               return [
                 [score, 0],
                 [`${score}_original`, 0],
@@ -111,11 +111,11 @@ const ScoresGraph = ({
 
   const queryClient = useQueryClient();
 
-  const { selectedScoreKey } = useExperimentTable(experimentId);
+  const { selected评分Key } = useExperimentTable(experimentId);
 
   return (
     <div className={cn("h-[300px] w-full overflow-auto px-8")}>
-      <ChartContainer config={chartConfig} className="h-full w-full">
+      <Chart容器 config={chart配置} className="h-full w-full">
         <LineChart
           accessibilityLayer
           data={chartData}
@@ -125,7 +125,7 @@ const ScoresGraph = ({
             top: 20,
           }}
           onClick={() => {
-            queryClient.setQueryData(["selectedScoreKey", experimentId], null);
+            queryClient.setQueryData(["selected评分Key", experimentId], null);
           }}
         >
           <CartesianGrid
@@ -151,7 +151,7 @@ const ScoresGraph = ({
             // iconSize={10}
             content={
               <ChartLegendContent
-                selectedScoreKey={selectedScoreKey ?? ""}
+                selected评分Key={selected评分Key ?? ""}
                 key=""
               />
             }
@@ -164,28 +164,28 @@ const ScoresGraph = ({
               dataKey={score}
               type="linear"
               stroke={
-                selectedScoreKey
-                  ? selectedScoreKey === score
-                    ? chartConfig[score].color
+                selected评分Key
+                  ? selected评分Key === score
+                    ? chart配置[score].color
                     : "gray"
-                  : chartConfig[score].color
+                  : chart配置[score].color
               }
               strokeOpacity={
-                selectedScoreKey ? (selectedScoreKey === score ? 1 : 0.5) : 1
+                selected评分Key ? (selected评分Key === score ? 1 : 0.5) : 1
               }
               strokeWidth={2}
               dot={{
-                fill: selectedScoreKey
-                  ? selectedScoreKey === score
-                    ? chartConfig[score].color
+                fill: selected评分Key
+                  ? selected评分Key === score
+                    ? chart配置[score].color
                     : "gray"
-                  : chartConfig[score].color,
+                  : chart配置[score].color,
                 opacity: 1,
               }}
               onClick={(_e, event) => {
                 event.stopPropagation();
                 queryClient.setQueryData(
-                  ["selectedScoreKey", experimentId],
+                  ["selected评分Key", experimentId],
                   score,
                 );
               }}
@@ -193,9 +193,9 @@ const ScoresGraph = ({
             />
           ))}
         </LineChart>
-      </ChartContainer>
+      </Chart容器>
     </div>
   );
 };
 
-export default ScoresGraph;
+export default 评分s图表;

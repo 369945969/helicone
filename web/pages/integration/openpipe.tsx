@@ -62,7 +62,7 @@ const OpenPipe = () => {
 
     if (orgSize === "Select company size") {
       setIsLoading(false);
-      setNotification("Please select a company size.", "info");
+      setNotification("请选择公司规模。", "info");
       return;
     }
 

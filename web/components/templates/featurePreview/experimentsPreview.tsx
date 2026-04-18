@@ -14,11 +14,11 @@ type ExperimentPricingPlanName =
 
 const experimentFeatures: Feature[] = [
   {
-    title: "Tune your LLM prompts\nfor production",
+    title: "为生产环境调优您的 LLM 提示词",
     description: [
-      "Test different prompts, models, and parameters side-by-side to find optimal combinations",
-      "Start experimenting from any source - scratch prompts, existing requests, or templates",
-      "Connect to any major AI provider (Anthropic, OpenAI, Google, Meta, DeepSeek and more)",
+      "并排测试不同的提示词、模型和参数以找到最佳组合",
+      "从任何来源开始实验 - 从零开始的提示词、现有请求或模板",
+      "连接任何主要 AI 提供商 (Anthropic、OpenAI、Google、Meta、DeepSeek 等)",
     ],
     media: {
       type: "component",
@@ -26,14 +26,14 @@ const experimentFeatures: Feature[] = [
     },
     imageAlt: "Experiment interface showing multiple prompts",
     isImageLeft: true,
-    ctaText: "Start experimenting",
+    ctaText: "开始实验",
   },
   {
-    title: "Test Prompts with Historic & Real-World Data",
+    title: "使用历史和真实世界数据测试提示词",
     description: [
-      "Identify and optimize for edge cases using real production data",
-      "Adjust prompt before pushing to production",
-      "Validate changes against historical requests",
+      "使用真实生产数据识别和优化边缘情况",
+      "在推送到生产环境之前调整提示词",
+      "针对历史请求验证更改",
     ],
     media: {
       type: "video",
@@ -42,14 +42,14 @@ const experimentFeatures: Feature[] = [
     },
     imageAlt: "Historical data testing interface",
     isImageLeft: false,
-    ctaText: "Test with real-world data",
+    ctaText: "使用真实世界数据测试",
   },
   {
-    title: "Evaluate Responses with Offline Testing",
+    title: "使用离线测试评估响应",
     description: [
-      "Quantify response quality using LLM-as-judge or Python evaluators",
-      "Attach evaluators to experiments to track performance across iterations and model versions",
-      "Optimize edge cases using heatmap visualizations of scored responses",
+      "使用 LLM-as-judge 或 Python 评估器量化响应质量",
+      "将评估器附加到实验以跟踪跨迭代和模型版本的性能",
+      "使用评分响应的热力图可视化优化边缘情况",
     ],
     media: {
       type: "video",
@@ -162,13 +162,13 @@ const ExperimentsPreview = () => {
   return (
     <>
       <FeaturePreview
-        title="Prompt Experimentation"
-        subtitle="in a Spreadsheet-Like Environment"
+        title="提示词实验"
+        subtitle="在类似电子表格的环境中"
         pricingPlans={pricingPlan}
         onStartTrial={handleStartTrial}
         isOnFreeTier={!isPaidPlan}
         featureSectionProps={{
-          pageTitle: "Tune and Test Prompts at Scale",
+          pageTitle: "大规模调优和测试提示词",
           features: experimentFeatures,
           quote: {
             prefix:

@@ -66,21 +66,21 @@ export const FreePlanCard = () => {
       <Card className="w-full">
         <CardHeader>
           <div className="flex items-center gap-3">
-            <CardTitle className="text-xl font-medium">Free</CardTitle>
+            <CardTitle className="text-xl font-medium">免费</CardTitle>
             <span className="rounded-full bg-sky-100 px-3 py-1 text-sm text-sky-800">
-              Current plan
+              当前计划
             </span>
           </div>
         </CardHeader>
         <CardContent className="flex flex-col gap-6">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <CalendarIcon size={16} />
-            <span>Current billing period: {getBillingCycleDates()}</span>
+            <span>当前计费周期: {getBillingCycleDates()}</span>
           </div>
 
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between text-sm">
-              <span>Requests used</span>
+              <span>已使用请求</span>
               <span className="text-muted-foreground">
                 {freeUsage.data?.data?.toLocaleString()} / 10,000
               </span>
@@ -97,7 +97,7 @@ export const FreePlanCard = () => {
               <CardHeader>
                 <CardTitle>
                   <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-bold">Pro Plan</h3>
+                    <h3 className="text-xl font-bold">专业版计划</h3>
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold">$79</span>
                       <span className="text-sm text-muted-foreground">/mo</span>
@@ -134,7 +134,7 @@ export const FreePlanCard = () => {
               <CardHeader>
                 <CardTitle>
                   <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-bold">Team Bundle</h3>
+                    <h3 className="text-xl font-bold">团队套餐</h3>
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold">$799</span>
                       <span className="text-sm text-muted-foreground">/mo</span>
@@ -178,7 +178,7 @@ export const FreePlanCard = () => {
         <CollapsibleContent className="space-y-4 transition-all">
           <Card>
             <CardHeader>
-              <CardTitle>Complete Pro Features</CardTitle>
+              <CardTitle>完整专业版功能</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="rounded-lg border bg-background p-6">

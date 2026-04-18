@@ -148,7 +148,7 @@ const QuickstartPage = () => {
 
   const handleSendTestRequest = async () => {
     if (!quickstartKey) {
-      setNotification("Please create an API key first", "error");
+      setNotification("请先创建 API 密钥", "error");
       return;
     }
 
@@ -168,7 +168,7 @@ const QuickstartPage = () => {
       if (result.data?.success) {
         setTestResponse(result.data.response ?? "Success!");
         setTestRequestId(result.data.requestId ?? null);
-        setNotification("Test request sent successfully!", "success");
+        setNotification("测试请求发送成功！", "success");
       } else {
         setTestError(result.data?.error ?? "Request failed");
         setNotification(result.data?.error ?? "Request failed", "error");
@@ -271,7 +271,7 @@ const QuickstartPage = () => {
                       </TooltipTrigger>
                       {!quickstartKey && (
                         <TooltipContent>
-                          <p>Create API key first</p>
+                          <p>先创建 API 密钥</p>
                         </TooltipContent>
                       )}
                     </Tooltip>
@@ -414,7 +414,7 @@ const QuickstartPage = () => {
                           size="sm"
                           onClick={() => {
                             navigator.clipboard.writeText(quickstartKey);
-                            setNotification("Copied to clipboard", "success");
+                            setNotification("已复制到剪贴板", "success");
                           }}
                           className="h-auto p-1"
                         >
@@ -465,7 +465,7 @@ const QuickstartPage = () => {
                               className="flex items-center gap-1 text-xs text-green-700 hover:text-green-900 dark:text-green-300 dark:hover:text-green-100"
                             >
                               <ExternalLink size={12} />
-                              <span>View in requests page</span>
+                              <span>在请求页面查看</span>
                             </Link>
                           )}
                         </div>
@@ -578,7 +578,7 @@ const QuickstartPage = () => {
         {/* Next Steps Section - Only show when billing is setup */}
         {hasBillingSetup && (
           <div className="mt-8 flex flex-col gap-4">
-            <H3>Next Steps</H3>
+            <H3>下一步</H3>
             <P className="text-sm text-muted-foreground">
               Explore popular features to get the most out of Helicone
             </P>
@@ -598,7 +598,7 @@ const QuickstartPage = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-semibold">View Dashboard</h4>
+                      <h4 className="font-semibold">查看仪表板</h4>
                       <p className="mt-1 text-sm text-muted-foreground">
                         See your request analytics and usage metrics
                       </p>
@@ -621,7 +621,7 @@ const QuickstartPage = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Setup Sessions</h4>
+                      <h4 className="font-semibold">设置会话</h4>
                       <p className="mt-1 text-sm text-muted-foreground">
                         Track user conversations and interactions
                       </p>
@@ -644,7 +644,7 @@ const QuickstartPage = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Invite Members</h4>
+                      <h4 className="font-semibold">邀请成员</h4>
                       <p className="mt-1 text-sm text-muted-foreground">
                         Collaborate with your team members
                       </p>
@@ -660,7 +660,7 @@ const QuickstartPage = () => {
       <Sheet open={isProviderSheetOpen} onOpenChange={setIsProviderSheetOpen}>
         <SheetContent side="right" size="large" className="overflow-y-auto">
           <SheetHeader>
-            <SheetTitle>Add Provider Keys</SheetTitle>
+            <SheetTitle>添加提供商密钥</SheetTitle>
             <SheetDescription>
               Add your own provider API keys (BYOK). When "Enable for AI
               Gateway" is toggled on, requests will attempt to use these keys

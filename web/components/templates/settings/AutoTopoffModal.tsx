@@ -40,7 +40,7 @@ import {
   useUpdateAutoTopoffSettings,
   usePaymentMethods,
   useCreateSetupSession,
-  useRemovePaymentMethod,
+  use移除PaymentMethod,
 } from "../../../services/hooks/useAutoTopoff";
 
 interface AutoTopoffModalProps {
@@ -55,9 +55,9 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
     usePaymentMethods();
   const updateSettings = useUpdateAutoTopoffSettings();
   const createSetupSession = useCreateSetupSession();
-  const removePaymentMethod = useRemovePaymentMethod();
+  const removePaymentMethod = use移除PaymentMethod();
 
-  const [enabled, setEnabled] = useState(settings?.enabled ?? false);
+  const [enabled, set已启用] = useState(settings?.enabled ?? false);
   const [threshold, setThreshold] = useState(
     settings?.thresholdCents
       ? (settings.thresholdCents / 100).toString()
@@ -87,7 +87,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
   // Update local state when settings load
   useEffect(() => {
     if (settings) {
-      setEnabled(settings.enabled);
+      set已启用(settings.enabled);
       setThreshold(
         settings.thresholdCents
           ? (settings.thresholdCents / 100).toString()
@@ -117,8 +117,8 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
     if (!selectedPaymentMethod) {
       setAlertDialog({
         isOpen: true,
-        title: "Payment Method Required",
-        description: "Please select a payment method",
+        title: "需要支付方式",
+        description: "请选择支付方式",
         type: "alert",
       });
       return;
@@ -127,8 +127,8 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
     if (thresholdCents < 0) {
       setAlertDialog({
         isOpen: true,
-        title: "Invalid Threshold",
-        description: "Threshold must be non-negative",
+        title: "无效的阈值",
+        description: "阈值必须为非负数",
         type: "alert",
       });
       return;
@@ -137,8 +137,8 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
     if (topoffAmountCents < 500) {
       setAlertDialog({
         isOpen: true,
-        title: "Amount Too Low",
-        description: "Top-off amount must be at least $5",
+        title: "金额过低",
+        description: "充值金额必须至少为 $5",
         type: "alert",
       });
       return;
@@ -147,8 +147,8 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
     if (topoffAmountCents > 1000000) {
       setAlertDialog({
         isOpen: true,
-        title: "Amount Too High",
-        description: "Top-off amount must not exceed $10,000",
+        title: "金额过高",
+        description: "充值金额不得超过 $10,000",
         type: "alert",
       });
       return;
@@ -174,11 +174,11 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
             <DialogTitle>
               <div className="flex items-center gap-2">
                 <Zap size={20} />
-                Auto Top-Up Settings
+                自动充值设置
               </div>
             </DialogTitle>
           </DialogHeader>
-          <Muted className="text-xs">Loading...</Muted>
+          <Muted className="text-xs">正在加载...</Muted>
         </DialogContent>
       </Dialog>
     );
@@ -194,14 +194,14 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
     });
   };
 
-  const handleRemovePaymentMethod = async (paymentMethodId: string) => {
+  const handle移除PaymentMethod = async (paymentMethodId: string) => {
     // Check if it's the last payment method and auto top-off is enabled
     if (paymentMethods && paymentMethods.length === 1 && enabled) {
       setAlertDialog({
         isOpen: true,
-        title: "Cannot Remove Payment Method",
+        title: "无法移除支付方式",
         description:
-          "Cannot remove the last payment method while auto top-off is enabled. Please disable auto top-off first.",
+          "在启用自动充值时无法移除最后一个支付方式。请先禁用自动充值。",
         type: "alert",
       });
       return;
@@ -209,8 +209,8 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
 
     setAlertDialog({
       isOpen: true,
-      title: "Remove Payment Method",
-      description: "Are you sure you want to remove this payment method?",
+      title: "移除支付方式",
+      description: "确定要移除此支付方式吗？",
       type: "confirm",
       onConfirm: async () => {
         await removePaymentMethod.mutateAsync({
@@ -228,7 +228,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
             <DialogTitle>
               <div className="flex items-center gap-2">
                 <Zap size={20} />
-                Auto Top-Up Settings
+                自动充值设置
               </div>
             </DialogTitle>
             <DialogDescription>
@@ -245,11 +245,11 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
               </Small>
               <div className="flex items-center gap-2">
                 <Small className="text-muted-foreground">
-                  {enabled ? "Enabled" : "Disabled"}
+                  {enabled ? "已启用" : "已禁用"}
                 </Small>
                 <Switch
                   checked={enabled}
-                  onCheckedChange={setEnabled}
+                  onCheckedChange={set已启用}
                   disabled={!hasPaymentMethods}
                 />
               </div>
@@ -263,7 +263,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                   onValueChange={setSelectedPaymentMethod}
                 >
                   <SelectTrigger id="payment-method" className="w-full">
-                    <SelectValue placeholder="Select a payment method" />
+                    <SelectValue placeholder="选择支付方式" />
                   </SelectTrigger>
                   <SelectContent>
                     {paymentMethods.map((pm) => (
@@ -281,12 +281,12 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                   </SelectContent>
                 </Select>
 
-                {/* Saved Cards Accordion */}
+                {/* 已保存的卡片 Accordion */}
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value="saved-cards" className="border-none">
                     <AccordionTrigger className="w-fit justify-start py-0 pt-1 hover:no-underline">
                       <XSmall className="text-muted-foreground hover:text-foreground">
-                        Saved Cards
+                        已保存的卡片
                       </XSmall>
                     </AccordionTrigger>
                     <AccordionContent className="px-4">
@@ -307,17 +307,17 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                               </XSmall>
                             </div>
                             <Button
-                              onClick={() => handleRemovePaymentMethod(pm.id)}
+                              onClick={() => handle移除PaymentMethod(pm.id)}
                               disabled={removePaymentMethod.isPending}
                               variant="ghost"
                               size="sm"
                             >
-                              Remove
+                              移除
                             </Button>
                           </div>
                         ))}
 
-                        {/* Add Card Button */}
+                        {/* 添加卡片 Button */}
                         <Button
                           onClick={handleAddPaymentMethod}
                           disabled={createSetupSession.isPending}
@@ -326,8 +326,8 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                           className="mt-2 w-full"
                         >
                           {createSetupSession.isPending
-                            ? "Loading..."
-                            : "Add Card"}
+                            ? "加载中..."
+                            : "添加卡片"}
                         </Button>
                       </div>
                     </AccordionContent>
@@ -341,7 +341,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                 variant="outline"
                 className="w-full"
               >
-                {createSetupSession.isPending ? "Loading..." : "Add Card"}
+                {createSetupSession.isPending ? "加载中..." : "添加卡片"}
               </Button>
             )}
 
@@ -355,7 +355,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
 
                   <div className="flex flex-col gap-1">
                     <XSmall className="font-medium">
-                      No payment method found
+                      未找到支付方式
                     </XSmall>
                     <XSmall className="text-muted-foreground">
                       Purchase credits first to save a payment method for auto
@@ -375,11 +375,11 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                       />
                       <div className="flex flex-col gap-1">
                         <XSmall className="font-medium text-destructive">
-                          Payment failures detected
+                          检测到支付失败
                         </XSmall>
                         <XSmall className="text-destructive/80">
-                          Auto top-up has failed {settings.consecutiveFailures}{" "}
-                          times. Please check your payment method.
+                          自动充值已失败 {settings.consecutiveFailures}{" "}
+                          次。请检查您的支付方式。
                         </XSmall>
                       </div>
                     </div>
@@ -393,7 +393,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                           htmlFor="threshold"
                           className="whitespace-nowrap text-sm"
                         >
-                          When balance falls below:
+                          当余额低于:
                         </Label>
                         <div className="flex items-center gap-1">
                           <span className="text-sm text-muted-foreground">
@@ -412,7 +412,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                         </div>
                       </div>
                       <XSmall className="text-muted-foreground">
-                        Processing may take up to 15 minutes.
+                        处理可能需要长达 15 分钟。
                       </XSmall>
                     </div>
 
@@ -422,7 +422,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                           htmlFor="topoff-amount"
                           className="whitespace-nowrap text-sm"
                         >
-                          Amount to purchase:
+                          购买金额:
                         </Label>
                         <div className="flex items-center gap-1">
                           <span className="text-sm text-muted-foreground">
@@ -442,7 +442,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                         </div>
                       </div>
                       <XSmall className="text-muted-foreground">
-                        (minimum $5, maximum $10,000)
+                        (最低 $5, 最高 $10,000)
                       </XSmall>
                     </div>
 
@@ -463,7 +463,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                       disabled={updateSettings.isPending}
                       className="w-full"
                     >
-                      {updateSettings.isPending ? "Saving..." : "Save Settings"}
+                      {updateSettings.isPending ? "保存中..." : "保存设置"}
                     </Button>
                   </div>
                 )}
@@ -474,7 +474,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                     variant="outline"
                     className="w-full"
                   >
-                    Save Settings
+                    保存设置
                   </Button>
                 )}
               </>
@@ -498,7 +498,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
           </AlertDialogHeader>
           <AlertDialogFooter>
             {alertDialog.type === "confirm" && (
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogCancel>取消</AlertDialogCancel>
             )}
             <AlertDialogAction
               onClick={
@@ -507,7 +507,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
                   : undefined
               }
             >
-              {alertDialog.type === "confirm" ? "Remove" : "OK"}
+              {alertDialog.type === "confirm" ? "移除" : "确定"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

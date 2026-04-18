@@ -33,7 +33,7 @@ export const SessionTag = ({ id, type }: SessionTagProps) => {
   useEffect(() => {
     fetchTag(currentOrgId!, id, type, setTag).then((res) => {
       if (res?.error) {
-        setNotification("Error fetching tag", "error");
+        setNotification("获取标签时出错", "error");
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,30 +43,30 @@ export const SessionTag = ({ id, type }: SessionTagProps) => {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">
-          {getTag(currentOrgId!, id, type) || "Add Tag"}
+          {getTag(currentOrgId!, id, type) || "添加标签"}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit Tag</DialogTitle>
+          <DialogTitle>编辑标签</DialogTitle>
           <DialogDescription>
-            Make changes to your tag here. Click save when you&apos;re done.
+            在此处更改您的标签。完成后点击保存。
           </DialogDescription>
         </DialogHeader>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             if (!formTag.trim()) {
-              setNotification("Tag cannot be empty", "error");
+              setNotification("标签不能为空", "error");
               return;
             }
 
             updateTag(currentOrgId!, id, formTag, type, setTag).then((res) => {
               if (res?.error) {
-                setNotification("Error updating tag", "error");
+                setNotification("更新标签时出错", "error");
               } else {
                 setOpen(false);
-                setNotification("Tag updated", "success");
+                setNotification("标签已更新", "success");
               }
             });
           }}
@@ -74,7 +74,7 @@ export const SessionTag = ({ id, type }: SessionTagProps) => {
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="tag" className="text-right">
-                Tag
+                标签
               </Label>
               <Input
                 id="tag"
@@ -88,7 +88,7 @@ export const SessionTag = ({ id, type }: SessionTagProps) => {
             </div>
           </div>
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit">保存更改</Button>
           </DialogFooter>
         </form>
       </DialogContent>

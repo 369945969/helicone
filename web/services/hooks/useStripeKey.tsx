@@ -26,13 +26,13 @@ export function useStripeKey() {
     "/v1/vault/add",
     {
       onSuccess: () => {
-        setNotification("Stripe API key saved successfully", "success");
+        setNotification("Stripe API 密钥保存成功", "success");
         queryClient.invalidateQueries({
           queryKey: ["get", "/v1/vault/keys", {}],
         });
       },
       onError: (error) => {
-        setNotification(`Failed to save Stripe API key: ${error}`, "error");
+        setNotification(`保存 Stripe API 密钥失败：${error}`, "error");
       },
     }
   );
@@ -42,7 +42,7 @@ export function useStripeKey() {
     "/v1/vault/update/{id}",
     {
       onSuccess: () => {
-        setNotification("Stripe API key updated successfully", "success");
+        setNotification("Stripe API 密钥更新成功", "success");
         queryClient.invalidateQueries({
           queryKey: ["get", "/v1/vault/keys", {}],
         });

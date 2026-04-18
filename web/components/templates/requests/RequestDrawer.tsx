@@ -86,10 +86,10 @@ const RequestDescTooltip = (props: {
                 className="flex items-center justify-between gap-2 p-2 text-left hover:bg-accent"
                 onClick={() => {
                   navigator.clipboard.writeText(copyText);
-                  setNotification("Copied to clipboard", "success");
+                  setNotification("已复制到剪贴板", "success");
                 }}
               >
-                <span className="text-xs">Copy ID</span>
+                <span className="text-xs">复制 ID</span>
                 <LuCopy className="h-3 w-3" />
               </button>
             )}
@@ -98,7 +98,7 @@ const RequestDescTooltip = (props: {
                 href={href}
                 className="flex items-center justify-between gap-2 p-2 text-left hover:bg-accent"
               >
-                <span className="text-xs">View</span>
+                <span className="text-xs">查看</span>
                 <Eye className="h-3 w-3" />
               </Link>
             )}
@@ -241,25 +241,25 @@ export default function RequestDrawer(props: RequestDivProps) {
     // Request Information
     const requestInfo = [
       {
-        label: "Provider",
-        value: request.heliconeMetadata.provider || "Unknown",
+        label: "提供商",
+        value: request.heliconeMetadata.provider || "未知",
       },
       {
-        label: "Created At",
+        label: "创建时间",
         value: formatDate(request.heliconeMetadata.createdAt),
         fullValue: getUSDateFromString(
           request.heliconeMetadata.createdAt,
           true,
         ),
       },
-      { label: "Request ID", value: request.id },
-      { label: "User", value: request.heliconeMetadata.user || "Unknown" },
+      { label: "请求 ID", value: request.id },
+      { label: "用户", value: request.heliconeMetadata.user || "未知" },
     ];
 
     if (request.heliconeMetadata.targetUrl) {
       const safeUrl = sanitizeTargetUrl(request.heliconeMetadata.targetUrl);
       requestInfo.push({
-        label: "Target URL",
+        label: "目标 URL",
         value: safeUrl,
         fullValue: safeUrl,
       });
@@ -268,21 +268,21 @@ export default function RequestDrawer(props: RequestDivProps) {
     // Token Information
     const tokenInfo = [
       {
-        label: "Input Tokens",
+        label: "输入令牌数",
         value: request.heliconeMetadata.promptTokens || 0,
       },
       {
-        label: "Output Tokens",
+        label: "输出令牌数",
         value: request.heliconeMetadata.completionTokens || 0,
       },
       {
-        label: "Total Tokens",
+        label: "总令牌数",
         value: request.heliconeMetadata.totalTokens || 0,
       },
       ...(request.heliconeMetadata.path
         ? [
           {
-            label: "Path",
+            label: "路径",
             value: request.heliconeMetadata.path,
           },
         ]
@@ -291,7 +291,7 @@ export default function RequestDrawer(props: RequestDivProps) {
         request.heliconeMetadata.promptCacheReadTokens > 0
         ? [
           {
-            label: "Prompt Cache Read Tokens",
+            label: "提示缓存读取令牌数",
             value: request.heliconeMetadata.promptCacheReadTokens || 0,
           },
         ]
@@ -300,7 +300,7 @@ export default function RequestDrawer(props: RequestDivProps) {
         request.heliconeMetadata.promptCacheWriteTokens > 0
         ? [
           {
-            label: "Prompt Cache Write Tokens",
+            label: "提示缓存写入令牌数",
             value: request.heliconeMetadata.promptCacheWriteTokens || 0,
           },
         ]
@@ -348,7 +348,7 @@ export default function RequestDrawer(props: RequestDivProps) {
       })
       .then((res) => {
         if (res.error || !res.data.data?.experimentId) {
-          setNotification("Failed to create experiment", "error");
+          setNotification("创建实验失败", "error");
           return;
         }
         router.push(`/experiments/${res.data.data?.experimentId}`);
@@ -488,7 +488,7 @@ export default function RequestDrawer(props: RequestDivProps) {
   const onAddPropertyHandler = useCallback(
     async (key: string, value: string) => {
       if (!org?.currentOrg?.id || !request) {
-        setNotification("Error adding label", "error");
+        setNotification("添加标签时出错", "error");
         return;
       }
 
@@ -501,9 +501,9 @@ export default function RequestDrawer(props: RequestDivProps) {
         );
 
         if (res?.status === 200) {
-          setNotification("Label added", "success");
+          setNotification("标签已添加", "success");
         } else {
-          setNotification("Error adding label", "error");
+          setNotification("添加标签时出错", "error");
         }
       } catch (err) {
         logger.error(
@@ -512,7 +512,7 @@ export default function RequestDrawer(props: RequestDivProps) {
           },
           "Failed to add request property",
         );
-        setNotification(`Error adding label: ${err}`, "error");
+        setNotification(`添加标签时出错：${err}`, "error");
       }
     },
     [org?.currentOrg?.id, request, setNotification],
@@ -520,7 +520,7 @@ export default function RequestDrawer(props: RequestDivProps) {
   const onAddScoreHandler = useCallback(
     async (key: string, value: string) => {
       if (!org?.currentOrg?.id || !request) {
-        setNotification("Error adding score", "error");
+        setNotification("添加分数时出错", "error");
         return;
       }
 
@@ -532,7 +532,7 @@ export default function RequestDrawer(props: RequestDivProps) {
       } else {
         numValue = Number(value);
         if (isNaN(numValue)) {
-          setNotification("Value must be a number or 'true'/'false'", "error");
+          setNotification("值必须是数字或 'true'/'false'", "error");
           return;
         }
       }
@@ -546,9 +546,9 @@ export default function RequestDrawer(props: RequestDivProps) {
         );
 
         if (res?.status === 201) {
-          setNotification("Score added", "success");
+          setNotification("分数已添加", "success");
         } else {
-          setNotification("Error adding score", "error");
+          setNotification("添加分数时出错", "error");
         }
       } catch (err) {
         logger.error(
@@ -557,7 +557,7 @@ export default function RequestDrawer(props: RequestDivProps) {
           },
           "Failed to add request property",
         );
-        setNotification(`Error adding score: ${err}`, "error");
+        setNotification(`添加分数时出错：${err}`, "error");
       }
     },
     [org?.currentOrg?.id, request, setNotification],
@@ -625,7 +625,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent side="bottom" className="text-xs">
-                      Collapse Drawer
+                      收起抽屉
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -647,7 +647,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                     </Badge>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-xs">
-                    Latency
+                    延迟
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -661,7 +661,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                     </Badge>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-xs">
-                    Cost
+                    成本
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -686,7 +686,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                       </Badge>
                     </TooltipTrigger>
                     <TooltipContent side="bottom" className="text-xs">
-                      AI Gateway Request
+                      AI 网关请求
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -711,7 +711,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-xs">
-                    {showDetails ? "Hide Details" : "Show Details"}
+                    {showDetails ? "隐藏详情" : "显示详情"}
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -832,7 +832,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                               side="bottom"
                               className="max-w-md break-all text-xs"
                             >
-                              Copy: {item.value}
+                              复制: {item.value}
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
@@ -887,8 +887,8 @@ export default function RequestDrawer(props: RequestDivProps) {
             {/* Properties */}
             <ScrollableBadges
               className="px-4"
-              title="Properties"
-              placeholder="No Properties"
+              title="属性"
+              placeholder="无属性"
               items={Object.entries(currentProperties).map(([key, value]) => ({
                 key,
                 value: value as string,
@@ -904,8 +904,8 @@ export default function RequestDrawer(props: RequestDivProps) {
             {/* Scores */}
             <ScrollableBadges
               className="px-4"
-              title="Scores"
-              placeholder="No Scores"
+              title="评分"
+              placeholder="无评分"
               items={Object.entries(currentScores)
                 .filter(([key]) => key !== "helicone-score-feedback")
                 .map(([key, value]) => ({ key, value }))}
@@ -924,7 +924,7 @@ export default function RequestDrawer(props: RequestDivProps) {
               <div className="mb-4 rounded-lg border border-border bg-sidebar-background">
                 <div className="flex h-12 flex-row items-center justify-between rounded-t-lg bg-white p-4 pr-2 shadow-sm dark:bg-black">
                   <div className="flex items-center gap-2">
-                    <h2 className="text-sm font-medium">Prompt Input</h2>
+                    <h2 className="text-sm font-medium">提示词输入</h2>
                     {currentPromptData?.data?.prompt?.name && (
                       <>
                         <div className="h-4 w-px bg-border" />
@@ -958,7 +958,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                       className="flex flex-row items-center gap-1.5"
                     >
                       <Eye className="h-4 w-4" />
-                      View
+                      查看
                     </Button>
                   </Link>
                 </div>
@@ -977,7 +977,7 @@ export default function RequestDrawer(props: RequestDivProps) {
               <div className="mb-4 rounded-lg border border-border bg-sidebar-background p-3">
                 <div className="mb-2 flex items-center gap-2">
                   <CreditCard size={14} className="text-primary" />
-                  <h2 className="text-xs font-medium">Stripe Integration</h2>
+                  <h2 className="text-xs font-medium">Stripe 集成</h2>
                   {stripeProperties.status && (
                     <>
                       <div className="h-3 w-px bg-border" />
@@ -988,10 +988,10 @@ export default function RequestDrawer(props: RequestDivProps) {
                         )}
                       >
                         {stripeProperties.status === "processed"
-                          ? "Processed"
+                          ? "已处理"
                           : stripeProperties.status === "skipped"
-                            ? "Skipped"
-                            : "Error"}
+                            ? "已跳过"
+                            : "错误"}
                       </Badge>
                     </>
                   )}
@@ -1001,7 +1001,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                   {stripeProperties.skipReason && (
                     <div className="grid grid-cols-[auto,1fr] items-center gap-x-3">
                       <XSmall className="text-nowrap text-muted-foreground">
-                        Reason
+                        原因
                       </XSmall>
                       <XSmall className="min-w-0 text-right">
                         {formatSkipReason(stripeProperties.skipReason)}
@@ -1011,7 +1011,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                   {stripeProperties.customerId && (
                     <div className="grid grid-cols-[auto,1fr] items-center gap-x-3">
                       <XSmall className="text-nowrap text-muted-foreground">
-                        Customer
+                        客户
                       </XSmall>
                       <XSmall className="font-mono min-w-0 truncate text-right">
                         {stripeProperties.customerId}
@@ -1021,7 +1021,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                   {stripeProperties.model && (
                     <div className="grid grid-cols-[auto,1fr] items-center gap-x-3">
                       <XSmall className="text-nowrap text-muted-foreground">
-                        Model
+                        模型
                       </XSmall>
                       <XSmall className="font-mono min-w-0 truncate text-right">
                         {stripeProperties.model}
@@ -1031,7 +1031,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                   {stripeProperties.attemptedModel && (
                     <div className="grid grid-cols-[auto,1fr] items-center gap-x-3">
                       <XSmall className="text-nowrap text-muted-foreground">
-                        Attempted
+                        尝试
                       </XSmall>
                       <XSmall className="font-mono min-w-0 truncate text-right">
                         {stripeProperties.attemptedModel}
@@ -1064,7 +1064,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                   >
                     <PiPlayBold className="h-4 w-4" />
                     {hasNewPromptData || hasLegacyPromptData
-                      ? "Test Prompt"
+                      ? "测试提示词"
                       : "Playground"}
                   </Button>
                 </Link>
@@ -1077,7 +1077,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                 onClick={() => setShowNewDatasetModal(true)}
               >
                 <LuPlus className="h-4 w-4" />
-                Dataset
+                数据集
               </Button>
 
               {/* Share link */}
@@ -1092,9 +1092,9 @@ export default function RequestDrawer(props: RequestDivProps) {
                           const url = new URL(window.location.href);
                           url.searchParams.set("requestId", request.id);
                           navigator.clipboard.writeText(url.toString());
-                          setNotification("Share URL copied", "success");
+                          setNotification("分享链接已复制", "success");
                         } catch (e) {
-                          setNotification("Failed to copy link", "error");
+                          setNotification("复制链接失败", "error");
                         }
                       }}
                     >
@@ -1102,7 +1102,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-xs">
-                    Copy share link
+                    复制分享链接
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

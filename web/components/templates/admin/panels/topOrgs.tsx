@@ -87,18 +87,18 @@ const TopOrgs = (props: TopOrgsProps) => {
         Top Organizations
       </h1>
       <div className="flex flex-col space-y-2">
-        <p className="text-sm">Organization Lookup by Name</p>
+        <p className="text-sm">按名称查找组织</p>
         <div className="grid grid-cols-5 gap-4">
           <div className="col-span-2">
             <TextInput
-              placeholder="Organization Name"
+              placeholder="组织名称"
               value={orgName}
               onValueChange={setOrgName}
             />
           </div>
           <div className="col-span-2">
             <TextInput
-              placeholder="email search"
+              placeholder="邮箱搜索"
               value={emailContains}
               onValueChange={setEmailContains}
             />
@@ -221,14 +221,14 @@ const TopOrgs = (props: TopOrgsProps) => {
           ?.map((org, i) => handleLogCostCalculation(org.ct))
           .reduce((acc, curr) => acc + curr, 0)}
       </div>
-      <h2>Top Organizations</h2>
+      <h2>顶级组织</h2>
       <div className="grid grid-cols-9">
-        <div className="col-span-2">Org Id (click to copy)</div>
-        <div className="col-span-2">Name</div>
-        <div className="col-span-2">email</div>
-        <div className="col-span-1">Tier</div>
-        <div className="col-span-1">Count</div>
-        <div className="col-span-1">Estimated spend</div>
+        <div className="col-span-2">组织 ID（点击复制）</div>
+        <div className="col-span-2">名称</div>
+        <div className="col-span-2">邮箱</div>
+        <div className="col-span-1">层级</div>
+        <div className="col-span-1">数量</div>
+        <div className="col-span-1">预计支出</div>
       </div>
       <div className="grid grid-cols-8">
         {data?.data?.map((org, i) => (

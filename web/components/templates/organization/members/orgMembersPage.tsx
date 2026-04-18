@@ -64,7 +64,7 @@ const OrgMembersPage = (props: OrgMembersPageProps) => {
 
   return (
     <>
-      <SettingsSectionHeader title="Members">
+      <SettingsSectionHeader title="成员">
         <div className="flex flex-row space-x-4">
           <ProFeatureWrapper featureName="invite">
             <Button

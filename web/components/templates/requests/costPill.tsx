@@ -13,7 +13,7 @@ const CostPill = () => {
         "-my-1 inline-flex w-max cursor-pointer items-center rounded-lg px-2 py-1 text-xs font-medium ring-1 ring-inset",
       )}
     >
-      Cost Unsupported{" "}
+      成本不支持{" "}
       <ArrowTopRightOnSquareIcon className="ml-1 inline-block h-4 w-4 text-orange-500" />
     </Link>
   );

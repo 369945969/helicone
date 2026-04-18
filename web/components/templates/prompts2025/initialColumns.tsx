@@ -106,14 +106,14 @@ export const getInitialColumns = (
             className="flex items-center gap-1 rounded-lg"
           >
             <TestTube2 size={14} className="text-muted-foreground" />
-            <span className="ml-1">Edit</span>
+            <span className="ml-1">编辑</span>
           </Button>
         );
       },
     },
     {
       key: "created" as keyof PromptWithVersions,
-      header: "Created",
+      header: "创建时间",
       sortable: true,
       minSize: 300,
       render: (item) => (

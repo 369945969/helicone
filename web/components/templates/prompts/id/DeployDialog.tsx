@@ -51,7 +51,7 @@ export default function DeployDialog({
           disabled={isImportedFromCode === true}
         >
           <PiRocketLaunchBold className="mr-2 h-4 w-4" />
-          <span>Deploy</span>
+          <span>部署</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="flex max-h-[90vh] w-full max-w-4xl flex-col items-center gap-4 overflow-hidden bg-slate-100 dark:bg-slate-900">
@@ -59,7 +59,7 @@ export default function DeployDialog({
         <div className="flex w-full flex-col">
           <div className="flex w-full flex-row items-center justify-between">
             <P className="dark:slate-300 font-semibold text-slate-700">
-              Install
+              安装
             </P>
           </div>
           <div className="w-full">
@@ -80,9 +80,9 @@ export default function DeployDialog({
           <>
             <Alert>
               <InfoIcon className="h-4 w-4" />
-              <AlertTitle>Provider: {provider}</AlertTitle>
+              <AlertTitle>提供商: {provider}</AlertTitle>
               <AlertDescription>
-                Required environment variables:
+                必需的环境变量：
               </AlertDescription>
               <div className="w-full">
                 <DiffHighlight
@@ -107,7 +107,7 @@ export default function DeployDialog({
         <div className="flex w-full flex-col">
           <div className="flex w-full flex-row items-center justify-between">
             <P className="dark:slate-300 font-semibold text-slate-700">
-              Deploy
+              部署
             </P>
             <div className="flex w-full flex-row items-center justify-end gap-2">
               <Tabs
@@ -116,10 +116,10 @@ export default function DeployDialog({
               >
                 <TabsList asPill size="xs">
                   <TabsTrigger asPill value="single">
-                    Single
+                    单条
                   </TabsTrigger>
                   <TabsTrigger asPill value="chat">
-                    Chat
+                    对话
                   </TabsTrigger>
                 </TabsList>
               </Tabs>
@@ -168,7 +168,7 @@ export default function DeployDialog({
           className="mt-2 flex flex-row items-center gap-0.5 text-heliblue hover:underline"
         >
           <Small className="font-semibold text-heliblue">
-            Read Full Documentation
+            阅读完整文档
           </Small>
           <PiArrowUpRightBold className="h-4 w-4" />
         </Link>

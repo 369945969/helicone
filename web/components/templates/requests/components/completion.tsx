@@ -49,7 +49,7 @@ export const Completion = (props: CompletionProps) => {
               navigator.clipboard.writeText(
                 JSON.stringify(mappedRequest, null, 2),
               );
-              setNotification("Copied to clipboard", "success");
+              setNotification("已复制到剪贴板", "success");
             }}
           >
             <pre>{JSON.stringify(mappedRequest, null, 2)}</pre>

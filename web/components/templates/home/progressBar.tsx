@@ -22,7 +22,7 @@ const ProgressBar = (props: ProgressBarProps) => {
   );
 
   return (
-    <nav aria-label="Progress">
+    <nav aria-label="进度">
       <ol role="list" className="flex w-full items-center">
         {steps.map((step, stepIdx) => (
           <li

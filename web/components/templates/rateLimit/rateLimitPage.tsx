@@ -30,8 +30,8 @@ import { useQuery } from "@tanstack/react-query";
 import { $JAWN_API } from "@/lib/clients/jawn";
 
 const TABS = [
-  { id: "requests", label: "Rate Limited Requests" },
-  { id: "rules", label: "Rate Limit Rules" },
+  { id: "requests", label: "速率限制请求" },
+  { id: "rules", label: "速率限制规则" },
 ];
 
 // Helper function to parse URL param into TimeFilter object
@@ -179,7 +179,7 @@ const RateLimitPage = (props: {}) => {
   };
 
   if (isLoading) {
-    return <LoadingAnimation title="Loading..." height={175} width={175} />;
+    return <LoadingAnimation title="正在加载..." height={175} width={175} />;
   }
   if (shouldShowUnauthorized) {
     return (
@@ -195,7 +195,7 @@ const RateLimitPage = (props: {}) => {
     >
       <div>
         <Header
-          title="Rate Limits"
+          title="速率限制"
           leftActions={
             currentTab === "rules" ? (
               <div className="ml-4 flex items-center gap-1.5">

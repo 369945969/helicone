@@ -82,8 +82,8 @@ const ExperimentDatasetSelector = (props: ExperimentDatasetSelectorProps) => {
           </p>
 
           <ul className="flex w-full flex-col items-center space-y-4 overflow-y-auto px-1 pt-4">
-            {isLoading && <div>Loading inputs...</div>}
-            {isError && <div>Error loading inputs.</div>}
+            {isLoading && <div>正在加载输入...</div>}
+            {isError && <div>加载输入时出错。</div>}
             {!isLoading &&
               !isError &&
               datasets.map((dataset) => (
@@ -131,7 +131,7 @@ const ExperimentDatasetSelector = (props: ExperimentDatasetSelectorProps) => {
             size={"sm"}
             onClick={async () => {
               if (!selectedDatasetId) {
-                setNotification("Please select one input.", "error");
+                setNotification("请选择一个输入。", "error");
                 return;
               }
 
@@ -139,7 +139,7 @@ const ExperimentDatasetSelector = (props: ExperimentDatasetSelectorProps) => {
               if (onSuccess) {
                 onSuccess(true);
 
-                setNotification("Added inputs to dataset", "success");
+                setNotification("已将输入添加到数据集", "success");
                 setOpen(false);
               }
             }}

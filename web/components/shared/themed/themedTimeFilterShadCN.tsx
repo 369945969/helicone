@@ -148,9 +148,9 @@ export function ThemedTimeFilterShadCN({
     // When live mode is on, always show "Now" as the end time
     if (isLive) {
       if (from.toDateString() === new Date().toDateString()) {
-        return `${format(from, "LLL d, yyyy")} ${format(from, "HH:mm")} - Now`;
+        return `${format(from, "LLL d, yyyy")} ${format(from, "HH:mm")} - 现在`;
       } else {
-        return `${format(from, "LLL d, yyyy HH:mm")} - Now`;
+        return `${format(from, "LLL d, yyyy HH:mm")} - 现在`;
       }
     }
 
@@ -237,7 +237,7 @@ export function ThemedTimeFilterShadCN({
                 )}
               </>
             ) : (
-              <span>Pick a date and time</span>
+              <span>选择日期和时间</span>
             )}
           </Button>
         </PopoverTrigger>
@@ -246,7 +246,7 @@ export function ThemedTimeFilterShadCN({
           align="start"
         >
           {/* Predefined ranges */}
-          <span className="pt-4 text-sm font-semibold">Quick Select:</span>
+          <span className="pt-4 text-sm font-semibold">快速选择：</span>
           <div className="grid grid-cols-6 gap-2">
             {predefinedRanges.map((range) => (
               <Button
@@ -261,7 +261,7 @@ export function ThemedTimeFilterShadCN({
           </div>
 
           {/* Custom time range selector */}
-          <span className="pt-4 text-sm font-semibold">Custom Range:</span>
+          <span className="pt-4 text-sm font-semibold">自定义范围：</span>
           <div className="grid gap-2">
             <div className="flex items-center gap-2">
               <Input
@@ -282,13 +282,13 @@ export function ThemedTimeFilterShadCN({
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="hour" className="text-xs">
-                    Hour(s)
+                    小时
                   </SelectItem>
                   <SelectItem value="day" className="text-xs">
-                    Day(s)
+                    天
                   </SelectItem>
                   <SelectItem value="week" className="text-xs">
-                    Week(s)
+                    周
                   </SelectItem>
                 </SelectContent>
               </Select>
@@ -297,12 +297,12 @@ export function ThemedTimeFilterShadCN({
                 size="sm_sleek"
                 variant={"ghost"}
               >
-                Apply
+                应用
               </Button>
             </div>
           </div>
 
-          <span className="pt-4 text-sm font-semibold">Date Picker:</span>
+          <span className="pt-4 text-sm font-semibold">日期选择器：</span>
           <div className="grid gap-4">
             <Calendar
               initialFocus
@@ -441,7 +441,7 @@ export function ThemedTimeFilterShadCN({
               onClick={onClearTimeFilter}
               className="ml-auto"
             >
-              Clear
+              清除
             </Button>
           )}
 
@@ -450,7 +450,7 @@ export function ThemedTimeFilterShadCN({
             <Alert variant="warning" className="mt-2">
               <AlertTriangle className="h-4 w-4" />
               <AlertDescription>
-                Warning: Start date is after end date
+                警告：开始日期晚于结束日期
               </AlertDescription>
             </Alert>
           )}

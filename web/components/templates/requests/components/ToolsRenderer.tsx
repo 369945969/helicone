@@ -53,7 +53,7 @@ function ToolCard({ tool, isLast }: ToolCardProps) {
                 !isDescriptionOpen && "-rotate-90"
               )}
             />
-            <span>Description</span>
+            <span>描述</span>
           </button>
           {isDescriptionOpen && (
             <div className="mt-2 rounded-md border border-border bg-background p-3">

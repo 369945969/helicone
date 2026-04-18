@@ -240,7 +240,7 @@ const DatasetDrawerV2 = (props: DatasetDrawerV2Props) => {
                         </button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Copy</p>
+                        <p>复制</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -255,7 +255,7 @@ const DatasetDrawerV2 = (props: DatasetDrawerV2Props) => {
                         </button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Edit</p>
+                        <p>编辑</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -270,7 +270,7 @@ const DatasetDrawerV2 = (props: DatasetDrawerV2Props) => {
                         </button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Delete</p>
+                        <p>删除</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -290,7 +290,7 @@ const DatasetDrawerV2 = (props: DatasetDrawerV2Props) => {
             onResponseBodyChange={setEditedResponseBody}
           />
         ) : (
-          <p>Loading...</p>
+          <p>正在加载...</p>
         )}
       </ThemedDrawer>
 

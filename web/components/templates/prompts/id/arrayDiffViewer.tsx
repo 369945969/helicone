@@ -17,7 +17,7 @@ const ArrayDiffViewer = (props: ArrayDiffViewerProps) => {
   const { origin, target } = props;
 
   if (!origin || !Array.isArray(origin) || !target || !Array.isArray(target)) {
-    return <p className="text-xs text-muted-foreground">Failed to find diff</p>;
+    return <p className="text-xs text-muted-foreground">查找差异失败</p>;
   }
 
   // map the array that is longer with tie-breaker being origin
@@ -102,7 +102,7 @@ const ArrayDiffViewer = (props: ArrayDiffViewerProps) => {
             </AccordionTrigger>
             <AccordionContent className="p-4">
               {originContent === targetContent ? (
-                <p className="text-xs text-slate-500">No changes</p>
+                <p className="text-xs text-slate-500">无更改</p>
               ) : (
                 <div className="mt-4 flex w-full flex-col space-y-2">
                   <ReactDiffViewer

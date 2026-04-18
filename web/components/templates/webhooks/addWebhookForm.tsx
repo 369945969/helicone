@@ -64,7 +64,7 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
 
   const validateForm = () => {
     if (!destination) {
-      setValidationError("Destination URL is required");
+      setValidationError("目标 URL 为必填项");
       return false;
     }
 
@@ -72,7 +72,7 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
       !destination.startsWith("http://") &&
       !destination.startsWith("https://")
     ) {
-      setValidationError("Destination URL must start with http:// or https://");
+      setValidationError("目标 URL 必须以 http:// 或 https:// 开头");
       return false;
     }
 
@@ -94,11 +94,10 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-semibold tracking-tight">
-          Listen to events
+          监听事件
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Configure a webhook to receive real-time updates about your API
-          requests.
+          配置 webhook 以接收有关 API 请求的实时更新。
         </p>
       </div>
 
@@ -111,7 +110,7 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
       <div className="space-y-6">
         <div className="space-y-3">
           <Label htmlFor="webhook-url" className="text-sm font-medium">
-            Endpoint URL
+            端点 URL
           </Label>
           <Input
             type="text"
@@ -131,7 +130,7 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <Label htmlFor="sample-rate" className="text-sm font-medium">
-              Sample Rate
+              采样率
             </Label>
             <div className="flex items-center gap-2">
               <Input
@@ -166,11 +165,10 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
           <div className="flex items-center justify-between">
             <div>
               <Label htmlFor="include-data" className="text-sm font-medium">
-                Include Enhanced Data
+                包含增强数据
               </Label>
               <p className="mt-1 text-xs text-muted-foreground">
-                When enabled, webhooks will include additional data such as
-                costs, token counts, latency metrics, and S3 URLs.
+                启用后，webhook 将包含额外数据，如成本、令牌数、延迟指标和 S3 URL。
               </p>
             </div>
             <Switch
@@ -186,7 +184,7 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <div>
-              <Label className="text-sm font-medium">Properties Filters</Label>
+              <Label className="text-sm font-medium">属性过滤器</Label>
               <p className="mt-1 text-xs text-muted-foreground">
                 Filter which events are sent to the webhook using{" "}
                 <a
@@ -235,14 +233,14 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
                       <PopoverContent className="w-[200px] p-0" sideOffset={4}>
                         <Command>
                           <CommandInput
-                            placeholder="Type in anything..."
+                            placeholder="输入任何内容..."
                             onValueChange={(value) => {
                               updatePropertyFilter(index, value, filter.value);
                             }}
                           />
                           <CommandList>
-                            <CommandEmpty>No results found.</CommandEmpty>
-                            <CommandGroup heading="Suggestions">
+                            <CommandEmpty>未找到结果。</CommandEmpty>
+                            <CommandGroup heading="建议">
                               {properties.properties?.map((property) => (
                                 <CommandItem
                                   key={property}
@@ -266,7 +264,7 @@ const AddWebhookForm = (props: AddWebhookFormProps) => {
                   </div>
                   <div className="col-span-2 flex items-center space-x-2">
                     <Input
-                      placeholder="Value"
+                      placeholder="值"
                       value={filter.value}
                       onChange={(e) =>
                         updatePropertyFilter(index, filter.key, e.target.value)

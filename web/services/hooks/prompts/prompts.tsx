@@ -209,10 +209,10 @@ export const useCreatePrompt = () => {
       return res.data.data;
     },
     onSuccess: () => {
-      setNotification("Prompt created successfully", "success");
+      setNotification("提示词创建成功", "success");
     },
     onError: () => {
-      setNotification("Error creating prompt", "error");
+      setNotification("创建提示词时出错", "error");
     },
   });
 

@@ -58,22 +58,22 @@ export function AutoTopoffSettings() {
     const topoffAmountCents = Math.round(parseFloat(topoffAmount || "0") * 100);
 
     if (!selectedPaymentMethod) {
-      alert("Please select a payment method");
+      alert("请选择支付方式");
       return;
     }
 
     if (thresholdCents < 0) {
-      alert("Threshold must be non-negative");
+      alert("阈值必须为非负数");
       return;
     }
 
     if (topoffAmountCents < 500) {
-      alert("Top-off amount must be at least $5");
+      alert("充值金额必须至少为 $5");
       return;
     }
 
     if (topoffAmountCents > 1000000) {
-      alert("Top-off amount must not exceed $10,000");
+      alert("充值金额不能超过 $10,000");
       return;
     }
 
@@ -91,7 +91,7 @@ export function AutoTopoffSettings() {
     return (
       <div className="flex flex-col gap-2">
         <Small className="font-semibold">Auto Top-Up</Small>
-        <Muted className="text-xs">Loading...</Muted>
+        <Muted className="text-xs">正在加载...</Muted>
       </div>
     );
   }
@@ -109,7 +109,7 @@ export function AutoTopoffSettings() {
   const handleRemovePaymentMethod = async (paymentMethodId: string) => {
     if (
       confirm(
-        "Are you sure you want to remove this payment method? This will disable auto top-up if it's the only payment method.",
+        "确定要移除此支付方式吗？如果这是唯一的支付方式，自动充值将被禁用。",
       )
     ) {
       await removePaymentMethod.mutateAsync({
@@ -123,7 +123,7 @@ export function AutoTopoffSettings() {
       <CardHeader>
         <div className="flex items-center gap-2">
           <Zap size={20} className="text-muted-foreground" />
-          <CardTitle className="text-base">Auto Top-Up</CardTitle>
+          <CardTitle className="text-base">自动充值</CardTitle>
         </div>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
@@ -131,7 +131,7 @@ export function AutoTopoffSettings() {
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <Small className="font-semibold text-foreground">
-              Payment Methods
+              支付方式
             </Small>
             <Button
               onClick={handleAddPaymentMethod}
@@ -139,7 +139,7 @@ export function AutoTopoffSettings() {
               variant="outline"
               size="sm"
             >
-              {createSetupSession.isPending ? "Loading..." : "Add Card"}
+              {createSetupSession.isPending ? "加载中..." : "添加卡片"}
             </Button>
           </div>
 
@@ -158,7 +158,7 @@ export function AutoTopoffSettings() {
                         {pm.last4}
                       </XSmall>
                       <XSmall className="text-muted-foreground">
-                        Expires {pm.exp_month}/{pm.exp_year}
+                        有效期至 {pm.exp_month}/{pm.exp_year}
                       </XSmall>
                     </div>
                   </div>
@@ -168,20 +168,20 @@ export function AutoTopoffSettings() {
                     variant="ghost"
                     size="sm"
                   >
-                    Remove
+                    移除
                   </Button>
                 </div>
               ))}
             </div>
           ) : (
-            <Muted className="text-xs">No payment methods saved</Muted>
+            <Muted className="text-xs">未保存支付方式</Muted>
           )}
         </div>
 
         {/* Auto Top-Up Toggle */}
         <div className="flex items-center justify-between">
           <Small className="font-semibold text-slate-900 dark:text-slate-100">
-            Auto Top-Up
+            自动充值
           </Small>
           <Switch
             checked={enabled}
@@ -195,7 +195,7 @@ export function AutoTopoffSettings() {
             <div className="flex items-start gap-2">
               <AlertCircle size={16} className="mt-0.5 text-muted-foreground" />
               <div className="flex flex-col gap-1">
-                <XSmall className="font-medium">No payment method found</XSmall>
+                <XSmall className="font-medium">未找到支付方式</XSmall>
                 <XSmall className="text-muted-foreground">
                   Purchase credits first to save a payment method for auto
                   top-up.
@@ -204,10 +204,8 @@ export function AutoTopoffSettings() {
             </div>
           </div>
         ) : (
-          <>
-            <Muted className="text-xs">
-              Automatically purchase credits when your balance falls below a
-              threshold.
+          <>\n            <Muted className="text-xs">
+              当余额低于阈值时自动购买积分。
             </Muted>
 
             {settings?.consecutiveFailures &&
@@ -216,11 +214,10 @@ export function AutoTopoffSettings() {
                   <AlertCircle size={16} className="mt-0.5 text-destructive" />
                   <div className="flex flex-col gap-1">
                     <XSmall className="font-medium text-destructive">
-                      Payment failures detected
+                      检测到支付失败
                     </XSmall>
                     <XSmall className="text-destructive/80">
-                      Auto top-up has failed {settings.consecutiveFailures}{" "}
-                      times. Please check your payment method.
+                      自动充值已失败 {settings.consecutiveFailures} 次。请检查您的支付方式。
                     </XSmall>
                   </div>
                 </div>
@@ -230,7 +227,7 @@ export function AutoTopoffSettings() {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="threshold" className="text-xs">
-                    Balance Threshold (USD)
+                    余额阈值 (美元)
                   </Label>
                   <Input
                     id="threshold"
@@ -243,14 +240,13 @@ export function AutoTopoffSettings() {
                     className="w-full"
                   />
                   <XSmall className="text-muted-foreground">
-                    Trigger auto top-up when balance falls below this amount.
-                    Processing may take up to 15 minutes.
+                    当余额低于此金额时触发自动充值。处理可能需要长达 15 分钟。
                   </XSmall>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="topoff-amount" className="text-xs">
-                    Top-off Amount (USD)
+                    充值金额 (美元)
                   </Label>
                   <Input
                     id="topoff-amount"
@@ -264,20 +260,20 @@ export function AutoTopoffSettings() {
                     className="w-full"
                   />
                   <XSmall className="text-muted-foreground">
-                    Amount to purchase (minimum $5, maximum $10,000)
+                    购买金额 (最低 $5, 最高 $10,000)
                   </XSmall>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="payment-method" className="text-xs">
-                    Payment Method
+                    支付方式
                   </Label>
                   <Select
                     value={selectedPaymentMethod}
                     onValueChange={setSelectedPaymentMethod}
                   >
                     <SelectTrigger id="payment-method" className="w-full">
-                      <SelectValue placeholder="Select payment method" />
+                      <SelectValue placeholder="选择支付方式" />
                     </SelectTrigger>
                     <SelectContent>
                       {paymentMethods?.map((pm) => (
@@ -301,7 +297,7 @@ export function AutoTopoffSettings() {
                   disabled={updateSettings.isPending}
                   className="w-full"
                 >
-                  {updateSettings.isPending ? "Saving..." : "Save Settings"}
+                  {updateSettings.isPending ? "保存中..." : "保存设置"}
                 </Button>
               </div>
             )}
@@ -313,7 +309,7 @@ export function AutoTopoffSettings() {
                 variant="outline"
                 className="w-full"
               >
-                Save Settings
+                保存设置
               </Button>
             )}
 
@@ -321,7 +317,7 @@ export function AutoTopoffSettings() {
               <div className="flex items-start gap-2 rounded-md border border-border bg-card p-3">
                 <CheckCircle size={16} className="mt-0.5 text-green-600" />
                 <div className="flex flex-col gap-1">
-                  <XSmall className="font-medium">Last top-off</XSmall>
+                  <XSmall className="font-medium">上次充值</XSmall>
                   <XSmall className="text-muted-foreground">
                     {new Date(settings.lastTopoffAt).toLocaleString()}
                   </XSmall>

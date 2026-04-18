@@ -63,7 +63,7 @@ const MethodFork = (props: MethodForkProps) => {
       )}
     >
       <div className="w-full">
-        <p className="text-xl font-semibold md:text-4xl">Choose Provider</p>
+        <p className="text-xl font-semibold md:text-4xl">选择提供商</p>
         <div className="mt-8 flex w-full flex-col justify-center gap-8 md:flex-row">
           <button
             onClick={() => {

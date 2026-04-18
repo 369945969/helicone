@@ -126,7 +126,7 @@ export const OnlineEvaluatorsSection = ({
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="max-w-4xl">
           <DialogHeader>
-            <DialogTitle>Online Evaluators</DialogTitle>
+            <DialogTitle>在线评估器</DialogTitle>
             <DialogDescription className="flex items-center gap-2">
               Run this evaluator automatically on your API requests based on
               filters and sampling rates.
@@ -153,7 +153,7 @@ export const OnlineEvaluatorsSection = ({
                   <TagIcon className="h-6 w-6 text-muted-foreground" />
                 </div>
                 <div className="text-center">
-                  <H4>No online evaluators yet</H4>
+                  <H4>尚无在线评估器</H4>
                   <P className="mx-auto mt-1 max-w-md text-muted-foreground">
                     Create your first online evaluator to automatically evaluate
                     your API requests in production.
@@ -210,10 +210,10 @@ export const OnlineEvaluatorsSection = ({
                                 size="icon"
                                 className="h-6 w-6 text-muted-foreground hover:bg-primary/5 hover:text-primary"
                                 onClick={() => setEditingEvaluator(item.id)}
-                                title="Edit evaluator"
+                                title="编辑评估器"
                               >
                                 <PencilIcon className="h-3 w-3" />
-                                <span className="sr-only">Edit</span>
+                                <span className="sr-only">编辑</span>
                               </Button>
                               <AlertDialog>
                                 <AlertDialogTrigger asChild>
@@ -338,7 +338,7 @@ export const OnlineEvaluatorsSection = ({
       <Dialog open={showCreateForm} onOpenChange={setShowCreateForm}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Create Online Evaluator</DialogTitle>
+            <DialogTitle>创建在线评估器</DialogTitle>
             <DialogDescription>
               Create a new online evaluator to automatically evaluate your
               requests based on specific criteria.

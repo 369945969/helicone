@@ -231,18 +231,18 @@ export const TeamPlanCard = () => {
 
       <div className="w-full flex flex-col gap-6 lg:w-[450px]">
         <PlanFeatureCard
-          title="Learn about our Enterprise plan"
-          description="Built for companies looking to scale. Includes everything in Team, plus dedicated support and custom SLAs."
-          buttonText="Contact sales"
+          title="了解我们的企业版计划"
+          description="专为希望扩展的公司打造。包含 Team 计划的所有功能，以及专属支持和自定义 SLA。"
+          buttonText="联系销售"
           onButtonClick={() => {
             window.open("https://helicone.ai/contact", "_blank");
           }}
         />
 
         <PlanFeatureCard
-          title="Need help with your Team plan?"
-          description="Our support team is here to help with any questions about your subscription."
-          buttonText="Contact support"
+          title="需要 Team 计划的帮助？"
+          description="我们的支持团队随时为您解答有关订阅的任何问题。"
+          buttonText="联系支持"
           onButtonClick={() => {
             window.open("https://helicone.ai/contact", "_blank");
           }}
@@ -383,18 +383,18 @@ export const LegacyTeamPlanCard = () => {
 
       <div className="w-full flex flex-col gap-6 lg:w-[450px]">
         <PlanFeatureCard
-          title="Learn about our Enterprise plan"
-          description="Built for companies looking to scale. Includes everything in Team, plus dedicated support and custom SLAs."
-          buttonText="Contact sales"
+          title="了解我们的企业版计划"
+          description="专为希望扩展的公司打造。包含 Team 计划的所有功能，以及专属支持和自定义 SLA。"
+          buttonText="联系销售"
           onButtonClick={() => {
             window.open("https://helicone.ai/contact", "_blank");
           }}
         />
 
         <PlanFeatureCard
-          title="Need help with your Team plan?"
-          description="Our support team is here to help with any questions about your subscription."
-          buttonText="Contact support"
+          title="需要 Team 计划的帮助？"
+          description="我们的支持团队随时为您解答有关订阅的任何问题。"
+          buttonText="联系支持"
           onButtonClick={() => {
             window.open("https://helicone.ai/contact", "_blank");
           }}

@@ -41,7 +41,6 @@ const PlaygroundActions = ({
   setTools,
   promptVersionId,
   onCreatePrompt,
-  onSavePrompt,
   onRun,
   requestId,
   isScrolled,
@@ -101,7 +100,7 @@ const PlaygroundActions = ({
             </Button>
           </TooltipTrigger>
           <TooltipContent>
-            Reset to {requestId ? `original request` : "blank content"}
+            重置为 {requestId ? `原始请求` : "空白内容"}
           </TooltipContent>
         </Tooltip>
       )}
@@ -116,7 +115,7 @@ const PlaygroundActions = ({
       <Tooltip>
         <TooltipTrigger asChild>
           <Button onClick={onRun} disabled={isLoading}>
-            {isLoading ? "Running..." : "Run"}
+            {isLoading ? "正在运行..." : "运行"}
           </Button>
         </TooltipTrigger>
         <TooltipContent>

@@ -65,7 +65,7 @@ const ModelPage = (props: ModelPageProps) => {
 
   return (
     <>
-      <AuthHeader title={"Models"} />
+      <AuthHeader title={"模型"} />
       <ThemedTable
         id="modelMetrics"
         defaultData={tableData}

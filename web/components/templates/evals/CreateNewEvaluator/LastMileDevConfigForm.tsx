@@ -78,13 +78,13 @@ function SelectDataEntryType({
             }}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Select type" />
+              <SelectValue placeholder="选择类型" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="prompt-input">Prompt Input</SelectItem>
-              <SelectItem value="input-body">Input Body</SelectItem>
-              <SelectItem value="output-body">Output Body</SelectItem>
-              <SelectItem value="system-prompt">System Prompt</SelectItem>
+              <SelectItem value="prompt-input">提示词输入</SelectItem>
+              <SelectItem value="input-body">输入主体</SelectItem>
+              <SelectItem value="output-body">输出主体</SelectItem>
+              <SelectItem value="system-prompt">系统提示词</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -92,7 +92,7 @@ function SelectDataEntryType({
         {defaultValue._type === "prompt-input" && (
           <div>
             <Input
-              placeholder="Input Key"
+              placeholder="输入键"
               value={defaultValue.inputKey}
               onChange={(e) => {
                 onChange({
@@ -117,7 +117,7 @@ function SelectDataEntryType({
               }}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select content type" />
+                <SelectValue placeholder="选择内容类型" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="message">Message</SelectItem>
@@ -224,7 +224,7 @@ export const LastMileDevConfigForm: React.FC<{
             <div className="space-y-3">
               <div className="mb-3 border-b pb-1">
                 <div className="flex items-baseline gap-2">
-                  <H3 className="text-lg">Basic Information</H3>
+                  <H3 className="text-lg">基本信息</H3>
                   <Muted className="text-sm">
                     Define your LastMile evaluator&apos;s name and type
                   </Muted>
@@ -248,7 +248,7 @@ export const LastMileDevConfigForm: React.FC<{
                   </div>
                   <Input
                     id="name"
-                    placeholder="Enter evaluator name"
+                    placeholder="输入评估器名称"
                     value={evaluatorName}
                     readOnly={!!existingEvaluatorId}
                     disabled={!!existingEvaluatorId}
@@ -308,7 +308,7 @@ export const LastMileDevConfigForm: React.FC<{
                     }}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select evaluator type" />
+                      <SelectValue placeholder="选择评估器类型" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="relevance">Relevance</SelectItem>
@@ -338,7 +338,7 @@ export const LastMileDevConfigForm: React.FC<{
               <div className="space-y-4 rounded-md bg-muted/10 p-3">
                 {evaluatorType.input && (
                   <SelectDataEntryType
-                    label="Input"
+                    label="输入"
                     defaultValue={evaluatorType.input}
                     onChange={(value) => {
                       setEvaluatorType({
@@ -351,7 +351,7 @@ export const LastMileDevConfigForm: React.FC<{
 
                 {evaluatorType.output && (
                   <SelectDataEntryType
-                    label="Output"
+                    label="输出"
                     defaultValue={evaluatorType.output}
                     onChange={(value) => {
                       setEvaluatorType({
@@ -365,7 +365,7 @@ export const LastMileDevConfigForm: React.FC<{
                 {evaluatorType._type === "faithfulness" &&
                   evaluatorType.groundTruth && (
                     <SelectDataEntryType
-                      label="Ground Truth"
+                      label="真实值"
                       defaultValue={evaluatorType.groundTruth}
                       onChange={(value) => {
                         setEvaluatorType({

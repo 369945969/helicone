@@ -36,7 +36,7 @@ const EnvironmentPill = ({
             onRemove();
           }}
           className="ml-1 rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
-          aria-label={`Remove ${environment} environment`}
+          aria-label={`移除 ${environment} 环境`}
         >
           <X className="h-3 w-3" />
         </button>

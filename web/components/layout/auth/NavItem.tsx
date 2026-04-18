@@ -71,7 +71,7 @@ const NavItem: React.FC<NavItemProps> = ({
         >
           {link.name}
           {link.featured && (
-            <span className="ml-auto text-muted-foreground">New</span>
+            <span className="ml-auto text-muted-foreground">新</span>
           )}
         </TooltipContent>
       </Tooltip>

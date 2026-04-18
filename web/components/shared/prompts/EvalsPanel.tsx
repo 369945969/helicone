@@ -39,7 +39,7 @@ export default function EvalsPanel() {
                 </div>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Add Eval</p>
+                <p>添加评估</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

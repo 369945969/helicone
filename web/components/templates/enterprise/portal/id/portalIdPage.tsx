@@ -190,7 +190,7 @@ const PortalIdPage = (props: PortalIdPageProps) => {
                     </p>
                   </div>
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">Time Range</p>
+                    <p className="text-sm font-semibold">时间范围</p>
                     <p className="text-sm text-gray-500">Monthly</p>
                   </div>
                 </div>
@@ -199,13 +199,13 @@ const PortalIdPage = (props: PortalIdPageProps) => {
                 <p className="text-md font-semibold">Details</p>
                 <div className="flex flex-col space-y-4 pr-4 pt-4">
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">Created At</p>
+                    <p className="text-sm font-semibold">创建时间</p>
                     <p className="text-sm text-gray-500">
                       {getUSDateFromString(org?.created_at || "")}
                     </p>
                   </div>
                   <div className="flex flex-col items-start space-y-1">
-                    <p className="text-sm font-semibold">Organization ID</p>
+                    <p className="text-sm font-semibold">组织 ID</p>
                     <p className="text-sm text-gray-500">{org?.id}</p>
                   </div>
                   <div className="flex flex-col items-start space-y-1">

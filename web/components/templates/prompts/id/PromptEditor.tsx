@@ -581,7 +581,7 @@ export default function PromptEditor({
         );
 
         if (result.error) {
-          setNotification("Failed to promote version", "error");
+          setNotification("提升版本失败", "error");
           return;
         }
 
@@ -596,7 +596,7 @@ export default function PromptEditor({
             : null,
         );
         setNotification(
-          `Promoted version ${version.major_version} to production.`,
+          `版本 ${version.major_version} 已提升到生产环境。`,
           "success",
         );
       } catch (error) {
@@ -629,11 +629,11 @@ export default function PromptEditor({
         );
 
         if (result.error) {
-          setNotification("Failed to update prompt ID.", "error");
+          setNotification("更新提示词 ID 失败。", "error");
           return;
         }
 
-        setNotification(`Updated prompt ID to ${kebabId}.`, "success");
+        setNotification(`提示词 ID 已更新为 ${kebabId}。`, "success");
         await refetchPrompt();
       }
     },
@@ -721,7 +721,7 @@ export default function PromptEditor({
         );
 
         if (result?.error || !result?.data) {
-          setNotification("Error saving prompt", "error");
+          setNotification("保存提示词时出错", "error");
           return;
         }
 
@@ -729,7 +729,7 @@ export default function PromptEditor({
         await refetchPromptVersions();
       } catch (error) {
         logger.error({ error, promptVersionId: latestVersionId }, "Save error");
-        setNotification("Failed to save and run prompt", "error");
+        setNotification("保存并运行提示词失败", "error");
         return;
       }
     }
@@ -781,7 +781,7 @@ export default function PromptEditor({
         abortController.current = null;
       }
     } catch (error) {
-      setNotification("Failed to save prompt state", "error");
+      setNotification("保存提示词状态失败", "error");
       setIsStreaming(false);
     }
   }, [
@@ -852,7 +852,7 @@ export default function PromptEditor({
     } catch (error) {
       if (error instanceof Error && error.name !== "AbortError") {
         logger.error({ error }, "Error generating improvements");
-        setNotification("Failed to generate improvements", "error");
+        setNotification("生成改进失败", "error");
       }
     } finally {
       setIsImproving(false);
@@ -900,7 +900,7 @@ export default function PromptEditor({
       );
 
       if (result?.error || !result?.data) {
-        setNotification("Error saving improved prompt", "error");
+        setNotification("保存改进后的提示词时出错", "error");
         return;
       }
 
@@ -908,11 +908,11 @@ export default function PromptEditor({
       loadVersionData(result.data.data);
       await refetchPromptVersions();
 
-      setNotification("Successfully applied improvements", "success");
+      setNotification("成功应用改进", "success");
       setIsAutoImproveOpen(false);
     } catch (error) {
       logger.error({ error }, "Error applying improvements");
-      setNotification("Failed to apply improvements", "error");
+      setNotification("应用改进失败", "error");
     }
   }, [
     state,
@@ -953,12 +953,12 @@ export default function PromptEditor({
 
       const res = await createPrompt(prompt, metadata);
       if (res?.id) {
-        setNotification("Prompt created successfully", "success");
+        setNotification("提示词创建成功", "success");
         router.push(`/prompts/${res.id}`);
       }
     } catch (error) {
       logger.error({ error }, "Error creating prompt");
-      setNotification("Failed to create prompt", "error");
+      setNotification("创建提示词失败", "error");
     }
   }, [state, withinPromptsLimit, createPrompt, router, setNotification]);
 
@@ -1254,7 +1254,7 @@ export default function PromptEditor({
             </DialogTrigger>
             <DialogContent className="sm:max-w-xl">
               <DialogHeader>
-                <DialogTitle>Configure OpenRouter</DialogTitle>
+                <DialogTitle>配置 OpenRouter</DialogTitle>
               </DialogHeader>
               <div className="mb-4 text-sm text-muted-foreground">
                 OpenRouter provides access to multiple LLM models through a
@@ -1403,8 +1403,8 @@ export default function PromptEditor({
             subfeature="playground_runs"
             itemCount={playgroundRunCount}
             freeLimit={maxPlaygroundRuns}
-            message={`You've used ${playgroundRunCount}/${maxPlaygroundRuns} playground runs. Upgrade to Pro Tier for unlimited access.`}
-            buttonText="Upgrade"
+            message={`您已使用 ${playgroundRunCount}/${maxPlaygroundRuns} 次 Playground 运行。升级到专业版以获得无限访问。`}
+            buttonText="升级"
             buttonSize="sm"
           />
         )}
@@ -1416,8 +1416,8 @@ export default function PromptEditor({
           subfeature="runs"
           itemCount={promptRunCount}
           freeLimit={maxPromptRuns}
-          message={`You've used ${promptRunCount}/${maxPromptRuns} prompt runs. Upgrade to Prompts Tier for unlimited access.`}
-          buttonText="Upgrade"
+          message={`您已使用 ${promptRunCount}/${maxPromptRuns} 次提示词运行。升级到提示词版以获得无限访问。`}
+          buttonText="升级"
           buttonSize="sm"
         />
       )}
@@ -1534,7 +1534,7 @@ export default function PromptEditor({
       {/* Auto-improve Popup */}
       {promptId && !!state.version && (
         <UniversalPopup
-          title="Auto-Improve (Beta)"
+          title="自动改进 (Beta)"
           width="w-full max-w-7xl"
           isOpen={isAutoImproveOpen}
           onClose={() => {

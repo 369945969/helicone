@@ -83,7 +83,7 @@ const LimitRowDiv = (props: {
       <input
         type="number"
         className="block w-full rounded-md border border-gray-300 p-2 text-sm shadow-sm"
-        placeholder="Time Window"
+        placeholder="时间窗口"
         value={(() => {
           if (timeGrain === "seconds") {
             return timewindow_seconds;
@@ -207,7 +207,7 @@ const LimitsInput = (props: {
           ]);
         }}
       >
-        <div>Add new limit</div>
+        <div>添加新限制</div>
         <PlusCircleIcon className="h-5 w-5 text-gray-900" />
       </div>
     </div>
@@ -243,11 +243,11 @@ const CreateProxyKeyModal = (props: CreateProxyKeyModalProps) => {
     ) as HTMLInputElement;
 
     if (!proxyKeyName || proxyKeyName.value === "") {
-      setNotification("Please enter in a key name", "error");
+      setNotification("请输入密钥名称", "error");
       return;
     }
     if (!providerKeyName || providerKeyName.value === "") {
-      setNotification("Please enter in a provider key", "error");
+      setNotification("请输入提供商密钥", "error");
       return;
     }
 
@@ -268,13 +268,13 @@ const CreateProxyKeyModal = (props: CreateProxyKeyModalProps) => {
       )
       .then(({ data }) => {
         if (data) {
-          setNotification("Proxy Key Created", "success");
+          setNotification("代理密钥已创建", "success");
           setReturnedKey(data);
           onSuccess();
         }
       })
       .catch(() => {
-        setNotification("Error Creating Proxy Key", "error");
+        setNotification("创建代理密钥时出错", "error");
       })
       .finally(() => setIsLoading(false));
   };
@@ -288,9 +288,9 @@ const CreateProxyKeyModal = (props: CreateProxyKeyModalProps) => {
           onSubmit={handleSubmitHandler}
           className="flex w-[400px] flex-col space-y-8 text-gray-900 dark:text-gray-100"
         >
-          <h1 className="text-lg font-semibold">Create Proxy Key</h1>
+          <h1 className="text-lg font-semibold">创建代理密钥</h1>
           <div className="w-full space-y-1.5 text-sm">
-            <label htmlFor="proxy-key-name">Proxy Key Name</label>
+            <label htmlFor="proxy-key-name">代理密钥名称</label>
             <input
               type="text"
               name="proxy-key-name"
@@ -299,11 +299,11 @@ const CreateProxyKeyModal = (props: CreateProxyKeyModalProps) => {
                 "block w-full rounded-md border border-gray-500 bg-gray-100 p-2 text-sm shadow-sm dark:bg-gray-900",
               )}
               required
-              placeholder="Proxy Key Name"
+              placeholder="代理密钥名称"
             />
           </div>
           <div className="w-full space-y-1.5 text-sm">
-            <label htmlFor="provider-key-name">Provider Key Name</label>
+            <label htmlFor="provider-key-name">提供商密钥名称</label>
             <select
               id="provider-key-name"
               name="provider-key-name"
@@ -363,7 +363,7 @@ const CreateProxyKeyModal = (props: CreateProxyKeyModalProps) => {
                 className="flex items-center rounded-md bg-black p-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 onClick={() => {
                   navigator.clipboard.writeText(returnedKey.helicone_proxy_key);
-                  setNotification("Copied to clipboard!", "success");
+                  setNotification("已复制到剪贴板！", "success");
                 }}
               >
                 <ClipboardDocumentListIcon className="h-5 w-5 text-white" />

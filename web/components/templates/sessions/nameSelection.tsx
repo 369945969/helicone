@@ -86,7 +86,7 @@ const SessionNameSelection = ({
           {/* <SearchIcon className="h-4 w-4 text-slate-500 peer-focus-visible:bg-white h-full w" /> */}
           <Input
             className="mr-0 h-8 border-0 bg-transparent focus-visible:border focus-visible:border-0 focus-visible:bg-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-300"
-            placeholder="Search session..."
+            placeholder="搜索会话..."
             onChange={(e) => setSessionNameSearch(e.target.value)}
             value={sessionNameSearch}
           />
@@ -109,7 +109,7 @@ const SessionNameSelection = ({
             </Button>
           </TooltipTrigger>
           <TooltipContent>
-            <Card className="mb-1 px-2 py-1 text-xs">View documentation</Card>
+            <Card className="mb-1 px-2 py-1 text-xs">查看文档</Card>
           </TooltipContent>
         </Tooltip>
       </Row>

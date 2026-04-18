@@ -67,7 +67,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
           },
         });
       } catch (error) {
-        setNotification("Failed to start checkout. Please try again.", "error");
+        setNotification("支付失败，请重试。", "error");
       }
     }
   };
@@ -81,7 +81,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
             <div className="flex flex-col items-center gap-3">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <p className="text-sm font-medium text-muted-foreground">
-                Redirecting to checkout...
+                正在跳转到支付页面...
               </p>
             </div>
           </div>
@@ -93,7 +93,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
             className="text-lg font-bold tracking-wider text-foreground"
             style={{ fontFamily: "monospace" }}
           >
-            ADD CREDITS
+            添加积分
           </h2>
         </div>
 
@@ -102,7 +102,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
           {/* Amount Display */}
           <div className="rounded-lg border border-border bg-muted/20 p-6 text-center">
             <div className="mb-2 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-              Credits
+              积分
             </div>
             <div
               className="text-5xl font-bold text-foreground"
@@ -136,7 +136,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
           {/* Custom Amount Input */}
           <div>
             <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted-foreground">
-              Or enter custom amount
+              或输入自定义金额
             </label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-muted-foreground">
@@ -146,7 +146,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                 type="text"
                 value={customAmount}
                 onChange={handleCustomAmountChange}
-                placeholder="Enter amount"
+                placeholder="输入金额"
                 className="w-full rounded-lg border border-border bg-muted/20 py-3 pl-8 pr-3 text-sm font-medium outline-none transition-all placeholder:text-muted-foreground/50 focus:border-primary focus:bg-muted/30"
                 style={{
                   fontFamily: "monospace",
@@ -154,7 +154,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
               />
               {customAmount && parseInt(customAmount, 10) < MIN_AMOUNT && (
                 <div className="mt-1 text-xs text-destructive">
-                  Minimum amount is ${MIN_AMOUNT}
+                  最低金额为 ${MIN_AMOUNT}
                 </div>
               )}
             </div>
@@ -163,11 +163,11 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
           {/* Total Display */}
           <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
             <div className="flex items-center justify-between text-sm font-medium text-muted-foreground">
-              <span>Credits</span>
+              <span>积分</span>
               <span className="text-foreground">${amount.toFixed(2)}</span>
             </div>
             <div className="mt-2 flex items-center justify-between text-sm font-medium text-muted-foreground">
-              <span>Stripe fee (3% + $0.30)</span>
+              <span>Stripe 手续费 (3% + $0.30)</span>
               <span className="text-foreground">
                 ${formatCurrency(stripeFeeCents)}
               </span>
@@ -175,7 +175,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
             <div className="mt-3 border-t border-border pt-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-muted-foreground">
-                  Total due
+                  应付总额
                 </span>
                 <span
                   className="text-2xl font-bold text-foreground"
@@ -194,7 +194,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
               disabled={createCheckoutSession.isPending}
               className="flex flex-row items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 hover:text-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500 dark:border-gray-700 dark:bg-black dark:text-gray-100 dark:hover:bg-gray-900 dark:hover:text-gray-300"
             >
-              Cancel
+              取消
             </button>
             <button
               onClick={handleSubmit}
@@ -209,17 +209,17 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
               {createCheckoutSession.isPending ? (
                 <span className="flex items-center justify-center gap-2">
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  Processing...
+                  处理中...
                 </span>
               ) : (
-                "Add Credits"
+                "添加积分"
               )}
             </button>
           </div>
 
           {/* Min Info */}
           <div className="text-center text-xs text-muted-foreground">
-            Min: ${MIN_AMOUNT} (fees calculated separately)
+            最低：${MIN_AMOUNT}（手续费单独计算）
           </div>
         </div>
       </div>

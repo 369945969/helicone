@@ -122,7 +122,7 @@ const ImportCSVDialog = ({
       });
     },
     onError: () => {
-      setNotification("Failed to import rows", "error");
+      setNotification("导入行失败", "error");
     },
   });
 
@@ -130,7 +130,7 @@ const ImportCSVDialog = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="w-[90vw] max-w-[600px]">
         <DialogHeader>
-          <DialogTitle>Import from CSV</DialogTitle>
+          <DialogTitle>从 CSV 导入</DialogTitle>
           {experimentPromptInputKeys.length > 0 && (
             <DialogDescription>
               Import rows from a CSV file with the variable names as the columns{" "}
@@ -185,7 +185,7 @@ const ImportCSVDialog = ({
                 </div>
               ) : (
                 <p className="mb-2 text-sm text-slate-500">
-                  <span className="font-semibold">Click to upload</span> or drag
+                  <span className="font-semibold">点击上传</span>或拖动
                   and drop
                 </p>
               )}

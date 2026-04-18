@@ -738,11 +738,11 @@ const PromptChatRow = (props: PromptChatRowProps) => {
                 </Tooltip>
               )}
               {!editMode && (
-                <Tooltip title="Copy" placement="top">
+                <Tooltip title="复制" placement="top">
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(contentAsString || "");
-                      setNotification("Copied to clipboard", "success");
+                      setNotification("已复制到剪贴板", "success");
                     }}
                     className="text-slate-500"
                   >
@@ -759,7 +759,7 @@ const PromptChatRow = (props: PromptChatRowProps) => {
                     }}
                   />
 
-                  <Tooltip title="Delete" placement="top">
+                  <Tooltip title="删除" placement="top">
                     <button
                       onClick={() => {
                         deleteRow(currentMessage.id || "");

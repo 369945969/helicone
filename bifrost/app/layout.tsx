@@ -56,8 +56,6 @@ export default async function RootLayout({
         />
 
         {/* Preconnect to critical third-party domains - per Lighthouse report */}
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.helicone.ai" />
 
         <link
@@ -89,24 +87,6 @@ export default async function RootLayout({
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `!function(){var reb2b=window.reb2b=window.reb2b||[];if(reb2b.invoked)return;reb2b.invoked=true;reb2b.methods=["identify","collect"];reb2b.factory=function(method){return function(){var args=Array.prototype.slice.call(arguments);args.unshift(method);reb2b.push(args);return reb2b;}};for(var i=0;i<reb2b.methods.length;i++){var key=reb2b.methods[i];reb2b[key]=reb2b.factory(key);}reb2b.load=function(key){var script=document.createElement("script");script.type="text/javascript";script.async=true;script.src="https://s3-us-west-2.amazonaws.com/b2bjsstore/b/"+key+"/LNKLDHM4VMOJ.js.gz";var first=document.getElementsByTagName("script")[0];first.parentNode.insertBefore(script,first);};reb2b.SNIPPET_VERSION="1.0.1";reb2b.load("LNKLDHM4VMOJ");}();`,
-            }}
-          />
-          {/* Google Analytics - updated to lazyOnload strategy */}
-          <Script
-            id="google-analytics"
-            strategy="afterInteractive"
-            src="https://www.googletagmanager.com/gtag/js?id=G-WGDEGPP49F"
-          />
-          <Script
-            id="google-analytics-config"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-WGDEGPP49F');
-            `,
             }}
           />
         </body>

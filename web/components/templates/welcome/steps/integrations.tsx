@@ -30,9 +30,9 @@ const Integrations = (props: IntegrationsProps) => {
     <div id="content" className="flex w-full flex-col">
       <div className="flex w-full flex-col p-4">
         <h2 className="pb-8 text-2xl font-semibold">
-          Integrate your application
+          集成您的应用
         </h2>
-        <label className="text-sm font-semibold">Select your provider</label>
+        <label className="text-sm font-semibold">选择您的提供商</label>
         <div className="flex w-full flex-wrap gap-4 pt-2">
           <button
             className={clsx(
@@ -136,7 +136,7 @@ const Integrations = (props: IntegrationsProps) => {
       </div>
       <div className="sticky bottom-0 z-10 flex items-center justify-between bg-gray-50 p-4">
         <Button variant={"secondary"} size={"sm"} onClick={previousStep}>
-          Back
+          返回
         </Button>
         <Button
           variant={"default"}

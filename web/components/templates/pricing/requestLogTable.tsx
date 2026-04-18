@@ -74,12 +74,12 @@ const RequestLogTable = (props: RequestLogTableProps) => {
     <div className="mb-8 mt-2 flex flex-col gap-6">
       {/* Storage Pricing Table */}
       <div className="rounded-lg border border-border p-2">
-        <h3 className="mb-2 text-sm font-medium text-foreground">Storage Pricing</h3>
+        <h3 className="mb-2 text-sm font-medium text-foreground">存储定价</h3>
         <Table>
           <TableHead>
             <TableRow className="border-b border-border">
-              <TableHeaderCell className="text-foreground">Usage</TableHeaderCell>
-              <TableHeaderCell className="text-foreground">Rate</TableHeaderCell>
+              <TableHeaderCell className="text-foreground">使用量</TableHeaderCell>
+              <TableHeaderCell className="text-foreground">费率</TableHeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -97,12 +97,12 @@ const RequestLogTable = (props: RequestLogTableProps) => {
 
       {/* Request Pricing Table */}
       <div className="rounded-lg border border-border p-2">
-        <h3 className="mb-2 text-sm font-medium text-foreground">Request Pricing</h3>
+        <h3 className="mb-2 text-sm font-medium text-foreground">请求定价</h3>
         <Table>
           <TableHead>
             <TableRow className="border-b border-border">
-              <TableHeaderCell className="text-foreground">Requests</TableHeaderCell>
-              <TableHeaderCell className="text-foreground">Rate</TableHeaderCell>
+              <TableHeaderCell className="text-foreground">请求数</TableHeaderCell>
+              <TableHeaderCell className="text-foreground">费率</TableHeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -111,7 +111,7 @@ const RequestLogTable = (props: RequestLogTableProps) => {
                 <TableCell className="text-muted-foreground">{tier.label}</TableCell>
                 <TableCell className="text-foreground">
                   {tier.ratePerLog === 0
-                    ? "Free"
+                    ? "免费"
                     : `$${tier.ratePerLog.toFixed(8).replace(/0+$/, "")}`}
                 </TableCell>
               </TableRow>

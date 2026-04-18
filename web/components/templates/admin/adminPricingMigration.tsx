@@ -778,7 +778,7 @@ export default function AdminPricingMigration() {
   return (
     <div className="flex flex-col gap-6 p-6">
       <div>
-        <H2>Pricing Migration</H2>
+        <H2>定价迁移</H2>
         <Muted>
           Migrate organizations from legacy pricing to the new 2025-12-10
           pricing model
@@ -789,7 +789,7 @@ export default function AdminPricingMigration() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>Pending Migrations</CardDescription>
+            <CardDescription>待处理迁移</CardDescription>
             <CardTitle className="text-3xl">
               {pendingQuery.data?.summary?.total ?? "-"}
             </CardTitle>
@@ -814,7 +814,7 @@ export default function AdminPricingMigration() {
 
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>Completed Migrations</CardDescription>
+            <CardDescription>已完成迁移</CardDescription>
             <CardTitle className="text-3xl">
               {completedQuery.data?.summary?.total ?? "-"}
             </CardTitle>
@@ -839,7 +839,7 @@ export default function AdminPricingMigration() {
 
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>Migration Progress</CardDescription>
+            <CardDescription>迁移进度</CardDescription>
             <CardTitle className="text-3xl">
               {pendingQuery.data && completedQuery.data
                 ? `${Math.round(
@@ -890,7 +890,7 @@ export default function AdminPricingMigration() {
             <CardHeader>
               <div className="flex flex-col gap-4">
                 <div>
-                  <CardTitle>Organizations Pending Migration</CardTitle>
+                  <CardTitle>待迁移组织</CardTitle>
                   <CardDescription>
                     These organizations are on legacy pricing and need to be
                     migrated
@@ -902,7 +902,7 @@ export default function AdminPricingMigration() {
                   <div className="relative max-w-sm flex-1">
                     <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input
-                      placeholder="Search by name, ID, or email..."
+                      placeholder="按名称、ID 或邮箱搜索..."
                       value={searchQuery}
                       onChange={(e) => handleSearchChange(e.target.value)}
                       className="pl-9"
@@ -914,10 +914,10 @@ export default function AdminPricingMigration() {
                   >
                     <SelectTrigger className="w-[180px]">
                       <Filter className="mr-2 h-4 w-4" />
-                      <SelectValue placeholder="Filter by tier" />
+                      <SelectValue placeholder="按等级筛选" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All Tiers</SelectItem>
+                      <SelectItem value="all">所有等级</SelectItem>
                       {LEGACY_TIERS.map((tier) => (
                         <SelectItem key={tier} value={tier}>
                           {tier}
@@ -979,8 +979,8 @@ export default function AdminPricingMigration() {
                         </TableHead>
                         <TableHead>Organization</TableHead>
                         <TableHead>Owner</TableHead>
-                        <TableHead>Current Tier</TableHead>
-                        <TableHead>Stripe Status</TableHead>
+                        <TableHead>当前等级</TableHead>
+                        <TableHead>Stripe 状态</TableHead>
                         <TableHead>Stripe</TableHead>
                         <TableHead>Members</TableHead>
                         <TableHead>Status</TableHead>
@@ -1204,7 +1204,7 @@ export default function AdminPricingMigration() {
         <TabsContent value="completed">
           <Card>
             <CardHeader>
-              <CardTitle>Migrated Organizations</CardTitle>
+              <CardTitle>已迁移组织</CardTitle>
               <CardDescription>
                 These organizations have been successfully migrated to new
                 pricing
@@ -1218,7 +1218,7 @@ export default function AdminPricingMigration() {
               ) : completedQuery.data?.organizations?.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
                   <Clock className="mb-2 h-12 w-12" />
-                  <P>No organizations have been migrated yet</P>
+                  <P>尚未迁移任何组织</P>
                 </div>
               ) : (
                 <>
@@ -1263,8 +1263,8 @@ export default function AdminPricingMigration() {
                       <TableHead>Organization</TableHead>
                       <TableHead>Owner</TableHead>
                       <TableHead>Tier</TableHead>
-                      <TableHead>Stripe Customer</TableHead>
-                      <TableHead>Stripe Sub</TableHead>
+                      <TableHead>Stripe 客户</TableHead>
+                      <TableHead>Stripe 订阅</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead className="text-right">Actions</TableHead>
                     </TableRow>
@@ -1460,7 +1460,7 @@ export default function AdminPricingMigration() {
                 </div>
                 {selectedOrg.stripe_customer_id && (
                   <div className="flex items-center justify-between">
-                    <Muted>Stripe Customer</Muted>
+                    <Muted>Stripe 客户</Muted>
                     <Button
                       variant="link"
                       size="sm"
@@ -1476,7 +1476,7 @@ export default function AdminPricingMigration() {
                 )}
                 {selectedOrg.stripe_subscription_id && (
                   <div className="flex items-center justify-between">
-                    <Muted>Stripe Subscription</Muted>
+                    <Muted>Stripe 订阅</Muted>
                     <Button
                       variant="link"
                       size="sm"
@@ -1498,10 +1498,10 @@ export default function AdminPricingMigration() {
               {(selectedOrg.tier === "pro-20251210" ||
                 selectedOrg.tier === "team-20251210") && (
                 <div className="border-t pt-6">
-                  <h4 className="mb-4 font-medium">Add Metered Usage</h4>
+                  <h4 className="mb-4 font-medium">添加计量使用</h4>
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label>Usage Type</Label>
+                      <Label>使用类型</Label>
                       <Select
                         value={usageType}
                         onValueChange={(v) =>
@@ -1628,7 +1628,7 @@ export default function AdminPricingMigration() {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={() =>
                 confirmMigrateOrg &&
@@ -1639,8 +1639,8 @@ export default function AdminPricingMigration() {
               }
             >
               {confirmMigrateOrg?.migrationType === "instant"
-                ? "Migrate Now"
-                : "Schedule Migration"}
+                ? "立即迁移"
+                : "计划迁移"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -1655,15 +1655,15 @@ export default function AdminPricingMigration() {
           <AlertDialogHeader>
             <AlertDialogTitle>
               {confirmReapplyOrg?.migrationType === "instant"
-                ? "Reapply Now"
-                : "Schedule Reapply"}
+                ? "立即重新应用"
+                : "计划重新应用"}
             </AlertDialogTitle>
             <AlertDialogDescription className="space-y-3">
               <p>
                 {confirmReapplyOrg?.migrationType === "instant"
-                  ? "Reapply immediately with usage backfill for "
-                  : "Schedule reapply for next billing period for "}
-                <strong>{confirmReapplyOrg?.name}</strong>?
+                  ? "立即重新应用并回填使用量 "
+                  : "为下一个计费周期计划重新应用 "}
+                <strong>{confirmReapplyOrg?.name}</strong>？
               </p>
               <div className="rounded-md bg-muted p-3 text-sm">
                 <div className="flex items-center gap-2">
@@ -1674,34 +1674,32 @@ export default function AdminPricingMigration() {
                     {confirmReapplyOrg?.tier}
                   </Badge>
                   <RotateCcw className="h-4 w-4" />
-                  <span className="text-muted-foreground">Reapply</span>
+                  <span className="text-muted-foreground">重新应用</span>
                 </div>
               </div>
               {confirmReapplyOrg?.migrationType === "instant" ? (
                 <div className="space-y-2">
                   <p className="text-muted-foreground">
-                    This will re-run the migration logic immediately and
-                    backfill metered usage events from the billing period start.
+                    这将立即重新运行迁移逻辑并从计费周期开始回填计量使用事件。
                   </p>
                   <p className="text-xs text-orange-600 dark:text-orange-400">
-                    Note: Usage will be queried from ClickHouse automatically.
+                    注意：使用量将自动从 ClickHouse 查询。
                   </p>
                 </div>
               ) : (
                 <div className="space-y-2">
                   <p className="text-muted-foreground">
-                    This will create a Stripe subscription schedule to reapply
-                    pricing at the next billing period.
+                    这将创建一个 Stripe 订阅计划以在下一个计费周期重新应用定价。
                   </p>
                   <p className="text-xs text-blue-600 dark:text-blue-400">
-                    No usage backfill needed - metered billing starts fresh.
+                    不需要使用量回填 - 计量计费重新开始。
                   </p>
                 </div>
               )}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={() =>
                 confirmReapplyOrg &&
@@ -1712,8 +1710,8 @@ export default function AdminPricingMigration() {
               }
             >
               {confirmReapplyOrg?.migrationType === "instant"
-                ? "Reapply Now"
-                : "Schedule Reapply"}
+                ? "立即重新应用"
+                : "计划重新应用"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -1726,12 +1724,12 @@ export default function AdminPricingMigration() {
       >
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Switch to Free Tier</AlertDialogTitle>
+            <AlertDialogTitle>切换到免费版</AlertDialogTitle>
             <AlertDialogDescription className="space-y-3">
               <p>
-                Are you sure you want to switch{" "}
-                <strong>{confirmSwitchToFreeOrg?.name}</strong> to the free
-                tier?
+                确定要将{" "}
+                <strong>{confirmSwitchToFreeOrg?.name}</strong> 切换到免费
+                层级吗？
               </p>
               <div className="rounded-md bg-red-50 p-3 text-sm dark:bg-red-950/30">
                 <div className="flex items-center gap-2">
@@ -1753,13 +1751,12 @@ export default function AdminPricingMigration() {
                 </div>
               </div>
               <p className="text-muted-foreground">
-                This organization&apos;s Stripe subscription is cancelled or not
-                found. This will update their tier to free in the database.
+                此组织的 Stripe 订阅已取消或未找到。这将把他们的层级更新为数据库中的免费版。
               </p>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={() =>
                 confirmSwitchToFreeOrg &&
@@ -1767,7 +1764,7 @@ export default function AdminPricingMigration() {
               }
               className="bg-red-600 hover:bg-red-700"
             >
-              Switch to Free
+              切换到免费版
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

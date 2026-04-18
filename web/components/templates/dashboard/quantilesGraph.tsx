@@ -90,7 +90,7 @@ export const QuantilesGraph = ({
           {(!quantilesIsLoading || shouldShowMockData) && (
             <Select value={currentMetric} onValueChange={setCurrentMetric}>
               <SelectTrigger>
-                <SelectValue placeholder="Select property" />
+                <SelectValue placeholder="选择属性" />
               </SelectTrigger>
               <SelectContent>
                 {Array.from(quantilesMetrics.entries()).map(([key, value]) => (

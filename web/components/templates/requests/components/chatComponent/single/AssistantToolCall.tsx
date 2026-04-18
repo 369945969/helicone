@@ -204,7 +204,7 @@ export default function AssistantToolCall({
                     ) : (
                       <ChevronRightIcon size={12} />
                     )}
-                    <span>Description</span>
+                    <span>描述</span>
                   </CollapsibleTrigger>
                 </Collapsible>
               )}

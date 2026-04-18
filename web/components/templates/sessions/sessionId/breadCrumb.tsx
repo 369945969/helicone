@@ -104,7 +104,7 @@ export const BreadCrumb = ({
                     className="h-[14px] w-[14px] p-0 text-slate-500"
                     onClick={() => {
                       navigator.clipboard.writeText(sessionId);
-                      setNotification("Copied to clipboard", "success");
+                      setNotification("已复制到剪贴板", "success");
                     }}
                   >
                     <CopyIcon />

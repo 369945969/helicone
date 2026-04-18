@@ -24,14 +24,13 @@ const EndOnboardingConfirmation = ({
           <DialogTitle>🏁 Ready to integrate with Helicone?</DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          Don&apos;t worry, you can access this organization anytime from the
-          sidebar.
+          别担心，您可以随时从侧边栏访问此组织。
         </DialogDescription>
         <DialogFooter>
           <Button variant="outline" onClick={() => setOpen(false)}>
-            Nevermind
+            算了
           </Button>
-          <Button onClick={onEnd}>Ready</Button>
+          <Button onClick={onEnd}>准备好了</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

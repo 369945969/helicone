@@ -7,29 +7,29 @@ import {
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-import { testEvaluator } from "@/components/templates/evals/testing/test";
-import { useTestDataStore } from "@/components/templates/evals/testing/testingStore";
+import { test评估器 } from "@/components/templates/evals/testing/test";
+import { use测试DataStore } from "@/components/templates/evals/testing/testingStore";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useJawnClient } from "@/lib/clients/jawnHook";
+import { Tabs, TabsContent, Tabs列表, TabsTrigger } from "@/components/ui/tabs";
+import { useJawnClient } from "@/lib/clients/jawn钩子";
 import { useQuery } from "@tanstack/react-query";
-import MarkdownEditor from "../../../../shared/markdownEditor";
-import { EvaluatorTestResult } from "../types";
+import Markdown编辑or from "../../../../shared/markdown编辑or";
+import { 评估器测试Result } from "../types";
 import { H4, Muted } from "@/components/ui/typography";
 import { AlertCircle, CheckCircle2, PlayCircle, XCircle } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-export function TestEvaluator() {
-  const { testConfig, setTestConfig, testInput, setTestInput } =
-    useTestDataStore();
+export function 测试评估器() {
+  const { test配置, set测试配置, testInput, set测试Input } =
+    use测试DataStore();
 
   const [promptTemplate, setPromptTemplate] = useState<string | undefined>(
     testInput?.promptTemplate ?? "",
   );
-  const [result, setResult] = useState<EvaluatorTestResult>(null);
+  const [result, setResult] = useState<评估器测试Result>(null);
   const [activeTab, setActiveTab] = useState("inputBody");
-  const [loading, setLoading] = useState(false);
+  const [loading, set加载中] = useState(false);
 
   const jawn = useJawnClient();
 
@@ -65,7 +65,7 @@ export function TestEvaluator() {
         },
       });
 
-      setTestInput({
+      set测试Input({
         inputBody: JSON.stringify(
           request.data?.data?.request_body ?? {},
           undefined,
@@ -86,18 +86,18 @@ export function TestEvaluator() {
   });
 
   return (
-    <div className="flex h-full flex-col">
+    <div class名称="flex h-full flex-col">
       {/* Scrollable Input Area */}
-      <ScrollArea className="flex-grow">
-        <div className="space-y-4 p-4">
+      <ScrollArea class名称="flex-grow">
+        <div class名称="space-y-4 p-4">
           {/* Request ID Input */}
-          <div className="flex items-center gap-2">
-            <Label className="whitespace-nowrap text-sm font-medium">
+          <div class名称="flex items-center gap-2">
+            <Label class名称="whitespace-nowrap text-sm font-medium">
               Request ID
             </Label>
             <Input
-              placeholder="Enter request ID"
-              className="flex-grow"
+              placeholder="输入请求 ID"
+              class名称="flex-grow"
               value={requestId}
               onChange={(e) => {
                 setRequestId(e.target.value);
@@ -105,48 +105,48 @@ export function TestEvaluator() {
             />
           </div>
 
-          {/* Test Input Section */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium">Test Input</h3>
+          {/* 测试 Input 部分 */}
+          <div class名称="space-y-2">
+            <div class名称="flex items-center justify-between">
+              <h3 class名称="text-sm font-medium">测试输入</h3>
             </div>
 
             <Tabs
               defaultValue="inputBody"
               value={activeTab}
               onValueChange={setActiveTab}
-              className="w-full"
+              class名称="w-full"
             >
-              <TabsList className="grid h-9 w-full grid-cols-4 bg-muted/30 p-0">
-                <TabsTrigger value="inputBody" className="text-xs">
+              <Tabs列表 class名称="grid h-9 w-full grid-cols-4 bg-muted/30 p-0">
+                <TabsTrigger value="inputBody" class名称="text-xs">
                   Input Body
                 </TabsTrigger>
-                <TabsTrigger value="outputBody" className="text-xs">
+                <TabsTrigger value="outputBody" class名称="text-xs">
                   Output Body
                 </TabsTrigger>
-                <TabsTrigger value="inputs" className="text-xs">
+                <TabsTrigger value="inputs" class名称="text-xs">
                   Input Variables
                 </TabsTrigger>
                 {promptTemplate !== undefined && (
-                  <TabsTrigger value="prompt" className="text-xs">
+                  <TabsTrigger value="prompt" class名称="text-xs">
                     Prompt Template
                   </TabsTrigger>
                 )}
-              </TabsList>
+              </Tabs列表>
 
               <TabsContent
                 value="inputs"
-                className="mt-2 space-y-2 rounded-md border bg-background p-3"
+                class名称="mt-2 space-y-2 rounded-md border bg-background p-3"
               >
                 {Object.entries(testInput?.inputs?.inputs ?? []).length ===
                 0 ? (
-                  <div className="py-2 text-center">
-                    <Muted>No input variables defined</Muted>
+                  <div class名称="py-2 text-center">
+                    <Muted>未定义输入变量</Muted>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => {
-                        setTestInput((prev) => {
+                        set测试Input((prev) => {
                           if (!prev) return prev;
                           return {
                             ...prev,
@@ -157,9 +157,9 @@ export function TestEvaluator() {
                           };
                         });
                       }}
-                      className="mt-2"
+                      class名称="mt-2"
                     >
-                      + Add Input Variable
+                      + 添加 Input Variable
                     </Button>
                   </div>
                 ) : (
@@ -168,13 +168,13 @@ export function TestEvaluator() {
                       ([key, value], i) => (
                         <div
                           key={`input-${i}`}
-                          className="flex items-center gap-2"
+                          class名称="flex items-center gap-2"
                         >
                           <Input
                             value={key}
                             onChange={(e) => {
                               const newKey = e.target.value;
-                              setTestInput((prev) => {
+                              set测试Input((prev) => {
                                 if (!prev) return prev;
 
                                 const newInputs = { ...prev.inputs.inputs };
@@ -190,14 +190,14 @@ export function TestEvaluator() {
                                 };
                               });
                             }}
-                            className="max-w-[200px]"
-                            placeholder="Variable name"
+                            class名称="max-w-[200px]"
+                            placeholder="变量名"
                           />
                           <span>:</span>
                           <Input
                             value={value}
                             onChange={(e) => {
-                              setTestInput((prev) => {
+                              set测试Input((prev) => {
                                 if (!prev) return prev;
                                 const newInputs = {
                                   ...prev.inputs.inputs,
@@ -213,14 +213,14 @@ export function TestEvaluator() {
                                 };
                               });
                             }}
-                            className="flex-grow"
-                            placeholder="Value"
+                            class名称="flex-grow"
+                            placeholder="值"
                           />
                           <Button
                             variant="ghost"
                             size="icon"
                             onClick={() => {
-                              setTestInput((prev) => {
+                              set测试Input((prev) => {
                                 if (!prev) return prev;
                                 const newInputs = {
                                   ...prev.inputs.inputs,
@@ -236,7 +236,7 @@ export function TestEvaluator() {
                               });
                             }}
                           >
-                            <XCircle className="h-4 w-4" />
+                            <XCircle class名称="h-4 w-4" />
                           </Button>
                         </div>
                       ),
@@ -245,7 +245,7 @@ export function TestEvaluator() {
                       variant="outline"
                       size="sm"
                       onClick={() => {
-                        setTestInput((prev) => {
+                        set测试Input((prev) => {
                           if (!prev) return prev;
                           return {
                             ...prev,
@@ -256,9 +256,9 @@ export function TestEvaluator() {
                           };
                         });
                       }}
-                      className="mt-1"
+                      class名称="mt-1"
                     >
-                      + Add Input Variable
+                      + 添加 Input Variable
                     </Button>
                   </>
                 )}
@@ -267,10 +267,10 @@ export function TestEvaluator() {
               {promptTemplate !== undefined && (
                 <TabsContent
                   value="prompt"
-                  className="mt-2 rounded-md border bg-background"
+                  class名称="mt-2 rounded-md border bg-background"
                 >
-                  <MarkdownEditor
-                    className="min-h-[300px] border-0 text-sm"
+                  <Markdown编辑or
+                    class名称="min-h-[300px] border-0 text-sm"
                     text={promptTemplate}
                     setText={setPromptTemplate}
                     language="json"
@@ -281,13 +281,13 @@ export function TestEvaluator() {
 
               <TabsContent
                 value="inputBody"
-                className="mt-2 rounded-md border bg-background"
+                class名称="mt-2 rounded-md border bg-background"
               >
-                <MarkdownEditor
-                  className="min-h-[300px] border-0 text-sm"
+                <Markdown编辑or
+                  class名称="min-h-[300px] border-0 text-sm"
                   text={testInput?.inputBody ?? ""}
                   setText={(text) => {
-                    setTestInput((prev) => {
+                    set测试Input((prev) => {
                       if (!prev) return prev;
                       return {
                         ...prev,
@@ -302,13 +302,13 @@ export function TestEvaluator() {
 
               <TabsContent
                 value="outputBody"
-                className="mt-2 rounded-md border bg-background"
+                class名称="mt-2 rounded-md border bg-background"
               >
-                <MarkdownEditor
-                  className="min-h-[300px] border-0 text-sm"
+                <Markdown编辑or
+                  class名称="min-h-[300px] border-0 text-sm"
                   text={testInput?.outputBody ?? ""}
                   setText={(text) => {
-                    setTestInput((prev) => {
+                    set测试Input((prev) => {
                       if (!prev) return prev;
                       return {
                         ...prev,
@@ -325,18 +325,18 @@ export function TestEvaluator() {
         </div>
       </ScrollArea>
 
-      {/* Fixed Results Section */}
-      <div className="shrink-0 border-t bg-muted/10">
-        <div className="space-y-3 p-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-sm font-medium">Test Results</h3>
+      {/* Fixed Results 部分 */}
+      <div class名称="shrink-0 border-t bg-muted/10">
+        <div class名称="space-y-3 p-4">
+          <div class名称="flex items-center justify-between">
+            <h3 class名称="text-sm font-medium">测试结果</h3>
             <Button
               onClick={async () => {
-                if (!testConfig) return;
-                setLoading(true);
+                if (!test配置) return;
+                set加载中(true);
                 setResult({ _type: "running" });
                 try {
-                  const res = await testEvaluator(testConfig, jawn, testInput);
+                  const res = await test评估器(test配置, jawn, testInput);
                   setResult(res);
                 } catch (e) {
                   const errorMessage =
@@ -351,33 +351,33 @@ export function TestEvaluator() {
                     error: errorMessage,
                   });
                 } finally {
-                  setLoading(false);
+                  set加载中(false);
                 }
               }}
               disabled={loading}
               size="sm"
-              className="gap-2"
+              class名称="gap-2"
             >
-              <PlayCircle className="h-4 w-4" />
-              {loading ? "Running..." : "Run Test"}
+              <PlayCircle class名称="h-4 w-4" />
+              {loading ? "Running..." : "Run 测试"}
             </Button>
           </div>
 
-          <div className="max-h-[180px] overflow-y-auto rounded-md border bg-background p-3">
+          <div class名称="max-h-[180px] overflow-y-auto rounded-md border bg-background p-3">
             {result === null ? (
-              <div className="py-4 text-center">
-                <Muted>Run a test to see results</Muted>
+              <div class名称="py-4 text-center">
+                <Muted>运行测试以查看结果</Muted>
               </div>
             ) : result._type === "running" ? (
-              <div className="py-4 text-center">
+              <div class名称="py-4 text-center">
                 <Muted>Running test...</Muted>
               </div>
             ) : result._type === "error" ? (
-              <div className="flex items-start gap-2 rounded-md border border-destructive/20 bg-destructive/10 p-3">
-                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
+              <div class名称="flex items-start gap-2 rounded-md border border-destructive/20 bg-destructive/10 p-3">
+                <AlertCircle class名称="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
                 <div>
-                  <H4 className="text-sm text-destructive">Error</H4>
-                  <pre className="mt-1 whitespace-pre-wrap text-xs">
+                  <H4 class名称="text-sm text-destructive">错误</H4>
+                  <pre class名称="mt-1 whitespace-pre-wrap text-xs">
                     {typeof result.error === "object"
                       ? JSON.stringify(result.error, null, 2)
                       : result.error}
@@ -385,25 +385,25 @@ export function TestEvaluator() {
                 </div>
               </div>
             ) : (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 rounded-md bg-muted p-3">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
+              <div class名称="space-y-3">
+                <div class名称="flex items-center gap-2 rounded-md bg-muted p-3">
+                  <CheckCircle2 class名称="h-5 w-5 shrink-0 text-primary" />
                   <div>
-                    <H4 className="text-sm">Score</H4>
-                    <div className="text-lg font-semibold">{result.output}</div>
+                    <H4 class名称="text-sm">分数</H4>
+                    <div class名称="text-lg font-semibold">{result.output}</div>
                   </div>
                 </div>
 
                 {result.traces && result.traces.length > 0 && (
                   <Collapsible>
-                    <CollapsibleTrigger className="flex w-full items-center justify-between rounded-md border p-2 text-sm">
-                      <span>View Execution Traces</span>
-                      <ChevronDown className="h-4 w-4" />
+                    <CollapsibleTrigger class名称="flex w-full items-center justify-between rounded-md border p-2 text-sm">
+                      <span>查看执行跟踪</span>
+                      <ChevronDown class名称="h-4 w-4" />
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="mt-2 space-y-2">
+                    <CollapsibleContent class名称="mt-2 space-y-2">
                       {result.traces.map((trace, i) => (
-                        <div key={i} className="rounded-md border p-2">
-                          <pre className="whitespace-pre-wrap text-xs">
+                        <div key={i} class名称="rounded-md border p-2">
+                          <pre class名称="whitespace-pre-wrap text-xs">
                             {trace}
                           </pre>
                         </div>

@@ -197,7 +197,7 @@ const ReportsModal = (props: ReportsModalProps) => {
         </small>
         {reportEnabled && (
           <div className="col-span-4 w-full space-y-1.5 rounded-md bg-gray-100 p-6">
-            <h3 className="font-semibold text-gray-500">Notify By</h3>
+            <h3 className="font-semibold text-gray-500">通知方式</h3>
             <div className="col-span-4 w-full space-y-1.5 text-sm">
               <div className="flex items-center justify-between">
                 <label htmlFor="alert-emails" className="text-gray-500">
@@ -211,7 +211,7 @@ const ReportsModal = (props: ReportsModalProps) => {
               </div>
               {showEmails && (
                 <MultiSelect
-                  placeholder="Select emails to send alerts to"
+                  placeholder="选择接收警报的邮箱"
                   value={selectedEmails}
                   onValueChange={(values: string[]) => {
                     setSelectedEmails(values);
@@ -247,7 +247,7 @@ const ReportsModal = (props: ReportsModalProps) => {
                 (slackIntegration?.data ? (
                   <>
                     <MultiSelect
-                      placeholder="Select slack channels to send alerts to"
+                      placeholder="选择接收警报的 Slack 频道"
                       value={selectedSlackChannels}
                       onValueChange={(values: string[]) => {
                         setSelectedSlackChannels(values);

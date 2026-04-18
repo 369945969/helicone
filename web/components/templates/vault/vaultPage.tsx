@@ -53,11 +53,11 @@ const VaultPage = ({
       .then(() => {
         refetchProviderKeys();
         refetchProxyKeys();
-        setNotification("Provider Key Deleted", "success");
+        setNotification("提供商密钥已删除", "success");
         setDeleteProviderOpen(false);
       })
       .catch(() => {
-        setNotification("Error Deleting Provider Key", "error");
+        setNotification("删除提供商密钥时出错", "error");
         setDeleteProviderOpen(false);
       });
   };
@@ -66,11 +66,11 @@ const VaultPage = ({
     fetch(`/api/proxy_keys/${id}/delete`, { method: "DELETE" })
       .then(() => {
         refetchProxyKeys();
-        setNotification("Proxy Key Deleted", "success");
+        setNotification("代理密钥已删除", "success");
         setDeleteProxyOpen(false);
       })
       .catch(() => {
-        setNotification("Error Deleting Proxy Key", "error");
+        setNotification("删除代理密钥时出错", "error");
         setDeleteProxyOpen(false);
       });
   };
@@ -102,8 +102,8 @@ const VaultPage = ({
           issues, please contact us at support@helicone.ai.
         </InfoBox>
         <FeatureUpgradeCard
-          title="Unlock Vault"
-          headerTagline="The Free plan does not include the Vault feature, but getting access is easy."
+          title="解锁保险库"
+          headerTagline="免费版不包含保险库功能，但获取访问权限很简单。"
           featureName="Vault"
           icon={
             <KeyIcon className="h-8 w-8 text-gray-900 dark:text-gray-100" />
@@ -114,12 +114,12 @@ const VaultPage = ({
   }
   return (
     <>
-      <AuthHeader title={"Vault"} />
+      <AuthHeader title={"保险库"} />
       <div className="flex max-w-3xl flex-col space-y-12 divide-y divide-gray-300 py-4 dark:divide-gray-700">
         <div className="flex flex-col space-y-4">
           <div className="flex w-full flex-row items-center justify-between">
             <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-              Provider Keys
+              提供商密钥
             </h1>
             <button
               onClick={() => {
@@ -127,13 +127,13 @@ const VaultPage = ({
               }}
               className="flex flex-row whitespace-nowrap rounded-md bg-gray-900 py-2 pl-3 pr-4 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:bg-gray-100 dark:text-black dark:hover:bg-gray-300"
             >
-              Add Provider Key
+              添加提供商密钥
             </button>
           </div>
           <p className="text-gray-500">
             {variant === "portal"
-              ? "The key you enter will be added within the `Authorization` header of your API requests. Select which key you want to associate with this organization"
-              : "These keys will be used to authenticate with your provider."}
+              ? "您输入的密钥将添加到 API 请求的 `Authorization` 标头中。选择要与该组织关联的密钥"
+              : "这些密钥将用于与您的提供商进行身份验证。"}
           </p>
           {isLoading ? (
             <ul className="flex flex-col space-y-6">

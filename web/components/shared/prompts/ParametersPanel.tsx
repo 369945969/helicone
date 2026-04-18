@@ -355,7 +355,7 @@ export default function ParametersPanel({
           <div className="flex gap-2">
             <Select value={selectedCreator} onValueChange={handleCreatorChange}>
               <SelectTrigger variant="helicone" className="h-8 w-28">
-                <SelectValue placeholder="Creator" />
+                <SelectValue placeholder="创建者" />
               </SelectTrigger>
               <SelectContent>
                 {creators.map((creator) => (
@@ -370,7 +370,7 @@ export default function ParametersPanel({
               onValueChange={handleModelChange}
             >
               <SelectTrigger variant="helicone" className="h-8 w-36">
-                <SelectValue placeholder="Model" />
+                <SelectValue placeholder="模型" />
               </SelectTrigger>
               <SelectContent>
                 {models.map((model) => (
@@ -385,7 +385,7 @@ export default function ParametersPanel({
               onValueChange={handleProviderChange}
             >
               <SelectTrigger variant="helicone" className="h-8 w-28">
-                <SelectValue placeholder="Provider" />
+                <SelectValue placeholder="提供商" />
               </SelectTrigger>
               <SelectContent>
                 {providers.map((provider) => (
@@ -424,7 +424,7 @@ export default function ParametersPanel({
         {/* Max Tokens */}
         {maxTokens && (
           <ParameterRow>
-            <ParameterLabel icon={<PiCoinsBold />}>Max Tokens</ParameterLabel>
+            <ParameterLabel icon={<PiCoinsBold />}>最大 Token 数</ParameterLabel>
             <div className="flex items-center gap-2">
               <span className="text-sm">
                 {parameters.max_tokens?.toLocaleString()}
@@ -460,7 +460,7 @@ export default function ParametersPanel({
                 }
               >
                 <SelectTrigger variant="helicone" className="h-8 w-28">
-                  <SelectValue placeholder="Effort" />
+                  <SelectValue placeholder="力度" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="low">Low</SelectItem>

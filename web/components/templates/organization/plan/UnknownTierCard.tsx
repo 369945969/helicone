@@ -18,7 +18,7 @@ export const UnknownTierCard: React.FC<UnknownTierCardProps> = ({ tier }) => {
     <div className="max-w-lg">
       <Card>
         <CardHeader>
-          <CardTitle>Unknown Plan</CardTitle>
+          <CardTitle>未知计划</CardTitle>
           <CardDescription>
             We couldn&apos;t recognize your current plan. We&apos;ve sent
             migration instructions to your email.
@@ -31,7 +31,7 @@ export const UnknownTierCard: React.FC<UnknownTierCardProps> = ({ tier }) => {
             </div>
             <Col className="gap-2">
               <Link href="mailto:support@helicone.ai">
-                <Button>Email Support</Button>
+                <Button>邮件支持</Button>
               </Link>
               <p className="text-center text-xs text-gray-500">
                 If you&apos;re still having trouble, please email our support

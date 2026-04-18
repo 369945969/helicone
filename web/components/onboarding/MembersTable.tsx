@@ -268,7 +268,7 @@ export const MembersTable = ({
                       emailError &&
                         "border-[hsl(var(--destructive))] focus-visible:ring-[hsl(var(--destructive))]",
                     )}
-                    placeholder="Email"
+                    placeholder="邮箱"
                   />
                   {emailError && (
                     <span className="text-xs text-[hsl(var(--destructive))]">
@@ -289,7 +289,7 @@ export const MembersTable = ({
                   }
                 >
                   <SelectTrigger className="flex-1 text-sm">
-                    <SelectValue placeholder="Select a role" />
+                    <SelectValue placeholder="选择角色" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="member">Member</SelectItem>

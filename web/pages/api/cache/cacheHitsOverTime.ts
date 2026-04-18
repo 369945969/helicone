@@ -8,7 +8,7 @@ import { MetricsBackendBody } from "../../../services/hooks/useBackendFunction";
 import {
   CacheHitsOverTime,
   getCacheHitsOverTime,
-} from "./getCacheHitsOverTime";
+} from "../../../lib/api/cache/getCacheHitsOverTime";
 
 async function handler(
   options: HandlerWrapperOptions<Result<CacheHitsOverTime[], string>>,

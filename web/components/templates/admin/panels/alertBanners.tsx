@@ -43,18 +43,18 @@ const AlertBanners = (props: AlertBannersProps) => {
 
   return (
     <>
-      <h2 className="text-lg font-semibold text-white">Alert Banners</h2>
+      <h2 className="text-lg font-semibold text-white">警告横幅</h2>
       <div className="grid grid-cols-4 gap-4">
         <div className="col-span-1">
           <TextInput
-            placeholder="Title"
+            placeholder="标题"
             value={title}
             onValueChange={setTitle}
           />
         </div>
         <div className="col-span-2">
           <TextInput
-            placeholder="Message"
+            placeholder="消息"
             value={message}
             onValueChange={setMessage}
           />

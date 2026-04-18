@@ -34,7 +34,7 @@ export const EnterprisePlanCard = () => {
               account manager.
             </p>
             <Link href="mailto:enterprise-support@helicone.ai">
-              <Button variant="outline">Contact Enterprise Support</Button>
+              <Button variant="outline">联系企业支持</Button>
             </Link>
           </Col>
         </CardContent>
@@ -42,15 +42,15 @@ export const EnterprisePlanCard = () => {
 
       <div className="w-full flex flex-col gap-6 lg:w-[450px]">
         <PlanFeatureCard
-          title="Need to adjust your plan?"
-          description="We're here to help you optimize your Enterprise plan for your evolving needs."
-          buttonText="Schedule a Call"
+          title="需要调整您的计划？"
+          description="我们随时帮助您为不断变化的需求优化企业版计划。"
+          buttonText="预约通话"
         />
 
         <PlanFeatureCard
-          title="Looking for documentation?"
-          description="Access our comprehensive Enterprise documentation and guides."
-          buttonText="View Enterprise Docs"
+          title="寻找文档？"
+          description="访问我们全面的企业版文档和指南。"
+          buttonText="查看企业版文档"
         />
       </div>
     </div>

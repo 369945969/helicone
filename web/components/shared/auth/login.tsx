@@ -100,7 +100,7 @@ const Login = (props: LoginProps) => {
                           onChange={(e) => setEmail(e.target.value)}
                           required
                           className="text-md relative block w-full appearance-none rounded-md border border-gray-300 p-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:p-4 sm:text-lg"
-                          placeholder="Email address"
+                          placeholder="邮箱地址"
                         />
                       </div>
                     </div>
@@ -167,7 +167,7 @@ const Login = (props: LoginProps) => {
                           onChange={(e) => setEmail(e.target.value)}
                           required
                           className="text-md relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 p-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:p-4 sm:text-lg"
-                          placeholder="Email address"
+                          placeholder="邮箱地址"
                         />
                       </div>
                       <div>
@@ -182,7 +182,7 @@ const Login = (props: LoginProps) => {
                           onChange={(e) => setPassword(e.target.value)}
                           required
                           className="text-md relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 p-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:p-4 sm:text-lg"
-                          placeholder="Password"
+                          placeholder="密码"
                         />
                       </div>
                     </div>

@@ -57,7 +57,7 @@ export default function ResponseFormatEditor({
 
   return (
     <UniversalPopup
-      title="Edit Response Format Schema"
+      title="编辑响应格式 Schema"
       isOpen={isOpen}
       onClose={onClose}
       width="max-w-5xl w-full"
@@ -73,7 +73,7 @@ export default function ResponseFormatEditor({
         </div>
         <div className="flex flex-row items-center justify-end gap-2">
           {!isValidJson(schemaJson) && (
-            <p className="mr-auto text-sm text-red-500">Invalid JSON Schema</p>
+            <p className="mr-auto text-sm text-red-500">无效的 JSON Schema</p>
           )}
           <Button variant="outline" onClick={onClose}>
             Cancel

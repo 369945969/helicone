@@ -153,17 +153,17 @@ export const SessionContent: React.FC<SessionContentProps> = ({
   const sessionStatsToDisplay = useMemo(() => {
     return [
       {
-        label: "Start Time",
+        label: "开始时间",
         value: startTime ? get24HourFromDate(startTime) : "-",
       },
-      { label: "End Time", value: endTime ? get24HourFromDate(endTime) : "-" },
+      { label: "结束时间", value: endTime ? get24HourFromDate(endTime) : "-" },
       {
-        label: "Cost",
+        label: "成本",
         value: `$${(session.session_cost ?? 0).toFixed(4)}`,
       },
-      { label: "Avg Latency", value: `${avgLatency.toFixed(0)}ms` },
-      { label: "Requests", value: session.traces.length.toString() },
-      { label: "Tokens", value: totalTokens.toString() },
+      { label: "平均延迟", value: `${avgLatency.toFixed(0)}ms` },
+      { label: "请求数", value: session.traces.length.toString() },
+      { label: "令牌数", value: totalTokens.toString() },
     ];
   }, [
     startTime,
@@ -209,14 +209,14 @@ export const SessionContent: React.FC<SessionContentProps> = ({
               <Small className="font-semibold">/</Small>
 
               {isLoadingSessions ? (
-                <Muted className="text-sm">Loading sessions...</Muted>
+                <Muted className="text-sm">正在加载会话...</Muted>
               ) : (
                 <Select
                   value={session_id}
                   onValueChange={handleSessionIdChange}
                 >
                   <SelectTrigger className="h-8 w-[280px] shadow-sm">
-                    <SelectValue placeholder="Select Session ID" />
+                    <SelectValue placeholder="选择会话 ID" />
                   </SelectTrigger>
                   <SelectContent>
                     {relatedSessions?.map((s) => (
@@ -247,7 +247,7 @@ export const SessionContent: React.FC<SessionContentProps> = ({
                 {/* Export the original, raw request data */}
                 <ExportButton rows={requests.requests.requests ?? []} />
               </TooltipTrigger>
-              <TooltipContent>Export raw data</TooltipContent>
+              <TooltipContent>导出原始数据</TooltipContent>
             </Tooltip>
 
             <div className="h-4 w-px bg-border" />
@@ -273,7 +273,7 @@ export const SessionContent: React.FC<SessionContentProps> = ({
       <div className="flex-1 overflow-auto">
         {requests.requests.isLoading ? (
           <div className="flex h-full items-center justify-center">
-            <LoadingAnimation title="Loading session details..." />
+            <LoadingAnimation title="加载会话详情..." />
           </div>
         ) : (
           <TreeView

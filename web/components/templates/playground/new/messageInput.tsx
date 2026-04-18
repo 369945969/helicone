@@ -124,7 +124,7 @@ const MessageInput = (props: MessageInputProps) => {
           // editable ? "border border-gray-300" : "border-none",
           "w-full h-24 bg-white border-gray-300 rounded-md text-sm"
         )}
-        placeholder="Type your message here"
+        placeholder="在此输入消息"
         value={getContent(message.content)}
         onChange={(e) => {
           if (typeof message.content === "string") {
@@ -159,7 +159,7 @@ const MessageInput = (props: MessageInputProps) => {
       {message.role === "user" && editable && (
         <button className="flex w-fit items-center rounded-md px-2 py-1 text-xs hover:bg-gray-300">
           <PlusIcon className="mr-1 h-4 w-4" />
-          Add Image
+          添加图片
         </button>
       )}
     </div>

@@ -30,14 +30,14 @@ const ModelsByCostPanel = (props: ModelsByCostPanelProps) => {
     data: modelData,
     maxValue,
     formatValue: (value) => `$${value.toFixed(2)}`,
-    modalTitle: "Top Models by Cost",
-    modalValueLabel: "Cost",
+    modalTitle: "按成本排序的模型",
+    modalValueLabel: "成本",
   });
 
   return (
     <>
       <StyledAreaChart
-        title={`Top Models by Cost`}
+        title={`按成本排序的模型`}
         value={undefined}
         isDataOverTimeLoading={models.isLoading}
         withAnimation={true}
@@ -45,8 +45,8 @@ const ModelsByCostPanel = (props: ModelsByCostPanelProps) => {
       >
         <div className="flex h-full flex-col overflow-hidden">
           <div className="flex flex-row items-center justify-between pb-2">
-            <p className="text-xs font-semibold text-foreground">Name</p>
-            <p className="text-xs font-semibold text-foreground">Cost</p>
+            <p className="text-xs font-semibold text-foreground">名称</p>
+            <p className="text-xs font-semibold text-foreground">成本</p>
           </div>
           <div className="flex-grow overflow-y-auto">{barList}</div>
         </div>

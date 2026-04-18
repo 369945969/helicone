@@ -84,7 +84,7 @@ const GenerateAPIKey = ({
       const res = await promiseRes;
 
       if (!res.response.ok) {
-        setNotification("Failed to generate API key", "error");
+        setNotification("生成 API 密钥失败", "error");
         logger.error(
           { response: await res.response.text() },
           "Failed to generate API key",
@@ -311,9 +311,9 @@ const GenerateAPIKey = ({
       </div>
       <DialogFooter className="mt-10">
         <Button variant={"outline"} onClick={() => setCurrentStep(1)}>
-          Go Back
+          返回
         </Button>
-        <Button onClick={() => setCurrentStep(3)}>Next</Button>
+        <Button onClick={() => setCurrentStep(3)}>下一步</Button>
       </DialogFooter>
     </div>
   );

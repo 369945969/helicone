@@ -210,31 +210,31 @@ export interface RequestsPageEmptyStateOptions {
 
 export const EMPTY_STATE_PAGES: Record<string, EmptyStatePage> = {
   requests: {
-    title: "Integrate to see your requests",
+    title: "集成以查看您的请求",
     description:
-      "This is a preview. Integrate your LLM app with Helicone to see your actual requests.",
+      "这是预览。将您的 LLM 应用与 Helicone 集成以查看实际请求。",
     cta: {
       primary: {
-        text: "Quick Start",
+        text: "快速开始",
         link: "/onboarding/integrate",
       },
       secondary: {
-        text: "Try Demo",
+        text: "试用演示",
         link: "#tryDemo",
       },
     },
   },
   "rate-limits": {
-    title: "Configure Rate Limits",
+    title: "配置速率限制",
     description:
-      "Protect your LLM applications by setting up rate limits. Configure via the UI or directly in your code.",
+      "通过设置速率限制来保护您的 LLM 应用。通过 UI 或直接代码配置。",
     cta: {
       primary: {
-        text: "Configure Rate Limits",
+        text: "配置速率限制",
         onClick: true,
       },
       secondary: {
-        text: "View Docs",
+        text: "查看文档",
         link: "https://docs.helicone.ai/features/advanced-usage/custom-rate-limits",
         openInNewTab: true,
       },

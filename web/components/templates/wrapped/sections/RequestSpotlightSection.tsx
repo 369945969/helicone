@@ -314,7 +314,7 @@ export const RequestSpotlightSection: React.FC<RequestSpotlightSectionProps> = (
           <div className="w-full border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
             <div className="mb-4 flex items-center gap-2 text-white/70">
               <MessageSquare size={18} />
-              <span className="font-medium">The Conversation</span>
+              <span className="font-medium">对话</span>
             </div>
 
             {/* Scrollable messages container */}
@@ -340,7 +340,7 @@ export const RequestSpotlightSection: React.FC<RequestSpotlightSectionProps> = (
           onClick={handleViewRequest}
           className="flex items-center gap-2 text-[#0DA5E8] transition-colors hover:text-[#0DA5E8]/80"
         >
-          <span>View full request</span>
+          <span>查看完整请求</span>
           <ExternalLink size={16} />
         </button>
       </div>

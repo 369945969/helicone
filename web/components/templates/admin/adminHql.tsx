@@ -525,7 +525,7 @@ function AdminHql() {
             >
               {result.rowCount >= 100 && (
                 <Alert variant="warning" className="mb-2">
-                  <AlertTitle>Row Limit Reached</AlertTitle>
+                  <AlertTitle>已达到行数限制</AlertTitle>
                   <AlertDescription>
                     Only the first 100 rows are shown. Please refine your query
                     for more specific results.

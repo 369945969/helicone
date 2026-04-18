@@ -10,7 +10,7 @@ const TagsSummary = ({
   className = "",
 }: TagsSummaryProps) => {
   if (tags.length === 0) {
-    return <span className="text-xs text-muted-foreground">No tags</span>;
+    return <span className="text-xs text-muted-foreground">无标签</span>;
   }
 
   const visibleTags = [];

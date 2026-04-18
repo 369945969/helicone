@@ -127,15 +127,15 @@ const tabOptions: {
           </div>
           <div className="absolute -bottom-16 left-48 z-30 hidden h-56 w-56 rotate-6 flex-col items-center justify-center space-y-4 rounded-lg border border-gray-300 bg-white p-4 shadow-lg lg:flex">
             <StopCircleIcon className="h-16 w-16 text-green-500" />
-            <p className="text-3xl font-bold">Rate Limiting</p>
+            <p className="text-3xl font-bold">速率限制</p>
           </div>
           <div className="absolute -bottom-16 z-50 flex h-56 w-56 flex-col items-center justify-center space-y-4 rounded-lg border border-gray-300 bg-white p-4 shadow-lg">
             <ShieldCheckIcon className="h-16 w-16 text-green-500" />
-            <p className="text-center text-3xl font-bold">Prompt Detection</p>
+            <p className="text-center text-3xl font-bold">提示词检测</p>
           </div>
           <div className="absolute -bottom-16 right-48 z-40 hidden h-56 w-56 -rotate-6 flex-col items-center justify-center space-y-4 rounded-lg border border-gray-300 bg-white p-4 shadow-lg lg:flex">
             <KeyIcon className="h-16 w-16 text-green-500" />
-            <p className="text-3xl font-bold">Key Vault</p>
+            <p className="text-3xl font-bold">密钥保险库</p>
           </div>
           <div className="absolute -bottom-16 right-0 z-10 flex h-56 w-56 rotate-3 flex-col items-center justify-center space-y-4 rounded-lg border border-gray-300 bg-white p-4 shadow-lg">
             <ChatBubbleBottomCenterTextIcon className="h-16 w-16 text-green-500" />
@@ -162,7 +162,7 @@ const tabOptions: {
           />
         </div>
         <div className="col-span-8 flex flex-col space-y-4 text-black md:col-span-3">
-          <h2 className="text-3xl font-bold tracking-tight">Data Collection</h2>
+          <h2 className="text-3xl font-bold tracking-tight">数据收集</h2>
           <p className="text-md font-medium text-gray-700">
             Collect, normalize, and transform data from various providers and
             models
@@ -293,7 +293,7 @@ const tabOptions: {
           />
         </div>
         <div className="relative col-span-8 flex flex-col space-y-4 text-white md:col-span-3">
-          <h2 className="text-3xl font-bold tracking-tight">Customer Portal</h2>
+          <h2 className="text-3xl font-bold tracking-tight">客户门户</h2>
           <p className="text-md font-medium">
             Share Helicone dashboards and insights with your customers
           </p>

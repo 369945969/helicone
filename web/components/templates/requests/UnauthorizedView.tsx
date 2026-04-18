@@ -13,21 +13,21 @@ const UnauthorizedView: React.FC<UnauthorizedViewProps> = ({
   const getMessage = () => {
     if (pageType === "cache") {
       return {
-        title: "You have reached your monthly limit.",
+        title: "您已达到月度限制。",
         description:
-          "Upgrade your plan to view your cache data. Your cache is still functioning, but you will not be able to view the analytics until you upgrade.",
+          "升级您的计划以查看缓存数据。您的缓存仍在运行，但升级前无法查看分析数据。",
       };
     } else if (pageType === "ratelimit") {
       return {
-        title: "You have reached your monthly limit.",
+        title: "您已达到月度限制。",
         description:
-          "Upgrade your plan to view your rate limit data. Rate limits are still being enforced, but you will not be able to view it until you upgrade.",
+          "升级您的计划以查看速率限制数据。速率限制仍在执行，但升级前无法查看。",
       };
     } else {
       return {
-        title: "You have reached your monthly limit.",
+        title: "您已达到月度限制。",
         description:
-          "Upgrade your plan to view your request page. Your requests are still being processed, but you will not be able to view them until you upgrade.",
+          "升级您的计划以查看请求页面。您的请求仍在处理中，但升级前无法查看。",
       };
     }
   };
@@ -48,7 +48,7 @@ const UnauthorizedView: React.FC<UnauthorizedViewProps> = ({
               href="/settings/billing"
               className="flex w-min items-center gap-2 whitespace-nowrap rounded-lg bg-black px-2.5 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:bg-white dark:text-black dark:hover:bg-gray-200"
             >
-              Upgrade - Start Free Trial
+              升级 - 开始免费试用
             </Link>
           </div>
         </div>
@@ -58,8 +58,8 @@ const UnauthorizedView: React.FC<UnauthorizedViewProps> = ({
   if (currentTier === "pro") {
     const proTitle =
       pageType === "cache"
-        ? "You have reached your monthly cache limit on the Pro plan."
-        : "You have reached your monthly limit on the Pro plan.";
+        ? "在 Pro 计划上您已达到月度缓存限制。"
+        : "在 Pro 计划上您已达到月度限制。";
 
     return (
       <div className="flex h-[80vh] w-full flex-col items-center justify-center">
@@ -69,7 +69,7 @@ const UnauthorizedView: React.FC<UnauthorizedViewProps> = ({
             {proTitle}
           </p>
           <p className="mt-2 max-w-sm text-sm text-gray-500">
-            Please get in touch with us to discuss increasing your limits.
+            请联系我们讨论增加限制。
           </p>
           <div className="mt-4">
             <Link
@@ -78,7 +78,7 @@ const UnauthorizedView: React.FC<UnauthorizedViewProps> = ({
               rel="noreferrer"
               className="flex w-fit items-center gap-2 rounded-lg bg-black px-2.5 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:bg-white dark:text-black dark:hover:bg-gray-200"
             >
-              Contact Us
+              联系我们
             </Link>
           </div>
         </div>

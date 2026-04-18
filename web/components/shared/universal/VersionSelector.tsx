@@ -120,7 +120,7 @@ export default function VersionSelector({
             onBlur={() => handleEditComplete(false)}
             autoFocus
             className="-ml-[calc(0.625rem-2px)] w-fit max-w-56 appearance-none rounded-full bg-white px-2.5 text-lg outline-none focus:border-transparent focus:ring-2 focus:ring-heliblue dark:bg-slate-950"
-            aria-label="Edit prompt id"
+            aria-label="编辑提示词 ID"
           />
         ) : (
           <div className="flex flex-row items-center gap-2 [&:has(>div:nth-child(2):hover,>div:nth-child(3):hover)_h1]:text-heliblue">

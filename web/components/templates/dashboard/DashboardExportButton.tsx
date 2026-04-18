@@ -92,32 +92,31 @@ export default function DashboardExportButton({
             <Download size={16} />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>Export dashboard</TooltipContent>
+        <TooltipContent>导出仪表板</TooltipContent>
       </Tooltip>
 
       <AlertDialog open={open} onOpenChange={setOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Export Dashboard</AlertDialogTitle>
+            <AlertDialogTitle>导出仪表板</AlertDialogTitle>
             <AlertDialogDescription>
               {timeFilter.start.toLocaleDateString()} -{" "}
               {timeFilter.end.toLocaleDateString()}
             </AlertDialogDescription>
             <AlertDialogDescription>
-              All dashboard data as an Excel file with separate tabs for
-              metrics, costs, requests, and more.
+              所有仪表板数据作为 Excel 文件，包含单独的指标、成本、请求等标签页。
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={exporting}>Cancel</AlertDialogCancel>
+            <AlertDialogCancel disabled={exporting}>取消</AlertDialogCancel>
             <AlertDialogAction onClick={handleExport} disabled={exporting}>
               {exporting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Exporting...
+                  导出中...
                 </>
               ) : (
-                "Export"
+                "导出"
               )}
             </AlertDialogAction>
           </AlertDialogFooter>

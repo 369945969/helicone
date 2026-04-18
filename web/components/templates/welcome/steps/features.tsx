@@ -15,7 +15,7 @@ const Features = (props: FeaturesProps) => {
   return (
     <div id="content" className="flex w-full flex-col">
       <div className="flex flex-col p-4">
-        <h2 className="text-2xl font-semibold">Explore features and tooling</h2>
+        <h2 className="text-2xl font-semibold">探索功能和工具</h2>
 
         <p className="pb-4 pt-1 text-sm">
           Learn more about our other features in our{" "}
@@ -160,7 +160,7 @@ const openai = new OpenAI(configuration);
 
       <div className="sticky bottom-12 flex items-center justify-between p-4">
         <Button variant={"secondary"} size={"sm"} onClick={previousStep}>
-          Back
+          返回
         </Button>
         <Button
           size={"sm"}

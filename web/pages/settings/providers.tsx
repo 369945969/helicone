@@ -30,12 +30,12 @@ const ProvidersSettings: NextPageWithLayout = () => {
     return (
       <SettingsContainer>
         <SettingsSectionHeader
-          title="Providers"
-          description="Configure your API keys for different LLM providers"
+          title="提供商"
+          description="配置不同 LLM 提供商的 API 密钥"
         />
         <SettingsSectionContent>
           <div className="flex h-32 items-center justify-center">
-            <P className="text-muted-foreground">Loading...</P>
+            <P className="text-muted-foreground">加载中...</P>
           </div>
         </SettingsSectionContent>
       </SettingsContainer>
@@ -46,17 +46,17 @@ const ProvidersSettings: NextPageWithLayout = () => {
     return (
       <SettingsContainer>
         <SettingsSectionHeader
-          title="Providers"
-          description="Configure your API keys for different LLM providers"
+          title="提供商"
+          description="配置不同 LLM 提供商的 API 密钥"
         />
         <SettingsSectionContent>
           <div className="flex flex-col items-center justify-center gap-4 rounded-lg border border-border bg-muted/50 p-8">
             <ShieldAlert size={48} className="text-muted-foreground" />
             <div className="flex flex-col items-center gap-2 text-center">
-              <P className="font-semibold">Admin Access Required</P>
+              <P className="font-semibold">需要管理员权限</P>
               <P className="text-sm text-muted-foreground">
-                Only organization administrators can manage provider API keys.
-                Please contact your organization admin for access.
+                只有组织管理员可以管理提供商 API 密钥。
+                请联系您的组织管理员获取访问权限。
               </P>
             </div>
           </div>
@@ -68,8 +68,8 @@ const ProvidersSettings: NextPageWithLayout = () => {
   return (
     <SettingsContainer>
       <SettingsSectionHeader
-        title="Providers"
-        description="Configure your API keys for different LLM providers"
+        title="提供商"
+        description="配置不同 LLM 提供商的 API 密钥"
       />
 
       <SettingsSectionContent>

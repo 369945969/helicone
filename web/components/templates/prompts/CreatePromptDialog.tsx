@@ -40,20 +40,20 @@ const CreatePromptDialog: React.FC<CreatePromptDialogProps> = ({
       <DialogTrigger asChild className="w-min">
         <ProFeatureWrapper featureName="Prompts" enabled={hasAccess}>
           <Button variant={"default"} size={"sm"}>
-            Create new prompt
+            创建新提示词
           </Button>
         </ProFeatureWrapper>
       </DialogTrigger>
       <DialogContent className="w-[900px]">
         <DialogHeader className="flex flex-row items-center justify-between">
-          <DialogTitle>Create a new prompt</DialogTitle>
+          <DialogTitle>创建新提示词</DialogTitle>
           <div className="flex items-center space-x-2">
             <Switch
               id="im-not-technical"
               checked={imNotTechnical}
               onCheckedChange={setImNotTechnical}
             />
-            <Label htmlFor="im-not-technical">I&apos;m not technical</Label>
+            <Label htmlFor="im-not-technical">我不懂技术</Label>
           </div>
         </DialogHeader>
         <div className="flex h-[570px] flex-col justify-between space-y-4">
@@ -61,7 +61,7 @@ const CreatePromptDialog: React.FC<CreatePromptDialogProps> = ({
             <>{/* ... (rest of the non-technical UI) ... */}</>
           ) : (
             <>
-              <p className="mb-2 text-gray-500">TS/JS Quick Start</p>
+              <p className="mb-2 text-gray-500">TS/JS 快速入门</p>
               <DiffHighlight
                 code={`
 // 1. Add this line

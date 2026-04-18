@@ -31,7 +31,7 @@ export default function ColumnOptions<T>({
       />
       <Col className="mt-2 flex-grow overflow-y-auto">
         {categories
-          .filter((category) => category !== "All columns")
+          .filter((category) => category !== "所有列")
           .filter((category) => {
             if (selectedCategory === "All columns") {
               return true;
@@ -41,7 +41,7 @@ export default function ColumnOptions<T>({
           .map((category, idx) => (
             <Col key={`${category}-${idx}`} className="mb-4 gap-2">
               <p className="text-xs font-medium text-slate-500">
-                {category === "Default" ? "All columns" : category}
+                {category === "默认" ? "所有列" : category}
               </p>
               <ul className="flex flex-wrap gap-2">
                 {columns

@@ -41,23 +41,23 @@ export const InvoiceSheet: React.FC = () => {
   return (
     <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline">View Upcoming Invoice</Button>
+        <Button variant="outline">查看即将到来的账单</Button>
       </SheetTrigger>
       <SheetContent
         className="sm:max-w-[425px]"
         onOpenAutoFocus={(event) => event.preventDefault()}
       >
         <SheetHeader>
-          <SheetTitle>Upcoming Invoice</SheetTitle>
+          <SheetTitle>即将到来的账单</SheetTitle>
           <SheetDescription>
             Details of your next billing cycle
           </SheetDescription>
         </SheetHeader>
         <div className="mt-6 flex flex-col gap-6">
           {upcomingInvoice.isLoading ? (
-            <p>Loading invoice details...</p>
+            <p>正在加载发票详情...</p>
           ) : upcomingInvoice.error ? (
-            <p>Error loading invoice. Please try again.</p>
+            <p>加载发票时出错。请重试。</p>
           ) : upcomingInvoice.data?.data ? (
             <>
               <div className="flex items-center justify-between">

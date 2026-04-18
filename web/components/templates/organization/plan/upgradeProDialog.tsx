@@ -154,7 +154,7 @@ export const UpgradeProDialog = ({
               <div className="flex-1">
                 <div className="flex items-start justify-between">
                   <div>
-                    <P className="font-semibold">Pro Plan</P>
+                    <P className="font-semibold">专业版计划</P>
                     <Muted className="text-sm">
                       Unlimited seats, tiered usage
                     </Muted>
@@ -166,11 +166,11 @@ export const UpgradeProDialog = ({
                 <div className="mt-2 space-y-0.5">
                   <div className="flex items-center gap-2">
                     <Check size={12} className="text-primary" />
-                    <Muted className="text-xs">Unlimited seats</Muted>
+                    <Muted className="text-xs">无限席位</Muted>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check size={12} className="text-primary" />
-                    <Muted className="text-xs">Unlimited requests</Muted>
+                    <Muted className="text-xs">无限请求</Muted>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check size={12} className="text-primary" />
@@ -201,7 +201,7 @@ export const UpgradeProDialog = ({
               <div className="flex items-start justify-between">
                 <div>
                   <P className="font-semibold">Team</P>
-                  <Muted className="text-sm">For growing teams</Muted>
+                  <Muted className="text-sm">适合成长中的团队</Muted>
                 </div>
                 <P className="text-lg font-bold">${TEAM_PRICE}/mo</P>
               </div>
@@ -210,7 +210,7 @@ export const UpgradeProDialog = ({
               <div className="mt-2 space-y-0.5">
                 <div className="flex items-center gap-2">
                   <Check size={12} className="text-primary" />
-                  <Muted className="text-xs">Everything in Pro</Muted>
+                  <Muted className="text-xs">专业版所有功能</Muted>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check size={12} className="text-primary" />

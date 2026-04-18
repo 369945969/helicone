@@ -148,7 +148,7 @@ const ReportsPage = () => {
         (selectedEmails.length < 1 && selectedSlackChannels.length < 1))
     ) {
       setNotification(
-        "Please select at least one email or slack channel",
+        "请选择至少一个邮箱或 Slack 频道",
         "error",
       );
       return;
@@ -156,7 +156,7 @@ const ReportsPage = () => {
 
     const authFromCookie = getHeliconeCookie();
     if (authFromCookie.error || !authFromCookie.data) {
-      setNotification("Please login to create an alert", "error");
+      setNotification("请登录后创建警报", "error");
       return;
     }
 
@@ -184,11 +184,11 @@ const ReportsPage = () => {
       });
 
       if (error) {
-        setNotification(`Failed to update report ${error}`, "error");
+        setNotification(`更新报告失败 ${error}`, "error");
         return;
       }
 
-      setNotification("Successfully configured report", "success");
+      setNotification("成功配置报告", "success");
       refetchReport();
       return;
     }
@@ -198,11 +198,11 @@ const ReportsPage = () => {
     });
 
     if (error) {
-      setNotification(`Failed to create report ${error}`, "error");
+      setNotification(`创建报告失败 ${error}`, "error");
       return;
     }
 
-    setNotification("Successfully enabled report", "success");
+    setNotification("成功启用报告", "success");
     refetchReport();
   };
 
@@ -211,7 +211,7 @@ const ReportsPage = () => {
       <form onSubmit={handleCustomizeReports} className="h-full w-full">
         <div className="col-span-4 flex flex-row items-center justify-between">
           <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-            Reports
+            报告
           </h1>
 
           <Switch
@@ -221,16 +221,15 @@ const ReportsPage = () => {
           />
         </div>
         <small className="col-span-4">
-          Receive a weekly summary report every <strong>Monday</strong> at{" "}
-          <strong>10am UTC</strong>.
+          每周 <strong>星期一</strong> <strong>10 点 (UTC)</strong> 接收摘要报告。
         </small>
         {reportEnabled && (
           <div className="col-span-4 w-full space-y-1.5 rounded-md bg-card p-6">
-            {/* <h3 className="font-semibold">Notify By</h3> */}
+            {/* <h3 className="font-semibold">通知方式</h3> */}
             <div className="col-span-4 w-full space-y-1.5 text-sm">
               <div className="flex items-center justify-between">
                 <label htmlFor="alert-emails" className="text-gray-500">
-                  Emails
+                  邮箱
                 </label>
                 <Switch
                   disabled={isLoading}
@@ -250,19 +249,19 @@ const ReportsPage = () => {
                         size="sm"
                         disabled={isLoading}
                       >
-                        <span className="truncate">
-                          {selectedEmails.length > 0
-                            ? `${selectedEmails.length} email${selectedEmails.length > 1 ? "s" : ""} selected`
-                            : "Select emails to send alerts to"}
-                        </span>
+                      <span className="truncate">
+                        {selectedEmails.length > 0
+                          ? `已选择 ${selectedEmails.length} 个邮箱`
+                          : "选择要发送报告的邮箱"}
+                      </span>
                         <ChevronsUpDown className="ml-2 h-3.5 w-3.5 shrink-0 opacity-50" />
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-[300px] p-0" align="start">
                       <Command>
-                        <CommandInput placeholder="Search emails..." />
+                        <CommandInput placeholder="搜索邮箱..." />
                         <CommandList>
-                          <CommandEmpty>No emails found.</CommandEmpty>
+                          <CommandEmpty>未找到邮箱。</CommandEmpty>
                           <CommandGroup>
                             {members.map((member) => (
                               <CommandItem
@@ -324,7 +323,7 @@ const ReportsPage = () => {
             <div className="col-span-4 w-full space-y-1.5 text-sm">
               <div className="flex items-center justify-between">
                 <label htmlFor="alert-slack-channels" className="text-gray-500">
-                  Slack Channels
+                  Slack 频道
                 </label>
                 <Switch
                   disabled={isLoadingSlackChannels}
@@ -348,17 +347,17 @@ const ReportsPage = () => {
                           >
                             <span className="truncate">
                               {selectedSlackChannels.length > 0
-                                ? `${selectedSlackChannels.length} channel${selectedSlackChannels.length > 1 ? "s" : ""} selected`
-                                : "Select slack channels to send alerts to"}
+                                ? `已选择 ${selectedSlackChannels.length} 个频道`
+                                : "选择要发送报告的 Slack 频道"}
                             </span>
                             <ChevronsUpDown className="ml-2 h-3.5 w-3.5 shrink-0 opacity-50" />
                           </Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-[300px] p-0" align="start">
                           <Command>
-                            <CommandInput placeholder="Search channels..." />
+                            <CommandInput placeholder="搜索频道..." />
                             <CommandList>
-                              <CommandEmpty>No channels found.</CommandEmpty>
+                              <CommandEmpty>未找到频道。</CommandEmpty>
                               <CommandGroup>
                                 {slackChannels.map((channel) => (
                                   <CommandItem
@@ -423,9 +422,7 @@ const ReportsPage = () => {
                       )}
                     </div>
                     <small className="text-gray-500">
-                      If the channel is private, you will need to add the bot to
-                      the channel by mentioning <strong>@Helicone</strong> in
-                      the channel.
+                      如果频道是私有的，您需要通过在频道中提及 <strong>@Helicone</strong> 来将机器人添加到频道。
                     </small>
                   </>
                 ) : (
@@ -437,7 +434,7 @@ const ReportsPage = () => {
                         orgContext?.currentOrg?.id || ""
                       }&redirect_uri=${slackRedirectUrl}`}
                     >
-                      Connect Slack
+                      连接 Slack
                     </a>
                   </Button>
                 ))}
@@ -453,9 +450,9 @@ const ReportsPage = () => {
             type="button"
             variant="outline"
           >
-            Cancel
+            取消
           </Button>
-          <Button type="submit">Save</Button>
+          <Button type="submit">保存</Button>
         </div>
       </form>
     </div>

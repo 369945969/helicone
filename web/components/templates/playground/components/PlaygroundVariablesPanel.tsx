@@ -49,12 +49,12 @@ const PlaygroundVariablesPanel = ({
     <ScrollArea className="h-full w-full">
       <div className="flex h-full flex-col">
         <div className="border-b border-border p-4">
-          <h2 className="text-sm font-medium">Prompt Variables</h2>
+          <h2 className="text-sm font-medium">提示词变量</h2>
         </div>
         <div className="p-4">
           {variables.size === 0 ? (
             <div className="flex h-32 items-center justify-center text-muted-foreground">
-              <p className="text-sm">No template variables detected</p>
+              <p className="text-sm">未检测到模板变量</p>
             </div>
           ) : (
             <div className="flex flex-col divide-y divide-border">
@@ -79,7 +79,7 @@ const PlaygroundVariablesPanel = ({
                         htmlFor={`edit-object-${name}`}
                         className="text-xs text-muted-foreground"
                       >
-                        Edit Object
+                        编辑对象
                       </Label>
                       <Switch
                         id={`edit-object-${name}`}
@@ -93,7 +93,7 @@ const PlaygroundVariablesPanel = ({
                   </div>
                   {editObjectModes.has(name) ? (
                     <MarkdownEditor
-                      placeholder={`Enter ${variable.type} value...`}
+                      placeholder={`输入 ${variable.type} 值...`}
                       language="json"
                       setText={(value) => handleValueChange(name, value)}
                       text={values[name]?.value || ""}
@@ -101,7 +101,7 @@ const PlaygroundVariablesPanel = ({
                     />
                   ) : (
                     <Input
-                      placeholder={`Enter ${variable.type} value...`}
+                      placeholder={`输入 ${variable.type} 值...`}
                       value={values[name]?.value || ""}
                       onChange={(e) => handleValueChange(name, e.target.value)}
                     />

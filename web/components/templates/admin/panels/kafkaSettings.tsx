@@ -51,11 +51,11 @@ const KafkaSettings = () => {
 
   return (
     <>
-      <h2 className="text-lg font-semibold text-white">Kafka Settings</h2>
+      <h2 className="text-lg font-semibold text-white">Kafka 设置</h2>
       <div className="flex flex-col space-y-2">
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-1">
-            <label className="text-sm text-white">Select Setting</label>
+            <label className="text-sm text-white">选择设置</label>
             <select
               value={selectedSetting}
               onChange={(e) =>
@@ -76,7 +76,7 @@ const KafkaSettings = () => {
         <div className="grid grid-cols-2 gap-4">
           <div className="col-span-1">
             <TextInput
-              placeholder="Mini Batch Size"
+              placeholder="小批量大小"
               value={miniBatchSize.toString()}
               onValueChange={(value) => setMiniBatchSize(Number(value))}
             />

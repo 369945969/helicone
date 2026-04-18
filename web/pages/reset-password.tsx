@@ -16,11 +16,11 @@ const ResetPassword = () => {
         });
 
         if (error) {
-          setNotification("Error updating user. Please try again.", "error");
+          setNotification("更新用户时出错。请重试。", "error");
           logger.error({ error }, "Error updating user");
           return;
         }
-        setNotification("Success. Redirecting...", "success");
+        setNotification("成功。正在重定向...", "success");
         router.push("/dashboard");
       }}
       authFormType={"reset-password"}

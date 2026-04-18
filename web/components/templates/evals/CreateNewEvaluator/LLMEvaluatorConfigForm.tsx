@@ -146,15 +146,15 @@ const BasicInformationSection = ({
 }) => (
   <div className="space-y-3">
     <SectionHeader
-      title="Basic Information"
-      description="Define your evaluator's name and purpose"
+      title="基本信息"
+      description="定义评估器的名称和用途"
     />
 
     <div className="space-y-3">
-      <FormField id="name" label="Evaluator Name">
+      <FormField id="name" label="评估器名称">
         <Input
           id="name"
-          placeholder="Enter evaluator name"
+          placeholder="输入评估器名称"
           value={configFormParams.name}
           className="border-input"
           readOnly={existingEvaluator}
@@ -172,7 +172,7 @@ const BasicInformationSection = ({
         )}
       </FormField>
 
-      <FormField id="description" label="Description">
+      <FormField id="description" label="描述">
         <>
           <Muted className="mb-1 block text-xs">
             Descriptions are used by the LLM to understand what the evaluator
@@ -180,7 +180,7 @@ const BasicInformationSection = ({
           </Muted>
           <Textarea
             id="description"
-            placeholder="Check if the response is appropriate"
+            placeholder="检查响应是否合适"
             value={configFormParams.description}
             className="h-32 border-input"
             onChange={(e) =>
@@ -205,7 +205,7 @@ const ChoiceScoresSection = ({
 }) => (
   <div className="rounded-md bg-muted/10 p-3">
     <div className="mb-2 flex items-center justify-between">
-      <Label>Choice Scores</Label>
+      <Label>选择分数</Label>
       <Tooltip>
         <TooltipTrigger>
           <InfoIcon className="h-4 w-4 text-muted-foreground" />
@@ -267,7 +267,7 @@ const ChoiceScoresSection = ({
                   choiceScores,
                 });
               }}
-              placeholder="Description"
+              placeholder="描述"
               className="flex-grow"
             />
             <div className="flex gap-1">
@@ -326,7 +326,7 @@ const RangeConfigSection = ({
   ) => void;
 }) => (
   <div className="rounded-md bg-muted/10 p-2">
-    <Label className="mb-1 block text-sm">Range Configuration</Label>
+    <Label className="mb-1 block text-sm">范围配置</Label>
     <div className="grid grid-cols-2 gap-3">
       <div>
         <Label htmlFor="min-range" className="text-xs text-muted-foreground">
@@ -386,14 +386,14 @@ const ScoringTypeSection = ({
   return (
     <div className="space-y-3">
       <SectionHeader
-        title="Scoring Type"
-        description="Choose how your evaluator will score responses"
+        title="评分类型"
+        description="选择评估器如何评分响应"
       />
 
       <div className="flex flex-col space-y-3">
         <FormField
           id="scoring-type"
-          label="Scoring Type"
+          label="评分类型"
           tooltip={scoringTypeTooltip[configFormParams.expectedValueType]}
         >
           <Select
@@ -425,7 +425,7 @@ const ScoringTypeSection = ({
             }}
           >
             <SelectTrigger id="scoring-type">
-              <SelectValue placeholder="Select a scoring type" />
+              <SelectValue placeholder="选择评分类型" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="boolean">
@@ -510,8 +510,8 @@ const VariablesSection = ({
   return (
     <div className="space-y-3">
       <SectionHeader
-        title="Included Variables"
-        description="Select which variables to include in the evaluation"
+        title="包含变量"
+        description="选择要在评估中包含的变量"
       />
 
       <div className="grid grid-cols-2 gap-2">
@@ -566,12 +566,12 @@ const ModelTestingSection = ({
 }) => (
   <div className="space-y-3">
     <SectionHeader
-      title="Model & Testing"
-      description="Select the model and test your evaluator"
+      title="模型与测试"
+      description="选择模型并测试您的评估器"
     />
 
     <div>
-      <FormField id="model" label="Model" className="flex-1">
+      <FormField id="model" label="模型" className="flex-1">
         <Select
           defaultValue="gpt-4o"
           value={configFormParams.model}
@@ -582,7 +582,7 @@ const ModelTestingSection = ({
           }
         >
           <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select a model" />
+            <SelectValue placeholder="选择模型" />
           </SelectTrigger>
           <SelectContent>
             {modelOptions.map((model) => (

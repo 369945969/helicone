@@ -211,7 +211,7 @@ export default function NewDataset({
       return (
         <InfoBox variant="warning" className="mb-2">
           <div className="flex flex-col">
-            <P className="font-medium">Dataset Size Limit</P>
+            <P className="font-medium">数据集大小限制</P>
             <Muted>
               {limitedRequestIds.length === 0
                 ? `This dataset has reached the maximum capacity of ${MAX_REQUESTS_PER_DATASET} requests.`
@@ -324,7 +324,7 @@ export default function NewDataset({
         </div>
         {selectedOption === "new" && (
           <div className="pl-7">
-            <Label htmlFor="new-dataset-name">Dataset name</Label>
+            <Label htmlFor="new-dataset-name">数据集名称</Label>
             <Input
               id="new-dataset-name"
               value={newDatasetName}

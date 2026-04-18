@@ -133,7 +133,7 @@ export default function ChatMessageTopBar({
             onValueChange={(value) => changeMessageRole(messageIndex, value)}
           >
             <SelectTrigger className="inline-flex h-6 items-center text-nowrap rounded-md border-[hsl(var(--border))] bg-[hsl(var(--background))] px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--accent))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2">
-              <SelectValue placeholder="Select role" />
+              <SelectValue placeholder="选择角色" />
             </SelectTrigger>
             <SelectContent className="min-w-[140px]">
               {ROLE_OPTIONS.map(({ value, label }) => (

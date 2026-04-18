@@ -248,7 +248,7 @@ const AdminHelixThreads = () => {
               Back to list
             </Button>
           )}
-          <H3>Helix Support Threads</H3>
+          <H3>Helix 支持线程</H3>
           <Badge variant="secondary">{totalThreads} total</Badge>
         </div>
 
@@ -260,7 +260,7 @@ const AdminHelixThreads = () => {
                 size={16}
               />
               <Input
-                placeholder="Enter session ID..."
+                placeholder="输入会话 ID..."
                 value={sessionId}
                 onChange={(e) => setSessionId(e.target.value)}
                 className="w-64 pl-8"
@@ -279,7 +279,7 @@ const AdminHelixThreads = () => {
           <CardHeader className="pb-2">
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
-                <H4>Recent Threads</H4>
+                <H4>最近线程</H4>
                 {totalPages > 1 && (
                   <div className="flex items-center gap-2">
                     <Button
@@ -315,10 +315,10 @@ const AdminHelixThreads = () => {
                   }}
                 >
                   <SelectTrigger className="h-8 w-[110px]">
-                    <SelectValue placeholder="Status" />
+                    <SelectValue placeholder="状态" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Status</SelectItem>
+                    <SelectItem value="all">所有状态</SelectItem>
                     <SelectItem value="escalated">Escalated</SelectItem>
                     <SelectItem value="resolved">Resolved</SelectItem>
                   </SelectContent>
@@ -331,14 +331,14 @@ const AdminHelixThreads = () => {
                   }}
                 >
                   <SelectTrigger className="h-8 w-[110px]">
-                    <SelectValue placeholder="Tier" />
+                    <SelectValue placeholder="等级" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Tiers</SelectItem>
+                    <SelectItem value="all">所有等级</SelectItem>
                     <SelectItem value="enterprise">Enterprise</SelectItem>
                     <SelectItem value="pro">Pro</SelectItem>
                     <SelectItem value="growth">Growth</SelectItem>
-                    <SelectItem value="free">Free</SelectItem>
+                    <SelectItem value="free">免费</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -355,7 +355,7 @@ const AdminHelixThreads = () => {
               ) : threads.length === 0 ? (
                 <div className="flex flex-col items-center gap-2 p-8 text-center">
                   <MessageSquare className="text-muted-foreground" size={32} />
-                  <Muted>No threads found</Muted>
+                  <Muted>未找到线程</Muted>
                 </div>
               ) : (
                 <div className="flex flex-col">
@@ -434,7 +434,7 @@ const AdminHelixThreads = () => {
             {!selectedSessionId ? (
               <div className="flex h-full flex-col items-center justify-center gap-4 p-8">
                 <MessageSquare className="text-muted-foreground" size={48} />
-                <H4>Select a thread</H4>
+                <H4>选择线程</H4>
                 <Muted className="text-center">
                   Choose a thread from the list or enter a session ID to view
                   the conversation
@@ -454,7 +454,7 @@ const AdminHelixThreads = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
-                        <H4>Thread Details</H4>
+                        <H4>线程详情</H4>
                         {selectedThread.data.data.escalated ? (
                           <Badge variant="destructive">
                             <AlertCircle size={12} className="mr-1" />
@@ -594,7 +594,7 @@ const AdminHelixThreads = () => {
                       <div className="flex items-center gap-2">
                         <Input
                           autoFocus
-                          placeholder="Your name"
+                          placeholder="您的姓名"
                           defaultValue={adminName}
                           className="h-7 w-40"
                           onKeyDown={(e) => {
@@ -612,7 +612,7 @@ const AdminHelixThreads = () => {
                             }
                           }}
                         />
-                        <Muted className="text-xs">Enter to save</Muted>
+                        <Muted className="text-xs">按 Enter 保存</Muted>
                       </div>
                     ) : (
                       <button
@@ -626,7 +626,7 @@ const AdminHelixThreads = () => {
                   </div>
                   <div className="flex gap-2">
                     <Textarea
-                      placeholder="Type your reply..."
+                      placeholder="输入您的回复..."
                       value={replyMessage}
                       onChange={(e) => setReplyMessage(e.target.value)}
                       className="min-h-[80px] resize-none"
@@ -655,7 +655,7 @@ const AdminHelixThreads = () => {
             ) : (
               <div className="flex h-full flex-col items-center justify-center gap-4 p-8">
                 <AlertCircle className="text-destructive" size={48} />
-                <H4>Thread not found</H4>
+                <H4>未找到线程</H4>
                 <Muted className="text-center">
                   The thread with ID &quot;{selectedSessionId}&quot; could not
                   be found

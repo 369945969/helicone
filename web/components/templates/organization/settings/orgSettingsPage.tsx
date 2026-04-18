@@ -86,10 +86,10 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
 
   return (
     <SettingsContainer>
-      <SettingsSection title="Organization Details">
+      <SettingsSection title="组织详情">
         <div className="space-y-1">
           <Label htmlFor="org-name">
-            <XSmall className="font-medium">Organization Name</XSmall>
+            <XSmall className="font-medium">组织名称</XSmall>
           </Label>
           <Input
             id="org-name"
@@ -101,7 +101,7 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
 
         <div className="space-y-1">
           <Label htmlFor="org-id">
-            <XSmall className="font-medium">Organization Id</XSmall>
+            <XSmall className="font-medium">组织 ID</XSmall>
           </Label>
           <div className="flex flex-row items-center gap-2">
             <Input
@@ -116,7 +116,7 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
               className="text-xs"
               onClick={() => {
                 navigator.clipboard.writeText(org.id);
-                setNotification("Copied to clipboard", "success");
+                setNotification("已复制到剪贴板", "success");
               }}
             >
               <CopyIcon className="h-3 w-3" />
@@ -125,11 +125,11 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
         </div>
       </SettingsSection>
 
-      <SettingsSection title="Organization Customization">
+      <SettingsSection title="组织定制">
         <div className="flex max-w-[450px] flex-col gap-6">
           <div className="flex flex-col gap-3">
             <Label className="items-start justify-start">
-              <XSmall className="font-medium">Choose a color</XSmall>
+              <XSmall className="font-medium">选择颜色</XSmall>
             </Label>
             <RadioGroup
               defaultValue={org.color}
@@ -170,7 +170,7 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
 
           <div className="flex flex-col gap-3">
             <Label className="items-start justify-start">
-              <XSmall className="font-medium">Choose an icon</XSmall>
+              <XSmall className="font-medium">选择图标</XSmall>
             </Label>
             <RadioGroup
               defaultValue={org.icon}
@@ -215,7 +215,7 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
         </div>
       </SettingsSection>
 
-      <SettingsSection title="Default Time Window">
+      <SettingsSection title="默认时间窗口">
         <div className="flex flex-col gap-2">
           <Label htmlFor="default-time-filter">
             <XSmall className="font-medium">
@@ -236,7 +236,7 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
             }
           >
             <SelectTrigger className="max-w-[250px]">
-              <SelectValue placeholder="Select default time range" />
+              <SelectValue placeholder="选择默认时间范围" />
             </SelectTrigger>
             <SelectContent>
               {TIME_FILTER_OPTIONS.map((option) => (
@@ -249,7 +249,7 @@ const OrgSettingsPage = (props: OrgSettingsPageProps) => {
         </div>
       </SettingsSection>
 
-      <SettingsSection title="Actions">
+      <SettingsSection title="操作">
         <div className="flex items-center justify-between">
           {isOwner && (
             <Button

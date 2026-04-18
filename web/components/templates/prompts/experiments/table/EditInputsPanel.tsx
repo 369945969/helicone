@@ -99,7 +99,7 @@ const EditInputsPanel = ({
           {hasUnsavedChanges && (
             <Badge variant="helicone" className="gap-2 text-slate-500">
               <TriangleAlertIcon className="h-3 w-3" />
-              <span>Unsaved changes</span>
+              <span>未保存的更改</span>
             </Badge>
           )}
           <XIcon
@@ -182,13 +182,13 @@ const EditInputsPanel = ({
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Discard changes</AlertDialogTitle>
+                <AlertDialogTitle>放弃更改</AlertDialogTitle>
                 <AlertDialogDescription>
                   You made changes to your inputs. Do you want to discard them?
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter className="w-full items-stretch gap-2">
-                <AlertDialogCancel>Go back</AlertDialogCancel>
+                <AlertDialogCancel>返回</AlertDialogCancel>
                 <AlertDialogAction onClick={onClose}>
                   Yes, discard
                 </AlertDialogAction>

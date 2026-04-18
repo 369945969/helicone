@@ -246,7 +246,7 @@ function QueryResult({
       {hasCostColumn && (
         <Alert variant="warning" className="mx-4 my-2">
           <AlertTriangle className="h-4 w-4" />
-          <AlertTitle>Cost Values Are Stored as Integers</AlertTitle>
+          <AlertTitle>成本值以整数存储</AlertTitle>
           <AlertDescription>
             Cost values in ClickHouse are stored multiplied by{" "}
             <code className="rounded bg-amber-100 px-1 py-0.5 font-mono text-xs dark:bg-amber-900">
@@ -353,7 +353,7 @@ const StatusBar = ({
                   <Table2 size={14} />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Table view</TooltipContent>
+              <TooltipContent>表格视图</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
@@ -368,7 +368,7 @@ const StatusBar = ({
                   <BarChart3 size={14} />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Chart view</TooltipContent>
+              <TooltipContent>图表视图</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -426,7 +426,7 @@ function ExportButton({ sql }: ExportButtonProps) {
             <LuDownload className="h-4 w-4" />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>Export data</TooltipContent>
+        <TooltipContent>导出数据</TooltipContent>
       </Tooltip>
 
       <ThemedModal open={open} setOpen={setOpen}>
@@ -457,7 +457,7 @@ function ExportButton({ sql }: ExportButtonProps) {
               onValueChange={(value) => setFormat(value as "CSV")}
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select format" />
+                <SelectValue placeholder="选择格式" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="CSV">CSV</SelectItem>
@@ -488,10 +488,10 @@ function ExportButton({ sql }: ExportButtonProps) {
                   <ArrowPathIcon
                     className={clsx("mr-2 inline h-5 w-5 animate-spin")}
                   />
-                  Exporting
+                  导出中
                 </>
               ) : (
-                <p>Export</p>
+                <p>导出</p>
               )}
             </Button>
           </div>

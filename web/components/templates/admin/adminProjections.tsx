@@ -61,7 +61,7 @@ const InvoiceModal = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div className="flex max-h-[80vh] w-full max-w-4xl flex-col rounded-lg border border-border bg-background shadow-lg">
         <div className="flex items-center justify-between border-b border-border p-4">
-          <H3>Raw Invoice Data</H3>
+          <H3>原始发票数据</H3>
           <Button variant="ghost" size="sm" onClick={onClose}>
             ✕
           </Button>
@@ -687,8 +687,8 @@ const AdminProjections = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <H1>Revenue Projections</H1>
-          <Muted>Track subscription revenue across all products</Muted>
+          <H1>收入预测</H1>
+          <Muted>跟踪所有产品的订阅收入</Muted>
         </div>
         <Button
           onClick={handleRefresh}
@@ -713,7 +713,7 @@ const AdminProjections = () => {
         <div className="flex items-center justify-center py-12">
           <div className="flex items-center gap-3">
             <Loader2 size={24} className="animate-spin text-muted-foreground" />
-            <Muted>Loading subscription data...</Muted>
+            <Muted>正在加载订阅数据...</Muted>
           </div>
         </div>
       )}
@@ -725,7 +725,7 @@ const AdminProjections = () => {
             {/* New Products Section */}
             <div className="border-t border-border">
               <div className="px-4 py-2 bg-muted/30 border-b border-border">
-                <Small className="font-medium text-muted-foreground uppercase tracking-wide">New Products</Small>
+                <Small className="font-medium text-muted-foreground uppercase tracking-wide">新产品</Small>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3">
                 {productChartData
@@ -840,7 +840,7 @@ const AdminProjections = () => {
                         {/* Month selector */}
                         {availableMonths.length > 0 && (
                           <div className="mb-4">
-                            <Small className="font-medium mb-2 block">Select Month</Small>
+                            <Small className="font-medium mb-2 block">选择月份</Small>
                             <div className="flex flex-wrap gap-1.5">
                               {availableMonths.map((monthKey) => (
                                 <Button
@@ -865,13 +865,13 @@ const AdminProjections = () => {
                             {/* Summary */}
                             <div className="mb-4 grid grid-cols-2 gap-4">
                               <div className="rounded-lg border border-border bg-muted/30 p-3">
-                                <Muted className="text-xs">Current Revenue</Muted>
+                                <Muted className="text-xs">当前收入</Muted>
                                 <p className="text-xl font-bold tabular-nums">
                                   ${revenueData.current.toFixed(2)}
                                 </p>
                               </div>
                               <div className="rounded-lg border border-border bg-muted/30 p-3">
-                                <Muted className="text-xs">Projected Revenue</Muted>
+                                <Muted className="text-xs">预计收入</Muted>
                                 <p className="text-xl font-bold tabular-nums">
                                   ${revenueData.projected.toFixed(2)}
                                 </p>
@@ -919,7 +919,7 @@ const AdminProjections = () => {
                             )}
                           </>
                         ) : (
-                          <Muted>No revenue data available</Muted>
+                          <Muted>无收入数据</Muted>
                         )}
                       </CardContent>
                     )}

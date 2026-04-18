@@ -35,7 +35,7 @@ export default function PlaygroundToolAttributes({
         className="h-auto w-auto px-2 py-1 text-xs"
         value={toolName}
         onChange={(e) => updateToolName(e.target.value)}
-        placeholder="Function Name"
+        placeholder="函数名称"
       />
       {isEditingCallId ? (
         <Input
@@ -49,7 +49,7 @@ export default function PlaygroundToolAttributes({
             }
           }}
           onChange={(e) => updateToolCallId(e.target.value)}
-          placeholder="Tool Call ID"
+          placeholder="工具调用 ID"
         />
       ) : (
         <Tooltip>
@@ -61,7 +61,7 @@ export default function PlaygroundToolAttributes({
               {toolCallId}
             </XSmall>
           </TooltipTrigger>
-          <TooltipContent>Click to edit</TooltipContent>
+          <TooltipContent>点击编辑</TooltipContent>
         </Tooltip>
       )}
     </div>

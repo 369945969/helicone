@@ -13,7 +13,7 @@ export interface AzureExperiment {
 export const AdminOnPremPage = () => {
   return (
     <div className="flex flex-col space-y-4 p-6">
-      <h1 className="text-2xl font-semibold">On Prem Settings</h1>
+      <h1 className="text-2xl font-semibold">本地部署设置</h1>
       <div className="flex max-w-4xl flex-col space-y-8">
         <Tabs defaultValue="azure" className="w-full">
           <TabsList>

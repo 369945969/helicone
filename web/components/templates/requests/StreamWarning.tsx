@@ -24,16 +24,15 @@ const StreamWarning: React.FC<StreamWarningProps> = ({
     <Alert variant="warning" className="w-full">
       <div className="flex items-center justify-between">
         <AlertDescription className="text-muted-foreground">
-          We are unable to calculate your cost accurately because the
-          &apos;stream_usage&apos; option is not included in your message.
-          Please refer to{" "}
+          我们无法准确计算您的成本，因为您的消息中未包含&apos;stream_usage&apos;选项。
+          请参考{" "}
           <Link
             href="https://docs.helicone.ai/use-cases/enable-stream-usage"
             className="font-medium underline underline-offset-4"
           >
-            this documentation
+            此文档
           </Link>{" "}
-          for more information.
+          获取更多信息。
         </AlertDescription>
         <Button
           onClick={() => setIsWarningHidden(true)}
@@ -42,7 +41,7 @@ const StreamWarning: React.FC<StreamWarningProps> = ({
           className="mx-5 h-6 w-6"
         >
           <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
+          <span className="sr-only">关闭</span>
         </Button>
       </div>
     </Alert>

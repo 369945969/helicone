@@ -17,7 +17,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
         "bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-600/20";
       return (
         <Badge variant="status" asPill={false} className={colorClass}>
-          Cached
+          缓存
         </Badge>
       );
     case "success":
@@ -26,7 +26,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
         "bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20";
       return (
         <Badge variant="status" asPill={false} className={colorClass}>
-          Success
+          成功
         </Badge>
       );
     case "pending":
@@ -35,7 +35,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
         "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-600/20";
       return (
         <Badge variant="status" asPill={false} className={colorClass}>
-          Pending
+          待处理
         </Badge>
       );
     case "RUNNING":
@@ -43,7 +43,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
         "bg-blue-200 dark:bg-gray-900 text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-600/20";
       return (
         <Badge variant="status" asPill={false} className={colorClass}>
-          Running
+          运行中
         </Badge>
       );
 
@@ -53,7 +53,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
           "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-600/20";
         return (
           <Badge variant="status" asPill={false} className={colorClass}>
-            Pending
+            待处理
           </Badge>
         );
       } else if (errorCode === -3) {
@@ -61,7 +61,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
           "bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-600/20";
         return (
           <Badge variant="status" asPill={false} className={colorClass}>
-            Cancelled
+            已取消
           </Badge>
         );
       } else if (errorCode === -1) {
@@ -69,7 +69,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
           "bg-red-50 dark:bg-red-900 text-red-700 dark:text-red-300 ring-1 ring-inset ring-red-600/20";
         return (
           <Badge variant="status" asPill={false} className={colorClass}>
-            Timeout
+            超时
           </Badge>
         );
       } else if (errorCode === -4) {
@@ -77,7 +77,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
           "bg-yellow-50 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 ring-1 ring-inset ring-red-600/20";
         return (
           <Badge variant="status" asPill={false} className={colorClass}>
-            Threat
+            威胁
           </Badge>
         );
       } else {
@@ -85,7 +85,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
           "bg-red-50 dark:bg-red-900 text-red-700 dark:text-red-300 ring-1 ring-inset ring-red-600/20";
         return (
           <Badge variant="status" asPill={false} className={colorClass}>
-            {`${errorCode} Error`}
+            {`${errorCode} 错误`}
           </Badge>
         );
       }
@@ -94,7 +94,7 @@ const StatusBadge = (props: StatusBadgeProps) => {
         "bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-600/20";
       return (
         <Badge variant="status" asPill={false} className={colorClass}>
-          Unknown
+          未知
         </Badge>
       );
   }

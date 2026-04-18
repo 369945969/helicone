@@ -112,6 +112,7 @@ export const authMiddleware = async (
         !authParams.data?.keyPermissions?.includes(requiredPermission) &&
         !(isLogEndpoint && authParams.data?.keyPermissions?.includes("w")))
     ) {
+      console.log(`401 Unauthorized: ${authParams.error} for path: ${req.path}`);
       res.status(401).json({
         error: authParams.error,
         trace: "isAuthenticated.error",

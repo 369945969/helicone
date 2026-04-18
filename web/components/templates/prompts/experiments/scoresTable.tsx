@@ -1,32 +1,32 @@
-import ModelPill from "../../requests/modelPill";
+import 模型Pill from "../../requests/modelPill";
 import { clsx } from "../../../shared/clsx";
-import { SimpleTable } from "../../../shared/table/simpleTable";
+import { Simple表格 } from "../../../shared/table/simple表格";
 
-type Score = {
+type 评分 = {
   valueType: string;
   value: number | string;
 };
 
-type ExperimentScores = {
+type 实验评分s = {
   dataset: {
-    scores: Record<string, Score>;
+    scores: Record<string, 评分>;
   };
   hypothesis: {
-    scores: Record<string, Score>;
+    scores: Record<string, 评分>;
   };
 };
 
-export type ScoresProps = {
-  scores: ExperimentScores;
+export type 评分sProps = {
+  scores: 实验评分s;
 };
-const ScoresTable = ({ scores }: ScoresProps) => {
-  const calculateChange = (datasetScore: number, hypothesisScore: number) => {
-    const change = hypothesisScore - datasetScore;
+const 评分s表格 = ({ scores }: 评分sProps) => {
+  const calculateChange = (dataset评分: number, hypothesis评分: number) => {
+    const change = hypothesis评分 - dataset评分;
     const percentageChange = (() => {
-      if (datasetScore === 0) {
-        return hypothesisScore !== 0 ? 100 : 0;
+      if (dataset评分 === 0) {
+        return hypothesis评分 !== 0 ? 100 : 0;
       }
-      return (change / Math.abs(datasetScore)) * 100;
+      return (change / Math.abs(dataset评分)) * 100;
     })();
 
     return {
@@ -43,9 +43,9 @@ const ScoresTable = ({ scores }: ScoresProps) => {
     });
   };
 
-  const getScoreValue = (score: Score, field: string) => {
+  const get评分Value = (score: 评分, field: string) => {
     if (field === "dateCreated" && score.valueType === "string") {
-      return renderScoreValue(score.value);
+      return render评分Value(score.value);
     }
     if (
       field === "cost" &&
@@ -69,19 +69,19 @@ const ScoresTable = ({ scores }: ScoresProps) => {
       score.valueType === "string" &&
       typeof score.value === "string"
     ) {
-      return <ModelPill model={score.value} />;
+      return <模型Pill model={score.value} />;
     }
     return score.value;
   };
 
-  const getScoreAttribute = (key: string) => {
+  const get评分Attribute = (key: string) => {
     switch (key) {
       case "cost":
         return "Cost";
       case "model":
-        return "Model";
+        return "模型";
       case "dateCreated":
-        return "Date Created";
+        return "创建日期";
       case "latency":
         return "Latency";
       default:
@@ -90,7 +90,7 @@ const ScoresTable = ({ scores }: ScoresProps) => {
   };
   const renderComparisonCell = (
     field: string,
-    scores: ExperimentScores,
+    scores: 实验评分s,
     changeInfo: any,
   ) => {
     switch (field) {
@@ -192,7 +192,7 @@ const ScoresTable = ({ scores }: ScoresProps) => {
     }
   };
 
-  const renderScoreValue = (value: any) => {
+  const render评分Value = (value: any) => {
     if (value instanceof Date) {
       return value.toLocaleDateString();
     }
@@ -203,37 +203,37 @@ const ScoresTable = ({ scores }: ScoresProps) => {
     return value;
   };
 
-  const getTableData = (scores: ExperimentScores) => {
+  const get表格Data = (scores: 实验评分s) => {
     if (!scores || !scores.dataset.scores) {
       return [];
     }
 
-    const experimentScoresAttributes = Object.keys(scores.dataset.scores);
+    const experiment评分sAttributes = Object.keys(scores.dataset.scores);
 
-    return experimentScoresAttributes.map((field) => {
-      const datasetScore = scores.dataset.scores[field];
-      const hypothesisScore = scores.hypothesis.scores[field];
+    return experiment评分sAttributes.map((field) => {
+      const dataset评分 = scores.dataset.scores[field];
+      const hypothesis评分 = scores.hypothesis.scores[field];
       const comparisonCell =
         field !== "model" && field !== "dateCreated"
-          ? hypothesisScore
+          ? hypothesis评分
             ? renderComparisonCell(
                 field,
                 scores,
                 calculateChange(
-                  datasetScore.value as number,
-                  hypothesisScore.value as number,
+                  dataset评分.value as number,
+                  hypothesis评分.value as number,
                 ),
               )
             : "N/A"
           : renderComparisonCell(field, scores, null);
 
       return {
-        score_key: getScoreAttribute(field),
-        dataset: getScoreValue(datasetScore, field),
-        hypothesis: hypothesisScore
-          ? getScoreValue(hypothesisScore, field)
+        score_key: get评分Attribute(field),
+        dataset: get评分Value(dataset评分, field),
+        hypothesis: hypothesis评分
+          ? get评分Value(hypothesis评分, field)
           : "N/A",
-        compare: hypothesisScore ? comparisonCell : "N/A",
+        compare: hypothesis评分 ? comparisonCell : "N/A",
       };
     });
   };
@@ -244,8 +244,8 @@ const ScoresTable = ({ scores }: ScoresProps) => {
           Overview
         </h1>
       </div>
-      <SimpleTable
-        data={getTableData(scores) || []}
+      <Simple表格
+        data={get表格Data(scores) || []}
         columns={[
           {
             key: "score_key",
@@ -265,14 +265,14 @@ const ScoresTable = ({ scores }: ScoresProps) => {
           },
           {
             key: "hypothesis",
-            header: "Experiment prompt",
+            header: "实验 prompt",
             render: (score) => (
               <div className="text-black">{score.hypothesis}</div>
             ),
           },
           {
             key: "compare",
-            header: "Compare",
+            header: "对比",
             render: (score) => (
               <div className="text-black">{score.compare}</div>
             ),
@@ -283,4 +283,4 @@ const ScoresTable = ({ scores }: ScoresProps) => {
   );
 };
 
-export default ScoresTable;
+export default 评分s表格;

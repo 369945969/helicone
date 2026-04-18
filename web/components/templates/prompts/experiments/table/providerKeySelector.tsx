@@ -88,11 +88,11 @@ const ProviderKeySelector = (props: ProviderKeySelectorProps) => {
       .then(() => {
         refetchProviderKeys();
 
-        setNotification("Provider Key Deleted", "success");
+        setNotification("提供商密钥已删除", "success");
         setDeleteProviderOpen(false);
       })
       .catch(() => {
-        setNotification("Error Deleting Provider Key", "error");
+        setNotification("删除提供商密钥时出错", "error");
         setDeleteProviderOpen(false);
       });
   };
@@ -103,12 +103,12 @@ const ProviderKeySelector = (props: ProviderKeySelectorProps) => {
         <div className="mx-auto w-full space-y-4">
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center space-x-1">
-              <Tooltip title="Provider Keys are used to authenticate your requests to the API. This key is securely stored using our vault technologies, with the state of the art encryption.">
+              <Tooltip title="提供商密钥用于验证您对 API 的请求。此密钥使用我们的保险库技术安全存储，采用最先进的加密技术。">
                 <label
                   htmlFor="alert-metric"
                   className="text-base font-semibold text-gray-900 dark:text-gray-100"
                 >
-                  Provider Keys
+                  提供商密钥
                 </label>
               </Tooltip>
             </div>
@@ -124,9 +124,9 @@ const ProviderKeySelector = (props: ProviderKeySelectorProps) => {
             >
               <KeyIcon className="h-4 w-4 text-black dark:text-white" />
               <p className="pt-2 text-xs font-semibold text-gray-500">
-                Please create a provider key.{" "}
-                <Tooltip title="Provider Keys are used to authenticate your requests to the API. This key is securely stored using our vault technologies, with the state of the art encryption.">
-                  <span className="cursor-pointer underline">Learn more.</span>
+                请创建提供商密钥。{" "}
+                <Tooltip title="提供商密钥用于验证您对 API 的请求。此密钥使用我们的保险库技术安全存储，采用最先进的加密技术。">
+                  <span className="cursor-pointer underline">了解更多。</span>
                 </Tooltip>
               </p>
             </button>
@@ -249,14 +249,14 @@ const ProviderKeySelector = (props: ProviderKeySelectorProps) => {
       <Dialog open={isProviderOpen} onOpenChange={setIsProviderOpen}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Create Provider Key</DialogTitle>
+            <DialogTitle>创建提供商密钥</DialogTitle>
           </DialogHeader>
           <div className="flex w-full flex-col space-y-8 text-gray-900 dark:text-gray-100">
             <div className="w-full space-y-1.5 text-sm">
               <label htmlFor="api-key">Provider</label>
               <Select defaultValue="openai" disabled>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select provider" />
+                  <SelectValue placeholder="选择提供商" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="openai">
@@ -293,12 +293,12 @@ const ProviderKeySelector = (props: ProviderKeySelectorProps) => {
               />
             </div>
             <div className="w-full space-y-1.5 text-sm">
-              <label htmlFor="key-name">Key Name</label>
+              <label htmlFor="key-name">密钥名称</label>
               <Input
                 name="key-name"
                 id="key-name"
                 required
-                placeholder="Provider Key Name"
+                placeholder="提供商密钥名称"
               />
             </div>
             <div className="flex justify-end gap-2">
@@ -321,11 +321,11 @@ const ProviderKeySelector = (props: ProviderKeySelectorProps) => {
                     (!keyNameInput || keyNameInput.value === "") &&
                     variant !== "portal"
                   ) {
-                    setNotification("Please enter in a key name", "error");
+                    setNotification("请输入密钥名称", "error");
                     return;
                   }
                   if (!providerKeyInput || providerKeyInput.value === "") {
-                    setNotification("Please enter in a provider key", "error");
+                    setNotification("请输入提供商密钥", "error");
                     return;
                   }
 

@@ -146,7 +146,7 @@ export function Directory({
                   New query
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Create new query</TooltipContent>
+              <TooltipContent>创建新查询</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -375,7 +375,7 @@ function QueryList({
             <Checkbox
               checked={selectedQueries.size === queries.length}
               onCheckedChange={toggleSelectAll}
-              aria-label="Select all queries"
+              aria-label="选择所有查询"
             />
           )}
           <h3 className="text-sm font-medium text-muted-foreground">
@@ -395,7 +395,7 @@ function QueryList({
         )}
       </div>
       {isLoading ? (
-        <div className="text-sm text-muted-foreground">Loading...</div>
+        <div className="text-sm text-muted-foreground">正在加载...</div>
       ) : (
         <div className="space-y-1">
           {queries.map((query, index) => (
@@ -407,7 +407,7 @@ function QueryList({
                       checked={selectedQueries.has(query.id)}
                       onCheckedChange={() => toggleQuerySelection(query.id)}
                       onClick={(e) => e.stopPropagation()}
-                      aria-label={`Select ${query.name}`}
+                      aria-label={`选择 ${query.name}`}
                     />
                     <span
                       className="flex items-center gap-2 truncate pr-2 text-sm"

@@ -55,15 +55,15 @@ export const DeleteEvaluator = ({
                 placeholder={evaluator.name}
               />
               <i>
-                This will remove the evaluator from all{" "}
-                {experiments.data?.data?.data?.length ?? 0} experiments. Your
-                scores will still be saved, but you will not be able to use this
-                evaluator in new experiments.
+                这将从所有{" "}
+                {experiments.data?.data?.data?.length ?? 0} 个实验中移除该评估器。您的
+                分数仍将被保存，但您将无法在新的实验中使用此
+                评估器。
               </i>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={() => {
                 if (deleteConfirmation === evaluator.name) {
@@ -74,7 +74,7 @@ export const DeleteEvaluator = ({
               }}
               disabled={deleteConfirmation !== evaluator.name}
             >
-              Delete
+              删除
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

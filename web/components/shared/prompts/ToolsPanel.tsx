@@ -80,7 +80,7 @@ export default function ToolPanel({ tools, onToolsChange }: ToolPanelProps) {
               </div>
             </TooltipTrigger>
             <TooltipContent>
-              <p>New Tool</p>
+              <p>新工具</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
@@ -114,7 +114,7 @@ export default function ToolPanel({ tools, onToolsChange }: ToolPanelProps) {
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Delete Tool</p>
+                    <p>删除工具</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -130,7 +130,7 @@ export default function ToolPanel({ tools, onToolsChange }: ToolPanelProps) {
 
       {/* Tool Creation Popup */}
       <UniversalPopup
-        title="New Tool"
+        title="新工具"
         isOpen={isPopupOpen}
         onClose={() => setIsPopupOpen(false)}
         width="max-w-5xl w-full"
@@ -146,7 +146,7 @@ export default function ToolPanel({ tools, onToolsChange }: ToolPanelProps) {
           </div>
           <div className="flex flex-row items-center justify-end gap-2">
             {!isValidJson(toolJson) && (
-              <p className="text-sm text-red-500">Invalid JSON</p>
+              <p className="text-sm text-red-500">无效的 JSON</p>
             )}
             <Button variant="outline" onClick={() => setIsPopupOpen(false)}>
               Cancel

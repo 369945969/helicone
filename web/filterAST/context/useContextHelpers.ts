@@ -52,7 +52,7 @@ export const useContextHelpers = ({
 
   const saveFilter = async () => {
     if (!filterStore.filter) {
-      notification.setNotification("No filter to save", "error");
+      notification.setNotification("没有要保存的筛选器", "error");
       return;
     }
 

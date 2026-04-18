@@ -47,11 +47,11 @@ export const AnthropicSettings = () => {
 
   return (
     <div className="flex flex-col space-y-4 p-6">
-      <h1 className="text-2xl font-semibold">On Prem Settings</h1>
+      <h1 className="text-2xl font-semibold">本地部署设置</h1>
       <div className="flex max-w-4xl flex-col space-y-8">
         <Card className="bg-slate-200">
           <CardHeader>
-            <CardTitle>Anthropic Settings</CardTitle>
+            <CardTitle>Anthropic 设置</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">

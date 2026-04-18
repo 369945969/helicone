@@ -71,9 +71,9 @@ const PasswordChangePage = () => {
   return (
     <div className="flex flex-col gap-6 p-8">
       <div>
-        <H2>Change Password</H2>
+        <H2>修改密码</H2>
         <P className="text-muted-foreground">
-          Update your account password to keep your account secure
+          更新您的账户密码以保护账户安全
         </P>
       </div>
 
@@ -81,49 +81,49 @@ const PasswordChangePage = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Lock className="h-4 w-4" />
-            Password Settings
+            密码设置
           </CardTitle>
           <CardDescription>
-            Enter your current password and choose a new one
+            输入您的当前密码并选择一个新密码
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="current-password">Current Password</Label>
+              <Label htmlFor="current-password">当前密码</Label>
               <Input
                 id="current-password"
                 type="password"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword(e.target.value)}
-                placeholder="Enter your current password"
+                placeholder="输入当前密码"
                 disabled={isLoading}
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="new-password">New Password</Label>
+              <Label htmlFor="new-password">新密码</Label>
               <Input
                 id="new-password"
                 type="password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Enter your new password"
+                placeholder="输入新密码"
                 disabled={isLoading}
               />
               <p className="text-xs text-muted-foreground">
-                Password must be at least 8 characters long
+                密码必须至少 8 个字符
               </p>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirm-password">Confirm New Password</Label>
+              <Label htmlFor="confirm-password">确认新密码</Label>
               <Input
                 id="confirm-password"
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm your new password"
+                placeholder="确认新密码"
                 disabled={isLoading}
               />
             </div>
@@ -137,7 +137,7 @@ const PasswordChangePage = () => {
             {success && (
               <Alert className="border-green-500 bg-green-50 dark:bg-green-950/20">
                 <AlertDescription className="text-green-600 dark:text-green-400">
-                  Password changed successfully!
+                  密码修改成功！
                 </AlertDescription>
               </Alert>
             )}
@@ -155,10 +155,10 @@ const PasswordChangePage = () => {
                 }}
                 disabled={isLoading}
               >
-                Cancel
+                取消
               </Button>
               <Button type="submit" disabled={isLoading}>
-                {isLoading ? "Changing..." : "Change Password"}
+                {isLoading ? "修改中..." : "修改密码"}
               </Button>
             </div>
           </form>

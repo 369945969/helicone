@@ -56,7 +56,7 @@ const ModelPill = (props: ModelPillProps) => {
         `inline-flex h-6 items-center rounded-lg px-2 py-1 text-xs font-semibold ring-1 ring-inset`,
       )}
     >
-      {model && model !== "" ? model : "Unsupported"}
+      {model && model !== "" ? model : "不支持"}
     </span>
   );
 };

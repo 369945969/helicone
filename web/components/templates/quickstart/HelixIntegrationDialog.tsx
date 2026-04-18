@@ -212,7 +212,7 @@ const HelixIntegrationDialog = ({
                 </Label>
                 <Input
                   id="custom-method"
-                  placeholder="e.g., xAI, Groq Cloud, etc."
+                  placeholder="例如：xAI、Groq Cloud 等"
                   value={data.customMethod}
                   onChange={(e) =>
                     setData({ ...data, customMethod: e.target.value })
@@ -260,7 +260,7 @@ const HelixIntegrationDialog = ({
                 </Label>
                 <Input
                   id="custom-framework"
-                  placeholder="e.g., Go, Rust, etc."
+                  placeholder="例如：Go、Rust 等"
                   value={data.customFramework}
                   onChange={(e) =>
                     setData({ ...data, customFramework: e.target.value })
@@ -286,7 +286,7 @@ const HelixIntegrationDialog = ({
               </Label>
               <Textarea
                 id="current-code"
-                placeholder="Paste your current LLM code here..."
+                placeholder="在此粘贴您当前的 LLM 代码..."
                 className="font-mono min-h-[150px] text-sm"
                 value={data.currentCode}
                 onChange={(e) =>
@@ -304,7 +304,7 @@ const HelixIntegrationDialog = ({
               </Label>
               <Textarea
                 id="additional-instructions"
-                placeholder="Any specific requirements? (e.g., tracking custom properties, streaming, async logging, etc.)"
+                placeholder="有什么特定需求吗？（例如：跟踪自定义属性、流式传输、异步日志等）"
                 className="min-h-[100px]"
                 value={data.additionalInstructions}
                 onChange={(e) =>
@@ -368,7 +368,7 @@ const HelixIntegrationDialog = ({
 
           {step < totalSteps ? (
             <Button onClick={handleNext} className="flex items-center gap-1">
-              Next
+              下一步
               <ChevronRight className="h-4 w-4" />
             </Button>
           ) : (

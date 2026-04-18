@@ -179,11 +179,11 @@ const RateLimitRulesView = (props: RateLimitRulesViewProps) => {
 
         {(isError || apiError) && (
           <div className="flex flex-col items-center justify-center gap-4 bg-destructive/10 text-destructive">
-            <P className="text-center font-semibold">Error fetching rules</P>
+            <P className="text-center font-semibold">获取规则时出错</P>
             <P className="text-center text-xs">
               {networkError?.message ||
                 apiError ||
-                "An unknown error occurred."}
+                "发生未知错误。"}
             </P>
           </div>
         )}
@@ -194,8 +194,7 @@ const RateLimitRulesView = (props: RateLimitRulesViewProps) => {
           (!rules || rules.length === 0) && (
             <div className="flex flex-col items-center justify-center gap-4 bg-muted p-6 dark:bg-muted/50">
               <P className="text-center text-muted-foreground">
-                No rate limits defined yet. Create your first rate limit rule to
-                get started.
+                尚未定义速率限制。创建您的第一个速率限制规则以开始使用。
               </P>
             </div>
           )}
@@ -211,49 +210,49 @@ const RateLimitRulesView = (props: RateLimitRulesViewProps) => {
                   <TableHeader className="bg-muted/30">
                     <TableRow className="border-b border-border hover:bg-transparent dark:border-slate-800">
                       <TableHead className="border-r border-border px-4 py-2.5 text-sm font-semibold">
-                        Name
+                        名称
                       </TableHead>
                       <TableHead className="border-r border-border px-4 py-2.5 text-sm font-semibold">
-                        Quota
+                        配额
                       </TableHead>
                       <TableHead className="border-r border-border px-4 py-2.5 text-sm font-semibold">
-                        Unit
+                        单位
                       </TableHead>
                       <TableHead className="border-r border-border px-4 py-2.5 text-sm font-semibold">
-                        Window (sec)
+                        窗口（秒）
                       </TableHead>
                       <TableHead className="border-r border-border px-4 py-2.5 text-sm font-semibold">
-                        Applies To
+                        应用于
                       </TableHead>
                       <TableHead className="border-r border-border px-4 py-2.5 text-sm font-semibold">
-                        Created
+                        创建时间
                       </TableHead>
                       <TableHead className="px-4 py-2.5 text-sm font-semibold last:border-r-0">
-                        Actions
+                        操作
                       </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {sortedRules.map((rule) => {
                       let appliesToElement: React.ReactNode = (
-                        <Badge variant="secondary">Global</Badge>
+                        <Badge variant="secondary">全局</Badge>
                       );
                       if (rule.segment === "user") {
                         appliesToElement = (
-                          <Badge variant="default">User</Badge>
+                          <Badge variant="default">用户</Badge>
                         );
                       } else if (rule.segment) {
                         appliesToElement = (
-                          <Badge variant="outline">{`Property: ${rule.segment}`}</Badge>
+                          <Badge variant="outline">{`属性: ${rule.segment}`}</Badge>
                         );
                       }
 
                       let unitElement: React.ReactNode = (
                         <Badge variant="outline">
                           {rule.unit === "request"
-                            ? "Requests"
+                            ? "请求"
                             : rule.unit === "cents"
-                              ? "Cents"
+                              ? "美分"
                               : rule.unit}
                         </Badge>
                       );
@@ -322,12 +321,10 @@ const RateLimitRulesView = (props: RateLimitRulesViewProps) => {
                                 >
                                   <AlertDialogHeader>
                                     <AlertDialogTitle>
-                                      Are you sure you want to delete this rate
-                                      limit rule?
+                                      确定要删除此速率限制规则吗？
                                     </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                      This action cannot be undone. This will
-                                      permanently delete the rate limit rule
+                                      此操作无法撤销。这将永久删除速率限制规则
                                       <strong>{` "${rule.name}"`}</strong>.
                                     </AlertDialogDescription>
                                   </AlertDialogHeader>
@@ -335,7 +332,7 @@ const RateLimitRulesView = (props: RateLimitRulesViewProps) => {
                                     <AlertDialogCancel
                                       onClick={(e) => e.stopPropagation()}
                                     >
-                                      Cancel
+                                      取消
                                     </AlertDialogCancel>
                                     <AlertDialogAction
                                       onClick={(e) => {
@@ -345,8 +342,8 @@ const RateLimitRulesView = (props: RateLimitRulesViewProps) => {
                                       disabled={deleteRuleMutation.isPending}
                                     >
                                       {deleteRuleMutation.isPending
-                                        ? "Deleting..."
-                                        : "Delete"}
+                                        ? "删除中..."
+                                        : "删除"}
                                     </AlertDialogAction>
                                   </AlertDialogFooter>
                                 </AlertDialogContent>
@@ -370,7 +367,7 @@ const RateLimitRulesView = (props: RateLimitRulesViewProps) => {
             className="items-center gap-1"
           >
             <PiPlusBold className="h-3.5 w-3.5" />
-            Create Rule
+            创建规则
           </Button>
         </div>
       </div>

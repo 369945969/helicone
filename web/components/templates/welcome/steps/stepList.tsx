@@ -51,7 +51,7 @@ export default function StepList(props: {
   ];
 
   return (
-    <nav className="flex flex-col space-y-4" aria-label="Progress">
+    <nav className="flex flex-col space-y-4" aria-label="进度">
       <ol role="list" className="space-y-6">
         {steps.map((step) => (
           <li key={step.name}>
@@ -136,7 +136,7 @@ export default function StepList(props: {
           onClick={() => setStep(currentStep - 1)}
           className="self-start text-sm font-medium text-sky-600 hover:text-sky-800"
         >
-          &larr; Back
+          &larr; 返回
         </button>
       )}
     </nav>

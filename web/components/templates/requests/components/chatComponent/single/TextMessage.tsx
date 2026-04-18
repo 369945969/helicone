@@ -60,7 +60,7 @@ export default function TextMessage({
   return mode === "raw" || chatMode === "PLAYGROUND_INPUT" ? (
     <MarkdownEditor
       className="rounded-none bg-white dark:bg-slate-950"
-      placeholder="Enter your message here..."
+      placeholder="在此输入您的消息..."
       language="markdown"
       setText={
         chatMode === "PLAYGROUND_INPUT"

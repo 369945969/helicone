@@ -297,19 +297,19 @@ export const FeatureUpgradeCard: React.FC<FeatureUpgradeCardProps> = ({
 
   const pricingCards = (
     <div className="flex w-full flex-col gap-6 md:flex-row">
-      <PricingCard title="Hobby" price="Free" isCurrentPlan={true} />
+      <PricingCard title="Hobby" price="免费" isCurrentPlan={true} />
       <PricingCard
-        title="Pro"
+        title="专业版"
         price="$20"
-        priceSubtext="/seat/mo"
+        priceSubtext="/座位/月"
         isPopular={true}
         variant="highlighted"
         onClick={() => setIsUpgradeDialogOpen(true)}
       />
       <PricingCard
-        title="Team"
+        title="团队版"
         price="$200"
-        priceSubtext="/mo"
+        priceSubtext="/月"
         isBestValue={true}
         variant="outlined"
         onClick={handleUpgradeTeam}
@@ -335,7 +335,7 @@ export const FeatureUpgradeCard: React.FC<FeatureUpgradeCardProps> = ({
           </div>
           <div className="flex flex-row">
             <div className="inline-flex h-full items-center justify-center gap-2.5">
-              <P className="text-[hsl(var(--muted-foreground))]">Included in</P>
+              <P className="text-[hsl(var(--muted-foreground))]">包含于</P>
               <Badge
                 className="bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))]"
                 variant="helicone"
@@ -381,7 +381,7 @@ export const FeatureUpgradeCard: React.FC<FeatureUpgradeCardProps> = ({
 
       <div className="flex w-full flex-col items-center gap-6">
         <div className="flex items-center gap-2">
-          <H2>Everything else in</H2>
+          <H2>其他所有功能</H2>
           <div className="inline-flex -translate-y-1 rotate-2 items-center rounded-xl border-2 border-[hsl(var(--primary))] bg-[hsl(var(--accent))] px-[18px] py-2">
             <div className="text-[hsl(var(--primary))]">Pro</div>
           </div>

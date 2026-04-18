@@ -63,7 +63,7 @@ const OpenPipeConfig: React.FC<OpenPipeConfigProps> = ({ onClose }) => {
           disabled={isLoading}
           className="data-[state=checked]:bg-green-500"
         />
-        <Label htmlFor="autoDatasetSync">Enable OpenPipe Integration</Label>
+        <Label htmlFor="autoDatasetSync">启用 OpenPipe 集成</Label>
       </div>
       <div className="space-y-2">
         <Label htmlFor="openPipeKey">OpenPipe API Key</Label>
@@ -73,7 +73,7 @@ const OpenPipeConfig: React.FC<OpenPipeConfigProps> = ({ onClose }) => {
             type={showApiKey ? "text" : "password"}
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
-            placeholder="Enter your OpenPipe API key"
+            placeholder="输入 OpenPipe API 密钥"
             disabled={isLoading}
           />
           <Button
@@ -101,7 +101,7 @@ const OpenPipeConfig: React.FC<OpenPipeConfigProps> = ({ onClose }) => {
           onCheckedChange={handleAutoDatasetSyncChange}
           disabled={true || isLoading}
         />
-        <Label htmlFor="autoDatasetSync">Enable Auto Dataset Syncing</Label>
+        <Label htmlFor="autoDatasetSync">启用自动数据集同步</Label>
         <i className="text-xs text-muted-foreground opacity-50">
           {" "}
           comming soon

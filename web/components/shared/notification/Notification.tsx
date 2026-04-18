@@ -137,7 +137,7 @@ const Notification = () => {
                     "inline-flex rounded-md p-1.5 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50",
                   )}
                 >
-                  <span className="sr-only">Dismiss</span>
+                  <span className="sr-only">关闭</span>
                   <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                 </button>
               </div>

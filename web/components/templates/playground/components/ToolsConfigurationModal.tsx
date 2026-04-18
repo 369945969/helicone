@@ -127,7 +127,7 @@ export default function ToolsConfigurationModal({
             </Button>
           </DialogTrigger>
         </TooltipTrigger>
-        <TooltipContent>Tools Configuration</TooltipContent>
+        <TooltipContent>工具配置</TooltipContent>
       </Tooltip>
       <DialogContent
         className={clsx(
@@ -140,7 +140,7 @@ export default function ToolsConfigurationModal({
             <FlaskConicalIcon className="mr-2.5 h-5 w-5 text-slate-500" />
             <DialogTitle>
               <h3 className="mr-3 text-base font-medium text-slate-950 dark:text-white">
-                Tools Configuration
+                工具配置
               </h3>
             </DialogTitle>
           </div>
@@ -149,9 +149,9 @@ export default function ToolsConfigurationModal({
           <div className="flex flex-1 flex-col items-center justify-center gap-4 p-20">
             <div className="flex flex-col items-center gap-2 text-center">
               <FlaskConicalIcon className="h-8 w-8 text-slate-400" />
-              <p className="text-sm text-slate-500">No tools configured</p>
+              <p className="text-sm text-slate-500">未配置工具</p>
               <p className="text-xs text-slate-400">
-                Add a tool to get started
+                添加工具以开始使用
               </p>
             </div>
             <Button
@@ -170,7 +170,7 @@ export default function ToolsConfigurationModal({
               }}
             >
               <PlusIcon className="h-4 w-4" />
-              Add Tool
+              添加工具
             </Button>
           </div>
         ) : (
@@ -230,7 +230,7 @@ export default function ToolsConfigurationModal({
                           }
                         }}
                       >
-                        Delete
+                        删除
                       </ContextMenuItem>
                     </ContextMenuContent>
                   </ContextMenu>
@@ -245,7 +245,7 @@ export default function ToolsConfigurationModal({
                     <div className="flex justify-between">
                       <Tabs defaultValue="form" className="w-full">
                         <TabsList>
-                          <TabsTrigger value="form">Form</TabsTrigger>
+                          <TabsTrigger value="form">表单</TabsTrigger>
                           <TabsTrigger value="json">JSON</TabsTrigger>
                         </TabsList>
                         <TabsContent value="form" className="mt-4">
@@ -255,7 +255,7 @@ export default function ToolsConfigurationModal({
                                 className="justify-start text-sm text-slate-500"
                                 htmlFor="name"
                               >
-                                Name
+                                名称
                               </Label>
                               <Input
                                 id="name"
@@ -270,7 +270,7 @@ export default function ToolsConfigurationModal({
                                 className="justify-start text-sm text-slate-500"
                                 htmlFor="description"
                               >
-                                Description
+                                描述
                               </Label>
                               <Input
                                 id="description"
@@ -287,7 +287,7 @@ export default function ToolsConfigurationModal({
                                 className="justify-start text-sm text-slate-500"
                                 htmlFor="parameters"
                               >
-                                Parameters (JSON Schema)
+                                参数（JSON Schema）
                               </Label>
                               <MarkdownEditor
                                 id="parameters"
@@ -336,7 +336,7 @@ export default function ToolsConfigurationModal({
         {currentTools.length > 0 && (
           <DialogFooter className="flex w-full justify-between">
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">取消</Button>
             </DialogClose>
             <Button
               onClick={() => {
@@ -354,11 +354,11 @@ export default function ToolsConfigurationModal({
                   }
                   setToolsDialogOpen(false);
                 } catch (error) {
-                  setNotification("Invalid JSON", "error");
+                  setNotification("无效的 JSON", "error");
                 }
               }}
             >
-              Save
+              保存
             </Button>
           </DialogFooter>
         )}

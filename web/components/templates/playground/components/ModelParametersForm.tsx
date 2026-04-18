@@ -107,9 +107,9 @@ export default function ModelParametersForm({
         );
 
         if (error) {
-          setNotification("Failed to update playground settings", "error");
+          setNotification("更新测试台设置失败", "error");
         } else {
-          setNotification("Playground settings updated", "success");
+          setNotification("测试台设置已更新", "success");
         }
       },
       onMutate: ({ requestsThroughHelicone }) => {
@@ -203,7 +203,7 @@ export default function ModelParametersForm({
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="responseFormat">Response Format</Label>
+                  <Label htmlFor="responseFormat">响应格式</Label>
                 </div>
                 {responseFormat.type === "json_schema" && (
                   <PencilIcon
@@ -226,10 +226,10 @@ export default function ModelParametersForm({
                 value={responseFormat.type}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Response Format" />
+                  <SelectValue placeholder="响应格式" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="text">Text</SelectItem>
+                  <SelectItem value="text">文本</SelectItem>
                   <SelectItem value="json_schema">JSON Schema</SelectItem>
                 </SelectContent>
               </Select>
@@ -237,14 +237,13 @@ export default function ModelParametersForm({
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="temperature">Temperature</Label>
+                  <Label htmlFor="temperature">温度</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Controls randomness: Lower values are more deterministic,
-                      higher values more random.
+                      控制随机性：较低的值更具确定性，较高的值更随机。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -254,7 +253,7 @@ export default function ModelParametersForm({
                     checked={parameters.temperature === undefined}
                     onCheckedChange={() => toggleDefault("temperature")}
                   />
-                  <Label htmlFor="temperature-default">Use Default</Label>
+                  <Label htmlFor="temperature-default">使用默认值</Label>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -288,13 +287,13 @@ export default function ModelParametersForm({
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="max_tokens">Max Tokens</Label>
+                  <Label htmlFor="max_tokens">最大令牌数</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Maximum number of tokens to generate in the response.
+                      响应中生成的最大令牌数。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -304,7 +303,7 @@ export default function ModelParametersForm({
                     checked={parameters.max_tokens === undefined}
                     onCheckedChange={() => toggleDefault("max_tokens")}
                   />
-                  <Label htmlFor="max_tokens-default">Use Default</Label>
+                  <Label htmlFor="max_tokens-default">使用默认值</Label>
                 </div>
               </div>
               <Input
@@ -322,14 +321,13 @@ export default function ModelParametersForm({
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="top_p">Top P</Label>
+                  <Label htmlFor="top_p">Top P（核采样）</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Controls diversity via nucleus sampling: 0.5 means half of
-                      all likelihood-weighted options are considered.
+                      通过核采样控制多样性：0.5 表示考虑一半所有可能性加权选项。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -339,7 +337,7 @@ export default function ModelParametersForm({
                     checked={parameters.top_p === undefined}
                     onCheckedChange={() => toggleDefault("top_p")}
                   />
-                  <Label htmlFor="top_p-default">Use Default</Label>
+                  <Label htmlFor="top_p-default">使用默认值</Label>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -371,14 +369,13 @@ export default function ModelParametersForm({
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="frequency_penalty">Frequency Penalty</Label>
+                  <Label htmlFor="frequency_penalty">频率惩罚</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Reduces repetition of token sequences based on their
-                      frequency.
+                      根据频率减少令牌序列的重复。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -388,7 +385,7 @@ export default function ModelParametersForm({
                     checked={parameters.frequency_penalty === undefined}
                     onCheckedChange={() => toggleDefault("frequency_penalty")}
                   />
-                  <Label htmlFor="frequency_penalty-default">Use Default</Label>
+                  <Label htmlFor="frequency_penalty-default">使用默认值</Label>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -425,14 +422,13 @@ export default function ModelParametersForm({
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="presence_penalty">Presence Penalty</Label>
+                  <Label htmlFor="presence_penalty">存在惩罚</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Reduces repetition of token sequences based on their
-                      presence in the text.
+                      根据令牌序列在文本中的出现减少重复。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -442,7 +438,7 @@ export default function ModelParametersForm({
                     checked={parameters.presence_penalty === undefined}
                     onCheckedChange={() => toggleDefault("presence_penalty")}
                   />
-                  <Label htmlFor="presence_penalty-default">Use Default</Label>
+                  <Label htmlFor="presence_penalty-default">使用默认值</Label>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -479,14 +475,13 @@ export default function ModelParametersForm({
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="stop">Stop Sequences</Label>
+                  <Label htmlFor="stop">停止序列</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Sequences where the API will stop generating further
-                      tokens.
+                      API 将停止生成更多令牌的序列。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -496,29 +491,27 @@ export default function ModelParametersForm({
                     checked={parameters.stop === undefined}
                     onCheckedChange={() => toggleDefault("stop")}
                   />
-                  <Label htmlFor="stop-default">Use Default</Label>
+                  <Label htmlFor="stop-default">使用默认值</Label>
                 </div>
               </div>
               <Input
                 id="stop"
                 value={parameters.stop ?? ""}
                 onChange={(e) => updateParameter("stop", e.target.value)}
-                placeholder="Enter stop sequences separated by commas"
+                placeholder="输入停止序列，用逗号分隔"
                 disabled={parameters.stop === undefined}
               />
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="reasoning_effort">Reasoning Effort</Label>
+                  <Label htmlFor="reasoning_effort">推理努力程度</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Works only with reasoning models. Guides the model on how
-                      many reasoning tokens to generate before creating a
-                      response to the prompt.
+                      仅适用于推理模型。指导模型在创建提示响应之前生成多少推理令牌。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -533,14 +526,14 @@ export default function ModelParametersForm({
                 value={parameters.reasoning_effort ?? undefined}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Reasoning Effort" />
+                  <SelectValue placeholder="推理力度" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="none">None</SelectItem>
-                  <SelectItem value="minimal">Minimal</SelectItem>
-                  <SelectItem value="low">Low</SelectItem>
-                  <SelectItem value="medium">Medium</SelectItem>
-                  <SelectItem value="high">High</SelectItem>
+                  <SelectItem value="none">无</SelectItem>
+                  <SelectItem value="minimal">最小</SelectItem>
+                  <SelectItem value="low">低</SelectItem>
+                  <SelectItem value="medium">中</SelectItem>
+                  <SelectItem value="high">高</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -548,14 +541,13 @@ export default function ModelParametersForm({
             {/* <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2">
-                  <Label htmlFor="verbosity">Verbosity</Label>
+                  <Label htmlFor="verbosity">详细程度</Label>
                   <Tooltip>
                     <TooltipTrigger>
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent className="max-w-xs">
-                      Works only with reasoning models. Lets you hint the model
-                      to be more or less expansive in its replies.
+                      仅适用于推理模型。让您提示模型在回复中更或更少扩展。
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -570,13 +562,13 @@ export default function ModelParametersForm({
                 value={parameters.verbosity ?? undefined}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Verbosity" />
+                  <SelectValue placeholder="详细程度" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="none">None</SelectItem>
-                  <SelectItem value="low">Low</SelectItem>
-                  <SelectItem value="medium">Medium</SelectItem>
-                  <SelectItem value="high">High</SelectItem>
+                  <SelectItem value="none">无</SelectItem>
+                  <SelectItem value="low">低</SelectItem>
+                  <SelectItem value="medium">中</SelectItem>
+                  <SelectItem value="high">高</SelectItem>
                 </SelectContent>
               </Select>
             </div> */}
@@ -586,12 +578,10 @@ export default function ModelParametersForm({
             >
               <DialogContent className="sm:max-w-xl">
                 <DialogHeader>
-                  <DialogTitle>Configure OpenRouter</DialogTitle>
+                  <DialogTitle>配置 OpenRouter</DialogTitle>
                 </DialogHeader>
                 <div className="mb-4 text-sm text-muted-foreground">
-                  OpenRouter provides access to multiple LLM models through a
-                  single API. Set up your OpenRouter API key to unlock all
-                  available models in the prompt editor.
+OpenRouter 通过单个 API 提供对多个 LLM 模型的访问。设置您的 OpenRouter API 密钥以解锁提示编辑器中的所有可用模型。
                 </div>
                 <ProviderCard
                   provider={providers.find((p) => p.id === "openrouter")!}

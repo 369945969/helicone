@@ -104,7 +104,7 @@ const ChatPlayground = (props: ChatPlaygroundProps) => {
 
   const handleSubmit = async (history: ExtendedMessage[]) => {
     if (models.length < 1) {
-      setNotification("Please select a model", "error");
+      setNotification("请选择模型", "error");
       return;
     }
 
@@ -295,7 +295,7 @@ const ChatPlayground = (props: ChatPlaygroundProps) => {
                   ): void {}}
                   disabled={true}
                 />
-                <Tooltip title="Delete Row" placement="top">
+                <Tooltip title="删除行" placement="top">
                   <button
                     onClick={() => {
                       // delete all of model messages
@@ -436,7 +436,7 @@ const ChatPlayground = (props: ChatPlaygroundProps) => {
                 ): void {}}
                 disabled={true}
               />
-              <Tooltip title="Delete Row" placement="top">
+              <Tooltip title="删除行" placement="top">
                 <button
                   onClick={() => {
                     // delete all of model messages
@@ -579,7 +579,7 @@ const ChatPlayground = (props: ChatPlaygroundProps) => {
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                  <DialogTitle>Preview Payload</DialogTitle>
+                  <DialogTitle>预览载荷</DialogTitle>
                 </DialogHeader>
                 <pre className="max-h-96 overflow-auto rounded bg-gray-100 p-4 text-sm dark:bg-gray-700">
                   {previewPayload}

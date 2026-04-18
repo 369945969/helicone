@@ -155,22 +155,22 @@ export const MigrateGrowthToPro = () => {
 
       <div className="w-full space-y-6 lg:w-[450px]">
         <PlanFeatureCard
-          title="Learn about our Enterprise plan"
-          description="Built for companies looking to scale. Includes everything in Pro, plus unlimited requests, prompts, experiments and more."
-          buttonText="Contact sales"
+          title="了解我们的企业版计划"
+          description="专为希望扩展的公司打造。包含专业版的所有功能，以及无限请求、提示词、实验等。"
+          buttonText="联系销售"
         />
 
         <PlanFeatureCard
-          title="Looking for something else?"
-          description="Need support, have a unique use case or want to say hi?"
-          buttonText="Contact us"
+          title="寻找其他内容？"
+          description="需要支持、有独特的用例或想打个招呼？"
+          buttonText="联系我们"
         />
       </div>
 
       <Dialog open={isUpgradeDialogOpen} onOpenChange={setIsUpgradeDialogOpen}>
         <DialogContent className="max-w-lg">
           <DialogHeader>
-            <DialogTitle>Upgrade to Pro Plan</DialogTitle>
+            <DialogTitle>升级到专业版计划</DialogTitle>
             <DialogDescription>
               You are about to upgrade to the Pro plan. This will give you
               access to all Pro features.
@@ -183,7 +183,7 @@ export const MigrateGrowthToPro = () => {
             >
               Cancel
             </Button>
-            <Button onClick={handleUpgrade}>Confirm Upgrade</Button>
+            <Button onClick={handleUpgrade}>确认升级</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -191,7 +191,7 @@ export const MigrateGrowthToPro = () => {
       <Dialog open={isCancelDialogOpen} onOpenChange={setIsCancelDialogOpen}>
         <DialogContent className="max-w-lg">
           <DialogHeader>
-            <DialogTitle>Cancel Subscription</DialogTitle>
+            <DialogTitle>取消订阅</DialogTitle>
             <DialogDescription>
               Are you sure you want to cancel your subscription? You will lose
               access to all Growth plan features at the end of your current

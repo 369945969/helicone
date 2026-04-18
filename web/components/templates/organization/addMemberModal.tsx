@@ -109,13 +109,13 @@ const AddMemberModal = (props: AddMemberModalProps) => {
                   </code>
                 </div>
                 <Small className="mt-2 text-muted-foreground">
-                  This password will only be shown once. The user will be
-                  prompted to change it on first login.
+                  此密码仅显示一次。用户将在首次登录时被
+                  提示更改密码。
                 </Small>
               </div>
             </InfoBox>
             <div className="flex justify-end">
-              <Button onClick={handleDismissPassword}>Done</Button>
+              <Button onClick={handleDismissPassword}>完成</Button>
             </div>
           </div>
         ) : (
@@ -136,7 +136,7 @@ const AddMemberModal = (props: AddMemberModalProps) => {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="Enter user email"
+                placeholder="输入用户邮箱"
               />
             </div>
             <div className="space-y-4">

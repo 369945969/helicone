@@ -21,7 +21,7 @@ export default function StepActions(props: StepActionsProps) {
   } = props;
   return (
     <div className="rounded-lg border border-gray-300 bg-white dark:border-gray-700 dark:bg-black">
-      <nav className="w-full" aria-label="Progress">
+      <nav className="w-full" aria-label="进度">
         <ol
           role="list"
           className="overflow-hidden rounded-md lg:flex lg:rounded-none"

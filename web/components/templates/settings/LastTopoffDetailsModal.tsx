@@ -48,7 +48,7 @@ export function LastTopoffDetailsModal({
           <DialogTitle>
             <div className="flex items-center gap-2">
               <Zap size={20} />
-              Last Auto Top-Up
+              上次自动充值
             </div>
           </DialogTitle>
         </DialogHeader>
@@ -57,10 +57,10 @@ export function LastTopoffDetailsModal({
           {/* Status Badge */}
           <div className="flex items-center gap-2">
             {hasFailures ? (
-              <Badge variant="destructive">Failed</Badge>
+              <Badge variant="destructive">失败</Badge>
             ) : (
               <Badge variant="default" className="bg-green-600">
-                Completed
+                已完成
               </Badge>
             )}
           </div>
@@ -69,7 +69,7 @@ export function LastTopoffDetailsModal({
           <div className="flex flex-col gap-2 rounded-md border border-border bg-card p-3">
             <div className="flex items-center gap-2">
               <CheckCircle size={16} className="text-muted-foreground" />
-              <Small className="font-medium">Date & Time</Small>
+              <Small className="font-medium">日期和时间</Small>
             </div>
             <XSmall className="ml-6 text-muted-foreground">
               {new Date(settings.lastTopoffAt).toLocaleString()}
@@ -80,15 +80,14 @@ export function LastTopoffDetailsModal({
           <div className="flex flex-col gap-2 rounded-md border border-border bg-card p-3">
             <div className="flex items-center gap-2">
               <Wallet size={16} className="text-muted-foreground" />
-              <Small className="font-medium">Amount Details</Small>
+              <Small className="font-medium">金额详情</Small>
             </div>
             <div className="ml-6 flex flex-col gap-1">
               <XSmall className="text-muted-foreground">
-                Credits Added: ${(settings.topoffAmountCents / 100).toFixed(2)}
+                添加积分：${(settings.topoffAmountCents / 100).toFixed(2)}
               </XSmall>
               <XSmall className="text-muted-foreground">
-                Triggered at: ${(settings.thresholdCents / 100).toFixed(2)}{" "}
-                balance
+                触发时余额：${(settings.thresholdCents / 100).toFixed(2)}
               </XSmall>
             </div>
           </div>
@@ -98,7 +97,7 @@ export function LastTopoffDetailsModal({
             <div className="flex flex-col gap-2 rounded-md border border-border bg-card p-3">
               <div className="flex items-center gap-2">
                 <CreditCard size={16} className="text-muted-foreground" />
-                <Small className="font-medium">Payment Method</Small>
+                <Small className="font-medium">支付方式</Small>
               </div>
               <div className="ml-6 flex items-center gap-2">
                 <XSmall className="text-muted-foreground">
@@ -115,12 +114,12 @@ export function LastTopoffDetailsModal({
               <AlertCircle size={16} className="mt-0.5 text-destructive" />
               <div className="flex flex-col gap-1">
                 <XSmall className="font-medium text-destructive">
-                  Payment Failed
+                  支付失败
                 </XSmall>
                 <XSmall className="text-destructive/80">
-                  This auto top-up attempt failed {settings.consecutiveFailures}{" "}
-                  {settings.consecutiveFailures === 1 ? "time" : "times"}.
-                  Please check your payment method.
+                  此自动充值尝试已失败 {settings.consecutiveFailures}
+                  {settings.consecutiveFailures === 1 ? "次" : "次"}。
+                  请检查您的支付方式。
                 </XSmall>
               </div>
             </div>

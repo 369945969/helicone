@@ -77,19 +77,18 @@ export default function DashboardEmptyState({
             {/* Sidebar offset container - no transform on small screens, offset on medium+ */}
             <div className="flex w-full max-w-3xl flex-col items-center gap-6 md:translate-x-[calc(var(--sidebar-width,0px)/2)]">
               <div className="flex w-full flex-col gap-2 text-center">
-                <H2>Integrate to unlock your analytics</H2>
+                <H2>集成以解锁您的分析</H2>
                 <Large className="mx-auto max-w-lg lg:max-w-3xl">
-                  This is a preview. Integrate your LLM app with Helicone to see
-                  your real-time insights.
+                  这是一个预览版本。将您的 LLM 应用与 Helicone 集成，查看实时洞察。
                 </Large>
               </div>
 
               <div className="flex justify-center gap-4">
                 <Button variant="outline" onClick={handleDemoClick}>
-                  Try Demo
+                  尝试演示
                 </Button>
                 <Button variant="action" onClick={handleQuickStart}>
-                  Quick Start <ArrowRight className="ml-2 h-4 w-4" />
+                  快速开始 <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -113,19 +112,18 @@ export default function DashboardEmptyState({
             {/* Sidebar offset container - no transform on small screens, offset on medium+ */}
             <div className="flex w-full max-w-3xl flex-col items-center gap-6 md:translate-x-[calc(var(--sidebar-width,0px)/2)]">
               <div className="flex w-full flex-col gap-2 text-center">
-                <H2>Integrate to unlock your analytics</H2>
+                <H2>集成以解锁您的分析</H2>
                 <Large className="mx-auto max-w-lg lg:max-w-3xl">
-                  This is a preview. Integrate your LLM app with Helicone to see
-                  your real-time insights.
+                  这是一个预览版本。将您的 LLM 应用与 Helicone 集成，查看实时洞察。
                 </Large>
               </div>
 
               <div className="flex justify-center gap-4">
                 <Button variant="outline" onClick={handleDemoClick}>
-                  Try Demo
+                  尝试演示
                 </Button>
                 <Button variant="action" onClick={handleQuickStart}>
-                  Quick Start <ArrowRight className="ml-2 h-4 w-4" />
+                  快速开始 <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>

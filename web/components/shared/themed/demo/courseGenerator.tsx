@@ -29,9 +29,9 @@ export const CourseGenerator: React.FC = () => {
   const [showTextbook, setShowTextbook] = useState(false);
 
   const [params, setParams] = useState<CourseParams>({
-    topic: "Helicone.ai Best Practices",
+    topic: "Helicone.ai 最佳实践",
     difficulty: "Beginner",
-    audience: "Developers",
+    audience: "开发者",
   });
   const [course, setCourse] = useState<Partial<Course>>({});
   const [isGenerating, setIsGenerating] = useState(false);
@@ -52,12 +52,12 @@ export const CourseGenerator: React.FC = () => {
 
     try {
       // Generate overview
-      setCurrentStep("Generating course overview...");
+      setCurrentStep("正在生成课程概述...");
       const overview = await generatePart("overview", params, sessionId);
       setCourse((prev) => ({ ...prev, overview }));
 
       // Generate section titles based on the overview
-      setCurrentStep("Generating section titles...");
+      setCurrentStep("正在生成章节标题...");
       const sectionTitles = await generatePart(
         "sectionTitles",
         { ...params, overview },
@@ -71,7 +71,7 @@ export const CourseGenerator: React.FC = () => {
       // Generate content for each section
       for (let i = 0; i < sectionCount; i++) {
         setCurrentStep(
-          `Creating content for section ${i + 1} of ${sectionCount}...`,
+          `正在为第 ${i + 1} 章（共 ${sectionCount} 章）创建内容...`,
         );
         const sectionContent = await generatePart(
           "sectionContent",
@@ -94,7 +94,7 @@ export const CourseGenerator: React.FC = () => {
           ],
         }));
 
-        setCurrentStep(`Creating quiz for section ${i + 1}...`);
+        setCurrentStep(`正在为第 ${i + 1} 章创建测验...`);
         const quiz = await generatePart(
           "quiz",
           {
@@ -135,7 +135,7 @@ export const CourseGenerator: React.FC = () => {
     sessionId: string,
   ) => {
     let messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
-      { role: "system", content: hpstatic`You are an expert course creator.` },
+      { role: "system", content: hpstatic`你是一位专业的课程创建专家。` },
     ];
 
     let toolName = "";
@@ -154,7 +154,7 @@ export const CourseGenerator: React.FC = () => {
           }}, lasting 5 sessions.`,
         });
         toolName = "generateOverview";
-        toolDescription = "Generate the course overview";
+        toolDescription = "生成课程概述";
         toolParameters = {
           title: { type: "string" },
           description: { type: "string" },
@@ -172,7 +172,7 @@ export const CourseGenerator: React.FC = () => {
           }} unique and relevant section titles for the course.`,
         });
         toolName = "generateSectionTitles";
-        toolDescription = "Generate section titles for the course";
+        toolDescription = "生成课程章节标题";
         toolParameters = {
           titles: { type: "array", items: { type: "string" } },
         };
@@ -190,7 +190,7 @@ export const CourseGenerator: React.FC = () => {
           }}}. Not overly lengthy but detailed enough to be useful.`,
         });
         toolName = "generateSectionContent";
-        toolDescription = "Generate content for a course section";
+        toolDescription = "为课程章节生成内容";
         toolParameters = {
           content: { type: "string" },
         };
@@ -206,7 +206,7 @@ export const CourseGenerator: React.FC = () => {
           }}..."`,
         });
         toolName = "generateQuiz";
-        toolDescription = "Generate a quiz for a course section";
+        toolDescription = "为课程章节生成测验";
         toolParameters = {
           questions: {
             type: "array",
@@ -315,7 +315,7 @@ export const CourseGenerator: React.FC = () => {
     <Col className="space-y-4">
       {course.overview && (
         <>
-          <h2 className="text-xl font-semibold">Course Overview</h2>
+          <h2 className="text-xl font-semibold">课程概述</h2>
           <h3 className="text-lg font-semibold">{course.overview.title}</h3>
           <p>{course.overview.description}</p>
         </>
@@ -323,7 +323,7 @@ export const CourseGenerator: React.FC = () => {
 
       {course.sections && course.sections.length > 0 && (
         <>
-          <h2 className="text-xl font-semibold">Course Sections</h2>
+          <h2 className="text-xl font-semibold">课程章节</h2>
           {course.sections.map((section, index) => (
             <div key={index} className="rounded-md border p-4">
               <h3
@@ -341,11 +341,11 @@ export const CourseGenerator: React.FC = () => {
 
                   {course.quizzes && course.quizzes[index] && (
                     <>
-                      <h4 className="mt-4 font-semibold">Quiz</h4>
+                      <h4 className="mt-4 font-semibold">测验</h4>
                       {course.quizzes[index].questions.map((q, qIndex) => (
                         <div key={qIndex} className="mt-2">
                           <p>
-                            <strong>Q{qIndex + 1}:</strong> {q.question}
+                            <strong>问题{qIndex + 1}:</strong> {q.question}
                           </p>
                           <ul className="list-disc pl-5">
                             {q.options.map((option, oIndex) => (
@@ -375,7 +375,7 @@ export const CourseGenerator: React.FC = () => {
   return (
     <div className="flex h-full w-full flex-col overflow-y-auto bg-white">
       <h1 className="my-6 text-center text-3xl font-bold text-indigo-900">
-        Course Generator
+        课程生成器
       </h1>
 
       <div className="mx-auto w-full max-w-sm px-4 pb-6">
@@ -385,14 +385,14 @@ export const CourseGenerator: React.FC = () => {
               htmlFor="topic"
               className="mb-1 block text-sm font-medium text-gray-700"
             >
-              Course Topic
+              课程主题
             </label>
             <div className="relative">
               <BookOpenIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-indigo-400" />
               <TextInput
                 id="topic"
                 className="w-full rounded-md border border-gray-200 py-2 pl-9 pr-3 text-sm focus:ring-1 focus:ring-indigo-400"
-                placeholder="e.g. Helicone.ai Best Practices"
+                placeholder="例如：Helicone.ai 最佳实践"
                 value={params.topic}
                 onChange={(e) =>
                   setParams({ ...params, topic: e.target.value })
@@ -406,7 +406,7 @@ export const CourseGenerator: React.FC = () => {
               htmlFor="difficulty"
               className="mb-1 block text-sm font-medium text-gray-700"
             >
-              Difficulty Level
+              难度级别
             </label>
             <div className="relative">
               <AcademicCapIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-indigo-400" />
@@ -421,9 +421,9 @@ export const CourseGenerator: React.FC = () => {
                   })
                 }
               >
-                <SelectItem value="Beginner">Beginner</SelectItem>
-                <SelectItem value="Intermediate">Intermediate</SelectItem>
-                <SelectItem value="Advanced">Advanced</SelectItem>
+                <SelectItem value="Beginner">初级</SelectItem>
+                <SelectItem value="Intermediate">中级</SelectItem>
+                <SelectItem value="Advanced">高级</SelectItem>
               </Select>
             </div>
           </div>
@@ -433,14 +433,14 @@ export const CourseGenerator: React.FC = () => {
               htmlFor="audience"
               className="mb-1 block text-sm font-medium text-gray-700"
             >
-              Target Audience
+              目标受众
             </label>
             <div className="relative">
               <UserGroupIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-indigo-400" />
               <TextInput
                 id="audience"
                 className="w-full rounded-md border border-gray-200 py-2 pl-9 pr-3 text-sm focus:ring-1 focus:ring-indigo-400"
-                placeholder="e.g. Developers"
+                placeholder="例如：开发者"
                 value={params.audience}
                 onChange={(e) =>
                   setParams({ ...params, audience: e.target.value })
@@ -457,14 +457,14 @@ export const CourseGenerator: React.FC = () => {
             isGenerating ? "cursor-not-allowed opacity-50" : ""
           }`}
         >
-          {isGenerating ? currentStep : "Generate Course"}
+          {isGenerating ? currentStep : "生成课程"}
         </Button>
       </div>
 
       {Object.keys(course).length > 0 && (
         <div className="mt-8 max-h-[calc(100vh-400px)] w-full overflow-y-auto rounded-xl bg-white bg-opacity-20 p-6">
           <h2 className="mb-4 text-2xl font-semibold">
-            Generated Course Outline:
+            生成的课程大纲：
           </h2>
           {renderCourse(course)}
         </div>

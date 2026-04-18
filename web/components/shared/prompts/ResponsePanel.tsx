@@ -50,7 +50,7 @@ export default function ResponsePanel({
                     <PiChatsBold className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Add response to messages</TooltipContent>
+                <TooltipContent>添加响应到消息</TooltipContent>
               </Tooltip>
             </TooltipProvider>
           )}

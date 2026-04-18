@@ -30,7 +30,7 @@ export default function ThemedDropdown<T>(props: ThemedDropdownProps<T>) {
     label,
     verticalAlign = "bottom",
     align = "left",
-    placeholder = "Select an option",
+    placeholder = "选择一个选项",
     disabled = false,
   } = props;
   let { options } = props;

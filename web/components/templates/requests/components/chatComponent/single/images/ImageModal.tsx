@@ -82,7 +82,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
                 <button
                   onClick={onClose}
                   className="flex items-center justify-center rounded-lg bg-white/10 p-2 backdrop-blur-sm transition-colors hover:bg-white/20"
-                  title="Close (Esc)"
+                  title="关闭 (Esc)"
                 >
                   <X className="h-5 w-5 text-white" />
                 </button>
@@ -92,28 +92,28 @@ export const ImageModal: React.FC<ImageModalProps> = ({
                   <button
                     onClick={() => zoomIn()}
                     className="flex items-center justify-center rounded p-1.5 transition-colors hover:bg-white/20"
-                    title="Zoom In"
+                    title="放大"
                   >
                     <ZoomIn className="h-5 w-5 text-white" />
                   </button>
                   <button
                     onClick={() => zoomOut()}
                     className="flex items-center justify-center rounded p-1.5 transition-colors hover:bg-white/20"
-                    title="Zoom Out"
+                    title="缩小"
                   >
                     <ZoomOut className="h-5 w-5 text-white" />
                   </button>
                   <button
                     onClick={() => resetTransform()}
                     className="flex items-center justify-center rounded p-1.5 transition-colors hover:bg-white/20"
-                    title="Reset"
+                    title="重置"
                   >
                     <RotateCw className="h-5 w-5 text-white" />
                   </button>
                   <button
                     onClick={() => centerView()}
                     className="flex items-center justify-center rounded p-1.5 transition-colors hover:bg-white/20"
-                    title="Center"
+                    title="居中"
                   >
                     <Maximize2 className="h-5 w-5 text-white" />
                   </button>

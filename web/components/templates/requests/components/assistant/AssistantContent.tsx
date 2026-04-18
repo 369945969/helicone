@@ -67,7 +67,7 @@ export const AssistantContent: React.FC<AssistantContentProps> = ({
         className="grid cursor-pointer grid-cols-10 items-start gap-2 bg-slate-100 px-4 py-4 text-left font-semibold dark:bg-slate-900"
         onClick={() => {
           navigator.clipboard.writeText(JSON.stringify(mappedRequest, null, 2));
-          setNotification("Copied to clipboard", "success");
+          setNotification("已复制到剪贴板", "success");
         }}
       >
         <pre className="font-mono col-span-10 text-sm">
@@ -92,7 +92,7 @@ export const AssistantContent: React.FC<AssistantContentProps> = ({
   return (
     <div className="flex w-full flex-col space-y-4 p-4 text-left text-sm">
       <div className="flex w-full flex-col space-y-1 text-left">
-        <p className="font-semibold text-slate-900">Assistant Message</p>
+        <p className="font-semibold text-slate-900">助手消息</p>
         <div className="whitespace-pre-wrap rounded-md border border-border bg-slate-50 p-2 dark:bg-slate-950">
           {formatContent(mappedRequest.preview.request)}
         </div>
@@ -111,18 +111,18 @@ export const AssistantContent: React.FC<AssistantContentProps> = ({
       </div>
       {!isError && runDetails && (
         <div className="flex w-full flex-col space-y-1 text-left">
-          <p className="font-semibold text-slate-900">Run Details</p>
+          <p className="font-semibold text-slate-900">运行详情</p>
           <div className="grid grid-cols-2 gap-4 rounded-md border border-border bg-slate-50 p-2 dark:bg-slate-950">
             <div>
-              <p className="text-slate-600">Run ID</p>
+              <p className="text-slate-600">运行 ID</p>
               <p className="font-mono">{runDetails.run_id}</p>
             </div>
             <div>
-              <p className="text-slate-600">Thread ID</p>
+              <p className="text-slate-600">线程 ID</p>
               <p className="font-mono">{runDetails.thread_id}</p>
             </div>
             <div>
-              <p className="text-slate-600">Assistant ID</p>
+              <p className="text-slate-600">助手 ID</p>
               <p className="font-mono">{runDetails.assistant_id}</p>
             </div>
             <div>
@@ -130,12 +130,12 @@ export const AssistantContent: React.FC<AssistantContentProps> = ({
               <p className="font-mono">{runDetails.model}</p>
             </div>
             <div>
-              <p className="text-slate-600">Created At</p>
+              <p className="text-slate-600">创建时间</p>
               <p>{new Date(runDetails.created_at * 1000).toLocaleString()}</p>
             </div>
             {runDetails.completed_at && (
               <div>
-                <p className="text-slate-600">Completed At</p>
+                <p className="text-slate-600">完成时间</p>
                 <p>
                   {new Date(runDetails.completed_at * 1000).toLocaleString()}
                 </p>
@@ -146,7 +146,7 @@ export const AssistantContent: React.FC<AssistantContentProps> = ({
       )}
       {!isError && response?.tools?.length > 0 && (
         <div className="flex w-full flex-col space-y-1 text-left">
-          <p className="font-semibold text-slate-900">Available Tools</p>
+          <p className="font-semibold text-slate-900">可用工具</p>
           <div className="rounded-md border border-border bg-slate-50 p-2 dark:bg-slate-950">
             <ul className="list-inside list-disc space-y-1">
               {response.tools.map((tool: any, index: number) => (

@@ -43,7 +43,7 @@ export default function ViewColumns<T>(props: ViewColumnsProps<T>) {
       }
       return acc;
     },
-    ["All columns", "Default"] as string[],
+    ["所有列", "默认"] as string[],
   );
 
   const [selectedCategory, setSelectedCategory] = useState<
@@ -67,7 +67,7 @@ export default function ViewColumns<T>(props: ViewColumnsProps<T>) {
               </Button>
             </DropdownMenuTrigger>
           </TooltipTrigger>
-          <TooltipContent>Manage columns</TooltipContent>
+          <TooltipContent>管理列</TooltipContent>
         </Tooltip>
         <DropdownMenuContent
           className="h-[66vh] w-[calc(100vw-2rem)] max-w-4xl overflow-hidden rounded-lg border border-slate-300 bg-white p-0 shadow-xl dark:border-slate-700 dark:bg-black sm:w-[calc(100vw-4rem)] md:w-[calc(100vw-8rem)]"
@@ -79,7 +79,7 @@ export default function ViewColumns<T>(props: ViewColumnsProps<T>) {
               <Col className="relative h-full flex-1 p-4">
                 <div className="mb-4 flex flex-row items-center justify-start space-x-2">
                   <h3 className="text-xs font-medium text-foreground">
-                    Column Reorder
+                    列重新排序
                   </h3>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -92,15 +92,13 @@ export default function ViewColumns<T>(props: ViewColumnsProps<T>) {
                       </button>
                     </TooltipTrigger>
                     <TooltipContent side="left">
-                      <p>The ordering only affects your Requests table</p>
+                      <p>排序仅影响您的请求表</p>
                     </TooltipContent>
                   </Tooltip>
                 </div>
                 <i className="text-xs text-slate-500">
-                  Note: If something is not shown, or your columns are in an
-                  unexpected state, please click{" "}
-                  <span className="font-bold">Back to preset</span> on the
-                  bottom left of the right panel
+                  注意：如果某些内容未显示，或您的列处于意外状态，请点击右侧面板左下角的
+                  <span className="font-bold">返回预设</span>
                 </i>
 
                 <div className="h-[calc(100%-6rem)] overflow-y-auto">
@@ -133,7 +131,7 @@ export default function ViewColumns<T>(props: ViewColumnsProps<T>) {
                       }}
                       className="text-xs"
                     >
-                      Back to preset
+                      返回预设
                     </Button>
                     <Row>
                       <Button
@@ -149,7 +147,7 @@ export default function ViewColumns<T>(props: ViewColumnsProps<T>) {
                         }}
                         className="text-xs"
                       >
-                        Deselect All
+                        取消全选
                       </Button>
                       <Button
                         variant="ghost"
@@ -161,7 +159,7 @@ export default function ViewColumns<T>(props: ViewColumnsProps<T>) {
                         }}
                         className="text-xs"
                       >
-                        Select All
+                        全选
                       </Button>
                     </Row>
                   </Row>

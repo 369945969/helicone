@@ -110,10 +110,10 @@ const PromptVersionCard = ({
   const handleCopyVersionId = async () => {
     try {
       await navigator.clipboard.writeText(version.id);
-      setNotification("Version ID copied to clipboard", "success");
+      setNotification("版本 ID 已复制到剪贴板", "success");
     } catch (err) {
       logger.error({ error: err }, "Failed to copy version ID");
-      setNotification("Failed to copy version ID", "error");
+      setNotification("复制版本 ID 失败", "error");
     }
   };
 
@@ -158,7 +158,7 @@ const PromptVersionCard = ({
               >
                 <Command shouldFilter={false}>
                   <CommandInput
-                    placeholder="Search or type environment..."
+                    placeholder="搜索或输入环境..."
                     value={environmentSearch}
                     onValueChange={setEnvironmentSearch}
                   />
@@ -170,11 +170,11 @@ const PromptVersionCard = ({
                           className="cursor-pointer"
                         >
                           <Plus className="mr-2 h-4 w-4" />
-                          Create "{environmentSearch.trim()}"
+                          创建 "{environmentSearch.trim()}"
                         </CommandItem>
                       ) : (
                         <p className="p-2 text-sm text-muted-foreground">
-                          No environments available.
+                          没有可用环境。
                         </p>
                       )}
                     </CommandEmpty>
@@ -185,7 +185,7 @@ const PromptVersionCard = ({
                           className="cursor-pointer"
                         >
                           <Plus className="mr-2 h-4 w-4" />
-                          Create "{environmentSearch.trim()}"
+                          创建 "{environmentSearch.trim()}"
                         </CommandItem>
                       )}
                       {availableEnvironments
@@ -232,7 +232,7 @@ const PromptVersionCard = ({
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Copy Version ID</p>
+              <p>复制版本 ID</p>
             </TooltipContent>
           </Tooltip>
 
@@ -251,7 +251,7 @@ const PromptVersionCard = ({
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Open in Playground</p>
+              <p>在 Playground 中打开</p>
             </TooltipContent>
           </Tooltip>
 
@@ -272,24 +272,23 @@ const PromptVersionCard = ({
                 </AlertDialogTrigger>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Delete Version</p>
+                <p>删除版本</p>
               </TooltipContent>
             </Tooltip>
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Delete Version</AlertDialogTitle>
+                <AlertDialogTitle>删除版本</AlertDialogTitle>
                 <AlertDialogDescription>
-                  Are you sure you want to delete version {versionDisplay}? This
-                  action cannot be undone.
+                  确定要删除版本 {versionDisplay} 吗？此操作无法撤销。
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogCancel>取消</AlertDialogCancel>
                 <AlertDialogAction
                   onClick={() => onDeletePromptVersion(version.id)}
                   className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                 >
-                  Delete
+                  删除
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
@@ -315,23 +314,21 @@ const PromptVersionCard = ({
       >
         <AlertDialogContent onClick={(e) => e.stopPropagation()}>
           <AlertDialogHeader>
-            <AlertDialogTitle>Remove "{environmentToRemove}" Environment</AlertDialogTitle>
+            <AlertDialogTitle>移除 "{environmentToRemove}" 环境</AlertDialogTitle>
             <AlertDialogDescription>
-              This will remove the environment from this version entirely.
+              这将从此版本中完全移除该环境。
             </AlertDialogDescription>
           </AlertDialogHeader>
           <div className="rounded-md border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-950">
             <p className="text-sm font-medium text-amber-800 dark:text-amber-200">
-              Trying to move it to another version?
+              想将其移到另一个版本？
             </p>
             <p className="mt-1 text-sm text-amber-700 dark:text-amber-300">
-              Don't remove it here. Instead, go to the version you want and click
-              the + button to assign "{environmentToRemove}" there. It will
-              automatically move.
+              不要在这里移除。相反，转到您想要的版本并点击 + 按钮将 "{environmentToRemove}" 分配到那里。它会自动移动。
             </p>
           </div>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={() => {
                 if (environmentToRemove) {
@@ -345,7 +342,7 @@ const PromptVersionCard = ({
               }}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
-              Remove
+              移除
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

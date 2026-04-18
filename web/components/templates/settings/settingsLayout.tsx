@@ -16,31 +16,31 @@ import AuthHeader from "@/components/shared/authHeader";
 const ORGANIZATION_TABS = [
   {
     id: "general",
-    title: "General",
+    title: "通用",
     icon: BuildingOfficeIcon,
     href: "/settings",
   },
   {
     id: "members",
-    title: "Members",
+    title: "成员",
     icon: UsersIcon,
     href: "/settings/members",
   },
   {
     id: "billing",
-    title: "Billing",
+    title: "账单",
     icon: CreditCardIcon,
     href: "/settings/billing",
   },
   {
     id: "reports",
-    title: "Reports",
+    title: "报告",
     icon: DocumentTextIcon,
     href: "/settings/reports",
   },
   {
     id: "rate-limits",
-    title: "Rate Limits",
+    title: "速率限制",
     icon: NoSymbolIcon,
     href: "/settings/rate-limits",
   },
@@ -49,25 +49,25 @@ const ORGANIZATION_TABS = [
 const DEVELOPER_TABS = [
   {
     id: "api-keys",
-    title: "API Keys",
+    title: "API 密钥",
     icon: KeyIcon,
     href: "/settings/api-keys",
   },
   {
     id: "providers",
-    title: "Providers",
+    title: "提供商",
     icon: Plug,
     href: "/settings/providers",
   },
   {
     id: "webhooks",
-    title: "Webhooks",
+    title: "Webhook",
     icon: Webhook,
     href: "/settings/webhooks",
   },
   {
     id: "connections",
-    title: "Connections",
+    title: "连接",
     icon: LinkIcon,
     href: "/settings/connections",
   },
@@ -76,7 +76,7 @@ const DEVELOPER_TABS = [
 const ACCOUNTS_TABS = [
   {
     id: "password",
-    title: "Password",
+    title: "密码",
     icon: Lock,
     href: "/settings/password",
   },
@@ -141,10 +141,10 @@ const SettingsLayout = ({ children }: SettingsLayoutProps) => {
           {/* Settings Sidebar */}
           <div className="w-48 border-r border-slate-200 bg-slate-50/50 px-2 py-2 dark:border-slate-800 dark:bg-slate-900/50">
             <div className="space-y-8">
-              {renderNavSection("Organization", organizationTabs)}
-              {renderNavSection("Developer", DEVELOPER_TABS)}
+              {renderNavSection("组织", organizationTabs)}
+              {renderNavSection("开发者", DEVELOPER_TABS)}
               {isBetterAuthEnabled &&
-                renderNavSection("Accounts", ACCOUNTS_TABS)}
+                renderNavSection("账户", ACCOUNTS_TABS)}
             </div>
           </div>
 

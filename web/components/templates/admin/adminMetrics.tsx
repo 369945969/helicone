@@ -55,11 +55,11 @@ const AdminMetrics = (props: AdminStatsProps) => {
   });
   return (
     <div className="flex flex-col gap-8 p-4 md:p-6">
-      <H1>Admin Metrics</H1>
+      <H1>管理员指标</H1>
 
       <div className="flex flex-col gap-4 md:flex-row md:gap-6">
         <div className="flex flex-1 flex-col gap-2 md:max-w-xs">
-          <Label className="font-semibold">Time Filter</Label>
+          <Label className="font-semibold">时间筛选</Label>
           <Select
             value={timeFilter}
             onValueChange={(value) => setTimeFilter(value as any)}
@@ -78,7 +78,7 @@ const AdminMetrics = (props: AdminStatsProps) => {
         </div>
 
         <div className="flex flex-1 flex-col gap-2 md:max-w-xs">
-          <Label className="font-semibold">Group By</Label>
+          <Label className="font-semibold">分组依据</Label>
           <Select
             value={groupBy}
             onValueChange={(value) => setGroupBy(value as any)}
@@ -98,7 +98,7 @@ const AdminMetrics = (props: AdminStatsProps) => {
       </div>
       <div className="flex max-w-6xl flex-col gap-6">
         <div className="flex h-full w-full flex-col gap-4 rounded-lg border border-border bg-card p-6 shadow-sm">
-          <H2>Orgs Over Time</H2>
+          <H2>组织随时间变化</H2>
           <BarChart
             data={
               metricsOverTime.data?.newOrgsOvertime.map((ot) => ({
@@ -130,7 +130,7 @@ const AdminMetrics = (props: AdminStatsProps) => {
         </div>
 
         <div className="flex h-full w-full flex-col gap-4 rounded-lg border border-border bg-card p-6 shadow-sm">
-          <H2>Users Over Time</H2>
+          <H2>用户随时间变化</H2>
           <BarChart
             data={
               metricsOverTime.data?.usersOverTime.map((ot) => ({

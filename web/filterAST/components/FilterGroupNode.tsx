@@ -84,9 +84,9 @@ export const FilterGroupNode: React.FC<FilterGroupNodeProps> = ({
     try {
       const curlCommand = generateCurlCommand(filterStore.filter);
       navigator.clipboard.writeText(curlCommand);
-      notification.setNotification("cURL command copied to clipboard", "success");
+      notification.setNotification("cURL 命令已复制到剪贴板", "success");
     } catch (error) {
-      notification.setNotification("Failed to copy cURL command", "error");
+      notification.setNotification("复制 cURL 命令失败", "error");
     }
   };
 

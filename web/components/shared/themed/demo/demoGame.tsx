@@ -90,7 +90,7 @@ export const DemoGame = ({
           onMouseDown={onMouseDown}
           className="flex cursor-move items-center justify-between bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-4 text-white"
         >
-          <h1 className="text-xl font-bold">Helicone Demos</h1>
+          <h1 className="text-xl font-bold">Helicone 演示</h1>
           <button
             onClick={() => setOpenDemo(false)}
             className="text-white transition-colors hover:text-gray-200"

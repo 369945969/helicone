@@ -232,7 +232,7 @@ const ImageContent: React.FC<{
         className="h-auto max-h-[200px] w-auto max-w-full cursor-pointer object-contain transition-opacity hover:opacity-90"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         onClick={() => setIsModalOpen(true)}
-        title="Click to view full size"
+        title="点击查看完整尺寸"
         unoptimized={isDataUrl}
       />
     </div>

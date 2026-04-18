@@ -96,7 +96,7 @@ const EvaluatorDetail = () => {
 
   // Update mutation
   const updateEvaluator = useLLMEvaluatorSubmit(() => {
-    notification.setNotification("Evaluator updated successfully", "success");
+    notification.setNotification("评估器更新成功", "success");
     evaluators.refetch();
   });
 
@@ -106,7 +106,7 @@ const EvaluatorDetail = () => {
       const evaluator = evaluators.data.data.data.find((e) => e.id === id);
 
       if (!evaluator) {
-        notification.setNotification("Evaluator not found", "error");
+        notification.setNotification("未找到评估器", "error");
         router.push("/evaluators");
         return;
       }
@@ -243,9 +243,9 @@ const EvaluatorDetail = () => {
         {
           error,
         },
-        "Error updating evaluator",
+        "更新评估器时出错",
       );
-      notification.setNotification("Failed to update evaluator", "error");
+      notification.setNotification("更新评估器失败", "error");
     }
   };
 

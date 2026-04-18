@@ -155,7 +155,7 @@ const PlaygroundHeader = ({
             </PopoverTrigger>
             <PopoverContent className="w-[250px] p-0">
               <Command>
-                <CommandInput placeholder="Search model..." />
+                <CommandInput placeholder="搜索模型..." />
                 <CommandList>
                   {modelsLoading ? (
                     <div className="flex items-center justify-center p-4">
@@ -165,10 +165,10 @@ const PlaygroundHeader = ({
                       </span>
                     </div>
                   ) : !playgroundModels || playgroundModels.length === 0 ? (
-                    <CommandEmpty>No models found.</CommandEmpty>
+                    <CommandEmpty>未找到模型。</CommandEmpty>
                   ) : (
                     <>
-                      <CommandEmpty>No model found.</CommandEmpty>
+                      <CommandEmpty>未找到模型。</CommandEmpty>
                       <CommandGroup>
                         {playgroundModels.map((model) => (
                           <CommandItem

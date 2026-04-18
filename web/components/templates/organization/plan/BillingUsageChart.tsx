@@ -237,7 +237,7 @@ export const BillingUsageChart = () => {
       {/* Summary Stats */}
       <div className="grid grid-cols-3 gap-4">
         <div className="rounded-lg border bg-card p-4">
-          <p className="text-sm text-muted-foreground">Current Usage Spend</p>
+          <p className="text-sm text-muted-foreground">当前使用支出</p>
           <p className="text-2xl font-semibold">
             {formatCurrency(usageStats.estimatedCost.totalCost)}
           </p>
@@ -247,14 +247,14 @@ export const BillingUsageChart = () => {
           </p>
         </div>
         <div className="rounded-lg border bg-card p-4">
-          <p className="text-sm text-muted-foreground">Projected Usage Spend</p>
+          <p className="text-sm text-muted-foreground">预计使用支出</p>
           <p className="text-2xl font-semibold">
             {formatCurrency(usageStats.estimatedCost.projectedMonthlyTotalCost)}
           </p>
-          <p className="text-xs text-muted-foreground">End of billing period estimate</p>
+          <p className="text-xs text-muted-foreground">计费周期结束估算</p>
         </div>
         <div className="rounded-lg border bg-card p-4">
-          <p className="text-sm text-muted-foreground">Total Usage</p>
+          <p className="text-sm text-muted-foreground">总使用量</p>
           <p className="text-lg font-semibold">
             {formatNumber(usageStats.usage.totalRequests)} requests
           </p>

@@ -91,12 +91,12 @@ export type TSessions = {
 const TABS = [
   {
     id: "sessions",
-    label: "Sessions",
+    label: "会话",
     icon: <Table size={16} />,
   },
   {
     id: "metrics",
-    label: "Metrics",
+    label: "指标",
     icon: <PieChart size={16} />,
   },
 ];
@@ -288,11 +288,11 @@ const SessionsPage = (props: SessionsPageProps) => {
     };
   }, [aggregateMetrics]);
   const statsToDisplay = [
-    { label: "Avg Cost", value: aggregatedStats.avgCost },
-    { label: "Avg Latency", value: aggregatedStats.avgLatency },
-    { label: "Total Cost", value: aggregatedStats.totalCost },
+    { label: "平均成本", value: aggregatedStats.avgCost },
+    { label: "平均延迟", value: aggregatedStats.avgLatency },
+    { label: "总成本", value: aggregatedStats.totalCost },
     {
-      label: "Total Sessions",
+      label: "总会话数",
       value: aggregatedStats.totalSessions.toString(),
     },
   ];
@@ -344,14 +344,14 @@ const SessionsPage = (props: SessionsPageProps) => {
                 <PopoverContent className="w-[180px] p-0">
                   <Command>
                     <CommandInput
-                      placeholder="Search sessions..."
+                      placeholder="搜索会话..."
                       onChangeCapture={(
                         e: React.ChangeEvent<HTMLInputElement>,
                       ) => {
                         setSessionNameSearch(e.target.value);
                       }}
                     />
-                    <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandEmpty>未找到结果。</CommandEmpty>
 
                     <CommandList>
                       {sessionNames.map((name) => (
@@ -411,13 +411,13 @@ const SessionsPage = (props: SessionsPageProps) => {
                     <TooltipTrigger asChild>
                       <ExportButton rows={[]} fetchRows={onFetchBulkSessions} />
                     </TooltipTrigger>
-                    <TooltipContent>Export raw data</TooltipContent>
+                    <TooltipContent>导出原始数据</TooltipContent>
                   </Tooltip>
                 )}
               </div>
 
               <div className="flex h-8 flex-row items-center divide-x divide-border overflow-hidden rounded-lg border border-border shadow-sm">
-                <label className="px-2 py-1 text-xs">Views</label>
+                <label className="px-2 py-1 text-xs">视图</label>
 
                 <TabsList
                   size={"sm"}

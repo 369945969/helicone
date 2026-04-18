@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Scroll indicator */}
       <div className="absolute bottom-12 flex animate-bounce flex-col items-center gap-2">
-        <span className="text-sm text-white/50">Scroll to explore</span>
+        <span className="text-sm text-white/50">滚动探索</span>
         <ChevronDown className="text-white/50" size={24} />
       </div>
     </section>

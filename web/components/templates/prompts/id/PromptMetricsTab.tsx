@@ -153,7 +153,7 @@ const PromptMetricsTab = ({
   return (
     <div className="flex flex-col space-y-16 px-4 py-4">
       <div className="flex h-full w-full flex-col space-y-4">
-        <h2 className="text-2xl font-semibold text-secondary">Usage Metrics</h2>
+        <h2 className="text-2xl font-semibold text-secondary">使用指标</h2>
         <div className="flex w-full items-center justify-between">
           <ThemedTimeFilter
             timeFilterOptions={[
@@ -201,13 +201,13 @@ const PromptMetricsTab = ({
       </div>
       <div className="flex h-full w-full flex-col space-y-4">
         <h2 className="text-2xl font-semibold text-secondary">
-          Experiment Logs
+          实验日志
         </h2>
         <div className="flex w-full items-center justify-between">
           <div className="flex w-full flex-wrap items-center space-x-2">
             <div className="w-full max-w-[16rem]">
               <MultiSelect
-                placeholder="Dataset"
+                placeholder="数据集"
                 value={selectedDatasets}
                 onValueChange={(value) => {
                   setSelectedDatasets(value);
@@ -222,7 +222,7 @@ const PromptMetricsTab = ({
             </div>
             <div className="w-full max-w-[16rem]">
               <MultiSelect
-                placeholder="Model"
+                placeholder="模型"
                 value={selectedModels}
                 onValueChange={(value) => {
                   setSelectedModels(value);
@@ -244,14 +244,14 @@ const PromptMetricsTab = ({
                   setSelectedModels([]);
                 }}
               >
-                Clear All
+                清除全部
               </Button>
             </div>
           </div>
         </div>
         {isExperimentsLoading ? (
           <div className="flex h-48 items-center justify-center">
-            <LoadingAnimation title="Loading Experiments..." />
+            <LoadingAnimation title="正在加载实验..." />
           </div>
         ) : (
           <SimpleTable
@@ -268,31 +268,31 @@ const PromptMetricsTab = ({
               },
               {
                 key: "status",
-                header: "Status",
+                header: "状态",
                 render: (item) => (
                   <StatusBadge statusType={item.status || "unknown"} />
                 ),
               },
               {
                 key: "createdAt",
-                header: "Created At",
+                header: "创建日期",
                 render: (item) => (
                   <span>{getUSDateFromString(item.createdAt)}</span>
                 ),
               },
               {
                 key: "datasetName",
-                header: "Dataset",
+                header: "数据集",
                 render: (item) => item.datasetName,
               },
               {
                 key: "model",
-                header: "Model",
+                header: "模型",
                 render: (item) => <ModelPill model={item.model || "unknown"} />,
               },
               {
                 key: "runCount",
-                header: "Run Count",
+                header: "运行次数",
                 render: (item) => item.runCount || 0,
               },
             ]}

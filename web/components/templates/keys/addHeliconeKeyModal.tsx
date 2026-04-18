@@ -17,12 +17,12 @@ const AddHeliconeKeyModal = (props: AddHeliconeKeyModalProps) => {
     <ThemedModal open={open} setOpen={setOpen}>
       <div className="flex w-[400px] flex-col space-y-4">
         <h1 className="text-lg font-semibold text-gray-900">
-          Your Helicone Key
+          您的 Helicone 密钥
         </h1>
         <p className="text-sm text-gray-500">
-          This will be the <b>only</b> time you can see your API key. Please
-          save it somewhere safe and accessible. If you lose your API key, you
-          will need to generate a new one.
+          这将是您<b>唯一</b>一次可以查看您的 API 密钥。请
+          将其保存在安全且可访问的地方。如果您丢失了 API 密钥，您
+          将需要生成一个新的。
         </p>
         <div className="w-full space-y-1.5 text-sm">
           <div className="flex w-full flex-row items-center gap-4">
@@ -40,7 +40,7 @@ const AddHeliconeKeyModal = (props: AddHeliconeKeyModalProps) => {
               className="flex items-center rounded-md bg-black p-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               onClick={() => {
                 navigator.clipboard.writeText(apiKey);
-                setNotification("Copied to clipboard!", "success");
+                setNotification("已复制到剪贴板！", "success");
               }}
             >
               <ClipboardDocumentListIcon className="h-5 w-5 text-white" />

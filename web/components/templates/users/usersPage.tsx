@@ -47,12 +47,12 @@ interface UsersPageV2Props {
 const TABS = [
   {
     id: "users",
-    label: "Users",
+    label: "用户",
     icon: <Table size={16} />,
   },
   {
     id: "metrics",
-    label: "Metrics",
+    label: "指标",
     icon: <PieChart size={16} />,
   },
 ];
@@ -285,7 +285,7 @@ const UsersPageV2 = (props: UsersPageV2Props) => {
           rightSection={
             <section className="flex flex-row items-center gap-2">
               <div className="flex h-8 flex-row items-center divide-x divide-border overflow-hidden rounded-lg border border-border shadow-sm">
-                <label className="px-2 py-1 text-xs">Views</label>
+                <label className="px-2 py-1 text-xs">视图</label>
 
                 <TabsList
                   size={"sm"}

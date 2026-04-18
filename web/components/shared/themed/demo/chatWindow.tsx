@@ -54,19 +54,18 @@ export const ChatWindow = ({
           {
             role: "system",
             content: `
-You are a helpful assistant that checks if the user correctly guessed a character. You can accept answers that are pretty close or spelt slightly differently.
+你是一位有用的助手，检查用户是否正确猜出了角色。你可以接受接近或拼写略有不同的答案。
 
-ONLY return true if the user correctly guessed the character. Return false if not.
+只有当用户正确猜出角色时才返回 true。否则返回 false。
 
+示例：
+助手："角色：瑞秋·雷"
+用户消息："我认为是约翰·特拉沃尔塔"
+回复："false"
 
-Example:
-Assistant: "Character: Rachael Ray"
-User Message: : "I think it's John Travolta"
-Response: "false"
-
-Assistant: "Character: Rachael Ray"
-User Message: : "Are you Rachael?"
-Response: "true"
+助手："角色：瑞秋·雷"
+用户消息："你是瑞秋吗？"
+回复："true"
             `,
           },
           {
@@ -90,11 +89,9 @@ Response: "true"
         messages: [
           {
             role: "system",
-            content: hpf`You are ${{ movieCharacter }} from the movie ${{
-              movieTitle,
-            }}. Answer the questions as if you are ${{ movieCharacter }}.
+            content: hpf`你是电影 ${{ movieTitle }} 中的 ${{ movieCharacter }}。像 ${{ movieCharacter }} 一样回答问题。
 
-DO NOT GIVE AWAY YOUR IDENTITY. THE USER IS TRYING TO GUESS THE CHARACTER.
+不要透露你的身份。用户正在尝试猜测这个角色。
             `,
           },
           ...chatHistory,
@@ -129,7 +126,7 @@ DO NOT GIVE AWAY YOUR IDENTITY. THE USER IS TRYING TO GUESS THE CHARACTER.
     <Col className="flex h-full w-full flex-col">
       <Col className="flex-shrink-0 p-4">
         <p className="animate-popin text-center text-2xl tracking-[10px]">
-          Your movie is
+          你的电影是
         </p>
         <div className="flex justify-center tracking-[5px]">
           <Typewriter
@@ -210,7 +207,7 @@ DO NOT GIVE AWAY YOUR IDENTITY. THE USER IS TRYING TO GUESS THE CHARACTER.
               </button>
             </Row>
             <div className="mt-2 text-center text-sm italic text-opacity-45">
-              Ask questions to try to guess the character from the movie.
+              提出问题来尝试猜测电影中的角色。
             </div>
           </Col>
         </Col>

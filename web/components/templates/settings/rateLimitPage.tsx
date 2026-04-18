@@ -84,37 +84,31 @@ const RateLimitPage = () => {
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="font-semibold">
-            Your requests are never dropped and will always be returned to the
-            client. Helicone will always do its best effort to make sure the
-            user gets their request.
+            您的请求永远不会被丢弃，始终会返回给客户端。Helicone 将竭尽全力确保用户获得其请求。
           </p>
           <p className="text-muted-foreground">
-            Below is a summary of the rate-limiting{" "}
-            <span className="font-semibold">logged</span> occurrences for your
-            organization last month. This simply indicates that some of your
-            requests were processed but not logged in your dashboard due to
-            reaching a rate limit - If you&apos;d like to increase your rate
-            limit, please feel free to reach out to us at{" "}
+            以下是您组织上月速率限制{" "}
+            <span className="font-semibold">记录</span> 事件的摘要。这仅表明您的某些请求已被处理但未在仪表板中记录，因为达到了速率限制 - 如果您想提高速率限制，请随时通过{" "}
             <Button
               variant="link"
               className="h-auto p-0"
               onClick={() => {
                 navigator.clipboard.writeText("sales@helicone.ai");
-                setNotification("Email copied to clipboard", "success");
+                setNotification("邮箱已复制到剪贴板", "success");
               }}
             >
               sales@helicone.ai
             </Button>
-            .
+            联系我们。
           </p>
         </CardContent>
       </Card>
 
       {!isLoading && metrics.totalRateLimits.data && (
         <Card>
-          <CardHeader>
-            <CardTitle>Rate-Limits this month</CardTitle>
-          </CardHeader>
+        <CardHeader>
+          <CardTitle>本月速率限制</CardTitle>
+        </CardHeader>
           <CardContent>
             <BarChart
               className="h-[14rem]"
@@ -135,28 +129,28 @@ const RateLimitPage = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Rate Limit Tiers</CardTitle>
+          <CardTitle>速率限制等级</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Tier</TableHead>
-                <TableHead>Rate limits</TableHead>
+                <TableHead>层级</TableHead>
+                <TableHead>速率限制</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell>Free</TableCell>
-                <TableCell>834 logs / 5 seconds</TableCell>
+                <TableCell>免费</TableCell>
+                <TableCell>834 日志 / 5 秒</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Pro</TableCell>
-                <TableCell>8334 logs / 5 seconds</TableCell>
+                <TableCell>专业版</TableCell>
+                <TableCell>8334 日志 / 5 秒</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Enterprise</TableCell>
-                <TableCell>Custom</TableCell>
+                <TableCell>企业版</TableCell>
+                <TableCell>自定义</TableCell>
               </TableRow>
             </TableBody>
           </Table>

@@ -65,15 +65,33 @@ const allowedOriginsEnv = {
     /^https?:\/\/(www\.)?eu\.helicone\.ai$/, // Added eu.helicone.ai
     /^https?:\/\/(www\.)?us\.helicone\.ai$/,
   ],
-  development: [getAppUrlRegex()],
-  preview: [getAppUrlRegex()],
+  development: [
+    getAppUrlRegex(),
+    /^http:\/\/localhost:3008$/,
+    /^http:\/\/localhost:3000$/,
+    /^http:\/\/127.0.0.1:3000$/,
+    /^http:\/\/127.0.0.1:3008$/,
+  ],
+  preview: [
+    getAppUrlRegex(),
+    /^http:\/\/localhost:3008$/,
+    /^http:\/\/localhost:3000$/,
+    /^http:\/\/127.0.0.1:3000$/,
+    /^http:\/\/127.0.0.1:3008$/,
+  ],
 };
 
 const allowedOrigins = allowedOriginsEnv[ENVIRONMENT];
 
 const app = express();
 
+app.set("etag", false);
 app.use(cookieParser());
+
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  next();
+});
 
 const corsOptions = {
   origin: function (
@@ -92,6 +110,7 @@ const corsOptions = {
       callback(null, true);
     } else {
       // Important: Disallow origins not in the list
+      console.log(`CORS blocked for origin: ${origin}`);
       callback(new Error("Not allowed by CORS"));
     }
   },
@@ -100,6 +119,8 @@ const corsOptions = {
     "Content-Type",
     "Authorization",
     "Helicone-Authorization",
+    "helicone-authorization",
+    "helicone-org-id",
     "x-vercel-set-bypass-cookie",
     "x-vercel-protection-bypass",
   ],
@@ -107,7 +128,6 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
-app.options("/{*any}", cors(corsOptions));
 app.use(cors(corsOptions));
 
 var rawBodySaver = function (req: any, res: any, buf: any, encoding: any) {

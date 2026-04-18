@@ -68,7 +68,7 @@ const StringRenderer: React.FC<StringRendererProps> = ({
           {expanded ? (
             <>
               <EyeSlashIcon className="mr-1 h-3 w-3" />
-              <span>Show less</span>
+              <span>显示更少</span>
             </>
           ) : (
             <>
@@ -138,7 +138,7 @@ export const JsonRenderer: React.FC<JsonRendererProps> = ({
           <button
             onClick={handleCopy}
             className="absolute right-0 top-0 text-slate-500 transition-colors hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
-            title="Copy JSON"
+            title="复制 JSON"
           >
             {copied ? (
               <ClipboardDocumentCheckIcon className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
@@ -209,7 +209,7 @@ export const JsonRenderer: React.FC<JsonRendererProps> = ({
               ? "left-10 top-0"
               : "right-0 top-0"
           } text-slate-500 transition-colors hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200`}
-          title="Copy JSON"
+          title="复制 JSON"
         >
           {copied ? (
             <ClipboardDocumentCheckIcon className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />

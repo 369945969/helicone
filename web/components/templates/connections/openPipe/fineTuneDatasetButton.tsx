@@ -159,13 +159,13 @@ export default function OpenPipeFineTuneButton(
               id="fineTuneName"
               value={fineTuneName}
               onChange={(e) => setFineTuneName(e.target.value)}
-              placeholder="Enter a name for your fine-tuned model"
+              placeholder="输入微调模型的名称"
               className="w-full"
             />
           </div>
           <div className="space-y-2">
             <Label htmlFor="baseModel" className="text-sm font-medium">
-              Base Model
+              基础模型
             </Label>
             <Select
               value={baseModel}
@@ -174,7 +174,7 @@ export default function OpenPipeFineTuneButton(
               }
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select a base model" />
+                <SelectValue placeholder="选择基础模型" />
               </SelectTrigger>
               <SelectContent>
                 {SUPPORTED_MODELS.map((model) => (
@@ -187,7 +187,7 @@ export default function OpenPipeFineTuneButton(
           </div>
           <div className="space-y-2">
             <Label htmlFor="batchSize" className="text-sm font-medium">
-              Batch Size
+              批量大小
             </Label>
             <TooltipProvider>
               <Tooltip>
@@ -202,8 +202,8 @@ export default function OpenPipeFineTuneButton(
                 </TooltipTrigger>
                 <TooltipContent>
                   <p className="text-xs">
-                    Number of samples processed in each training step. Use
-                    &quot;auto&quot; for automatic selection.
+                    每个训练步骤处理的样本数量。使用
+                    &quot;auto&quot; 进行自动选择。
                   </p>
                 </TooltipContent>
               </Tooltip>
@@ -315,7 +315,7 @@ export default function OpenPipeFineTuneButton(
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p className="text-xs">Copy logs to clipboard</p>
+                <p className="text-xs">复制日志到剪贴板</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

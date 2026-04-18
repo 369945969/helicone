@@ -37,10 +37,10 @@ export function useOpenPipeKey() {
       }
     },
     onSuccess: () => {
-      setNotification("OpenPipe API key saved successfully", "success");
+      setNotification("OpenPipe API 密钥保存成功", "success");
     },
     onError: (error) => {
-      setNotification(`Failed to save OpenPipe API key: ${error}`, "error");
+      setNotification(`保存 OpenPipe API 密钥失败：${error}`, "error");
     },
   });
 

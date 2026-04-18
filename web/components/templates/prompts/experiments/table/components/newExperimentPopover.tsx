@@ -73,7 +73,7 @@ export const NewExperimentPopover = () => {
     }
 
     if (!basePrompt.model) {
-      notification.setNotification("Please select a model", "error");
+      notification.setNotification("请选择模型", "error");
       return;
     }
 
@@ -87,12 +87,12 @@ export const NewExperimentPopover = () => {
       },
     });
     if (res.error || !res.data) {
-      notification.setNotification("Failed to create prompt", "error");
+      notification.setNotification("创建提示词失败", "error");
       return;
     }
 
     if (!res.data?.data?.id || !res.data?.data?.prompt_version_id) {
-      notification.setNotification("Failed to create prompt", "error");
+      notification.setNotification("创建提示词失败", "error");
       return;
     }
 
@@ -103,7 +103,7 @@ export const NewExperimentPopover = () => {
       },
     });
     if (!dataset.data?.data?.datasetId) {
-      notification.setNotification("Failed to create dataset", "error");
+      notification.setNotification("创建数据集失败", "error");
       return;
     }
 
@@ -130,7 +130,7 @@ export const NewExperimentPopover = () => {
       },
     });
     if (!experimentTableResult.data?.data?.experimentId) {
-      notification.setNotification("Failed to create experiment", "error");
+      notification.setNotification("创建实验失败", "error");
       return;
     }
 
@@ -149,10 +149,10 @@ export const NewExperimentPopover = () => {
         <div className="space-y-4">
           <div className="flex flex-row space-x-2">
             <BeakerIcon className="h-6 w-6" />
-            <h3 className="text-md font-semibold">Original Prompt</h3>
+            <h3 className="text-md font-semibold">原始提示词</h3>
           </div>
           <Input
-            placeholder="Prompt Name"
+            placeholder="提示词名称"
             value={promptName}
             onChange={(e) => setPromptName(e.target.value)}
           />

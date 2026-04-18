@@ -68,8 +68,8 @@ interface ThemedHeaderProps {
 }
 
 const notificationMethods = [
-  { id: "filtered", title: "Only selected columns", filtered: true },
-  { id: "all", title: "All event properties", filtered: false },
+  { id: "filtered", title: "仅选中的列", filtered: true },
+  { id: "all", title: "所有事件属性", filtered: false },
 ];
 
 export default function ThemedHeader({
@@ -114,7 +114,7 @@ export default function ThemedHeader({
                   label: col.label,
                   value: col.label,
                 }))}
-                buttonLabel="Columns"
+                buttonLabel="列"
                 deselectAll={() => {
                   const newColumns = [...editColumns.columns];
 
@@ -155,7 +155,7 @@ export default function ThemedHeader({
                       aria-hidden="true"
                     />
                     <p className="hidden text-sm font-medium text-gray-900 sm:block">
-                      Export
+                      导出
                     </p>
                   </button>
                 </Menu>
@@ -173,12 +173,10 @@ export default function ThemedHeader({
             <div className="flex flex-col space-y-8">
               <div className="flex flex-col space-y-4">
                 <p className="text-md font-semibold text-gray-900 sm:text-lg">
-                  Export CSV
+                  导出 CSV
                 </p>
                 <p className="sm:text-md text-sm text-gray-600">
-                  Exporting by CSV is limited to 500 rows due to the huge
-                  amounts of data in the requests. For larger exports, please
-                  use our{" "}
+                  由于请求数据量巨大，CSV导出限制为500行。如需导出更多数据，请使用我们的
                   <Link
                     href="https://docs.helicone.ai/helicone-api/getting-started"
                     target="_blank"
@@ -187,13 +185,13 @@ export default function ThemedHeader({
                   >
                     API
                   </Link>
-                  .
+                  。
                 </p>
               </div>
 
               <fieldset className="space-y-2">
-                <p className="text-xs text-gray-600">Properties on export</p>
-                <legend className="sr-only">Notification method</legend>
+                <p className="text-xs text-gray-600">导出属性</p>
+                <legend className="sr-only">通知方式</legend>
                 <div className="space-y-2">
                   {notificationMethods.map((notificationMethod) => (
                     <div
@@ -221,8 +219,7 @@ export default function ThemedHeader({
                 </div>
               </fieldset>
               <p className="sm:text-md text-sm text-gray-600">
-                Export may take a lot of time. Please do not close this modal
-                once export is started.
+                导出可能需要很长时间。导出开始后请不要关闭此弹窗。
               </p>
             </div>
 
@@ -232,7 +229,7 @@ export default function ThemedHeader({
                 onClick={() => csvExport.setOpenExport(false)}
                 className="flex flex-row items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 hover:text-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500"
               >
-                Cancel
+                取消
               </button>
               <button
                 className="text-md flex items-center rounded-md bg-black px-4 py-2 font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -243,10 +240,10 @@ export default function ThemedHeader({
                     <ArrowPathIcon
                       className={clsx("mr-2 inline h-5 w-5 animate-spin")}
                     />
-                    Exporting
+                    导出中
                   </>
                 ) : (
-                  <p>Export</p>
+                  <p>导出</p>
                 )}
               </button>
             </div>

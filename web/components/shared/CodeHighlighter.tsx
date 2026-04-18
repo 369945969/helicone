@@ -63,7 +63,7 @@ export function CodeHighlighter({
       <button
         onClick={handleCopy}
         className="absolute right-2 top-2 z-10 rounded-md bg-gray-800 p-1.5 text-gray-400 opacity-0 transition-opacity hover:bg-gray-700 hover:text-gray-300 group-hover:opacity-100"
-        aria-label="Copy code"
+        aria-label="复制代码"
       >
         {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
       </button>

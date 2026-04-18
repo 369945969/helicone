@@ -60,7 +60,7 @@ const PortalPage = (props: PortalPageProps) => {
                 <div className="max-w-sm">
                   <Input
                     type="search"
-                    placeholder="Search Customer Name..."
+                    placeholder="搜索客户名称..."
                     onChange={(e) => {
                       const search = e.target.value as string;
                       setCurrentSearch(search);
@@ -121,11 +121,11 @@ const PortalPage = (props: PortalPageProps) => {
                         <TableHeader className="border-b border-gray-300 dark:border-gray-700">
                           <TableRow>
                             <TableHead className="w-8"></TableHead>
-                            <TableHead>Name</TableHead>
-                            <TableHead>Created At</TableHead>
-                            <TableHead>Status</TableHead>
-                            <TableHead>Members</TableHead>
-                            <TableHead>Requests (30 days)</TableHead>
+                            <TableHead>名称</TableHead>
+                            <TableHead>创建时间</TableHead>
+                            <TableHead>状态</TableHead>
+                            <TableHead>成员</TableHead>
+                            <TableHead>请求（30天）</TableHead>
                             <TableHead />
                           </TableRow>
                         </TableHeader>

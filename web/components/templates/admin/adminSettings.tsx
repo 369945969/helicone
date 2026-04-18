@@ -244,7 +244,7 @@ const AdminSettings = () => {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col p-4">
       <div className="mb-6">
-        <H1>Admin Settings</H1>
+        <H1>管理员设置</H1>
         <Lead>Manage system-wide configuration settings</Lead>
       </div>
 
@@ -271,16 +271,13 @@ const AdminSettings = () => {
           </div>
           <Input
             className="pl-10"
-            placeholder="Search settings by name or value..."
+            placeholder="按名称或值搜索设置..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           {searchQuery && (
             <div className="mt-1 text-sm text-muted-foreground">
-              Found {filteredSettingsCount} setting
-              {filteredSettingsCount !== 1 ? "s" : ""} in{" "}
-              {Object.keys(filteredGroupedSettings).length} group
-              {Object.keys(filteredGroupedSettings).length !== 1 ? "s" : ""}
+              在 {Object.keys(filteredGroupedSettings).length} 个组中找到 {filteredSettingsCount} 个设置
             </div>
           )}
         </div>
@@ -289,7 +286,7 @@ const AdminSettings = () => {
       {showNewSettingForm && (
         <div className="mb-6 rounded-md border bg-slate-50 p-4 dark:bg-slate-900">
           <div className="mb-4 flex items-center justify-between">
-            <P className="font-medium">Add New Setting</P>
+            <P className="font-medium">添加新设置</P>
             <Button
               variant="ghost"
               size="xs"
@@ -303,19 +300,18 @@ const AdminSettings = () => {
           </div>
           <div className="flex flex-col gap-3">
             <div>
-              <Small className="mb-1 block">Setting Name</Small>
+              <Small className="mb-1 block">设置名称</Small>
               <Input
                 value={newSetting.name}
                 onChange={(e) =>
                   setNewSetting({ ...newSetting, name: e.target.value })
                 }
-                placeholder="Enter setting name (use prefix:name format for grouping)"
+                placeholder="输入设置名称（使用 prefix:name 格式进行分组）"
                 className="mb-2"
               />
               {isSecretSetting(newSetting.name) && (
                 <Small className="text-yellow-600 dark:text-yellow-400">
-                  ⚠️ This setting will be treated as sensitive and masked by
-                  default
+                  ⚠️ 此设置将被视为敏感信息并默认隐藏
                 </Small>
               )}
             </div>
@@ -333,7 +329,7 @@ const AdminSettings = () => {
               </div>
             </div>
             {!isJsonValid(newSetting.settings) && (
-              <InfoBox variant="error">Invalid JSON format</InfoBox>
+              <InfoBox variant="error">无效的 JSON 格式</InfoBox>
             )}
             <div className="mt-2 flex justify-end gap-2">
               <Button

@@ -13,7 +13,7 @@ export const EvaluatorNotFound: React.FC<EvaluatorNotFoundProps> = ({
   return (
     <div className="flex h-full flex-col items-center justify-center p-8">
       <div className="mb-4 flex w-full justify-between">
-        <H3>Evaluator Not Found</H3>
+        <H3>未找到评估器</H3>
         <Button variant="ghost" size="icon" onClick={closeEditPanel}>
           <XIcon size={18} />
         </Button>

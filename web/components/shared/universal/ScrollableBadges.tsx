@@ -259,7 +259,7 @@ export default function ScrollableBadges({
                     value={newKey}
                     onChange={(e) => setNewKey(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Key"
+                    placeholder="键"
                     className="h-6 w-20 px-2 text-xs"
                   />
                 )}

@@ -94,17 +94,17 @@ const SegmentConfig: React.FC<SegmentConfigProps> = ({ onClose }) => {
           disabled={isLoading}
           className="data-[state=checked]:bg-green-500"
         />
-        <Label htmlFor="autoDatasetSync">Enable Segment Integration</Label>
+        <Label htmlFor="autoDatasetSync">启用 Segment 集成</Label>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="segmentKey">Segment API Key</Label>
+        <Label htmlFor="segmentKey">Segment API 密钥</Label>
         <div className="relative">
           <Input
             id="segmentKey"
             type={showApiKey ? "text" : "password"}
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
-            placeholder="Enter your Segment API key"
+            placeholder="输入 Segment API 密钥"
             disabled={isLoading}
           />
           <Button

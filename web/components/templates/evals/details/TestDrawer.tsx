@@ -383,7 +383,7 @@ export function TestDrawer({ evaluatorId, isOpen, onClose }: TestDrawerProps) {
         {/* Header */}
         <div className="flex-shrink-0 border-b p-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-medium">Test Evaluator</h3>
+            <h3 className="font-medium">测试评估器</h3>
             <Button variant="ghost" size="icon" onClick={onClose}>
               <X className="h-4 w-4" />
             </Button>
@@ -429,7 +429,7 @@ export function TestDrawer({ evaluatorId, isOpen, onClose }: TestDrawerProps) {
               </label>
               <Input
                 id="request-id"
-                placeholder="Enter request ID"
+                placeholder="输入请求 ID"
                 value={requestId}
                 onChange={(e) => setRequestId(e.target.value)}
               />
@@ -492,7 +492,7 @@ export function TestDrawer({ evaluatorId, isOpen, onClose }: TestDrawerProps) {
           {/* Results Section - Only shown when there are results */}
           {result && (
             <div className="border-t p-4" ref={resultsRef}>
-              <h3 className="mb-3 text-sm font-medium">Test Results</h3>
+              <h3 className="mb-3 text-sm font-medium">测试结果</h3>
               <div className="max-h-[180px] overflow-y-auto rounded-md border bg-background p-3">
                 {isLoading ? (
                   <div className="py-4 text-center">
@@ -504,15 +504,15 @@ export function TestDrawer({ evaluatorId, isOpen, onClose }: TestDrawerProps) {
                   <div className="flex items-center gap-2 rounded-md bg-muted p-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
                     <div>
-                      <H4 className="text-sm">Score</H4>
-                      <div className="text-lg font-semibold">True</div>
+                      <H4 className="text-sm">分数</H4>
+                      <div className="text-lg font-semibold">是</div>
                     </div>
                   </div>
                 ) : result._type === "error" ? (
                   <div className="flex items-start gap-2 rounded-md border border-destructive/20 bg-destructive/10 p-3">
                     <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
                     <div>
-                      <H4 className="text-sm text-destructive">Error</H4>
+                      <H4 className="text-sm text-destructive">错误</H4>
                       <pre className="mt-1 whitespace-pre-wrap text-xs">
                         {typeof result.error === "object"
                           ? JSON.stringify(result.error, null, 2)
@@ -524,7 +524,7 @@ export function TestDrawer({ evaluatorId, isOpen, onClose }: TestDrawerProps) {
                   <div className="flex items-center gap-2 rounded-md bg-muted p-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
                     <div>
-                      <H4 className="text-sm">Score</H4>
+                      <H4 className="text-sm">分数</H4>
                       <div className="text-lg font-semibold">
                         {result.output}
                       </div>
@@ -534,12 +534,12 @@ export function TestDrawer({ evaluatorId, isOpen, onClose }: TestDrawerProps) {
                   <div className="flex items-center gap-2 rounded-md bg-muted p-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
                     <div>
-                      <H4 className="text-sm">Score</H4>
+                      <H4 className="text-sm">分数</H4>
                       <div className="text-lg font-semibold">
                         {typeof result.data === "boolean"
                           ? result.data
-                            ? "True"
-                            : "False"
+                            ? "是"
+                            : "否"
                           : typeof result.data === "number"
                             ? result.data
                             : result.data?.score !== undefined

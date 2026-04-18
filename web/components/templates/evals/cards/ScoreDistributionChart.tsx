@@ -1,8 +1,8 @@
 import React from "react";
-import { EvaluatorStats } from "../hooks/useEvaluatorStats";
+import { 评估器Stats } from "../hooks/use评估器Stats";
 import {
   ResponsiveContainer,
-  BarChart,
+  Bar图表,
   Bar,
   XAxis,
   YAxis,
@@ -12,15 +12,15 @@ import {
 } from "recharts";
 import { Small } from "@/components/ui/typography";
 
-interface ScoreDistributionChartProps {
-  distributionData: EvaluatorStats["scoreDistribution"];
+interface 评分分布图表Props {
+  distributionData: 评估器Stats["score分布"];
   className?: string;
 }
 
 /**
- * Distribution chart to visualize score distribution using Recharts
+ * 分布 chart to visualize score distribution using Recharts
  */
-export const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({
+export const 评分分布图表: React.FC<评分分布图表Props> = ({
   distributionData,
   className = "",
 }) => {
@@ -31,7 +31,7 @@ export const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({
   if (!hasData) {
     return (
       <div className={`flex h-24 items-center justify-center ${className}`}>
-        <Small className="text-muted-foreground">No data available</Small>
+        <Small className="text-muted-foreground">无可用数据</Small>
       </div>
     );
   }
@@ -47,7 +47,7 @@ export const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({
     if (active && payload && payload.length) {
       return (
         <div className="rounded-md border bg-background p-2 shadow-sm">
-          <p className="text-xs font-medium">{`Score range: ${payload[0].payload.range}`}</p>
+          <p className="text-xs font-medium">{`评分 range: ${payload[0].payload.range}`}</p>
           <p className="text-xs text-muted-foreground">{`Count: ${payload[0].value}`}</p>
         </div>
       );
@@ -58,7 +58,7 @@ export const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({
   return (
     <div className={`h-24 ${className}`}>
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart
+        <Bar图表
           data={processedData}
           margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
         >
@@ -79,7 +79,7 @@ export const ScoreDistributionChart: React.FC<ScoreDistributionChartProps> = ({
             fill="#0EA5E9" // sky-500 in Tailwind
             radius={[2, 2, 0, 0]}
           />
-        </BarChart>
+        </Bar图表>
       </ResponsiveContainer>
     </div>
   );

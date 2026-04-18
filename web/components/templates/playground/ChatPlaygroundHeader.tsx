@@ -12,7 +12,7 @@ const ChatPlaygroundHeader: React.FC<{
             className="rounded-lg bg-white px-3 py-2 text-xs text-gray-500 shadow-sm dark:text-gray-400"
             onClick={() => setMode(mode === "pretty" ? "json" : "pretty")}
           >
-            {mode === "pretty" ? "JSON" : "Pretty"}
+            {mode === "pretty" ? "JSON" : "美化"}
           </button>
         </div>
       </li>

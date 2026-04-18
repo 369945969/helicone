@@ -35,7 +35,7 @@ export const ThankYouSection: React.FC = () => {
           onClick={() => router.push("/dashboard")}
           className="bg-[#0DA5E8] px-8 py-6 text-lg text-white hover:bg-[#0DA5E8]/90"
         >
-          Back to Dashboard
+          返回仪表板
         </Button>
 
         {/* Footer */}

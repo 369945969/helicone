@@ -150,7 +150,7 @@ const ConnectionsPage: React.FC = () => {
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-3 w-3 -translate-y-1/2 text-muted-foreground" />
           <Input
-            placeholder="Search integrations..."
+            placeholder="搜索集成...",
             value={searchQuery}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSearchQuery(e.target.value)
@@ -165,7 +165,7 @@ const ConnectionsPage: React.FC = () => {
               size="sm"
               className="flex min-w-[120px] items-center justify-between gap-1"
             >
-              <XSmall>Sort: {getSortLabel()}</XSmall>
+              <XSmall>排序: {getSortLabel()}</XSmall>
               <ChevronDown className="h-3 w-3" />
             </Button>
           </DropdownMenuTrigger>

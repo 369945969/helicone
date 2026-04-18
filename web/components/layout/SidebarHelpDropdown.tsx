@@ -86,7 +86,7 @@ const SidebarHelpDropdown = ({
             <div className="relative flex items-center">
               <HelpCircle size={16} />
             </div>
-            {!isCollapsed && <span>Help</span>}
+            {!isCollapsed && <span>帮助</span>}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="ml-4 w-64 text-slate-700 dark:text-slate-200">
@@ -95,7 +95,7 @@ const SidebarHelpDropdown = ({
             onSelect={() => router.push("/quickstart")}
           >
             <Zap className="mr-2 h-4 w-4 text-slate-500" />
-            Quickstart
+            快速开始
           </DropdownMenuItem>
           <DropdownMenuItem
             className="cursor-pointer"

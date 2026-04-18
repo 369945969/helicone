@@ -34,7 +34,7 @@ export const DeleteOrgModal = (props: DeleteOrgModalProps) => {
     <Dialog open={isOpen} onOpenChange={setOpen}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete Organization</DialogTitle>
+          <DialogTitle>删除组织</DialogTitle>
         </DialogHeader>
         <DialogDescription>
           Organization <span className="font-medium">{` "${orgName}" `}</span>{" "}
@@ -95,7 +95,7 @@ export const DeleteOrgModal = (props: DeleteOrgModalProps) => {
               }
 
               if (confirmOrgName !== orgName) {
-                setNotification("Organization name does not match", "error");
+                setNotification("组织名称不匹配", "error");
                 return;
               }
 
@@ -108,13 +108,13 @@ export const DeleteOrgModal = (props: DeleteOrgModalProps) => {
                   { error: deleteOrgError },
                   "Error deleting organization",
                 );
-                setNotification("Error deleting organization", "error");
+                setNotification("删除组织时出错", "error");
               } else {
                 orgContext?.refetchOrgs();
                 if (onDeleteRoute) {
                   router.push(onDeleteRoute || "/request");
                 }
-                setNotification("Delete organization", "success");
+                setNotification("组织已删除", "success");
               }
 
               setOpen(false);

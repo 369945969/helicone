@@ -54,14 +54,14 @@ export const useKeys = () => {
       return { res: await res, apiKey };
     },
     onSuccess: () => {
-      setNotification("Successfully created API key", "success");
+      setNotification("API 密钥创建成功", "success");
       queryClient.invalidateQueries({
         queryKey: ["keys", org?.currentOrg?.id],
       });
       keys.refetch();
     },
     onError: () => {
-      setNotification("Failed to create API key", "error");
+      setNotification("创建 API 密钥失败", "error");
     },
   });
 

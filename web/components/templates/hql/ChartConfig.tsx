@@ -276,13 +276,13 @@ export function ChartConfig({
       {/* Group By */}
       {config.chartType !== "pie" && config.chartType !== "scatter" && (
         <div className="flex items-center gap-2">
-          <span className="text-xs font-medium text-muted-foreground">Group By</span>
+          <span className="text-xs font-medium text-muted-foreground">分组依据</span>
           <Select
             value={config.groupBy ?? "__none__"}
             onValueChange={handleGroupByChange}
           >
             <SelectTrigger className="h-8 w-[150px]">
-              <SelectValue placeholder="None" />
+              <SelectValue placeholder="无" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="__none__">None</SelectItem>

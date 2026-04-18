@@ -408,17 +408,17 @@ const ChatInterface = forwardRef<{ focus: () => void }, ChatInterfaceProps>(
                         ) : isEscalated ? (
                           <>
                             <CheckCircle size={10} />
-                            <span>Support</span>
+                            <span>支持</span>
                           </>
                         ) : (
                           <>
                             <Users size={10} />
-                            <span>Support</span>
+                            <span>支持</span>
                           </>
                         )}
                       </Button>
                     </TooltipTrigger>
-                    <TooltipContent>Talk to a human</TooltipContent>
+                    <TooltipContent>与人工交谈</TooltipContent>
                   </Tooltip>
                 )}
               </div>

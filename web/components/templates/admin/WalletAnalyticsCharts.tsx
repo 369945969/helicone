@@ -21,7 +21,7 @@ interface TimeSeriesDataPoint {
   amount: number;
 }
 
-interface WalletAnalyticsChartsProps {
+interface 钱包分析图表Props {
   deposits: TimeSeriesDataPoint[];
   spend: TimeSeriesDataPoint[];
   isLoading?: boolean;
@@ -42,12 +42,12 @@ const spendChartConfig = {
   },
 } satisfies ChartConfig;
 
-export function WalletAnalyticsCharts({
+export function 钱包分析图表({
   deposits,
   spend,
   isLoading = false,
   error = null,
-}: WalletAnalyticsChartsProps) {
+}: 钱包分析图表Props) {
   // Format data for charts
   const depositsData = deposits.map((d) => ({
     date: new Date(d.timestamp).getTime(),
@@ -67,29 +67,29 @@ export function WalletAnalyticsCharts({
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div class名称="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <H3>Deposits Over Time</H3>
+            <H3>存款随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div className="flex h-[220px] items-center justify-center">
+            <div class名称="flex h-[220px] items-center justify-center">
               <Loader2
                 size={24}
-                className="animate-spin text-muted-foreground"
+                class名称="animate-spin text-muted-foreground"
               />
             </div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <H3>Spend Over Time</H3>
+            <H3>支出随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div className="flex h-[220px] items-center justify-center">
+            <div class名称="flex h-[220px] items-center justify-center">
               <Loader2
                 size={24}
-                className="animate-spin text-muted-foreground"
+                class名称="animate-spin text-muted-foreground"
               />
             </div>
           </CardContent>
@@ -100,24 +100,24 @@ export function WalletAnalyticsCharts({
 
   if (error) {
     return (
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div class名称="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <H3>Deposits Over Time</H3>
+            <H3>存款随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div className="flex h-[220px] items-center justify-center">
-              <Small className="text-red-600">{error}</Small>
+            <div class名称="flex h-[220px] items-center justify-center">
+              <Small class名称="text-red-600">{error}</Small>
             </div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <H3>Spend Over Time</H3>
+            <H3>支出随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div className="flex h-[220px] items-center justify-center">
-              <Small className="text-red-600">{error}</Small>
+            <div class名称="flex h-[220px] items-center justify-center">
+              <Small class名称="text-red-600">{error}</Small>
             </div>
           </CardContent>
         </Card>
@@ -126,15 +126,15 @@ export function WalletAnalyticsCharts({
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class名称="grid grid-cols-1 gap-4 md:grid-cols-2">
       {/* Deposits Chart */}
       <Card>
         <CardHeader>
-          <div className="flex items-center justify-between">
-            <H3>Deposits Over Time</H3>
-            <div className="flex flex-col items-end">
+          <div class名称="flex items-center justify-between">
+            <H3>存款随时间变化</H3>
+            <div class名称="flex flex-col items-end">
               <Muted>Total</Muted>
-              <span className="text-lg font-semibold">
+              <span class名称="text-lg font-semibold">
                 {formatCurrency(totalDeposits)}
               </span>
             </div>
@@ -142,15 +142,15 @@ export function WalletAnalyticsCharts({
         </CardHeader>
         <CardContent>
           {depositsData.length === 0 ? (
-            <div className="flex h-[220px] items-center justify-center">
-              <Small className="text-muted-foreground">
+            <div class名称="flex h-[220px] items-center justify-center">
+              <Small class名称="text-muted-foreground">
                 No deposit data available
               </Small>
             </div>
           ) : (
             <ChartContainer
               config={depositsChartConfig}
-              className="h-[220px] w-full"
+              class名称="h-[220px] w-full"
             >
               <LineChart
                 data={depositsData}
@@ -199,11 +199,11 @@ export function WalletAnalyticsCharts({
       {/* Spend Chart */}
       <Card>
         <CardHeader>
-          <div className="flex items-center justify-between">
+          <div class名称="flex items-center justify-between">
             <H3>Spend Over Time (ClickHouse)</H3>
-            <div className="flex flex-col items-end">
+            <div class名称="flex flex-col items-end">
               <Muted>Total</Muted>
-              <span className="text-lg font-semibold">
+              <span class名称="text-lg font-semibold">
                 {formatCurrency(totalSpend)}
               </span>
             </div>
@@ -211,15 +211,15 @@ export function WalletAnalyticsCharts({
         </CardHeader>
         <CardContent>
           {spendData.length === 0 ? (
-            <div className="flex h-[220px] items-center justify-center">
-              <Small className="text-muted-foreground">
+            <div class名称="flex h-[220px] items-center justify-center">
+              <Small class名称="text-muted-foreground">
                 No spend data available
               </Small>
             </div>
           ) : (
             <ChartContainer
               config={spendChartConfig}
-              className="h-[220px] w-full"
+              class名称="h-[220px] w-full"
             >
               <LineChart
                 data={spendData}

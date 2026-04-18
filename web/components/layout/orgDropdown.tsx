@@ -172,7 +172,7 @@ export default function OrgDropdown({}: OrgDropdownProps) {
               disableClickClose
             >
               <div className="flex w-full items-center justify-between text-xs">
-                <span>Dark mode</span>
+                <span>深色模式</span>
                 <Switch
                   checked={theme === "dark"}
                   onCheckedChange={handleThemeChange}

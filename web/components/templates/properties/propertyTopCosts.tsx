@@ -77,7 +77,7 @@ const PropertyTopCosts = ({ property, timeFilter }: PropertyTopCostsProps) => {
   if (!chartData || chartData.length === 0) {
     return (
       <div className="flex h-[240px] items-center justify-center">
-        <Small className="text-muted-foreground">No cost data available</Small>
+        <Small className="text-muted-foreground">无成本数据</Small>
       </div>
     );
   }

@@ -16,7 +16,7 @@ export default function HcBreadcrumb(props: HcBreadcrumbProps) {
   return (
     <nav
       className="flex"
-      aria-label="Breadcrumb"
+      aria-label="面包屑导航"
       data-onboarding-step={onboardingStep}
     >
       <ol role="list" className="flex items-center space-x-2">

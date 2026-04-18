@@ -67,7 +67,7 @@ const PromptsPage = (props: PromptsPageProps) => {
     <main className="flex min-h-screen flex-col gap-4">
       <AuthHeader
         className="min-w-full"
-        title="Prompts"
+        title="提示词"
         actions={
           <>
             <FreeTierLimitWrapper feature="prompts" itemCount={promptCount}>
@@ -76,19 +76,19 @@ const PromptsPage = (props: PromptsPageProps) => {
                 onClick={() => router.push("/playground")}
               >
                 <PiPlusBold className="mr-2 h-4 w-4" />
-                New Prompt
+                新建提示词
               </Button>
             </FreeTierLimitWrapper>
 
             <Dialog>
               <DialogTrigger asChild>
                 <Button className="text-slate-700" variant="link" size="sm">
-                  Import from Code
+                  从代码导入
                 </Button>
               </DialogTrigger>
               <DialogContent className="flex h-[40rem] w-full max-w-4xl flex-col">
                 <DialogHeader>
-                  <DialogTitle>Import from Code</DialogTitle>
+                  <DialogTitle>从代码导入</DialogTitle>
                 </DialogHeader>
 
                 {/* TODO: Allow for Python tab as well */}
@@ -138,7 +138,7 @@ const chatCompletion = await openai.chat.completions.create(
       {isLoading ? (
         // Loading State
         <div className="mt-16 flex w-full flex-col items-center justify-center">
-          <LoadingAnimation title="Loading Prompts..." />
+          <LoadingAnimation title="正在加载提示词..." />
         </div>
       ) : (
         <>
@@ -153,7 +153,7 @@ const chatCompletion = await openai.chat.completions.create(
                   <Input
                     value={searchName}
                     onChange={(e) => setSearchName(e.target.value)}
-                    placeholder="Search prompts..."
+                    placeholder="搜索提示词..."
                     className="h-full"
                   />
                 </div>
@@ -204,7 +204,7 @@ const chatCompletion = await openai.chat.completions.create(
                 columns={[
                   {
                     key: "user_defined_id",
-                    header: "Name",
+                    header: "名称",
                     render: (prompt) => (
                       <div className="flex items-center font-semibold text-black underline dark:text-white">
                         <DocumentTextIcon className="mr-1 h-4 w-4" />
@@ -214,7 +214,7 @@ const chatCompletion = await openai.chat.completions.create(
                   },
                   {
                     key: "created_at",
-                    header: "Created At",
+                    header: "创建日期",
                     render: (prompt) => (
                       <div className="text-gray-500">
                         {new Date(prompt.created_at).toLocaleString()}
@@ -223,7 +223,7 @@ const chatCompletion = await openai.chat.completions.create(
                   },
                   {
                     key: "major_version",
-                    header: "Major Versions",
+                    header: "主版本",
                     render: (prompt) => (
                       <div className="text-gray-500">
                         {prompt.major_version}
@@ -232,14 +232,14 @@ const chatCompletion = await openai.chat.completions.create(
                   },
                   {
                     key: undefined,
-                    header: "Last 30 days",
+                    header: "最近 30 天",
                     render: (prompt) => (
                       <PromptUsageChart promptId={prompt.user_defined_id} />
                     ),
                   },
                   {
                     key: undefined,
-                    header: "Permission",
+                    header: "权限",
                     render: (prompt) => (
                       <div>
                         {prompt.metadata?.createdFromUi === true ? (
@@ -247,15 +247,14 @@ const chatCompletion = await openai.chat.completions.create(
                             <TooltipTrigger asChild>
                               <Badge className="rounded-lg border border-slate-200 bg-slate-100 px-2 text-xs font-medium text-slate-900 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white">
                                 <PencilIcon className="mr-1 h-4 w-4" />
-                                <p>Editable</p>
+                                <p>可编辑</p>
                               </Badge>
                             </TooltipTrigger>
                             <TooltipContent align="center">
                               <p>
-                                This prompt was created{" "}
-                                <span className="font-semibold">in the UI</span>
-                                . You can edit / delete them, or promote to
-                                prod.
+                                此提示词创建于{" "}
+                                <span className="font-semibold">UI 中</span>
+                                . 您可以编辑/删除它们，或发布到生产环境。
                               </p>
                             </TooltipContent>
                           </Tooltip>
@@ -264,14 +263,14 @@ const chatCompletion = await openai.chat.completions.create(
                             <TooltipTrigger asChild>
                               <Badge className="rounded-lg border border-slate-200 bg-slate-100 px-2 text-xs font-medium text-slate-900 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white">
                                 <EyeIcon className="mr-1 h-4 w-4" />
-                                <p>View only</p>
+                                <p>仅查看</p>
                               </Badge>
                             </TooltipTrigger>
                             <TooltipContent align="center">
                               <p>
-                                This prompt was created{" "}
-                                <span className="font-semibold">in code</span>.
-                                You won&apos;t be able to edit this from the UI.
+                                此提示词创建于{" "}
+                                <span className="font-semibold">代码中</span>。
+                                您无法从 UI 编辑此项。
                               </p>
                             </TooltipContent>
                           </Tooltip>

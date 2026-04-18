@@ -318,7 +318,7 @@ const initialColumns: ColumnDef<TableTreeNode>[] = [
       }
       const date = new Date(createdAt);
       if (isNaN(date.getTime())) {
-        return <Muted>Invalid Date</Muted>;
+        return <Muted>无效日期</Muted>;
       }
       return (
         <TooltipProvider>
