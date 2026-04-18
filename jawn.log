@@ -15275,3 +15275,69 @@ $ concurrently "nodemon" "nodemon -x python3 genTypes.py"
 [0] Session not found for token starting with: 45QPhy7JWU
 [0] 2026-04-18T14:13:56.304Z - GET /v1/organization
 [0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:13:57.311Z - OPTIONS /v1/organization
+[0] 2026-04-18T14:13:57.312Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:13:58.317Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:13:59.324Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:00.329Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:01.337Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:02.357Z - OPTIONS /v1/organization
+[0] 2026-04-18T14:14:02.359Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:03.366Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:04.375Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:05.382Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:06.388Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:07.395Z - OPTIONS /v1/organization
+[0] 2026-04-18T14:14:07.397Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:08.403Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:09.408Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:10.414Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:11.421Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:12.427Z - OPTIONS /v1/organization
+[0] 2026-04-18T14:14:12.428Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:13.435Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:14.446Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:15.451Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:16.457Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:17.463Z - OPTIONS /v1/organization
+[0] 2026-04-18T14:14:17.465Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:18.474Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:19.495Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:20.500Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:21.507Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:22.513Z - OPTIONS /v1/organization
+[0] 2026-04-18T14:14:22.515Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:23.521Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:24.529Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:25.534Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-18T14:14:26.541Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
