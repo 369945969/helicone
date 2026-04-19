@@ -65,3 +65,6 @@ supabase/seed.private.sql
 
 
 ignored/
+
+*.log
+*.pid
