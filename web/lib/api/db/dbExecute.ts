@@ -1,6 +1,9 @@
 import { Client } from "pg";
 import { Result } from "@/packages/common/result";
-import { createClient as clickhouseCreateClient } from "@clickhouse/client";
+import {
+  createClient as clickhouseCreateClient,
+  ClickHouseClient,
+} from "@clickhouse/client";
 import dateFormat from "dateformat";
 import { logger } from "@/lib/telemetry/logger";
 import { SecretManager } from "@helicone-package/secrets/SecretManager";
@@ -35,58 +38,97 @@ export function printRunnableQuery(
   logger.info({ setParams, query }, "Runnable query");
 }
 
+let globalClickhouseClient: ClickHouseClient | null = null;
+
+function getClickhouseClient() {
+  if (globalClickhouseClient) {
+    return globalClickhouseClient;
+  }
+
+  const getClickhouseHost = () => {
+    const clickhouseHost = SecretManager.getSecret("CLICKHOUSE_HOST");
+    if (clickhouseHost) {
+      return clickhouseHost;
+    }
+
+    // Use APP_URL to construct clickhouse host if not specified in env
+    const appUrl =
+      process.env.APP_URL ||
+      process.env.NEXT_PUBLIC_APP_URL ||
+      "http://localhost";
+    try {
+      const url = new URL(appUrl);
+      return `${url.protocol}//${url.hostname}:18123`;
+    } catch {
+      return "http://localhost:18123";
+    }
+  };
+
+  globalClickhouseClient = clickhouseCreateClient({
+    host: getClickhouseHost(),
+    username: SecretManager.getSecret("CLICKHOUSE_USER") ?? "default",
+    password: SecretManager.getSecret("CLICKHOUSE_PASSWORD") ?? "",
+    clickhouse_settings: {
+      wait_end_of_query: 1,
+    },
+    // Increased timeouts to handle complex queries and network issues
+    request_timeout: 60_000,
+    connection_timeout: 10_000,
+    // Disable keep-alive to avoid using stale connections that the server might have closed
+    keep_alive: {
+      enabled: false,
+    },
+  });
+
+  return globalClickhouseClient;
+}
+
 export async function dbQueryClickhouse<T>(
   query: string,
   parameters: (number | string | boolean | Date)[],
 ): Promise<Result<T[], string>> {
-  try {
-    const query_params = paramsToValues(parameters);
+  const maxRetries = 3;
+  let lastError: any = null;
 
-    const getClickhouseHost = () => {
-      const clickhouseHost = SecretManager.getSecret("CLICKHOUSE_HOST");
-      if (clickhouseHost) {
-        return clickhouseHost;
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const query_params = paramsToValues(parameters);
+      const client = getClickhouseClient();
+
+      const queryResult = await client.query({
+        query,
+        query_params,
+        format: "JSONEachRow",
+      });
+
+      const data = await queryResult.json<T[]>();
+      return { data, error: null };
+    } catch (err) {
+      lastError = err;
+      const isConnectionReset =
+        err instanceof Error &&
+        (err.message.includes("ECONNRESET") ||
+          err.message.includes("SocketError"));
+
+      if (isConnectionReset && attempt < maxRetries - 1) {
+        const delay = Math.pow(2, attempt) * 100; // Exponential backoff
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        continue;
       }
 
-      // Use APP_URL to construct clickhouse host if not specified in env
-      const appUrl =
-        process.env.APP_URL ||
-        process.env.NEXT_PUBLIC_APP_URL ||
-        "http://localhost";
-      try {
-        const url = new URL(appUrl);
-        return `${url.protocol}//${url.hostname}:18123`;
-      } catch {
-        return "http://localhost:18123";
-      }
-    };
-
-    const client = clickhouseCreateClient({
-      host: getClickhouseHost(),
-      username: SecretManager.getSecret("CLICKHOUSE_USER") ?? "default",
-      password: SecretManager.getSecret("CLICKHOUSE_PASSWORD") ?? "",
-    });
-
-    const queryResult = await client.query({
-      query,
-      query_params,
-      format: "JSONEachRow",
-      // Recommended for cluster usage to avoid situations
-      // where a query processing error occurred after the response code
-      // and HTTP headers were sent to the client.
-      // See https://clickhouse.com/docs/en/interfaces/http/#response-buffering
-      clickhouse_settings: {
-        wait_end_of_query: 1,
-      },
-    });
-    return { data: await queryResult.json<T[]>(), error: null };
-  } catch (err) {
-    logger.error({ query, parameters, error: err }, "Error executing query");
-    return {
-      data: null,
-      error: JSON.stringify(err),
-    };
+      logger.error(
+        { query, parameters, error: err, attempt: attempt + 1 },
+        "Error executing query",
+      );
+      break;
+    }
   }
+
+  return {
+    data: null,
+    error:
+      lastError instanceof Error ? lastError.message : JSON.stringify(lastError),
+  };
 }
 
 /**

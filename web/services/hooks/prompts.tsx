@@ -420,7 +420,11 @@ export const useGetPromptsWithVersions = (
         "/v1/prompt-2025/count",
         {},
       );
-      if (totalPromptsResult.error || !totalPromptsResult.data?.data) {
+      if (
+        totalPromptsResult.error ||
+        totalPromptsResult.data?.data === undefined ||
+        totalPromptsResult.data?.data === null
+      ) {
         logger.error(
           { error: totalPromptsResult.error },
           "Error fetching total prompts",

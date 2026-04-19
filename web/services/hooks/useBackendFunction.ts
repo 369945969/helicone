@@ -76,36 +76,63 @@ export function useBackendMetricCall<T>({
         sortDirection,
       } = query.queryKey[1] as BackendMetricsCall<T>["params"];
 
-      const body = {
-        filter: userFilters,
-        timeFilter: {
-          start: timeFilter.start.toISOString(),
-          end: timeFilter.end.toISOString(),
-        },
-        dbIncrement,
-        timeZoneDifference,
-        limit: params.limit,
-        sortKey,
-        sortDirection,
-      } as MetricsBackendBody;
+      const isOverTime =
+        endpoint.includes("OverTime") ||
+        endpoint.includes("requestStatusOverTime") ||
+        endpoint.includes("timeToFirstToken");
+
+      const body = isOverTime
+        ? ({
+            filter: userFilters,
+            timeFilter: {
+              start: timeFilter.start.toISOString(),
+              end: timeFilter.end.toISOString(),
+            },
+            dbIncrement,
+            timeZoneDifference,
+            limit: params.limit,
+            sortKey,
+            sortDirection,
+          } as MetricsBackendBody)
+        : ({
+            filter: userFilters,
+            timeFilter: {
+              start: timeFilter.start.toISOString(),
+              end: timeFilter.end.toISOString(),
+            },
+          } as MetricsBackendBody);
 
       let result: T;
 
       if (jawnEndpoint) {
         // Use Jawn API for migrated endpoints
-        const jawnRes = await $JAWN_API.POST(jawnEndpoint as any, {
+        const { data, error } = await $JAWN_API.POST(jawnEndpoint as any, {
           body: body as any,
         });
-        result = jawnRes.data as T;
+
+        if (error || data === undefined) {
+          throw new Error(JSON.stringify(error || "No data returned from Jawn"));
+        }
+        result = data as T;
       } else {
         // Fall back to old web API for non-migrated endpoints
-        result = await fetch(endpoint, {
+        const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(body),
-        }).then((res) => res.json() as Promise<T>);
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        result = (await response.json()) as T;
+
+        if (result === undefined) {
+          throw new Error("No data returned from API");
+        }
       }
 
       if (postProcess === undefined) {

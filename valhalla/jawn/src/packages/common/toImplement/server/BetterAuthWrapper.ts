@@ -65,10 +65,15 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
   async getUser(auth: JwtAuth, headers?: GenericHeaders): HeliconeUserResult {
     // Use token from auth to verify session by querying database directly
     // This avoids dependency on cookies being passed in headers
-    const token = auth.token;
-    if (!token) {
+    const fullToken = auth.token;
+    if (!fullToken) {
       return err("No token provided");
     }
+
+    // Better Auth stores only the token ID (first part before the dot) in the database
+    // but the browser cookie contains the full token (ID + signature)
+    // We need to extract just the token ID for the database query
+    const token = fullToken.split('.')[0];
 
     // Query the session from database using the token
     const sessionResult = await dbExecute<{
@@ -167,6 +172,7 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
         }
       }
 
+      console.log(`[BetterAuth] Looking up org: ${orgId} for user: ${user.data?.id}`);
       const org = await dbExecute<
         Database["public"]["Tables"]["organization"]["Row"] & {
           role: Role;
@@ -182,7 +188,11 @@ export class BetterAuthWrapper implements HeliconeAuthClient {
         [orgId, user.data?.id]
       );
 
-      if (!org?.data?.[0]?.id || !org?.data?.[0]?.role) {
+      console.log(`[BetterAuth] Org query result:`, org.data?.[0]?.id, org.data?.[0]?.role);
+
+      // role can be 0 (admin), so we need to check for undefined/null specifically
+      if (!org?.data?.[0]?.id || org?.data?.[0]?.role === undefined || org?.data?.[0]?.role === null) {
+        console.log(`[BetterAuth] Invalid organization: orgId=${orgId}, userId=${user.data?.id}`);
         return err("Invalid organization");
       }
 

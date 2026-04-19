@@ -273,7 +273,7 @@ export class Prompt2025Controller extends Controller {
   ): Promise<Result<number, string>> {
     const promptManager = new Prompt2025Manager(request.authParams);
     const result = await promptManager.totalPrompts();
-    if (result.error || !result.data) {
+    if (result.error) {
       this.setStatus(500);
     } else {
       this.setStatus(200);

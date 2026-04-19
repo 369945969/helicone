@@ -45,7 +45,7 @@ const AddColumnDialog = ({
         },
       });
 
-      return res.data?.data;
+      return res.data?.data || null;
     },
     enabled: !!selectedForkFromPromptVersionId && !!orgId,
   });

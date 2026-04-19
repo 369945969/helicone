@@ -30,11 +30,6 @@ if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1; then
     lsof -Pi :3000 -sTCP:LISTEN -t | xargs kill -9 2>/dev/null || true
 fi
 
-if lsof -Pi :3008 -sTCP:LISTEN -t >/dev/null 2>&1; then
-    echo -e "${YELLOW}  停止 Web 进程 (端口 3008)...${NC}"
-    lsof -Pi :3008 -sTCP:LISTEN -t | xargs kill -9 2>/dev/null || true
-fi
-
 # 停止 Jawn
 if lsof -Pi :8585 -sTCP:LISTEN -t >/dev/null 2>&1; then
     echo -e "${YELLOW}  停止 Jawn 进程 (端口 8585)...${NC}"
@@ -292,4 +287,6 @@ FILE_WATCHER_PID=$!
 echo $FILE_WATCHER_PID > "$PROJECT_ROOT/.file-watcher.pid"
 
 # 前台启动 Web（这样 Ctrl+C 可以停止）
-yarn dev:better-auth
+# 使用 dotenv 加载 .env.better-auth 环境变量
+echo -e "${YELLOW}  加载 .env.better-auth 环境变量...${NC}"
+npx dotenv -e .env.better-auth -- yarn dev:local

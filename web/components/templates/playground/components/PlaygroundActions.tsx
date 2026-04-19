@@ -41,6 +41,7 @@ const PlaygroundActions = ({
   setTools,
   promptVersionId,
   onCreatePrompt,
+  onSavePrompt,
   onRun,
   requestId,
   isScrolled,

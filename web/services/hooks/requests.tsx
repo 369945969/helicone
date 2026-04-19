@@ -67,7 +67,7 @@ export const useGetRequestWithBodies = (requestId: string) => {
           },
         },
       });
-      if (!response.data?.data?.signed_body_url) return response.data;
+      if (!response.data?.data?.signed_body_url) return response.data || null;
       if (response.data.data && response.data.data.signed_body_url) {
         const contentResponse = await fetch(response.data.data.signed_body_url);
         if (contentResponse.ok) {

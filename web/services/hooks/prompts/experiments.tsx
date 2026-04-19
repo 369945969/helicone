@@ -139,7 +139,7 @@ const useExperimentTableMetadata = (req: { id: string }) => {
         },
       );
 
-      return res.data?.data;
+      return res.data?.data || null;
     },
   });
 

@@ -61,7 +61,7 @@ const useGetReport = () => {
           },
         },
       });
-      return response.data?.data;
+      return response.data?.data || [];
     },
   });
 };

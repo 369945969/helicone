@@ -117,7 +117,7 @@ export function TestDrawer({ evaluatorId, isOpen, onClose }: TestDrawerProps) {
         },
       });
 
-      return response.data?.data;
+      return response.data?.data || null;
     },
     enabled: !!evaluatorId && isOpen,
   });

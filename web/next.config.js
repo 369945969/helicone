@@ -61,6 +61,7 @@ const nextConfig = {
         source: "/ingest/:path*",
         destination: "https://app.posthog.com/:path*",
       },
+      // Jawn API proxy is handled by pages/api/jawn/[[...path]].ts
     ];
   },
   experimental: {

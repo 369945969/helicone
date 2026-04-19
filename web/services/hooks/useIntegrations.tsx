@@ -106,7 +106,7 @@ export const useIntegrations = () => {
     queryFn: async () => {
       const jawnClient = getJawnClient();
       const response = await jawnClient.GET("/v1/integration");
-      return response.data?.data;
+      return response.data?.data || [];
     },
   });
   return { integrations, isLoadingIntegrations, refetchIntegrations };

@@ -35,6 +35,7 @@ import { useLocalStorage } from "@/services/hooks/localStorage";
 import { getInitialColumns } from "./initialColumns";
 import TagsFilter from "./TagsFilter";
 import { useHeliconeAgent } from "@/components/templates/agent/HeliconeAgentContext";
+import isEqual from "lodash/isEqual";
 
 interface PromptsPageProps {
   defaultIndex: number;
@@ -77,11 +78,11 @@ const PromptsPage = (props: PromptsPageProps) => {
       const updatedPrompt = prompts.find(
         (p) => p.prompt.id === selectedPrompt.prompt.id,
       );
-      if (updatedPrompt) {
+      if (updatedPrompt && !isEqual(updatedPrompt, selectedPrompt)) {
         setSelectedPrompt(updatedPrompt);
       }
     }
-  }, [prompts, selectedPrompt?.prompt.id]);
+  }, [prompts, selectedPrompt?.prompt.id, selectedPrompt]);
 
   // Handle deep linking from requests page via promptId query param
   useEffect(() => {
@@ -365,6 +366,11 @@ const PromptsPage = (props: PromptsPageProps) => {
 
   const columns = getInitialColumns(handlePlaygroundActionClick);
 
+  const promptsRef = useRef(prompts);
+  useEffect(() => {
+    promptsRef.current = prompts;
+  }, [prompts]);
+
   useEffect(() => {
     setToolHandler("prompts-search", async (args: { query: string }) => {
       setSearch(args.query);
@@ -375,7 +381,7 @@ const PromptsPage = (props: PromptsPageProps) => {
     });
 
     setToolHandler("prompts-get", async () => {
-      const promptInfo = prompts.map((prompt) => {
+      const promptInfo = promptsRef.current.map((prompt) => {
         return `Name: ${prompt.prompt.name} (ID: ${prompt.prompt.id})\n}`;
       });
       return {
@@ -385,7 +391,7 @@ const PromptsPage = (props: PromptsPageProps) => {
     });
 
     setToolHandler("prompts-select", async (args: { id: string }) => {
-      const prompt = prompts.find((p) => p.prompt.id === args.id);
+      const prompt = promptsRef.current.find((p) => p.prompt.id === args.id);
       if (prompt) {
         handleRowSelect(prompt);
         return {
@@ -400,7 +406,7 @@ const PromptsPage = (props: PromptsPageProps) => {
     });
 
     setToolHandler("prompts-get_versions", async (args: { id: string }) => {
-      const prompt = prompts.find((p) => p.prompt.id === args.id);
+      const prompt = promptsRef.current.find((p) => p.prompt.id === args.id);
       if (prompt) {
         const promptVersions = prompt.versions.map((version) => {
           return `
@@ -419,7 +425,7 @@ const PromptsPage = (props: PromptsPageProps) => {
         message: `Prompt does not exist with ID ${args.id}`,
       };
     });
-  }, [prompts]);
+  }, [setToolHandler]); // Only run once on mount (setToolHandler is memoized)
 
   // Check if we should show empty state
   if (!isLoading && !isLoadingTags && prompts.length === 0) {

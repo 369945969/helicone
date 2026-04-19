@@ -312,18 +312,25 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
     null,
   );
 
+  const mappedContentRef = useRef(mappedContent);
+  useEffect(() => {
+    mappedContentRef.current = mappedContent;
+  }, [mappedContent]);
+
   useEffect(() => {
     setToolHandler("playground-get_messages", () => {
       return {
         success: true,
-        message: JSON.stringify(mappedContent?.schema.request.messages ?? []),
+        message: JSON.stringify(
+          mappedContentRef.current?.schema.request.messages ?? [],
+        ),
       };
     });
 
     setToolHandler(
       "playground-edit_messages",
       async (args: { messages: Message[] }) => {
-        if (!mappedContent) {
+        if (!mappedContentRef.current) {
           return {
             success: false,
             message: "No mapped content available",
@@ -353,11 +360,11 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
           });
 
           const updatedMappedContent = {
-            ...mappedContent,
+            ...mappedContentRef.current,
             schema: {
-              ...mappedContent.schema,
+              ...mappedContentRef.current.schema,
               request: {
-                ...mappedContent.schema.request,
+                ...mappedContentRef.current.schema.request,
                 messages: processedMessages,
               },
             },
@@ -377,8 +384,7 @@ const PlaygroundPage = (props: PlaygroundPageProps) => {
         }
       },
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mappedContent]);
+  }, [setToolHandler]); // Only run once on mount (setToolHandler is memoized)
 
   useEffect(() => {
     if (!requestId && !promptVersionId) {

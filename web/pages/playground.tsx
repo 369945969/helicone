@@ -9,16 +9,11 @@ const Playground = () => {
   const { requestId, promptVersionId, createPrompt } = router.query;
 
   return (
-    <div className="flex flex-col">
-      <AuthHeader
-        title="测试台"
-        breadcrumb={{
-          title: "测试台",
-          href: "/playground",
-        }}
-      />
-
-    </div>
+    <PlaygroundPage
+      requestId={requestId as string}
+      promptVersionId={promptVersionId as string}
+      createPrompt={createPrompt === "true"}
+    />
   );
 };
 

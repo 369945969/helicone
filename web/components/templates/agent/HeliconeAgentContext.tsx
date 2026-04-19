@@ -238,17 +238,17 @@ export const HeliconeAgentProvider: React.FC<{
     });
   }, [router]);
 
-  const setToolHandler = (
-    toolName: string,
-    handler: (args: any) => Promise<any> | any,
-  ) => {
-    setToolHandlers((prev) => new Map(prev.set(toolName, handler)));
-    setTools((prevTools) =>
-      prevTools.map((tool) =>
-        tool.function.name === toolName ? { ...tool, handler } : tool,
-      ),
-    );
-  };
+  const setToolHandler = React.useCallback(
+    (toolName: string, handler: (args: any) => Promise<any> | any) => {
+      setToolHandlers((prev) => new Map(prev.set(toolName, handler)));
+      setTools((prevTools) =>
+        prevTools.map((tool) =>
+          tool.function.name === toolName ? { ...tool, handler } : tool,
+        ),
+      );
+    },
+    [],
+  );
 
   const getInitialMessage = () => {
     if (router.pathname === "/quickstart") {

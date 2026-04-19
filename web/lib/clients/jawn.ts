@@ -10,8 +10,14 @@ import type { paths as publicPaths } from "./jawnTypes/public";
 type allPaths = publicPaths & privatePaths;
 
 export function getJawnClient(orgId?: string | "none") {
+  // Use proxy path in browser to avoid CORS, direct connection in SSR/Node.js
+  const isBrowser = typeof window !== "undefined";
+  const baseUrl = isBrowser
+    ? "/api/jawn"
+    : env("NEXT_PUBLIC_HELICONE_JAWN_SERVICE");
+
   return createFetchClient<allPaths>({
-    baseUrl: env("NEXT_PUBLIC_HELICONE_JAWN_SERVICE"),
+    baseUrl,
     fetch: (request: Request) => {
       // Read cookies on each request to get latest values
       const currentOrgId = orgId || Cookies.get(ORG_ID_COOKIE_KEY);
