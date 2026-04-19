@@ -1,6 +1,7 @@
-import 模型Pill from "../../requests/modelPill";
+import React from "react";
+import ModelPill from "../../requests/modelPill";
 import { clsx } from "../../../shared/clsx";
-import { Simple表格 } from "../../../shared/table/simple表格";
+import { SimpleTable } from "../../../shared/table/simpleTable";
 
 type 评分 = {
   valueType: string;
@@ -69,7 +70,7 @@ const 评分s表格 = ({ scores }: 评分sProps) => {
       score.valueType === "string" &&
       typeof score.value === "string"
     ) {
-      return <模型Pill model={score.value} />;
+      return <ModelPill model={score.value} />;
     }
     return score.value;
   };
@@ -203,7 +204,14 @@ const 评分s表格 = ({ scores }: 评分sProps) => {
     return value;
   };
 
-  const get表格Data = (scores: 实验评分s) => {
+  type 表格Row = {
+    score_key: string;
+    dataset: React.ReactNode;
+    hypothesis: React.ReactNode;
+    compare: React.ReactNode;
+  };
+
+  const get表格Data = (scores: 实验评分s): 表格Row[] => {
     if (!scores || !scores.dataset.scores) {
       return [];
     }
@@ -244,13 +252,13 @@ const 评分s表格 = ({ scores }: 评分sProps) => {
           Overview
         </h1>
       </div>
-      <Simple表格
+      <SimpleTable
         data={get表格Data(scores) || []}
         columns={[
           {
             key: "score_key",
             header: "",
-            render: (score) => (
+            render: (score: 表格Row) => (
               <div className="flex items-center font-semibold text-gray-500 dark:text-white">
                 {score.score_key}
               </div>
@@ -259,21 +267,21 @@ const 评分s表格 = ({ scores }: 评分sProps) => {
           {
             key: "dataset",
             header: "原始提示词",
-            render: (score) => (
+            render: (score: 表格Row) => (
               <div className="text-black">{score.dataset}</div>
             ),
           },
           {
             key: "hypothesis",
             header: "实验 prompt",
-            render: (score) => (
+            render: (score: 表格Row) => (
               <div className="text-black">{score.hypothesis}</div>
             ),
           },
           {
             key: "compare",
             header: "对比",
-            render: (score) => (
+            render: (score: 表格Row) => (
               <div className="text-black">{score.compare}</div>
             ),
           },

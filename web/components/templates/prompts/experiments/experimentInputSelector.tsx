@@ -16,7 +16,7 @@ interface 实验输入选择器Props {
     rows: {
       inputRecordId: string;
       inputs: Record<string, string>;
-      auto输入s: any[];
+      autoInputs: any[];
     }[],
   ) => void;
   selectJustOne?: boolean;
@@ -76,7 +76,7 @@ const 实验输入选择器 = (props: 实验输入选择器Props) => {
       prompt_version: record.prompt_version,
       created_at: record.created_at,
       response: record.response_body,
-      auto输入s: record.auto_prompt_inputs,
+      autoInputs: record.auto_prompt_inputs,
     }));
   }, [inputRecordsData]);
 
@@ -168,7 +168,7 @@ const 实验输入选择器 = (props: 实验输入选择器Props) => {
                     if (selectJustOne) {
                       handleAddRows([
                         {
-                          auto输入s: request.auto输入s,
+                          autoInputs: request.autoInputs,
                           inputs: request.inputs,
                           inputRecordId: request.id,
                         },
@@ -186,7 +186,7 @@ const 实验输入选择器 = (props: 实验输入选择器Props) => {
                     onChange={() => handleToggleRequest(request.id)}
                   />
                   <PromptPropertyCard
-                    auto输入s={request.auto输入s}
+                    autoInputs={request.autoInputs}
                     isSelected={selectedRequests.some(
                       (req) => req.id === request.id,
                     )}
@@ -221,7 +221,7 @@ const 实验输入选择器 = (props: 实验输入选择器Props) => {
                   selectedRequests.map((request) => ({
                     inputRecordId: request.id,
                     inputs: request.inputs,
-                    auto输入s: request.auto输入s,
+                    autoInputs: request.autoInputs,
                   })),
                 );
 

@@ -754,7 +754,7 @@ const PromptChatRow = (props: PromptChatRowProps) => {
                 <div className="flex w-full flex-row items-center justify-end space-x-2">
                   <AddFileButton
                     file={fileObj}
-                    onFileChange={(file) => {
+                    onFileChange={(file: File | string | null) => {
                       onFileChangeHandler(file, contentAsString || "");
                     }}
                   />

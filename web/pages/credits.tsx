@@ -260,7 +260,7 @@ const Credits: NextPageWithLayout = () => {
               <TabsList>
                 <TabsTrigger value="overview">概览</TabsTrigger>
                 <TabsTrigger value="usage">使用量</TabsTrigger>
-                {creditData?.autoTopoffEnabled && (
+                {autoTopoffSettings?.enabled && (
                   <TabsTrigger value="invoices">发票</TabsTrigger>
                 )}
                 {discounts.length > 0 && (

@@ -1,22 +1,26 @@
-import { use提示词Versions } from "../../../../../../services/hooks/prompts/prompts";
+import { usePromptVersions } from "../../../../../../services/hooks/prompts/prompts";
 import { useState } from "react";
 import { Select, SelectContent, SelectItem } from "../../../../../ui/select";
 import { ScrollArea } from "../../../../../ui/scroll-area";
 import { SelectTrigger, SelectValue } from "../../../../../ui/select";
-import { 按钮 } from "../../../../../ui/button";
+import { Button } from "../../../../../ui/button";
 import { FileTextIcon } from "lucide-react";
-import { 对话框, 对话框Content, 对话框Trigger } from "../../../../../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "../../../../../ui/dialog";
 import { BeakerIcon, PlusIcon } from "@heroicons/react/24/outline";
 import useNotification from "../../../../../shared/notification/useNotification";
 import { useJawnClient } from "../../../../../../lib/clients/jawnHook";
 import { useRouter } from "next/router";
-import 提示词Playground, { 提示词Object } from "../../../id/promptPlayground";
-import { 输入 } from "../../../../../ui/input";
+import PromptPlayground, { PromptObject } from "../../../id/promptPlayground";
+import { Input } from "../../../../../ui/input";
 import LoadingAnimation from "../../../../../shared/loadingAnimation";
 
-export const 新建实验对话框 = () => {
+export const NewExperimentDialog = () => {
   const notification = useNotification();
-  const [base提示词, setBase提示词] = useState<提示词Object>({
+  const [basePrompt, setBasePrompt] = useState<PromptObject>({
     model: "gpt-4",
     messages: [
       {
@@ -31,7 +35,7 @@ export const 新建实验对话框 = () => {
   const router = useRouter();
   const jawn = useJawnClient();
 
-  const [selected输入, setSelected输入] = useState<any>({
+  const [selectedInput, setSelectedInput] = useState<any>({
     id: "",
     inputs: {},
     source_request: "",
@@ -43,36 +47,36 @@ export const 新建实验对话框 = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const [promptName, set提示词Name] = useState<string>("");
-  const [promptVariables, set提示词Variables] = useState<
+  const [promptName, setPromptName] = useState<string>("");
+  const [promptVariables, setPromptVariables] = useState<
     Array<{ original: string; heliconeTag: string; value: string }>
   >([]);
 
-  const [inputs, set输入s] = useState<{ variable: string; value: string }[]>([
+  const [inputs, setInputs] = useState<{ variable: string; value: string }[]>([
     { variable: "sectionTitle", value: "The universe" },
   ]);
 
-  const handle输入Change = (
+  const handleInputChange = (
     index: number,
     field: "variable" | "value",
     newValue: string,
   ) => {
-    const new输入s = [...inputs];
-    new输入s[index][field] = newValue;
-    set输入s(new输入s);
+    const newInputs = [...inputs];
+    newInputs[index][field] = newValue;
+    setInputs(newInputs);
   };
 
-  const add新建输入 = () => {
-    set输入s([...inputs, { variable: "", value: "" }]);
+  const addNewInput = () => {
+    setInputs([...inputs, { variable: "", value: "" }]);
   };
 
-  const handle提示词Change = (new提示词: string | 提示词Object) => {
-    setBase提示词(new提示词 as 提示词Object);
+  const handlePromptChange = (newPrompt: string | PromptObject) => {
+    setBasePrompt(newPrompt as PromptObject);
   };
 
-  const handleCreate实验 = async () => {
+  const handleCreateExperiment = async () => {
     setIsLoading(true);
-    if (!promptName || !base提示词) {
+    if (!promptName || !basePrompt) {
       notification.setNotification(
         "Please enter a prompt name and content",
         "error",
@@ -81,8 +85,8 @@ export const 新建实验对话框 = () => {
       return;
     }
 
-    if (!base提示词.model) {
-      notification.setNotification("请选择模型", "error");
+    if (!basePrompt.model) {
+      notification.setNotification("Please select a model", "error");
       setIsLoading(false);
       return;
     }
@@ -90,32 +94,32 @@ export const 新建实验对话框 = () => {
     const res = await jawn.POST("/v1/prompt/create", {
       body: {
         userDefinedId: promptName,
-        prompt: base提示词,
+        prompt: basePrompt,
         metadata: {
           createdFromUi: true,
         },
       },
     });
     if (res.error || !res.data) {
-      notification.setNotification("创建提示词失败", "error");
+      notification.setNotification("Failed to create prompt", "error");
       setIsLoading(false);
       return;
     }
 
     if (!res.data?.data?.id || !res.data?.data?.prompt_version_id) {
-      notification.setNotification("创建提示词失败", "error");
+      notification.setNotification("Failed to create prompt", "error");
       setIsLoading(false);
       return;
     }
 
     const dataset = await jawn.POST("/v1/helicone-dataset", {
       body: {
-        datasetName: "Dataset for 实验",
+        datasetName: "Dataset for Experiment",
         requestIds: [],
       },
     });
     if (!dataset.data?.data?.datasetId) {
-      notification.setNotification("创建数据集失败", "error");
+      notification.setNotification("Failed to create dataset", "error");
       setIsLoading(false);
       return;
     }
@@ -131,7 +135,7 @@ export const 新建实验对话框 = () => {
       },
     });
     if (!experiment.data?.data?.experimentId) {
-      notification.setNotification("创建实验失败", "error");
+      notification.setNotification("Failed to create experiment", "error");
       setIsLoading(false);
       return;
     }
@@ -144,7 +148,7 @@ export const 新建实验对话框 = () => {
           },
         },
         body: {
-          newHeliconeTemplate: JSON.stringify(base提示词),
+          newHeliconeTemplate: JSON.stringify(basePrompt),
           isMajorVersion: false,
           metadata: {
             experimentAssigned: true,
@@ -154,12 +158,12 @@ export const 新建实验对话框 = () => {
     );
 
     if (result.error || !result.data) {
-      notification.setNotification("创建子版本失败", "error");
+      notification.setNotification("Failed to create subversion", "error");
       setIsLoading(false);
       return;
     }
 
-    notification.setNotification("提示词创建成功", "success");
+    notification.setNotification("Prompt created successfully", "success");
     setIsLoading(false);
     await router.push(
       `/prompts/${res.data?.data?.id}/subversion/${res.data?.data?.prompt_version_id}/experiment/${experiment.data?.data?.experimentId}`,
@@ -167,36 +171,36 @@ export const 新建实验对话框 = () => {
   };
 
   return (
-    <对话框Content className="max-h-[80vh] w-full overflow-y-auto">
+    <DialogContent className="max-h-[80vh] w-full overflow-y-auto">
       {isLoading ? (
         <div className="flex h-full w-full flex-col items-center justify-center">
           <LoadingAnimation />
-          <h1 className="text-2xl font-semibold">获取您的实验</h1>
+          <h1 className="text-2xl font-semibold">Fetching your experiment</h1>
         </div>
       ) : (
         <div className="space-y-4 pr-8">
           <div className="flex flex-row space-x-2">
             <BeakerIcon className="h-6 w-6" />
-            <h3 className="text-md font-semibold">原始提示词</h3>
+            <h3 className="text-md font-semibold">Original Prompt</h3>
           </div>
 
-          <输入
-            placeholder="提示词名称"
+          <Input
+            placeholder="Prompt Name"
             value={promptName}
-            onChange={(e) => set提示词Name(e.target.value)}
+            onChange={(e) => setPromptName(e.target.value)}
           />
 
-          <提示词Playground
-            prompt={base提示词}
+          <PromptPlayground
+            prompt={basePrompt}
             editMode={true}
-            selected输入={selected输入}
+            selectedInput={selectedInput}
             defaultEditMode={true}
-            submitText={"Create 实验"}
+            submitText={"Create Experiment"}
             playgroundMode={"experiment"}
-            handleCreate实验={handleCreate实验}
-            is提示词CreatedFromUi={true}
-            onExtract提示词Variables={(variables: any) =>
-              set提示词Variables(
+            handleCreateExperiment={handleCreateExperiment}
+            isPromptCreatedFromUi={true}
+            onExtractPromptVariables={(variables: any) =>
+              setPromptVariables(
                 variables.map((variable: any) => ({
                   original: variable.original,
                   heliconeTag: variable.heliconeTag,
@@ -204,15 +208,15 @@ export const 新建实验对话框 = () => {
                 })),
               )
             }
-            on提示词Change={handle提示词Change}
+            onPromptChange={handlePromptChange}
           />
         </div>
       )}
-    </对话框Content>
+    </DialogContent>
   );
 };
 
-interface 开始From提示词对话框Props {
+interface StartFromPromptDialogProps {
   prompts: {
     id: string;
     user_defined_id: string;
@@ -222,15 +226,15 @@ interface 开始From提示词对话框Props {
     major_version: number;
     metadata?: Record<string, any>;
   }[];
-  on对话框Close: (open: boolean) => void;
+  onDialogClose: (open: boolean) => void;
 }
 
-export const 开始From提示词对话框 = ({
+export const StartFromPromptDialog = ({
   prompts,
-  on对话框Close,
-}: 开始From提示词对话框Props) => {
+  onDialogClose,
+}: StartFromPromptDialogProps) => {
   const router = useRouter();
-  const [selected提示词Id, setSelected提示词Id] = useState<string | null>(null);
+  const [selectedPromptId, setSelectedPromptId] = useState<string | null>(null);
   const notification = useNotification();
   const [selectedVersionId, setSelectedVersionId] = useState<string | null>(
     null,
@@ -238,15 +242,15 @@ export const 开始From提示词对话框 = ({
   const jawn = useJawnClient();
 
   const { prompts: promptVersions, isLoading: isLoadingVersions } =
-    use提示词Versions(selected提示词Id ?? "");
+    usePromptVersions(selectedPromptId ?? "");
 
-  const handle提示词Select = (promptId: string) => {
-    setSelected提示词Id(promptId);
+  const handlePromptSelect = (promptId: string) => {
+    setSelectedPromptId(promptId);
     setSelectedVersionId(null);
   };
 
-  const handleCreate实验 = async () => {
-    if (!selected提示词Id || !selectedVersionId) {
+  const handleCreateExperiment = async () => {
+    if (!selectedPromptId || !selectedVersionId) {
       notification.setNotification(
         "Please select a prompt and version",
         "error",
@@ -256,31 +260,31 @@ export const 开始From提示词对话框 = ({
     const promptVersion = promptVersions?.find(
       (p) => p.id === selectedVersionId,
     );
-    const prompt = prompts?.find((p) => p.id === selected提示词Id);
+    const prompt = prompts?.find((p) => p.id === selectedPromptId);
 
-    const experiment表格Result = await jawn.POST("/v2/experiment/new", {
+    const experimentTableResult = await jawn.POST("/v2/experiment/new", {
       body: {
         name: `${prompt?.user_defined_id}_V${promptVersion?.major_version}.${promptVersion?.minor_version}`,
-        original提示词Version: selectedVersionId,
+        originalPromptVersion: selectedVersionId,
       },
     });
 
-    if (experiment表格Result.error || !experiment表格Result.data) {
-      notification.setNotification("创建实验失败", "error");
+    if (experimentTableResult.error || !experimentTableResult.data) {
+      notification.setNotification("Failed to create experiment", "error");
       return;
     }
 
     router.push(
-      `/experiments/${experiment表格Result.data?.data?.experimentId}`,
+      `/experiments/${experimentTableResult.data?.data?.experimentId}`,
     );
   };
 
   return (
-    <对话框Content className="w-[500px] rounded-md p-4 shadow-lg">
+    <DialogContent className="w-[500px] rounded-md p-4 shadow-lg">
       <div>
         <div className="flex flex-row items-center space-x-2 text-center">
           <BeakerIcon className="h-4 w-4" />
-          <h3 className="mb-2 text-lg font-medium">从提示词开始</h3>
+          <h3 className="mb-2 text-lg font-medium">Start from Prompt</h3>
         </div>
 
         <p className="mb-2 text-sm text-slate-500">
@@ -291,31 +295,31 @@ export const 开始From提示词对话框 = ({
           <ScrollArea className="flex max-h-[30vh] flex-col overflow-y-auto px-1 py-2 pt-0">
             {prompts &&
               prompts?.map((prompt) => (
-按钮
+                <Button
                   key={prompt.id}
                   variant="ghost"
                   className={`mt-2 w-full justify-start ${
-                    selected提示词Id === prompt.id
+                    selectedPromptId === prompt.id
                       ? "bg-slate-200 dark:bg-slate-800"
                       : "hover:bg-accent"
                   }`}
-                  onClick={() => handle提示词Select(prompt.id)}
+                  onClick={() => handlePromptSelect(prompt.id)}
                 >
                   <FileTextIcon className="mr-2 h-4 w-4" />
                   {prompt.user_defined_id}
-                </按钮>
+                </Button>
               ))}
           </ScrollArea>
           <div className="flex cursor-pointer flex-row items-center space-x-2 border-t border-slate-200 px-4 py-4 dark:border-slate-700">
             <PlusIcon className="h-6 w-6 text-slate-700 dark:text-slate-300" />
-            <对话框>
-              <对话框Trigger asChild>
+            <Dialog>
+              <DialogTrigger asChild>
                 <span className="text-md font-normal text-slate-700 dark:text-slate-300">
                   Create a new prompt
                 </span>
-              </对话框Trigger>
-              <新建实验对话框 />
-            </对话框>
+              </DialogTrigger>
+              <NewExperimentDialog />
+            </Dialog>
           </div>
         </div>
 
@@ -358,23 +362,23 @@ export const 开始From提示词对话框 = ({
         </div>
 
         <div className="mt-4 flex flex-row items-center justify-center space-x-2">
-按钮
+          <Button
             variant="outline"
-            onClick={() => on对话框Close(false)}
+            onClick={() => onDialogClose(false)}
             className="w-full"
           >
             Cancel
-          </按钮>
-按钮
+          </Button>
+          <Button
             variant="default"
             disabled={!selectedVersionId}
-            onClick={handleCreate实验}
+            onClick={handleCreateExperiment}
             className="w-full"
           >
             Create experiment
-          </按钮>
+          </Button>
         </div>
       </div>
-    </对话框Content>
+    </DialogContent>
   );
 };

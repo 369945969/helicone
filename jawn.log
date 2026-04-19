@@ -9663,3 +9663,647 @@ $ concurrently "nodemon" "nodemon -x python3 genTypes.py"
 [0] Session not found for token starting with: 45QPhy7JWU
 [0] 2026-04-19T02:09:18.266Z - GET /v1/organization
 [0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:19.271Z - OPTIONS /v1/organization
+[0] 2026-04-19T02:09:19.273Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:20.279Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:21.247Z - OPTIONS /v1/alert-banner
+[0] 2026-04-19T02:09:21.247Z - OPTIONS /v1/agent/threads
+[0] 2026-04-19T02:09:21.248Z - GET /v1/alert-banner
+[0] 2026-04-19T02:09:21.253Z - GET /v1/agent/threads
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 401 Unauthorized: Invalid or expired session for path: /v1/alert-banner
+[0] GET /v1/alert-banner 401 70 - 5.629 ms
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 401 Unauthorized: Invalid or expired session for path: /v1/agent/threads
+[0] GET /v1/agent/threads 401 70 - 3.108 ms
+[0] 2026-04-19T02:09:21.258Z - OPTIONS /v1/agent/thread/905608d8-6871-4983-b8a8-50152a853f11
+[0] 2026-04-19T02:09:21.259Z - GET /v1/agent/thread/905608d8-6871-4983-b8a8-50152a853f11
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 401 Unauthorized: Invalid or expired session for path: /v1/agent/thread/905608d8-6871-4983-b8a8-50152a853f11
+[0] GET /v1/agent/thread/905608d8-6871-4983-b8a8-50152a853f11 401 70 - 1.081 ms
+[0] 2026-04-19T02:09:21.287Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:22.294Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:23.301Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:24.307Z - OPTIONS /v1/organization
+[0] 2026-04-19T02:09:24.311Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:25.318Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:26.324Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:27.330Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:28.338Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:29.347Z - OPTIONS /v1/organization
+[0] 2026-04-19T02:09:29.348Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:30.356Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:31.361Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:32.368Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:33.374Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] Error: Connection terminated unexpectedly
+[0]     at Connection.<anonymous> (/Users/jack/typescript/helicone/node_modules/pg/lib/client.js:136:73)
+[0]     at Object.onceWrapper (node:events:630:28)
+[0]     at Connection.emit (node:events:509:20)
+[0]     at Connection.emit (node:domain:473:12)
+[0]     at Socket.<anonymous> (/Users/jack/typescript/helicone/node_modules/pg/lib/connection.js:62:12)
+[0]     at Socket.emit (node:events:509:20)
+[0]     at Socket.emit (node:domain:473:12)
+[0]     at Socket.emit (/Users/jack/typescript/helicone/node_modules/dd-trace/packages/datadog-instrumentations/src/net.js:65:25)
+[0]     at TCP.<anonymous> (node:net:350:12) {
+[0]   query: `SELECT id, "userId", "expiresAt" FROM "session" WHERE token = '45QPhy7JWUPrAPxMET1hdvu4TCbGt47Q.GK5DWFer1aTsofnvSU6CS4zsm0ugu5Fmd+v6FjQvxcE='`,
+[0]   params: undefined
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:38.346Z - OPTIONS /v1/organization
+[0] 2026-04-19T02:09:38.347Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:39.357Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:40.363Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:41.370Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:42.376Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:43.388Z - OPTIONS /v1/organization
+[0] 2026-04-19T02:09:43.391Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:44.401Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:45.408Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:46.416Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:47.421Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:48.429Z - OPTIONS /v1/organization
+[0] 2026-04-19T02:09:48.431Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:49.440Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:50.446Z - GET /v1/organization
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] 2026-04-19T02:09:51.462Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:52.466Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:53.472Z - OPTIONS /v1/organization
+[0] 2026-04-19T02:09:53.475Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:54.481Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:55.488Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[0] 2026-04-19T02:09:56.492Z - GET /v1/organization
+[0] Error executing query:  SELECT id, "userId", "expiresAt" FROM "session" WHERE token = $1
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] Session not found for token starting with: 45QPhy7JWU
+[1] [32m[nodemon] restarting child process[39m
+[1] [32m[nodemon] starting `python3 genTypes.py`[39m
+[0] [32m[nodemon] restarting child process[39m
+[1] [32m[nodemon] restarting child process[39m
+[0] [32m[nodemon] starting `ts-node src/index.ts`[39m
+[0] [32m[nodemon] restarting child process[39m
+[0] [32m[nodemon] starting `ts-node src/index.ts`[39m
+[1] [32m[nodemon] starting `python3 genTypes.py`[39m
+[0] Loading environment variables...
+[1] dyld[62515]: Library not loaded: /Library/Frameworks/Python.framework/Versions/3.12/Python
+[1]   Referenced from: <BFD3E8E9-B202-36F5-9E93-F56DA6168749> /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+[1]   Reason: tried: '/Library/Frameworks/Python.framework/Versions/3.12/Python' (code signature in <18014B6A-83B2-3159-84F6-5284D0610213> '/Library/Frameworks/Python.framework/Versions/3.12/Python' not valid for use in process: library load denied by system policy), '/System/Volumes/Preboot/Cryptexes/OS/Library/Frameworks/Python.framework/Versions/3.12/Python' (no such file), '/Library/Frameworks/Python.framework/Versions/3.12/Python' (code signature in <18014B6A-83B2-3159-84F6-5284D0610213> '/Library/Frameworks/Python.framework/Versions/3.12/Python' not valid for use in process: library load denied by system policy), '/System/Library/Frameworks/Python.framework/Versions/3.12/Python' (no such file, not in dyld cache)
+[1] [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[0] [2026-04-19T02:09:59.261Z][WARN][@clickhouse/client][Config] "host" is deprecated. Use "url" instead.
+[0] [2026-04-19T02:09:59.261Z][WARN][@clickhouse/client][Config] "host" is deprecated. Use "url" instead.
+[0] [33m⚠️  Warning: @helicone/prompts package is deprecated and will no longer receive updates.[0m
+[0] Server is running on http://localhost:8585
+[0] Destroying pool
+[0] AggregateError
+[0]     at internalConnectMultiple (node:net:1193:18)
+[0]     at afterConnectMultiple (node:net:1783:7) {
+[0]   code: 'ECONNREFUSED',
+[0]   [errors]: [
+[0]     Error: connect ECONNREFUSED ::1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '::1',
+[0]       port: 54388
+[0]     },
+[0]     Error: connect ECONNREFUSED 127.0.0.1:54388
+[0]         at createConnectionError (node:net:1746:14)
+[0]         at afterConnectMultiple (node:net:1776:16) {
+[0]       errno: -61,
+[0]       code: 'ECONNREFUSED',
+[0]       syscall: 'connect',
+[0]       address: '127.0.0.1',
+[0]       port: 54388
+[0]     }
+[0]   ]
+[0] }
+[0] [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[0] nodemon exited with code 143
+[1] nodemon -x python3 genTypes.py exited with code 143
