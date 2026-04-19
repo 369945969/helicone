@@ -81,33 +81,33 @@ const AlertBanners = (props: AlertBannersProps) => {
           columns={[
             {
               key: "title",
-              header: "Title",
+              header: "标题",
               render: (row) => (
                 <div className="font-semibold text-black">{row.title}</div>
               ),
             },
             {
               key: "message",
-              header: "Message",
+              header: "消息",
               render: (row) => <div className="text-wrap">{row.message}</div>,
             },
             {
               key: "created_at",
-              header: "Created At",
+              header: "创建时间",
               render: (row) => (
                 <div className="">{getUSDate(new Date(row.created_at))}</div>
               ),
             },
             {
               key: "updated_at",
-              header: "Last Updated",
+              header: "最后更新",
               render: (row) => (
                 <div className="">{getUSDate(new Date(row.updated_at))}</div>
               ),
             },
             {
               key: "active",
-              header: "Active",
+              header: "活跃",
               render: (row) => (
                 <ThemedSwitch
                   checked={row.active}

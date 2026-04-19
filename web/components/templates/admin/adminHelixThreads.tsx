@@ -153,12 +153,12 @@ const AdminHelixThreads = () => {
       queryClient.invalidateQueries({
         queryKey: ["helix-thread", selectedSessionId],
       });
-      toast.success("Reply sent", {
-        description: "Your message has been added to the thread.",
+      toast.success("回复已发送", {
+        description: "您的消息已添加到线程中。",
       });
     },
     onError: (error) => {
-      toast.error("Failed to send reply", {
+      toast.error("发送回复失败", {
         description: String(error),
       });
     },

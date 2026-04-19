@@ -18,7 +18,7 @@ const quotes = [
       },
     ],
     author: "Nishant Shukla",
-    title: "Sr. Director of AI at QA Wolf",
+    title: "QA Wolf 人工智能高级总监",
     image: "/static/qawolf-logo.svg",
   },
   {
@@ -30,7 +30,7 @@ const quotes = [
       },
     ],
     author: "Hassan El Mghari",
-    title: "DevRel Lead at Together AI",
+    title: "Together AI 开发者关系负责人",
     image: "/static/together-logo.svg",
   },
 ];

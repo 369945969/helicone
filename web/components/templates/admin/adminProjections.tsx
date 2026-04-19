@@ -214,11 +214,11 @@ const RevenueChartCell = ({
         <ChartContainer
           config={{
             billed: {
-              label: "Billed",
+              label: "已计费",
               color: "hsl(200 90% 50%)",
             },
             upcoming: {
-              label: "Upcoming",
+              label: "即将到期",
               color: "hsla(142, 76%, 36%, 0.4)",
             },
           }}
@@ -387,7 +387,7 @@ const DepositChartCell = ({
         <ChartContainer
           config={{
             billed: {
-              label: "Deposits",
+              label: "存款",
               color: "hsl(142 76% 36%)",
             },
           }}

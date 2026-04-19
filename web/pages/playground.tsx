@@ -10,11 +10,14 @@ const Playground = () => {
 
   return (
     <div className="flex flex-col">
-      <PlaygroundPage
-        requestId={requestId as string | undefined}
-        promptVersionId={promptVersionId as string | undefined}
-        createPrompt={createPrompt === "true"}
+      <AuthHeader
+        title="测试台"
+        breadcrumb={{
+          title: "测试台",
+          href: "/playground",
+        }}
       />
+
     </div>
   );
 };

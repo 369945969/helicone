@@ -838,7 +838,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                         <ChartContainer
                           config={{
                             latency: {
-                              label: "Latency",
+                              label: "延迟",
                               color: CHART_COLORS.cyan,
                             },
                           }}
@@ -935,7 +935,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                         <ChartContainer
                           config={{
                             ttft: {
-                              label: "Time to First Token",
+                              label: "首令牌时间",
                               color: CHART_COLORS.purple,
                             },
                           }}
@@ -1027,7 +1027,7 @@ const DashboardPage = (props: DashboardPageProps) => {
                         <ChartContainer
                           config={{
                             threats: {
-                              label: "Threats",
+                              label: "威胁",
                               color: CHART_COLORS.yellow,
                             },
                           }}
@@ -1154,15 +1154,15 @@ const DashboardPage = (props: DashboardPageProps) => {
                         <ChartContainer
                           config={{
                             promptPerMin: {
-                              label: "Prompt / min",
+                              label: "提示词/分钟",
                               color: CHART_COLORS.blue,
                             },
                             completionPerMin: {
-                              label: "Completion / min",
+                              label: "补全/分钟",
                               color: CHART_COLORS.purple,
                             },
                             totalPerMin: {
-                              label: "Total / min",
+                              label: "总计/分钟",
                               color: CHART_COLORS.orange,
                             },
                           }}

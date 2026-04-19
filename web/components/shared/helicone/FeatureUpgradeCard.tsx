@@ -21,18 +21,18 @@ export const FEATURED_SECTION_DESIGNS: Partial<Record<ProFeatureKey, Feature>> =
   {
     sessions: {
       variant: "preview-sections",
-      title: "Start tracking with headers",
-      subtitle: "Track your sessions and traces with 3 simple headers.",
+      title: "开始使用请求头跟踪",
+      subtitle: "使用 3 个简单的请求头跟踪您的会话和追踪。",
       sections: [
         {
-          title: "Define hierarchy",
+          title: "定义层次结构",
           description:
-            "A simple path syntax to define parent-child relationship.",
+            "用于定义父子关系的简单路径语法。",
           docsLink: "https://docs.helicone.ai/features/sessions",
         },
         {
-          title: "Log everything",
-          description: "Log any LLM, vector database and tool calls.",
+          title: "记录一切",
+          description: "记录任何大语言模型、向量数据库和工具调用。",
           docsLink: "https://docs.helicone.ai/features/sessions",
         },
       ],
@@ -84,19 +84,19 @@ export const FEATURED_SECTION_DESIGNS: Partial<Record<ProFeatureKey, Feature>> =
       variant: "preview-sections",
       title: "",
       subtitle:
-        "Enhance your request analytics by adding custom metadata to track business metrics, user behaviors, and application-specific data points for deeper insights",
+        "通过添加自定义元数据来增强您的请求分析，以跟踪业务指标、用户行为和应用程序特定的数据点，从而获得更深入的洞察",
       sections: [
         {
-          title: "Add custom metadata",
+          title: "添加自定义元数据",
           description:
-            "Add custom metadata to your requests with simple headers.",
+            "使用简单的请求头将自定义元数据添加到您的请求中。",
           docsLink:
             "https://docs.helicone.ai/features/advanced-usage/custom-properties",
         },
         {
-          title: "Analyze metadata",
+          title: "分析元数据",
           description:
-            "Use this metadata to segment your data and analyze usage patterns.",
+            "使用此元数据对您的数据进行细分并分析使用模式。",
           docsLink:
             "https://docs.helicone.ai/features/advanced-usage/custom-properties",
         },
@@ -131,49 +131,49 @@ export const FEATURED_SECTION_DESIGNS: Partial<Record<ProFeatureKey, Feature>> =
 export const PRO_FEATURES: Record<string, Feature> = {
   sessions: {
     variant: "bullets-cta",
-    title: "Track Sessions and Traces",
+    title: "跟踪会话和追踪",
     subtitles: [
-      "Track your sessions and traces with 3 simple headers",
-      "Define parent-child relationships with simple path syntax",
-      "Log any LLM, vector database and tool calls",
+      "使用 3 个简单的请求头跟踪您的会话和追踪",
+      "使用简单的路径语法定义父子关系",
+      "记录任何大语言模型、向量数据库和工具调用",
     ] as string[],
     media: {
       type: "image",
       src: "/static/featureUpgrade/sessions-small-grid.webp",
     },
-    imageAlt: "Sessions and traces dashboard",
+    imageAlt: "会话和追踪仪表板",
     cta: {
-      text: "View docs",
+      text: "查看文档",
       link: "https://docs.helicone.ai/features/sessions",
       variant: "outline",
     },
   },
   cache: {
     variant: "bullets-cta",
-    title: "Cache Common Responses",
+    title: "缓存常见响应",
     subtitles: [
-      "Cut costs by minimizing the number of API calls.",
-      "Faster response times for common queries and reduce the load on backend resources.",
-      "Find the most common requests with your app and visualize on a dashboard.",
+      "通过最小化 API 调用次数来降低成本。",
+      "为常见查询提供更快的响应时间，并减少后端资源的负载。",
+      "查找应用程序中最常见的请求并在仪表板上可视化。",
     ] as string[],
     media: {
       type: "image",
       src: "/static/featureUpgrade/caching.webp",
     },
-    imageAlt: "Cache analytics dashboard",
+    imageAlt: "缓存分析仪表板",
     cta: {
-      text: "View docs",
+      text: "查看文档",
       link: "https://docs.helicone.ai/features/advanced-usage/caching",
       variant: "outline",
     },
   },
   "rate-limits": {
     variant: "bullets-cta",
-    title: "Create Custom Rate Limits",
+    title: "创建自定义速率限制",
     subtitles: [
-      "Set custom LLM rate limits for your model providers.",
-      "Prevent abuse of the API and excessive traffic to maintain availability for all users.",
-      "Control cost and prevent unintended overuse.",
+      "为您的模型提供商设置自定义大语言模型速率限制。",
+      "防止 API 滥用和过度流量，以维护所有用户的可用性。",
+      "控制成本并防止意外过度使用。",
     ] as string[],
     media: {
       type: "component",
@@ -188,66 +188,66 @@ export const PRO_FEATURES: Record<string, Feature> = {
   },
   users: {
     variant: "bullets-cta",
-    title: "Track User Metrics",
+    title: "跟踪用户指标",
     subtitles: [
-      "Track per-user request volumes, costs, and usage patterns across your AI services.",
-      "Gain detailed insights into individual user activity.",
-      "Improve performance and detect potential abuse.",
+      "跟踪您的 AI 服务中每个用户的请求量、成本和使用模式。",
+      "深入了解个人用户活动。",
+      "提高性能并检测潜在的滥用行为。",
     ] as string[],
     media: {
       type: "image",
       src: "/static/featureUpgrade/user-metric.webp",
     },
-    imageAlt: "User metrics dashboard",
+    imageAlt: "用户指标仪表板",
     cta: {
-      text: "View docs",
+      text: "查看文档",
       link: "https://docs.helicone.ai/features/advanced-usage/user-metrics",
       variant: "outline",
     },
   },
   datasets: {
     variant: "bullets-cta",
-    title: "Curate High-Quality Datasets",
+    title: "策划高质量数据集",
     subtitles: [
-      "Curate datasets with your actual requests",
-      "Fine-tune your LLMs to improve performance on specific tasks.",
-      "Experiment with prompts to prevent regression.",
+      "使用您的实际请求策划数据集",
+      "微调您的大语言模型以提高特定任务的性能。",
+      "试验提示词以防止回归。",
     ] as string[],
     media: {
       type: "component",
       component: DatasetVisual,
     },
-    imageAlt: "Dataset curation interface",
+    imageAlt: "数据集策划界面",
     cta: {
-      text: "View docs",
+      text: "查看文档",
       link: "https://docs.helicone.ai/features/fine-tuning",
       variant: "outline",
     },
   },
   webhooks: {
     variant: "bullets-cta",
-    title: "Automate Your Workflow With Webhooks",
+    title: "使用 Webhooks 自动化您的工作流",
     subtitles: [
-      "Instantly responding to events, triggering actions, and integrating with external tools.",
-      "Move data from one system to another.",
-      "Score requests based on custom logic.",
+      "即时响应事件、触发操作并与外部工具集成。",
+      "将数据从一个系统移动到另一个系统。",
+      "基于自定义逻辑对请求进行评分。",
     ] as string[],
     media: {
       type: "component",
       component: () => CodeExample("webhook"),
     },
-    imageAlt: "Webhook code example",
+    imageAlt: "Webhook 代码示例",
     cta: {
-      text: "View docs",
+      text: "查看文档",
       link: "https://docs.helicone.ai/features/webhooks",
       variant: "outline",
     },
   },
   alerts: {
     variant: "bullets",
-    title: "Set Up Real-Time Alerts",
+    title: "设置实时警报",
     subtitles: [
-      "Receive real-time alerts in Slack or email.",
+      "在 Slack 或电子邮件中接收实时警报。",
       "Stay on top of critical issues and resolve them faster.",
     ] as string[],
     media: {

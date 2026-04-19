@@ -1117,7 +1117,7 @@ const OrgTableRow = ({
                         <ChartContainer
                           config={{
                             requestCount: {
-                              label: "Requests",
+                              label: "请求数",
                               color: "hsl(200 90% 50%)",
                             },
                           }}
@@ -1188,7 +1188,7 @@ const OrgTableRow = ({
                         <ChartContainer
                           config={{
                             cost: {
-                              label: "Cost",
+                              label: "成本",
                               color: "hsl(142 76% 36%)",
                             },
                           }}

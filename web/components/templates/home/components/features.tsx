@@ -232,30 +232,30 @@ const tabOptions: {
   },
   {
     id: "evaluations",
-    title: "Evaluations",
+    title: "评估",
     icon: <BeakerIcon className="h-6 w-6 text-black" />,
     content: (
       <div className="my-2 grid h-full w-full grid-cols-8 gap-0 bg-black p-8 md:my-8 md:rounded-lg md:p-16">
         <div className="col-span-8 flex flex-col space-y-4 text-white md:col-span-3">
-          <h2 className="text-3xl font-bold tracking-tight">Evaluations</h2>
+          <h2 className="text-3xl font-bold tracking-tight">评估</h2>
           <p className="text-md font-medium">
-            Evaluate your models, datasets, and more with our evaluation tools
+            使用我们的评估工具评估您的模型、数据集等
           </p>
           <Link
             href="/contact"
             className="w-fit rounded-lg border border-white px-4 py-2 text-sm font-bold hover:bg-gray-900"
           >
-            Join Beta
+            加入测试版
           </Link>
           <ul className="text-md grid w-fit grid-cols-1 gap-4 pt-4 font-bold">
             <li className="flex items-center gap-2">
-              <DocumentTextIcon className="h-6 w-6" /> Prompt Testing
+              <DocumentTextIcon className="h-6 w-6" /> 提示词测试
             </li>
             <li className="flex items-center gap-2">
-              <TableCellsIcon className="h-6 w-6" /> Model Evaluations
+              <TableCellsIcon className="h-6 w-6" /> 模型评估
             </li>
             <li className="flex items-center gap-2">
-              <BellAlertIcon className="h-6 w-6" /> More to come...
+              <BellAlertIcon className="h-6 w-6" /> 更多功能即将推出...
             </li>
           </ul>
         </div>
@@ -269,7 +269,7 @@ const tabOptions: {
           />
           <div className="absolute -right-8 -top-8 z-30 flex h-56 w-56 -rotate-3 flex-col items-center justify-center space-y-4 rounded-lg border border-gray-300 bg-white p-4 shadow-lg">
             <HandThumbUpIcon className="h-16 w-16 text-black" />
-            <p className="text-3xl font-bold">Feedback</p>
+            <p className="text-3xl font-bold">反馈</p>
           </div>
         </div>
       </div>
@@ -278,7 +278,7 @@ const tabOptions: {
   },
   {
     id: "customer-portal",
-    title: "Customer Portal",
+    title: "客户门户",
     icon: <UserGroupIcon className="h-6 w-6 text-sky-500" />,
     content: (
       <div className="my-2 grid h-full w-full grid-cols-8 gap-8 overflow-hidden bg-sky-500 p-8 md:my-8 md:rounded-lg md:p-16">

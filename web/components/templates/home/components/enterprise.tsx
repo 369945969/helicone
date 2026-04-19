@@ -130,8 +130,8 @@ const ENTERPRISE_TABS: {
   },
   {
     id: "evaluations",
-    name: "Evaluations",
-    description: "Analyze model performance to make informed decisions.",
+    name: "评估",
+    description: "分析模型性能以做出明智的决策。",
     src: "/assets/home/eval-graphic.png",
     bullets: [],
     cta: (

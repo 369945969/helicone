@@ -602,7 +602,7 @@ export default function PromptBox({
   const tools = [
     {
       icon: <h3 className="font-medium">{"{{}}"}</h3>,
-      label: "Make Into Input",
+      label: "转换为输入",
       hotkey: "e",
       onSubmit: (varName: string) => {
         if (!selection || !textareaRef.current) return;
@@ -628,11 +628,11 @@ export default function PromptBox({
 
         handleTextEdit(newValue, newStart, newEnd);
       },
-      placeholder: "Input name...",
+      placeholder: "输入名称...",
     },
     {
       icon: <h3 className="font-medium">{"</>"}</h3>,
-      label: "Wrap In Delimiters",
+      label: "用分隔符包裹",
       hotkey: "j",
       onSubmit: (tagName: string) => {
         if (!selection || !textareaRef.current) return;
@@ -651,18 +651,18 @@ export default function PromptBox({
 
         handleTextEdit(newValue, newStart, newEnd);
       },
-      placeholder: "Delimiter name...",
+      placeholder: "分隔符名称...",
     },
     {
       icon: <PiChatDotsBold />,
-      label: "Perform an Edit",
+      label: "执行编辑",
       hotkey: "k",
       multiline: true,
       showConfirmation: true,
       onSubmit: handleGeneratedEdit,
       onAccept: handleAcceptEdit,
       onDeny: handleDenyEdit,
-      placeholder: "Describe your edit...",
+      placeholder: "描述您的编辑...",
     },
   ];
 

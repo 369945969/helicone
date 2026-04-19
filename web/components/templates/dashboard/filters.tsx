@@ -32,7 +32,7 @@ export function Filters({
 
   options.unshift({
     value: "all",
-    label: "All",
+    label: "全部",
   });
 
   return (

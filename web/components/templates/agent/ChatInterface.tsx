@@ -52,7 +52,7 @@ interface ChatInterfaceProps {
 }
 
 const models = [
-  { id: "claude-sonnet-4-5-20250514, gpt-5-mini, gpt-5", label: "Auto" },
+  { id: "claude-sonnet-4-5-20250514, gpt-5-mini, gpt-5", label: "自动" },
   { id: "gpt-5/openai", label: "GPT-5" },
   { id: "gpt-5-mini/openai", label: "GPT-5 Mini" },
   { id: "claude-sonnet-4-5-20250514/anthropic", label: "Claude Sonnet 4.5" },

@@ -30,14 +30,14 @@ interface 钱包分析图表Props {
 
 const depositsChartConfig = {
   amount: {
-    label: "Deposits",
+    label: "存款",
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
 
 const spendChartConfig = {
   amount: {
-    label: "Spend",
+    label: "支出",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
@@ -67,16 +67,16 @@ export function 钱包分析图表({
 
   if (isLoading) {
     return (
-      <div class名称="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
             <H3>存款随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div class名称="flex h-[220px] items-center justify-center">
+            <div className="flex h-[220px] items-center justify-center">
               <Loader2
                 size={24}
-                class名称="animate-spin text-muted-foreground"
+                className="animate-spin text-muted-foreground"
               />
             </div>
           </CardContent>
@@ -86,10 +86,10 @@ export function 钱包分析图表({
             <H3>支出随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div class名称="flex h-[220px] items-center justify-center">
+            <div className="flex h-[220px] items-center justify-center">
               <Loader2
                 size={24}
-                class名称="animate-spin text-muted-foreground"
+                className="animate-spin text-muted-foreground"
               />
             </div>
           </CardContent>
@@ -100,14 +100,14 @@ export function 钱包分析图表({
 
   if (error) {
     return (
-      <div class名称="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
             <H3>存款随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div class名称="flex h-[220px] items-center justify-center">
-              <Small class名称="text-red-600">{error}</Small>
+            <div className="flex h-[220px] items-center justify-center">
+              <Small className="text-red-600">{error}</Small>
             </div>
           </CardContent>
         </Card>
@@ -116,8 +116,8 @@ export function 钱包分析图表({
             <H3>支出随时间变化</H3>
           </CardHeader>
           <CardContent>
-            <div class名称="flex h-[220px] items-center justify-center">
-              <Small class名称="text-red-600">{error}</Small>
+            <div className="flex h-[220px] items-center justify-center">
+              <Small className="text-red-600">{error}</Small>
             </div>
           </CardContent>
         </Card>
@@ -126,15 +126,15 @@ export function 钱包分析图表({
   }
 
   return (
-    <div class名称="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {/* Deposits Chart */}
       <Card>
         <CardHeader>
-          <div class名称="flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <H3>存款随时间变化</H3>
-            <div class名称="flex flex-col items-end">
-              <Muted>Total</Muted>
-              <span class名称="text-lg font-semibold">
+            <div className="flex flex-col items-end">
+              <Muted>总计</Muted>
+              <span className="text-lg font-semibold">
                 {formatCurrency(totalDeposits)}
               </span>
             </div>
@@ -142,15 +142,15 @@ export function 钱包分析图表({
         </CardHeader>
         <CardContent>
           {depositsData.length === 0 ? (
-            <div class名称="flex h-[220px] items-center justify-center">
-              <Small class名称="text-muted-foreground">
-                No deposit data available
+            <div className="flex h-[220px] items-center justify-center">
+              <Small className="text-muted-foreground">
+                没有可用的存款数据
               </Small>
             </div>
           ) : (
             <ChartContainer
               config={depositsChartConfig}
-              class名称="h-[220px] w-full"
+              className="h-[220px] w-full"
             >
               <LineChart
                 data={depositsData}
@@ -199,11 +199,11 @@ export function 钱包分析图表({
       {/* Spend Chart */}
       <Card>
         <CardHeader>
-          <div class名称="flex items-center justify-between">
-            <H3>Spend Over Time (ClickHouse)</H3>
-            <div class名称="flex flex-col items-end">
-              <Muted>Total</Muted>
-              <span class名称="text-lg font-semibold">
+          <div className="flex items-center justify-between">
+            <H3>支出随时间变化 (ClickHouse)</H3>
+            <div className="flex flex-col items-end">
+              <Muted>总计</Muted>
+              <span className="text-lg font-semibold">
                 {formatCurrency(totalSpend)}
               </span>
             </div>
@@ -211,15 +211,15 @@ export function 钱包分析图表({
         </CardHeader>
         <CardContent>
           {spendData.length === 0 ? (
-            <div class名称="flex h-[220px] items-center justify-center">
-              <Small class名称="text-muted-foreground">
-                No spend data available
+            <div className="flex h-[220px] items-center justify-center">
+              <Small className="text-muted-foreground">
+                没有可用的支出数据
               </Small>
             </div>
           ) : (
             <ChartContainer
               config={spendChartConfig}
-              class名称="h-[220px] w-full"
+              className="h-[220px] w-full"
             >
               <LineChart
                 data={spendData}

@@ -114,18 +114,18 @@ const getTargetTier = (currentTier: string) => {
 };
 
 const getStripeStatusBadge = (status: string | null | undefined) => {
-  if (!status) return { color: "bg-gray-100 text-gray-800", label: "Unknown" };
+  if (!status) return { color: "bg-gray-100 text-gray-800", label: "未知" };
   switch (status) {
     case "active":
-      return { color: "bg-green-100 text-green-800", label: "Active" };
+      return { color: "bg-green-100 text-green-800", label: "活跃" };
     case "canceled":
-      return { color: "bg-red-100 text-red-800", label: "Cancelled" };
+      return { color: "bg-red-100 text-red-800", label: "已取消" };
     case "past_due":
-      return { color: "bg-yellow-100 text-yellow-800", label: "Past Due" };
+      return { color: "bg-yellow-100 text-yellow-800", label: "已逾期" };
     case "unpaid":
-      return { color: "bg-orange-100 text-orange-800", label: "Unpaid" };
+      return { color: "bg-orange-100 text-orange-800", label: "未支付" };
     case "not_found":
-      return { color: "bg-red-100 text-red-800", label: "Not Found" };
+      return { color: "bg-red-100 text-red-800", label: "未找到" };
     default:
       return { color: "bg-gray-100 text-gray-800", label: status };
   }
