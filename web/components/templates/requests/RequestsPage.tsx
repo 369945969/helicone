@@ -678,7 +678,7 @@ export default function RequestsPage(props: RequestsPageV2Props) {
   useEffect(() => {
     if (userId && !userFilterAppliedRef.current) {
       const userFilterMapIndex = filterMap.findIndex(
-        (filter: any) => filter.label === "User",
+        (filter: any) => filter.label === "用户",
       );
 
       if (userFilterMapIndex !== -1) {

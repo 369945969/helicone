@@ -100,7 +100,7 @@ function QueryResult({
   const columnDefs = useMemo<ColumnDef<Record<string, any>>[]>(() => {
     const indexCol: ColumnDef<Record<string, any>> = {
       id: "__rowNum",
-      header: "#",
+      header: "序号",
       cell: (info) => info.row.index + 1,
     };
 

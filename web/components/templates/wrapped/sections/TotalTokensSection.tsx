@@ -37,7 +37,7 @@ const getTokenEquivalents = (
   if (novelCount > 0) {
     equivalents.push({
       value: novelCount.toLocaleString(),
-      label: novelCount === 1 ? "novel" : "novels",
+      label: novelCount === 1 ? "小说" : "小说",
     });
   }
 
@@ -236,8 +236,8 @@ export const TotalTokensSection: React.FC<TotalTokensSectionProps> = ({
         <div className="mt-4 grid w-full grid-cols-2 gap-4 sm:grid-cols-4">
           {tokenBreakdown.map((item, index) => {
             const Icon = item.icon;
-            const isCacheWrite = item.label === "Cache Write";
-            const isCacheRead = item.label === "Cache Read";
+            const isCacheWrite = item.label === "缓存写入";
+            const isCacheRead = item.label === "缓存读取";
             const showEfficiencyMessage =
               (isCacheWrite || isCacheRead) && isCacheEfficient;
             const efficiencyMessage = isCacheWrite

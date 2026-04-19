@@ -141,15 +141,15 @@ const 实验输入选择器 = (props: 实验输入选择器Props) => {
               <Button
                 variant="secondary"
                 size="sm"
-                title={isAllSelected ? "Deselect All" : "Select All"}
+                title={isAllSelected ? "取消全选" : "全选"}
                 onClick={handleSelectAll}
               >
-                {isAllSelected ? "Deselect All" : "Select All"}
+                {isAllSelected ? "取消全选" : "全选"}
               </Button>
             )}
           </div>
           <p className="pb-4 text-sm text-gray-500">
-            Select the inputs you want to include in the dataset.
+            选择您想要包含在数据集中的输入。
           </p>
 
           <ul className="flex w-full flex-col items-center space-y-4 overflow-y-auto px-1 pt-4">

@@ -62,7 +62,7 @@ const LimitRowDiv = (props: {
       <input
         type="number"
         className="block w-full rounded-md border border-gray-300 p-2 text-sm shadow-sm"
-        placeholder={_limitType === "cost" ? "Cost USD" : "Count"}
+        placeholder={_limitType === "cost" ? "成本 (美元)" : "计数"}
         value={_limitType === "cost" ? cost : count}
         onChange={(e) => {
           const newLimit = { ...limit };

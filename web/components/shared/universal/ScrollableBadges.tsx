@@ -270,7 +270,7 @@ export default function ScrollableBadges({
                   value={newValue}
                   onChange={(e) => setNewValue(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder={mode === "singleValue" ? "Value" : "Value"}
+                  placeholder={mode === "singleValue" ? "值" : "值"}
                   className="h-6 w-20 px-2 text-xs"
                   autoFocus={mode === "singleValue"} // Autofocus value input in singleValue mode
                 />

@@ -117,7 +117,7 @@ const SuggestionModal = (props: SuggestionModalProps) => {
                 name="what-else"
                 required
                 rows={4}
-                placeholder={"Hello"}
+                placeholder={"您好"}
                 className="lg:text-md block w-full rounded-md border-0 py-1.5 text-sm shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 lg:leading-6"
               />
             </div>

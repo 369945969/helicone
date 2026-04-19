@@ -49,11 +49,11 @@ const useRequestsPageV2 = (
 
   // replace the model filter inside of the filterMap with the text suggestion model
   const modelFilterIdx = filterMap.findIndex(
-    (filter) => filter.label === "Model",
+    (filter) => filter.label === "模型",
   );
   if (modelFilterIdx !== -1) {
     filterMap[modelFilterIdx] = {
-      label: "Model",
+      label: "模型",
       operators: textWithSuggestions(
         Array.from(
           new Set(

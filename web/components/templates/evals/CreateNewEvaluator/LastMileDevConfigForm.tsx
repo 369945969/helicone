@@ -54,10 +54,10 @@ function SelectDataEntryType({
           </TooltipTrigger>
           <TooltipContent className="max-w-xs">
             {label === "Input"
-              ? "Select the source of input data for evaluation"
+              ? "选择评估的输入数据来源"
               : label === "Output"
-                ? "Select the source of output data for evaluation"
-                : "Select the source of ground truth data for comparison"}
+                ? "选择评估的输出数据来源"
+                : "选择用于比较的基准真实数据来源"}
           </TooltipContent>
         </Tooltip>
       </div>

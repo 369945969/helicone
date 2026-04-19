@@ -164,7 +164,7 @@ const UserIdPage = (props: UserIdPageProps) => {
                 <TabsContent value="0">
                   <div className="flex flex-col space-y-4 py-4">
                     <StyledAreaChart
-                      title={"Requests last 30 days"}
+                      title={"最近30天请求数"}
                       value={undefined}
                       isDataOverTimeLoading={isLoading}
                       height={"200px"}
@@ -178,7 +178,7 @@ const UserIdPage = (props: UserIdPageProps) => {
                       />
                     </StyledAreaChart>
                     <StyledAreaChart
-                      title={"Costs in the last 30 days"}
+                      title={"最近30天成本"}
                       value={undefined}
                       isDataOverTimeLoading={isLoading}
                       height={"200px"}

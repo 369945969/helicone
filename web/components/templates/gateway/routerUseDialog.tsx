@@ -108,13 +108,13 @@ const RouterUseDialog = ({
       </DialogTrigger>
       <DialogContent className="max-w-4xl">
         <DialogHeader>
-          <DialogTitle>How to make requests to this router?</DialogTitle>
+          <DialogTitle>如何向此路由器发送请求？</DialogTitle>
         </DialogHeader>
         <div className="flex flex-col gap-4">
           <div className="text-sm text-muted-foreground">
-            Use the router hash{" "}
+            在您的请求中使用路由器哈希{" "}
             <code className="rounded bg-muted px-1 py-0.5">{routerHash}</code>{" "}
-            in your requests to route them through this gateway.
+            以通过此网关路由它们。
           </div>
 
           <Tabs defaultValue="curl" className="w-full">

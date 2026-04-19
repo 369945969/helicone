@@ -127,7 +127,7 @@ export function Directory({
                   onClick={async () => {
                     const response = await handleSaveQueryAsync({
                       id: undefined,
-                      name: "Untitled query",
+                      name: "未命名查询",
                       sql: "select * from request_response_rmt",
                     });
 
@@ -136,7 +136,7 @@ export function Directory({
                     if (id) {
                       setCurrentQuery({
                         id,
-                        name: "Untitled query",
+                        name: "未命名查询",
                         sql: "select * from request_response_rmt",
                       });
                     }
@@ -160,7 +160,7 @@ export function Directory({
             size={16}
           />
           <Input
-            placeholder={`Search ${activeTab === "tables" ? "tables" : "queries"}`}
+            placeholder={`搜索 ${activeTab === "tables" ? "表" : "查询"}`}
             className="h-9 pl-9"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

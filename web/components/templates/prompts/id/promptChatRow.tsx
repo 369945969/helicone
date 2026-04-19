@@ -722,7 +722,7 @@ const PromptChatRow = (props: PromptChatRowProps) => {
                 </Badge>
               )}
               {!editMode && showMinimizeButton && (
-                <Tooltip title={minimize ? "Expand" : "Shrink"} placement="top">
+                <Tooltip title={minimize ? "展开" : "收缩"} placement="top">
                   <button
                     onClick={() => {
                       setMinimize(!minimize);

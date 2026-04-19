@@ -90,7 +90,7 @@ const ThemedDrawer: React.FC<ThemedDrawerProps> = ({
                           <ChevronDoubleRightIcon className="h-5 w-5" />
                         </button>
                         {!defaultExpanded && (
-                          <Tooltip title={clsx(expanded ? "Shrink" : "Expand")}>
+                          <Tooltip title={clsx(expanded ? "收缩" : "展开")}>
                             <button
                               onClick={() => setExpanded(!expanded)}
                               className="-m-1 rounded-md p-1 hover:bg-slate-200 dark:hover:bg-slate-800"

@@ -233,7 +233,7 @@ const PortalIdPage = (props: PortalIdPageProps) => {
                 <TabsContent value="usage">
                   <div className="pt-4">
                     <StyledAreaChart
-                      title={"Requests Over Time"}
+                      title={"请求数趋势"}
                       value={undefined}
                       isDataOverTimeLoading={false}
                       height="400px"

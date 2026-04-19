@@ -174,7 +174,7 @@ const PromptMetricsTab = ({
 
         <div>
           <StyledAreaChart
-            title={"Total Requests"}
+            title={"总请求数"}
             value={total}
             isDataOverTimeLoading={isPromptRequestsLoading}
             withAnimation={true}

@@ -62,7 +62,7 @@ function getInitialTabs(): QueryTab[] {
   if (typeof window === "undefined") {
     return [{
       id: generateTabId(),
-      name: "Untitled query",
+      name: "未命名查询",
       sql: DEFAULT_SQL,
       isDirty: false,
     }];
@@ -190,7 +190,7 @@ function HQLPage() {
       // Always keep at least one tab
       const newTab: QueryTab = {
         id: generateTabId(),
-        name: "Untitled query",
+        name: "未命名查询",
         sql: DEFAULT_SQL,
         isDirty: false,
       };
@@ -365,7 +365,7 @@ function HQLPage() {
     setToolHandler("hql-write-query", async ({ query }) => {
       setCurrentQuery({
         id: undefined,
-        name: "Untitled query",
+        name: "未命名查询",
         sql: query,
       });
       // Also update the Monaco editor's value directly

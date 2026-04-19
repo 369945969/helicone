@@ -798,7 +798,7 @@ export default function RequestDrawer(props: RequestDivProps) {
                         {item.label}
                       </XSmall>
 
-                      {item.label === "Created At" ? (
+                      {item.label === "创建时间" ? (
                         <TooltipProvider>
                           <Tooltip delayDuration={100}>
                             <TooltipTrigger asChild>

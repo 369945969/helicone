@@ -70,7 +70,7 @@ const RenderOrgPlan = (props: RenderOrgPlanProps) => {
 
   return (
     <StyledAreaChart
-      title={"Requests"}
+      title={"请求数"}
       value={formatNumberString(requestCount.toString())}
       isDataOverTimeLoading={isLoading}
     >

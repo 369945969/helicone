@@ -130,11 +130,11 @@ const getRoleIcon = (role: string) => {
 const getRoleLabel = (role: string): string => {
   switch (role.toLowerCase()) {
     case "user":
-      return "You";
+      return "您";
     case "assistant":
       return "AI";
     case "system":
-      return "System";
+      return "系统";
     default:
       return role;
   }
