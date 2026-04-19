@@ -227,7 +227,7 @@ const Credits: NextPageWithLayout = () => {
   return (
     <div className="flex h-screen w-full flex-col">
       <Header
-        title="Credits"
+        title="积分"
         rightActions={
           <div className="flex items-center gap-2">
             <Button
@@ -348,7 +348,7 @@ const Credits: NextPageWithLayout = () => {
                                 : "secondary"
                             }
                           >
-                            {autoTopoffSettings.enabled ? "Active" : "Inactive"}
+                            {autoTopoffSettings.enabled ? "活跃" : "非活跃"}
                           </Badge>
                         )}
                       </div>
@@ -459,7 +459,7 @@ const Credits: NextPageWithLayout = () => {
                               const getStatusDisplay = () => {
                                 if (status === "refunded") {
                                   return {
-                                    label: "Refunded",
+                                    label: "已退款",
                                     icon: AlertCircle,
                                     className:
                                       "text-amber-600 dark:text-amber-500",
@@ -473,7 +473,7 @@ const Credits: NextPageWithLayout = () => {
                                   transaction.refundedAmount > 0
                                 ) {
                                   return {
-                                    label: "Partially refunded",
+                                    label: "部分退款",
                                     icon: AlertCircle,
                                     className:
                                       "text-amber-600 dark:text-amber-500",
@@ -484,7 +484,7 @@ const Credits: NextPageWithLayout = () => {
                                 switch (status) {
                                   case "succeeded":
                                     return {
-                                      label: "Completed",
+                                      label: "已完成",
                                       icon: CheckCircle,
                                       className:
                                         "text-green-600 dark:text-green-500",
@@ -493,7 +493,7 @@ const Credits: NextPageWithLayout = () => {
                                     };
                                   case "processing":
                                     return {
-                                      label: "Processing",
+                                      label: "处理中",
                                       icon: Clock,
                                       className:
                                         "text-blue-600 dark:text-blue-500",
@@ -502,7 +502,7 @@ const Credits: NextPageWithLayout = () => {
                                     };
                                   case "canceled":
                                     return {
-                                      label: "Canceled",
+                                      label: "已取消",
                                       icon: XCircle,
                                       className: "text-muted-foreground",
                                       showAmount: false,
@@ -522,7 +522,7 @@ const Credits: NextPageWithLayout = () => {
                                     };
                                   default:
                                     return {
-                                      label: "Credit purchase",
+                                      label: "积分购买",
                                       icon: CheckCircle,
                                       className:
                                         "text-green-600 dark:text-green-500",

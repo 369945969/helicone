@@ -11,7 +11,7 @@ import Image from "next/image";
 const features: FeatureDetails[] = [
   {
     name: "dashboard",
-    label: "Key Metrics.",
+    label: "关键指标。",
     description:
       "Get an overview of your application with an in-built dashboard, tailor made for generative AI applications.",
     icon: CloudArrowUpIcon,
@@ -19,7 +19,7 @@ const features: FeatureDetails[] = [
   },
   {
     name: "requests",
-    label: "View Requests.",
+    label: "查看请求。",
     description:
       "View all of your requests in one place. Filter by time, users, and custom properties.",
     icon: LockClosedIcon,
@@ -27,7 +27,7 @@ const features: FeatureDetails[] = [
   },
   {
     name: "model",
-    label: "Optimize Spend.",
+    label: "优化支出。",
     description:
       "Track spending on each model, user, or conversation. Use this data to optimize your API usage and reduce costs.",
     icon: ServerIcon,

@@ -297,7 +297,7 @@ export const FeatureUpgradeCard: React.FC<FeatureUpgradeCardProps> = ({
 
   const pricingCards = (
     <div className="flex w-full flex-col gap-6 md:flex-row">
-      <PricingCard title="Hobby" price="免费" isCurrentPlan={true} />
+      <PricingCard title="业余版" price="免费" isCurrentPlan={true} />
       <PricingCard
         title="专业版"
         price="$20"

@@ -18,11 +18,11 @@ import { EMPTY_STATE_PAGES } from "../requests/RequestsEmptyState";
 
 const chartConfig = {
   count: {
-    label: "Rate Limit Count",
+    label: "速率限制计数",
     color: "rgb(226, 54, 112)",
   },
   time: {
-    label: "Time",
+    label: "时间",
     color: "rgb(226, 54, 112)",
   },
 } satisfies ChartConfig;

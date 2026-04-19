@@ -27,15 +27,15 @@ const FORMAT_PLACEHOLDER = `{
     "properties": {
       "location": {
         "type": "string",
-        "description": "City or location name"
+        "description": "城市或地点名称"
       },
       "temperature": {
         "type": "number",
-        "description": "Temperature in Celsius"
+        "description": "摄氏温度"
       },
       "conditions": {
         "type": "string",
-        "description": "Weather conditions description"
+        "description": "天气状况描述"
       }
     },
     "required": ["location", "temperature", "conditions"],

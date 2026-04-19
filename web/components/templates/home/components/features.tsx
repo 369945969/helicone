@@ -43,12 +43,12 @@ const tabOptions: {
 }[] = [
   {
     id: "monitoring",
-    title: "Monitoring",
+    title: "监控",
     icon: <ChartPieIcon className="h-6 w-6 text-violet-500" />,
     content: (
       <div className="my-2 grid h-full w-full grid-cols-8 gap-8 bg-violet-500 p-8 md:my-8 md:rounded-lg md:p-16">
         <div className="col-span-8 flex flex-col space-y-4 text-white md:col-span-3">
-          <h2 className="text-3xl font-bold tracking-tight">Monitoring</h2>
+          <h2 className="text-3xl font-bold tracking-tight">监控</h2>
           <p className="text-md max-w-xs font-medium text-gray-300">
             Understand how your application is performing with our monitoring
             tools
@@ -57,20 +57,20 @@ const tabOptions: {
             className="w-fit rounded-lg border border-white bg-violet-500 px-4 py-2 text-sm font-bold hover:bg-violet-500"
             href={"/signup"}
           >
-            Start Monitoring
+            开始监控
           </Link>
           <ul className="text-md grid w-fit grid-cols-2 gap-4 pt-4 font-bold md:gap-6">
             <li className="flex items-center gap-2">
-              <PresentationChartBarIcon className="h-6 w-6" /> Dashboards
+              <PresentationChartBarIcon className="h-6 w-6" /> 仪表板
             </li>
             <li className="flex items-center gap-2">
-              <TableCellsIcon className="h-6 w-6" /> Logs
+              <TableCellsIcon className="h-6 w-6" /> 日志
             </li>
             <li className="flex items-center gap-2">
-              <BellAlertIcon className="h-6 w-6" /> Alerts
+              <BellAlertIcon className="h-6 w-6" /> 警报
             </li>
             <li className="flex items-center gap-2">
-              <UserIcon className="h-6 w-6" /> User Insights
+              <UserIcon className="h-6 w-6" /> 用户洞察
             </li>
           </ul>
         </div>
@@ -103,7 +103,7 @@ const tabOptions: {
   },
   {
     id: "gateway",
-    title: "Gateway",
+    title: "网关",
     icon: <ArrowPathIcon className="h-6 w-6 text-green-500" />,
     content: (
       <div className="my-2 grid h-full w-full grid-cols-8 gap-8 bg-green-300 p-8 md:my-8 md:rounded-lg md:p-16">
@@ -148,7 +148,7 @@ const tabOptions: {
   },
   {
     id: "data-collection",
-    title: "Data Collection",
+    title: "数据收集",
     icon: <CircleStackIcon className="h-6 w-6 text-orange-500" />,
     content: (
       <div className="my-2 grid h-full w-full grid-cols-8 gap-0 bg-orange-300 p-8 md:my-8 md:rounded-lg md:p-16">
@@ -164,24 +164,23 @@ const tabOptions: {
         <div className="col-span-8 flex flex-col space-y-4 text-black md:col-span-3">
           <h2 className="text-3xl font-bold tracking-tight">数据收集</h2>
           <p className="text-md font-medium text-gray-700">
-            Collect, normalize, and transform data from various providers and
-            models
+            收集、规范化和转换来自各种提供商和模型的数据
           </p>
           <Link
             href="/signup"
             className="w-fit rounded-lg border border-black bg-orange-400 px-4 py-2 text-sm font-bold hover:bg-orange-500"
           >
-            Start Collecting Data
+            开始收集数据
           </Link>
           <ul className="text-md grid w-fit grid-cols-1 gap-4 pt-6 font-bold">
             <li className="flex items-center gap-2">
-              <TableCellsIcon className="h-6 w-6" /> Request Logs
+              <TableCellsIcon className="h-6 w-6" /> 请求日志
             </li>
             <li className="flex items-center gap-2">
-              <RectangleGroupIcon className="h-6 w-6" /> Create Datasets
+              <RectangleGroupIcon className="h-6 w-6" /> 创建数据集
             </li>
             <li className="flex items-center gap-2">
-              <InboxStackIcon className="h-6 w-6" /> Standardized schemas
+              <InboxStackIcon className="h-6 w-6" /> 标准化模式
             </li>
             <li className="flex items-center gap-2">
               <CodeBracketIcon className="h-6 w-6" /> REST API
@@ -194,12 +193,12 @@ const tabOptions: {
   },
   {
     id: "fine-tuning",
-    title: "Fine-Tuning",
+    title: "微调",
     icon: <CodeBracketSquareIcon className="h-6 w-6 text-red-500" />,
     content: (
       <div className="my-2 grid h-full w-full grid-cols-8 gap-0 bg-red-500 p-8 md:my-8 md:rounded-lg md:p-16">
         <div className="col-span-8 flex flex-col space-y-4 text-white md:col-span-3">
-          <h2 className="text-3xl font-bold tracking-tight">Fine-Tuning</h2>
+          <h2 className="text-3xl font-bold tracking-tight">微调</h2>
           <p className="text-md font-medium">
             Easily fine-tune on your datasets to improve quality while cutting
             costs.
@@ -308,10 +307,10 @@ const tabOptions: {
               <CodeBracketSquareIcon className="h-6 w-6" /> White Labeling
             </li>
             <li className="flex items-center gap-2">
-              <RectangleGroupIcon className="h-6 w-6" /> Create Datasets
+              <RectangleGroupIcon className="h-6 w-6" /> 创建数据集
             </li>
             <li className="flex items-center gap-2">
-              <InboxStackIcon className="h-6 w-6" /> Standardized schemas
+              <InboxStackIcon className="h-6 w-6" /> 标准化模式
             </li>
             <li className="flex items-center gap-2">
               <CodeBracketIcon className="h-6 w-6" /> REST API

@@ -10,27 +10,27 @@ export const INTEGRATION_METHODS = [
     icon: (
       <ArrowLeftRightIcon className="h-6 w-6 text-slate-400 dark:text-slate-500" />
     ),
-    title: "Async",
-    description: "Flexible, not on the critical path.",
+    title: "异步",
+    description: "灵活，不在关键路径上。",
     features: [
-      { good: true, description: "Zero latency impact" },
-      { good: false, description: "Not all languages/frameworks supported" },
-      { good: false, description: "Requires SDK" },
+      { good: true, description: "零延迟影响" },
+      { good: false, description: "并非所有语言/框架都支持" },
+      { good: false, description: "需要 SDK" },
     ],
   },
   {
     id: "proxy",
     recommended: true,
     icon: <RouteIcon className="h-6 w-6 text-slate-400 dark:text-slate-500" />,
-    title: "Proxy",
-    description: "Simplest and fastest integration.",
+    title: "代理",
+    description: "最简单且最快的集成方式。",
     features: [
-      { good: true, description: "Supports 300+ LLM models" },
+      { good: true, description: "支持 300+ 大语言模型" },
       {
         good: true,
-        description: "Built-in caching, rate limiting, & more",
+        description: "内置缓存、速率限制等功能",
       },
-      { good: false, description: "~50 ms latency impact" },
+      { good: false, description: "约 50 毫秒延迟影响" },
     ],
   },
 ];

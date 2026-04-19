@@ -53,10 +53,10 @@ export const ErrorMessage = ({
 
             return {
               type: "parse_error",
-              title: "Error Parsing Response",
+              title: "解析响应错误",
               details:
                 cleanErrorMessage ||
-                "Unable to parse the response from the API",
+                "无法解析来自 API 的响应",
               raw: parsed,
             };
           }
@@ -78,7 +78,7 @@ export const ErrorMessage = ({
             type: "parse_error",
             title: "Error Parsing Response",
             details:
-              cleanErrorMessage || "Unable to parse the response from the API",
+              cleanErrorMessage || "无法解析来自 API 的响应",
             raw: response,
           };
         }

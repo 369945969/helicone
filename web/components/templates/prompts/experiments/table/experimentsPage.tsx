@@ -228,13 +228,13 @@ const ExperimentsPage = () => {
       <ThemedTable
         defaultColumns={[
           {
-            header: "Name",
+            header: "名称",
             accessorFn: (row) => {
               return row.name;
             },
           },
           {
-            header: "Created At",
+            header: "创建时间",
             accessorKey: "created_at",
             minSize: 100,
             accessorFn: (row) => {

@@ -13,7 +13,7 @@ export const getInitialColumns = (
   return [
     {
       key: "prompt_id" as keyof PromptWithVersions,
-      header: "Prompt ID",
+      header: "提示词 ID",
       sortable: false,
       minSize: 150,
       render: (item) => {
@@ -26,7 +26,7 @@ export const getInitialColumns = (
     },
     {
       key: "name" as keyof PromptWithVersions,
-      header: "Name",
+      header: "名称",
       sortable: true,
       minSize: 250,
       render: (item) => {
@@ -39,7 +39,7 @@ export const getInitialColumns = (
     },
     {
       key: "version" as keyof PromptWithVersions,
-      header: "Version",
+      header: "版本",
       sortable: true,
       minSize: 100,
       render: (item) => (
@@ -51,7 +51,7 @@ export const getInitialColumns = (
     },
     {
       key: "totalVersions" as keyof PromptWithVersions,
-      header: "Total Versions",
+      header: "总版本数",
       sortable: true,
       minSize: 120,
       render: (item) => (
@@ -63,14 +63,14 @@ export const getInitialColumns = (
     },
     {
       key: undefined,
-      header: "Model",
+      header: "模型",
       sortable: false,
       minSize: 250,
       render: (item) => <ModelPill model={item.productionVersion.model} />,
     },
     {
       key: undefined,
-      header: "Tags",
+      header: "标签",
       sortable: false,
       minSize: 200,
       render: (item) => <TagsSummary tags={item.prompt.tags} />,
@@ -91,7 +91,7 @@ export const getInitialColumns = (
     // },
     {
       key: "playground" as keyof PromptWithVersions,
-      header: "Playground",
+      header: "游乐场",
       sortable: false,
       minSize: 100,
       render: (item) => {

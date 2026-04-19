@@ -28,40 +28,40 @@ export const INITIAL_COLUMNS: ColumnDef<{
 }>[] = [
   {
     accessorKey: "property_value",
-    header: "Value",
+    header: "值",
     cell: (info) => info.getValue(),
     minSize: 300,
   },
   {
     accessorKey: "total_requests",
-    header: "Requests",
+    header: "请求数",
     cell: (info) => info.getValue(),
   },
   {
     accessorKey: "avg_prompt_tokens_per_request",
-    header: "Avg Prompt Tokens / Req",
+    header: "平均提示词令牌数/请求",
     cell: (info) => `${formatNumber(Number(info.getValue()))}`,
     minSize: 250,
   },
   {
     accessorKey: "avg_completion_tokens_per_request",
-    header: "Avg Completion Tokens / Req",
+    header: "平均补全令牌数/请求",
     cell: (info) => `${formatNumber(Number(info.getValue()))}`,
     minSize: 250,
   },
   {
     accessorKey: "avg_latency_per_request",
-    header: "Avg Latency / Req",
+    header: "平均延迟/请求",
     cell: (info) => `${formatNumber(Number(info.getValue()))}s`,
   },
   {
     accessorKey: "average_cost_per_request",
-    header: "Avg Cost / Req",
+    header: "平均成本/请求",
     cell: (info) => `$${formatNumber(Number(info.getValue()))}`,
   },
   {
     accessorKey: "total_cost",
-    header: "Total Cost",
+    header: "总成本",
     cell: (info) => `$${info.getValue()}`,
   },
 ];

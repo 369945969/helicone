@@ -56,29 +56,29 @@ interface IntegrationData {
 const integrationMethods = [
   {
     value: "ai-gateway",
-    label: "Helicone AI Gateway (Recommended)",
+    label: "Helicone AI 网关 (推荐)",
     icon: SiOpenai,
   },
-  { value: "anthropic-sdk", label: "Anthropic SDK", icon: SiAnthropic },
-  { value: "azure", label: "Azure", icon: VscAzure },
-  { value: "vertex", label: "Vertex", icon: SiGoogle },
-  { value: "gemini", label: "Gemini", icon: SiGooglegemini },
-  { value: "bedrock", label: "Bedrock", icon: FaAws },
-  { value: "vercel-ai", label: "AI SDK", icon: SiVercel },
-  { value: "other", label: "Other", icon: FileText },
+  { value: "anthropic-sdk", label: "Anthropic SDK", icon: SiAnthropic }, // Keep brand name
+  { value: "azure", label: "Azure", icon: VscAzure }, // Keep brand name
+  { value: "vertex", label: "Vertex", icon: SiGoogle }, // Keep brand name
+  { value: "gemini", label: "Gemini", icon: SiGooglegemini }, // Keep brand name
+  { value: "bedrock", label: "Bedrock", icon: FaAws }, // Keep brand name
+  { value: "vercel-ai", label: "AI SDK", icon: SiVercel }, // Keep product name
+  { value: "other", label: "其他", icon: FileText },
 ];
 
 const languages = [
-  { value: "python", label: "Python", icon: SiPython, color: "text-blue-500" },
+  { value: "python", label: "Python", icon: SiPython, color: "text-blue-500" }, // Keep language name
   {
     value: "typescript",
-    label: "TypeScript",
+    label: "TypeScript", // Keep language name
     icon: SiTypescript,
     color: "text-blue-500",
   },
   {
     value: "javascript",
-    label: "JavaScript",
+    label: "JavaScript", // Keep language name
     icon: SiJavascript,
     color: "text-yellow-500",
   },

@@ -258,7 +258,7 @@ const 评分s表格 = ({ scores }: 评分sProps) => {
           },
           {
             key: "dataset",
-            header: "Original prompt",
+            header: "原始提示词",
             render: (score) => (
               <div className="text-black">{score.dataset}</div>
             ),

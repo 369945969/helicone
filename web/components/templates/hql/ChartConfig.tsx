@@ -76,11 +76,11 @@ function getColumnTypes(
 }
 
 const CHART_TYPES: { value: ChartType; label: string }[] = [
-  { value: "bar", label: "Bar Chart" },
-  { value: "line", label: "Line Chart" },
-  { value: "area", label: "Area Chart" },
-  { value: "pie", label: "Pie Chart" },
-  { value: "scatter", label: "Scatter Plot" },
+  { value: "bar", label: "柱状图" },
+  { value: "line", label: "折线图" },
+  { value: "area", label: "面积图" },
+  { value: "pie", label: "饼图" },
+  { value: "scatter", label: "散点图" },
 ];
 
 export function ChartConfig({

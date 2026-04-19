@@ -584,19 +584,19 @@ const SessionUpdate: React.FC<SessionUpdateProps> = ({ content }) => {
 
   const items = [
     {
-      label: "Modalities",
+      label: "模态",
       pills:
         sessionData.modalities?.map((m) => ({ type: "modality", label: m })) ||
         [],
     },
     {
-      label: "Voice",
+      label: "语音",
       pills: sessionData.voice
         ? [{ type: "voice", label: sessionData.voice }]
         : [],
     },
     {
-      label: "Available Tools",
+      label: "可用工具",
       pills:
         sessionData.tools?.map((t) => ({ type: "tool", label: t.name })) || [],
     },

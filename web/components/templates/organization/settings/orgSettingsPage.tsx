@@ -27,11 +27,11 @@ import {
 } from "@/components/ui/settings-container";
 
 const TIME_FILTER_OPTIONS = [
-  { value: "1h", label: "Last Hour" },
-  { value: "24h", label: "Last 24 Hours" },
-  { value: "7d", label: "Last 7 Days" },
-  { value: "1m", label: "Last Month" },
-  { value: "3m", label: "Last 3 Months" },
+  { value: "1h", label: "最近1小时" },
+  { value: "24h", label: "最近24小时" },
+  { value: "7d", label: "最近7天" },
+  { value: "1m", label: "最近1个月" },
+  { value: "3m", label: "最近3个月" },
 ] as const;
 interface OrgSettingsPageProps {
   org: Database["public"]["Tables"]["organization"]["Row"];

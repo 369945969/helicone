@@ -23,182 +23,182 @@ const ERROR_DISPLAY_MAP: Record<
 > = {
   // SQL Validation Errors
   [HqlErrorCode.INVALID_STATEMENT]: {
-    title: "Invalid SQL Statement",
+    title: "无效的 SQL 语句",
     severity: "error",
     icon: XCircle,
     suggestions: [
-      "Only SELECT statements are allowed",
-      "Remove any INSERT, UPDATE, DELETE, or DDL statements",
+      "仅允许 SELECT 语句",
+      "删除任何 INSERT、UPDATE、DELETE 或 DDL 语句",
     ],
   },
   [HqlErrorCode.INVALID_TABLE]: {
-    title: "Invalid Table",
+    title: "无效的表",
     severity: "error",
     icon: XCircle,
     suggestions: [
-      "Check the table name in your query",
-      "Only authorized tables can be queried",
+      "检查查询中的表名",
+      "只能查询已授权的表",
     ],
   },
   [HqlErrorCode.SYNTAX_ERROR]: {
-    title: "SQL Syntax Error",
+    title: "SQL 语法错误",
     severity: "warning",
     icon: AlertTriangle,
     suggestions: [
-      "Check your SQL syntax",
-      "Verify all keywords are spelled correctly",
-      "Ensure quotes and parentheses are balanced",
+      "检查您的 SQL 语法",
+      "验证所有关键字拼写正确",
+      "确保引号和括号平衡",
     ],
   },
   [HqlErrorCode.SQL_INJECTION_ATTEMPT]: {
-    title: "Security Violation",
+    title: "安全违规",
     severity: "error",
     icon: XCircle,
   },
 
   // Query Execution Errors
   [HqlErrorCode.QUERY_TIMEOUT]: {
-    title: "Query Timeout",
+    title: "查询超时",
     severity: "warning",
     icon: AlertTriangle,
     suggestions: [
-      "Add more specific filters to reduce data",
-      "Use LIMIT to restrict results",
-      "Optimize your WHERE conditions",
+      "添加更具体的过滤器以减少数据",
+      "使用 LIMIT 限制结果",
+      "优化您的 WHERE 条件",
     ],
   },
   [HqlErrorCode.MEMORY_LIMIT_EXCEEDED]: {
-    title: "Memory Limit Exceeded",
+    title: "超出内存限制",
     severity: "warning",
     icon: AlertTriangle,
     suggestions: [
-      "Reduce the number of columns selected",
-      "Add date range filters",
-      "Use aggregations instead of raw data",
+      "减少选择的列数",
+      "添加日期范围过滤器",
+      "使用聚合而不是原始数据",
     ],
   },
   [HqlErrorCode.ROW_LIMIT_EXCEEDED]: {
-    title: "Too Many Rows",
+    title: "行数过多",
     severity: "warning",
     icon: AlertTriangle,
     suggestions: [
-      "Add more WHERE conditions",
-      "Use a smaller date range",
-      "Apply LIMIT to your query",
+      "添加更多 WHERE 条件",
+      "使用较小的日期范围",
+      "在查询中应用 LIMIT",
     ],
   },
   [HqlErrorCode.RESULT_LIMIT_EXCEEDED]: {
-    title: "Result Set Too Large",
+    title: "结果集过大",
     severity: "warning",
     icon: AlertTriangle,
     suggestions: [
-      "Add a LIMIT clause (max 10,000 rows)",
-      "Export to CSV for larger datasets",
+      "添加 LIMIT 子句（最多 10,000 行）",
+      "对于较大的数据集导出为 CSV",
     ],
   },
   [HqlErrorCode.UNKNOWN_COLUMN]: {
-    title: "Unknown Column",
+    title: "未知列",
     severity: "error",
     icon: XCircle,
     suggestions: [
-      "Check column names against the schema",
-      "Use the Tables panel to see available columns",
-      "Column names are case-sensitive",
+      "根据模式检查列名",
+      "使用表面板查看可用列",
+      "列名区分大小写",
     ],
   },
   [HqlErrorCode.EXECUTION_FAILED]: {
-    title: "Query Execution Failed",
+    title: "查询执行失败",
     severity: "error",
     icon: XCircle,
   },
 
   // Data Errors
   [HqlErrorCode.NO_DATA_RETURNED]: {
-    title: "No Data Found",
+    title: "未找到数据",
     severity: "info",
     icon: AlertCircle,
     suggestions: [
-      "Adjust your filters",
-      "Check the date range",
-      "Verify the table contains data",
+      "调整您的过滤器",
+      "检查日期范围",
+      "验证表包含数据",
     ],
   },
   [HqlErrorCode.SCHEMA_FETCH_FAILED]: {
-    title: "Schema Load Failed",
+    title: "模式加载失败",
     severity: "error",
     icon: XCircle,
   },
 
   // Saved Query Errors
   [HqlErrorCode.QUERY_NOT_FOUND]: {
-    title: "Query Not Found",
+    title: "未找到查询",
     severity: "warning",
     icon: AlertTriangle,
   },
   [HqlErrorCode.QUERY_NAME_EXISTS]: {
-    title: "Duplicate Query Name",
+    title: "重复的查询名称",
     severity: "warning",
     icon: AlertTriangle,
-    suggestions: ["Choose a different name for your query"],
+    suggestions: ["为您的查询选择一个不同的名称"],
   },
   [HqlErrorCode.QUERY_ACCESS_DENIED]: {
-    title: "Access Denied",
+    title: "访问被拒绝",
     severity: "error",
     icon: XCircle,
   },
 
   // Validation Errors
   [HqlErrorCode.MISSING_QUERY_ID]: {
-    title: "Missing Query ID",
+    title: "缺少查询 ID",
     severity: "error",
     icon: XCircle,
   },
   [HqlErrorCode.MISSING_QUERY_NAME]: {
-    title: "Query Name Required",
+    title: "需要查询名称",
     severity: "warning",
     icon: AlertTriangle,
-    suggestions: ["Enter a name for your query"],
+    suggestions: ["为您的查询输入一个名称"],
   },
   [HqlErrorCode.MISSING_QUERY_SQL]: {
-    title: "SQL Required",
+    title: "需要 SQL",
     severity: "warning",
     icon: AlertTriangle,
-    suggestions: ["Enter a SQL query"],
+    suggestions: ["输入一个 SQL 查询"],
   },
   [HqlErrorCode.QUERY_NAME_TOO_LONG]: {
-    title: "Query Name Too Long",
+    title: "查询名称过长",
     severity: "warning",
     icon: AlertTriangle,
-    suggestions: ["Use a shorter name (max 255 characters)"],
+    suggestions: ["使用较短的名称（最多 255 个字符）"],
   },
 
   // Export Errors
   [HqlErrorCode.CSV_UPLOAD_FAILED]: {
-    title: "CSV Export Failed",
+    title: "CSV 导出失败",
     severity: "error",
     icon: XCircle,
-    suggestions: ["Try again", "Check your network connection"],
+    suggestions: ["重试", "检查您的网络连接"],
   },
   [HqlErrorCode.CSV_URL_NOT_RETURNED]: {
-    title: "Export URL Error",
+    title: "导出 URL 错误",
     severity: "error",
     icon: XCircle,
   },
 
   // Feature Access Errors
   [HqlErrorCode.FEATURE_NOT_ENABLED]: {
-    title: "Feature Not Available",
+    title: "功能不可用",
     severity: "error",
     icon: XCircle,
-    suggestions: ["Contact your administrator to enable HQL access"],
+    suggestions: ["联系您的管理员启用 HQL 访问权限"],
   },
 
   // Generic Errors
   [HqlErrorCode.UNEXPECTED_ERROR]: {
-    title: "Unexpected Error",
+    title: "意外错误",
     severity: "error",
     icon: XCircle,
-    suggestions: ["Try again", "If the problem persists, contact support"],
+    suggestions: ["重试", "如果问题持续存在，请联系支持"],
   },
 };
 
@@ -216,7 +216,7 @@ const getErrorDetails = (errorString: string): ErrorDisplay => {
 
   // Fallback for unknown errors
   return {
-    title: "Query Error",
+    title: "查询错误",
     description: hqlError.message,
     severity: "error",
     icon: XCircle,

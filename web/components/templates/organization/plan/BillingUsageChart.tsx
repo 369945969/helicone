@@ -269,19 +269,19 @@ export const BillingUsageChart = () => {
         <ChartContainer
           config={{
             actualRequestsCost: {
-              label: "Request Cost",
+              label: "请求成本",
               color: CHART_COLORS.blue,
             },
             actualGBCost: {
-              label: "Storage Cost",
+              label: "存储成本",
               color: CHART_COLORS.purple,
             },
             projectedRequestsCost: {
-              label: "Projected Request Cost",
+              label: "预计请求成本",
               color: CHART_COLORS.blue,
             },
             projectedGBCost: {
-              label: "Projected Storage Cost",
+              label: "预计存储成本",
               color: CHART_COLORS.purple,
             },
           }}

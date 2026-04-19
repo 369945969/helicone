@@ -287,58 +287,58 @@ export const FreePlanCard = () => {
 
 const proFeatures = [
   {
-    title: "Unlimited seats",
-    description: "Add your whole team at no extra cost",
+    title: "无限席位",
+    description: "免费添加整个团队",
   },
   {
-    title: "Unlimited requests",
-    description: "Scale your requests without limits",
+    title: "无限请求",
+    description: "无限制地扩展您的请求",
   },
   {
-    title: "Usage-based billing",
-    description: "Tiered GB + request pricing - costs decrease as you scale",
+    title: "按量计费",
+    description: "分层 GB + 请求定价 - 随着规模扩大成本降低",
   },
   {
-    title: "Sessions",
-    description: "Trace agent workflow and conversations",
+    title: "会话",
+    description: "追踪智能体工作流和对话",
   },
   {
-    title: "Playground",
-    description: "Test your prompts with different models",
+    title: "游乐场",
+    description: "使用不同模型测试您的提示词",
   },
   {
-    title: "Prompts",
-    description: "Manage and version your prompts",
+    title: "提示词",
+    description: "管理和版本控制您的提示词",
   },
   {
-    title: "HQL & Alerts",
-    description: "Query language and notifications",
+    title: "HQL & 警报",
+    description: "查询语言和通知",
   },
   {
-    title: "API Access",
-    description: "Access to 10 calls/min using our API",
+    title: "API 访问",
+    description: "使用我们的 API 每分钟 10 次调用",
   },
   {
-    title: "1 month log retention",
-    description: "Store your logs for 30 days",
+    title: "1个月日志保留",
+    description: "将您的日志存储 30 天",
   },
   {
-    title: "Caching & Rate Limits",
-    description: "Gateway features included",
+    title: "缓存与速率限制",
+    description: "包含网关功能",
   },
   {
     title: "Webhooks",
-    description: "Connect to external services",
+    description: "连接到外部服务",
   },
   {
-    title: "Chat & Email Support",
-    description: "Get help when you need it",
+    title: "聊天与邮件支持",
+    description: "在需要时获得帮助",
   },
 ];
 
 const teamBundleFeatures = [
-  "Everything in Pro",
-  "SOC-2 & HIPAA compliance",
-  "Dedicated Slack channel",
-  "Support engineer & SLAs",
+  "专业版中的所有功能",
+  "SOC-2 与 HIPAA 合规",
+  "专属 Slack 频道",
+  "支持工程师与 SLA",
 ];

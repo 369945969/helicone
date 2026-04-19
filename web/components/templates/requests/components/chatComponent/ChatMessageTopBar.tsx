@@ -40,10 +40,10 @@ interface ChatMessageTopBarProps {
 }
 
 const ROLE_OPTIONS = [
-  { value: "user", label: "User" },
-  { value: "assistant", label: "Assistant" },
-  { value: "system", label: "System" },
-  { value: "tool", label: "Tool" },
+  { value: "user", label: "用户" },
+  { value: "assistant", label: "助手" },
+  { value: "system", label: "系统" },
+  { value: "tool", label: "工具" },
 ] as const;
 
 const getDropdownItems = (
@@ -58,7 +58,7 @@ const getDropdownItems = (
     ...(messageRole === "assistant" && handlers.addToolCall
       ? [
           {
-            label: "Add Tool Call",
+            label: "添加工具调用",
             onClick: handlers.addToolCall,
           },
         ]
@@ -66,7 +66,7 @@ const getDropdownItems = (
     ...(messageRole === "user" && handlers.onAddText
       ? [
           {
-            label: "Add Text",
+            label: "添加文本",
             onClick: handlers.onAddText,
           },
         ]
@@ -74,7 +74,7 @@ const getDropdownItems = (
     ...(messageRole === "user" && handlers.onAddImage
       ? [
           {
-            label: "Add Image",
+            label: "添加图片",
             onClick: handlers.onAddImage,
           },
         ]

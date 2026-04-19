@@ -301,7 +301,7 @@ const DatasetIdPage = (props: DatasetIdPageProps) => {
           fullWidth={true}
           defaultColumns={[
             {
-              header: "Created At",
+              header: "创建时间",
               accessorKey: "created_at",
               minSize: 200,
               accessorFn: (row) => {
@@ -309,7 +309,7 @@ const DatasetIdPage = (props: DatasetIdPageProps) => {
               },
             },
             {
-              header: "Request Body",
+              header: "请求体",
               accessorKey: "request_body",
               cell: ({ row }) => {
                 return getGenericRequestText(
@@ -319,7 +319,7 @@ const DatasetIdPage = (props: DatasetIdPageProps) => {
               size: 500,
             },
             {
-              header: "Response Body",
+              header: "响应体",
               accessorKey: "response_body",
               size: 500,
               cell: ({ row }) => {

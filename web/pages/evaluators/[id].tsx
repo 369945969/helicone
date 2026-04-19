@@ -300,9 +300,9 @@ const EvaluatorDetail = () => {
   return (
     <div>
       <AuthHeader
-        title="Edit Evaluator"
+        title="编辑评估器"
         breadcrumb={{
-          title: "Evaluators",
+          title: "评估器",
           href: "/evaluators",
         }}
       />
@@ -311,7 +311,7 @@ const EvaluatorDetail = () => {
         <div className="mx-auto mb-4 max-w-4xl">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-2">
-              <H3>{name || "Unnamed Evaluator"}</H3>
+              <H3>{name || "未命名的评估器"}</H3>
             </div>
             <div className="flex items-center gap-2">
               <Button
@@ -323,14 +323,14 @@ const EvaluatorDetail = () => {
                     setShowTestDrawer(true);
                   } else {
                     notification.setNotification(
-                      "Please save the evaluator first",
+                      "请先保存评估器",
                       "info",
                     );
                   }
                 }}
               >
                 <Play size={14} />
-                <span>Test Evaluator</span>
+                <span>测试评估器</span>
               </Button>
 
               {hasOnlineEvaluators ? (
@@ -340,21 +340,20 @@ const EvaluatorDetail = () => {
                   variant="outline"
                   size="sm"
                   className="flex items-center gap-2"
-                  onClick={() => {
+                  onClick={()={() => {
                     if (currentEvaluator) {
-                      // For empty state, open the modal and the create form directly
                       setShowEvaluatorsModal(true);
                     } else {
                       notification.setNotification(
-                        "Please save the evaluator first",
+                        "请先保存评估器",
                         "info",
                       );
                     }
                   }}
                 >
                   <Plus size={14} />
-                  <span>Add Online Evaluator</span>
-                </Button>
+                  <span>添加在线评估器</span>
+                </Button
               )}
             </div>
           </div>
@@ -371,7 +370,6 @@ const EvaluatorDetail = () => {
           />
         )}
       </div>
-
       {/* Render the OnlineEvaluatorsSection directly */}
       {currentEvaluator &&
         onlineEvaluatorsDetails.data?.data?.data &&
@@ -393,6 +391,8 @@ const EvaluatorDetail = () => {
           isOpen={showTestDrawer}
           onClose={() => setShowTestDrawer(false)}
         />
+      )}
+    </div>
       )}
     </div>
   );

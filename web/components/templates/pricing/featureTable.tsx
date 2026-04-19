@@ -25,7 +25,7 @@ const tiers: {
     icon: BuildingStorefrontIcon,
     id: "tier-free",
     featured: false,
-    description: "Everything you need to get your startup off the ground.",
+    description: "启动创业所需的一切。",
     mainFeatures: [
       "Up to 10k request logs",
       "Dashboards and Analytics",
@@ -38,7 +38,7 @@ const tiers: {
     id: "tier-growth",
     icon: BuildingOfficeIcon,
     featured: true,
-    description: "Pay as you go. Perfect for businesses of all sizes.",
+    description: "按需付费。适合各种规模的企业。",
     mainFeatures: [
       "Unlimited request logs (pay as you go)",
       "Access to prompt templates",
@@ -53,7 +53,7 @@ const tiers: {
     id: "tier-enterprise",
     icon: BuildingOffice2Icon,
     featured: false,
-    description: "The best solution for large companies with complex needs.",
+    description: "满足复杂需求的大型企业的最佳解决方案。",
     mainFeatures: [
       "Bulk Request Log Pricing",
       "SOC-2 Compliance",

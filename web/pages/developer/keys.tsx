@@ -6,7 +6,7 @@ import KeyPage from "../../components/templates/keys/keyPage";
 
 const DeveloperKeys: NextPageWithLayout = () => {
   return (
-    <DeveloperPage title="Developer Keys">
+    <DeveloperPage title="开发者密钥">
       <KeyPage />
     </DeveloperPage>
   );

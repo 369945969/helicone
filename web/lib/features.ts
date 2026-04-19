@@ -48,22 +48,22 @@ export function getSubfeaturesForFeature(
 
 // Create lookup table for feature display names (useful for UI)
 export const FEATURE_DISPLAY_NAMES: Record<FeatureId, string> = {
-  prompts: "Prompts",
-  experiments: "Experiments",
-  evals: "Evaluators",
-  sessions: "Sessions",
-  properties: "Properties",
-  users: "Users",
-  datasets: "Datasets",
-  alerts: "Alerts",
+  prompts: "提示词",
+  experiments: "实验",
+  evals: "评估器",
+  sessions: "会话",
+  properties: "属性",
+  users: "用户",
+  datasets: "数据集",
+  alerts: "警报",
 };
 
 // Create lookup table for subfeature display names
 export const SUBFEATURE_DISPLAY_NAMES: Record<SubfeatureId, string> = {
-  versions: "Versions",
-  test_cases: "Test Cases",
-  variants: "Variants",
-  runs: "Prompt Runs",
-  playground_runs: "Playground Runs",
-  requests: "Requests",
+  versions: "版本",
+  test_cases: "测试用例",
+  variants: "变体",
+  runs: "提示词运行",
+  playground_runs: "游乐场运行",
+  requests: "请求",
 };

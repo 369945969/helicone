@@ -342,7 +342,7 @@ export default function ThemedTable<T extends { id?: string; subRows?: T[] }>(
                               size="icon"
                               onClick={() => onToggleAllRows(table)}
                               className="h-6 w-6"
-                              aria-label={"Toggle expand all rows"}
+                              aria-label={"切换展开所有行"}
                             >
                               <ChevronsUpDown className="h-4 w-4" />
                             </Button>

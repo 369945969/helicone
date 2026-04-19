@@ -291,13 +291,13 @@ const initialColumns: ColumnDef<TableTreeNode>[] = [
   // 1. Path
   {
     accessorKey: "path",
-    header: "Reponse", // Technically path but leaf node want to be reponse preview
+    header: "响应", // Technically path but leaf node want to be reponse preview
     cell: (info) => info.getValue() ?? <Muted>n/a</Muted>,
   },
   // 2. Status
   {
     accessorKey: "status",
-    header: "Status",
+    header: "状态",
     cell: (info) => {
       if (!info.row.original.trace) return null;
       const status = info.getValue<number | undefined | null>();
@@ -309,7 +309,7 @@ const initialColumns: ColumnDef<TableTreeNode>[] = [
   // 3. Created At
   {
     accessorKey: "createdAt",
-    header: "Created At",
+    header: "创建时间",
     cell: (info) => {
       if (!info.row.original.trace) return null; // Don't render for group rows
       const createdAt = info.getValue();
@@ -337,7 +337,7 @@ const initialColumns: ColumnDef<TableTreeNode>[] = [
   // 4. Model
   {
     accessorKey: "model",
-    header: "Model",
+    header: "模型",
     cell: (info) => {
       if (!info.row.original.trace) return null; // Don't render for group rows
       return <ModelCell {...info} />;
@@ -357,7 +357,7 @@ const initialColumns: ColumnDef<TableTreeNode>[] = [
   // 6. Latency
   {
     accessorKey: "latency",
-    header: "Latency",
+    header: "延迟",
     cell: (info) => {
       const duration = info.getValue();
       if (typeof duration === "number") {

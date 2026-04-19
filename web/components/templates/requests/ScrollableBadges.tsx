@@ -168,7 +168,7 @@ export default function ScrollableBadges({
                 key={`${item.key}-${item.value}-${i}`}
                 item={item}
                 isFirst={i === 0}
-                isProperty={title === "Properties"}
+                isProperty={title === "属性"}
               />
             ))}
 

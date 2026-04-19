@@ -53,9 +53,9 @@ const CreateEvaluator = () => {
   return (
     <div>
       <AuthHeader
-        title="Create Evaluator"
+        title="创建评估器"
         breadcrumb={{
-          title: "Evaluators",
+          title: "评估器",
           href: "/evaluators",
         }}
       />

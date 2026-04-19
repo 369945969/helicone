@@ -56,22 +56,22 @@ const features = [
 const tabs = [
   {
     key: "monitoring",
-    name: "Monitoring and Analytics",
-    description: "Monitor performance and analyze data in real-time",
+    name: "监控与分析",
+    description: "实时监控性能并分析数据",
     icon: ChartPieIcon,
     src: "/assets/home/dashboard-demo.png",
   },
   {
     key: "logs",
-    name: "Request Logs",
-    description: "View and search logs for your requests",
+    name: "请求日志",
+    description: "查看和搜索您的请求日志",
     icon: TableCellsIcon,
     src: "/assets/home/request-demo.png",
   },
   {
     key: "templates",
-    name: "Prompt Templates",
-    description: "Create and manage templates for your requests",
+    name: "提示词模板",
+    description: "为您的请求创建和管理模板",
     icon: DocumentTextIcon,
     src: "/assets/home/prompt-demo.png",
   },

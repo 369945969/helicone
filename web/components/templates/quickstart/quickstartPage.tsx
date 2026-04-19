@@ -185,17 +185,17 @@ const QuickstartPage = () => {
 
   const steps = [
     {
-      title: "Set up billing",
+      title: "设置账单",
       description: "",
       link: "",
     },
     {
-      title: "Create Helicone API key",
-      description: "Create key",
+      title: "创建 Helicone API 密钥",
+      description: "创建密钥",
       link: "/settings/api-keys",
     },
     {
-      title: "Integrate",
+      title: "集成",
       description: "", // TODO Add back once gateway route is fixed
       link: "",
     },
@@ -204,9 +204,9 @@ const QuickstartPage = () => {
   return (
     <div className="flex min-h-screen flex-col gap-8 p-6">
       <div className="mx-auto mt-4 w-full max-w-4xl items-start">
-        <H2>Quickstart</H2>
+        <H2>快速开始</H2>
         <P className="mt-2 text-sm text-muted-foreground">
-          Get started with Helicone in 3 simple steps
+          通过 3 个简单步骤开始使用 Helicone
         </P>
       </div>
 

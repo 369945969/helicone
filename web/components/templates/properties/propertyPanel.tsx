@@ -530,21 +530,21 @@ const PropertyPanel = (props: PropertyPanelProps) => {
                         },
                         {
                           key: "total_requests" as keyof (typeof cleanedValueData)[0],
-                          header: "Requests",
+                          header: "请求数",
                           sortable: true,
                           render: (propertyValue) =>
                             propertyValue.total_requests,
                         },
                         {
                           key: "total_cost" as keyof (typeof cleanedValueData)[0],
-                          header: "Cost",
+                          header: "成本",
                           sortable: true,
                           render: (propertyValue) =>
                             `$${formatNumber(propertyValue.total_cost, 6)}`,
                         },
                         {
                           key: "avg_prompt_tokens_per_request" as keyof (typeof cleanedValueData)[0],
-                          header: "Avg Prompt Tokens",
+                          header: "平均提示词令牌数",
                           sortable: true,
                           render: (propertyValue) =>
                             formatNumber(
@@ -554,7 +554,7 @@ const PropertyPanel = (props: PropertyPanelProps) => {
                         },
                         {
                           key: "avg_completion_tokens_per_request" as keyof (typeof cleanedValueData)[0],
-                          header: "Avg Comp Tokens",
+                          header: "平均补全令牌数",
                           sortable: true,
                           render: (propertyValue) =>
                             formatNumber(
@@ -564,7 +564,7 @@ const PropertyPanel = (props: PropertyPanelProps) => {
                         },
                         {
                           key: "avg_latency_per_request" as keyof (typeof cleanedValueData)[0],
-                          header: "Avg Latency",
+                          header: "平均延迟",
                           sortable: true,
                           render: (propertyValue) =>
                             formatNumber(
@@ -574,7 +574,7 @@ const PropertyPanel = (props: PropertyPanelProps) => {
                         },
                         {
                           key: "average_cost_per_request" as keyof (typeof cleanedValueData)[0],
-                          header: "Avg Cost",
+                          header: "平均成本",
                           sortable: true,
                           render: (propertyValue) =>
                             `$${formatNumber(

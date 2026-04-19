@@ -11,25 +11,25 @@ import {
 
 const Developer: NextPageWithLayout = () => {
   return (
-    <DeveloperPage title="Developer">
+    <DeveloperPage title="开发者">
       <div className="p-4">
-        <h2 className="mb-4 text-2xl font-bold">Developer Tools</h2>
+        <h2 className="mb-4 text-2xl font-bold">开发者工具</h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <DeveloperCard
-            title="Keys"
-            description="Manage your API keys"
+            title="密钥"
+            description="管理您的 API 密钥"
             icon={KeyIcon}
             href="/developer/keys"
           />
           <DeveloperCard
             title="Webhooks"
-            description="Set up and manage webhooks"
+            description="设置并管理 Webhooks"
             icon={GlobeAltIcon}
             href="/developer/webhooks"
           />
           <DeveloperCard
             title="Vault"
-            description="Securely store and manage sensitive data"
+            description="安全地存储和管理敏感数据"
             icon={LockClosedIcon}
             href="/developer/vault"
           />
@@ -73,10 +73,10 @@ export const ContactUsSection = ({ feature }: { feature: string }) => (
     <div className="flex w-full flex-col">
       <GlobeAltIcon className="h-12 w-12 rounded-lg border border-gray-300 bg-white p-2 text-black dark:border-gray-700 dark:bg-black dark:text-white" />
       <p className="mt-8 text-xl font-semibold text-black dark:text-white">
-        We&apos;d love to learn more about your use case
+        我们很乐意了解您的使用场景
       </p>
       <p className="mt-2 max-w-sm text-sm text-gray-500">
-        Please get in touch with us to discuss our {feature} feature.
+        请与我们联系，以讨论我们的 {feature} 功能。
       </p>
       <div className="mt-4">
         <Link
@@ -85,7 +85,7 @@ export const ContactUsSection = ({ feature }: { feature: string }) => (
           rel="noreferrer"
           className="flex w-fit items-center gap-2 rounded-lg bg-black px-2.5 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:bg-white dark:text-black dark:hover:bg-gray-200"
         >
-          Contact Us
+          联系我们
         </Link>
       </div>
     </div>

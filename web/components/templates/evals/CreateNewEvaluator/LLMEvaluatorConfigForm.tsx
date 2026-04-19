@@ -225,15 +225,15 @@ const ChoiceScoresSection = ({
         onClick={() =>
           updateConfigFormParams({
             choiceScores: [
-              { score: 1, description: "Poor" },
-              { score: 5, description: "Excellent" },
+              { score: 1, description: "差" },
+              { score: 5, description: "优秀" },
             ],
           })
         }
         className="w-full"
       >
         <PlusIcon className="mr-2 h-4 w-4" />
-        Add Choice Scores
+        添加选择分数
       </Button>
     ) : (
       <div className="space-y-2">
@@ -483,26 +483,26 @@ const VariablesSection = ({
   const variableOptions = [
     {
       id: "inputs",
-      label: "Inputs",
-      description: "Include prompt input variables",
+      label: "输入",
+      description: "包含提示词输入变量",
       checked: configFormParams.includedVariables.inputs,
     },
     {
       id: "promptTemplate",
-      label: "Prompt Template",
-      description: "Include the prompt template",
+      label: "提示词模板",
+      description: "包含提示词模板",
       checked: configFormParams.includedVariables.promptTemplate,
     },
     {
       id: "inputBody",
-      label: "Input Body",
-      description: "Include the full request body",
+      label: "请求体",
+      description: "包含完整的请求体",
       checked: configFormParams.includedVariables.inputBody,
     },
     {
       id: "outputBody",
-      label: "Output Body",
-      description: "Include the full response body",
+      label: "响应体",
+      description: "包含完整的响应体",
       checked: configFormParams.includedVariables.outputBody,
     },
   ];

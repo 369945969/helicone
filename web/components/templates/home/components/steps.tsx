@@ -5,7 +5,7 @@ import { DiffHighlight } from "../../welcome/diffHighlight";
 const steps = [
   {
     name: "Step 1",
-    description: "Change the base url to point to Helicone",
+    description: "将基础 URL 更改为指向 Helicone",
     href: "#",
     status: "complete",
     codeBlock: (
@@ -29,14 +29,14 @@ client = OpenAI(
           textSize="md"
         />
         <i className="pt-2 text-center text-xs text-gray-500">
-          Example Python integration with OpenAI
+          使用 OpenAI 的 Python 集成示例
         </i>
       </div>
     ),
   },
   {
     name: "Step 2",
-    description: "That's it!",
+    description: "就是这样！",
     href: "#",
     status: "complete",
     codeBlock: <></>,
