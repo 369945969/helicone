@@ -40,7 +40,7 @@ import {
   useUpdateAutoTopoffSettings,
   usePaymentMethods,
   useCreateSetupSession,
-  use移除PaymentMethod,
+  useRemovePaymentMethod,
 } from "../../../services/hooks/useAutoTopoff";
 
 interface AutoTopoffModalProps {
@@ -55,7 +55,7 @@ export function AutoTopoffModal({ isOpen, onClose }: AutoTopoffModalProps) {
     usePaymentMethods();
   const updateSettings = useUpdateAutoTopoffSettings();
   const createSetupSession = useCreateSetupSession();
-  const removePaymentMethod = use移除PaymentMethod();
+  const removePaymentMethod = useRemovePaymentMethod();
 
   const [enabled, set已启用] = useState(settings?.enabled ?? false);
   const [threshold, setThreshold] = useState(
