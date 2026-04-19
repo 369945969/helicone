@@ -1,9 +1,0 @@
-yarn run v1.22.22
-$ next dev --turbo -p 3000
-▲ Next.js 16.2.4 (Turbopack)
-- Local:         http://localhost:3000
-- Network:       http://192.168.10.18:3000
-✓ Ready in 179ms
-- event [next-runtime-env] read environment variables prefixed with 'NEXT_PUBLIC_' from process.env.
-- ready [next-runtime-env] wrote browser runtime environment variables to '/Users/jack/typescript/helicone/web/public/__ENV.js'.
-Done in 0.63s.
